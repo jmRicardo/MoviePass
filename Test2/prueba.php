@@ -27,6 +27,12 @@
     $imagen4 = $datos4['poster_path'];
     $dire = "https://image.tmdb.org/t/p/w500/";
 
+    $url5 = "https://api.themoviedb.org/3/movie/550/videos?api_key=0e38635e1106aa97618b0e7fee7a5b57";
+    $json5 = file_get_contents($url5);
+    $datos5 = json_decode($json5,true);
+    //var_dump($datos);
+    $imagen5 = $datos5['results'][0]['id'];
+    var_dump($imagen5);
 ?>
 
 
