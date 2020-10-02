@@ -32,7 +32,7 @@
     $datos5 = json_decode($json5,true);
     //var_dump($datos);
     $imagen5 = $datos5['results'][0]['id'];
-    var_dump($imagen5);
+    //var_dump($imagen5);
 ?>
 
 
@@ -43,35 +43,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
     <title>Api</title>
 </head>
 <body>
-    <div style=" display: flex; justify-content: space-around; class="mt-3"   "  >
+    <div class="contenedor">
         
         <div>
-            <img 
-                src="<?php echo "$dire"."$imagen"; ?>" 
-                height = "300"   
-            />
+            <img src="<?php echo "$dire"."$imagen"; ?>" class="peli"/>
+            <label>
+                <p>La Hora feliz</p>
+                <p>Esta muy bien</p>
+                <p>Me hago pis</p>
+                <p>Cara de culo</p>
+            </label>
+            
+        </div>
+        <div>
+            <img src="<?php echo "$dire"."$imagen2"; ?>" class="peli"/>
+            <label>Club de la Pelea</label>       
+        </div>
+        <div>
+            <img src="<?php echo "$dire"."$imagen3"; ?>" class="peli"/>
             <label>Club de la Pelea</label>
         </div>
         <div>
-            <img 
-                src="<?php echo "$dire"."$imagen2"; ?>" 
-                height = "300"
-            />
+            <img src="<?php echo "$dire"."$imagen4"; ?>" class="peli"/>
+            <label>Club de la Pelea</label>
         </div>
         <div>
-            <img 
-                src="<?php echo "$dire"."$imagen3"; ?>" 
-                height = "300"
-            />
+            <img src="<?php echo "$dire"."$imagen"; ?>" class="peli"/>
+            <label>Club de la Pelea</label>
         </div>
         <div>
-            <img 
-                src="<?php echo "$dire"."$imagen4"; ?>" 
-                height = "300"
-            />
+            <img src="<?php echo "$dire"."$imagen2"; ?>" class="peli"/>
+            <label>Club de la Pelea</label>
+        </div>
+        <div>
+            <img src="<?php echo "$dire"."$imagen3"; ?>" class="peli"/>
+            <label>Club de la Pelea</label>
+        </div>
+        <div>
+            <img src="<?php echo "$dire"."$imagen4"; ?>" class="peli"/>
+            <label>Club de la Pelea</label>
         </div>
 
 
