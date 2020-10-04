@@ -1,7 +1,7 @@
 <?php
     namespace Models;
 
-    class Perfil {
+    class Profile {
 
         private $idProfile;
         private $firstName;

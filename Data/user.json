@@ -1,0 +1,26 @@
+[
+    {
+        "idUser": 1,
+        "idProfile": 8532185,
+        "email": "guimainini@gmail.com",
+        "password": "1"
+    },
+    {
+        "idUser": 2,
+        "idProfile": 3856943,
+        "email": "floscos@hotmail.com",
+        "password": "2"
+    },
+    {
+        "idUser": 3,
+        "idProfile": 5789246,
+        "email": "elcho@hotmail.com",
+        "password": "3"
+    },
+    {
+        "idUser": 4,
+        "idProfile": 3710281,
+        "email": "cin@hotmail.com",
+        "password": "4"
+    }
+]
