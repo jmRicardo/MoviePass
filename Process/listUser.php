@@ -35,15 +35,16 @@ $listProfile = $repoParaMostrarProfile-> getAll();
                             <tr>
                                 <td><?php echo $user->getEmail(); ?></td>
                                 <td><?php echo $user->getPassword(); ?></td>
+                                <?php  foreach($listProfile as $profile){ ?>
+                                        <?php if($user->getIdProfile() == $profile->getIdProfile()){ ?>
+                                            <td><?php echo $profile->getFirstName(); ?></td>
+                                            <td><?php echo $profile->getLastName(); ?></td>
+                                            <td><?php echo $profile->getDni(); ?></td>
+                                            <?php } ?>
+                                        <?php } ?>        
                             </tr> 
                         <?php } ?>
-                        <?php foreach($listProfile as $profile){ ?>
-                            <tr>
-                                <td><?php echo $profile->getFirstName(); ?></td>
-                                <td><?php echo $profile->getLastName(); ?></td>
-                                <td><?php echo $profile->getDni(); ?></td>
-                            </tr> 
-                        <?php } ?>                            
+                                                  
                     </tbody>
             </table>
         </div>

@@ -35,7 +35,7 @@
         $repo->add($newUser);
 
 
-        echo "<script> alert('Estudiante agregado con Exito!');";  
+        echo "<script> alert('El usuario agregado con Exito!');";  
 	    echo "window.location = '../index.html'; </script>";
     }
 
