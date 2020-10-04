@@ -2,6 +2,7 @@
 namespace Repositories;
 
 use Models\Profile as Profile;
+require_once("../Config/Autoload.php");
 
 class ProfileRepository {
 	
@@ -43,38 +44,42 @@ class ProfileRepository {
 
 		}
 		$jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-		file_put_contents('./Data/profile.json', $jsonContent);
+	    //var_dump($jsonContent);
+	    //exit;
+		file_put_contents("../Data/profile.json", $jsonContent);
+		
 	}
 
 	public function retrieveData(){
 		$this->profileList = array();
 
 		//$jsonPath = $this->GetJsonFilePath();
-
-		 $jsonContent = file_get_contents('./Data/profile.json');
-		//$jsonContent = file_get_contents($jsonPath);
-		
-		$arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
-		foreach ($arrayToDecode as $valueArray) {
-			$profile = new Profile($valueArray['idProfile'],$valueArray['firstName'],$valueArray['lastName'],$valueArray['dni']);
+		if(file_exists("../Data/profile.json")){
+			$jsonContent = file_get_contents("../Data/profile.json");
+			//$jsonContent = file_get_contents($jsonPath);
 			
-			array_push($this->profileList, $profile);
-		}
-	}
+			$arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+
+			foreach ($arrayToDecode as $valueArray) {
+				$profile = new Profile($valueArray['idProfile'],$valueArray['firstName'],$valueArray['lastName'],$valueArray['dni']);
+				
+				array_push($this->profileList, $profile);
+			}
+	    }
+    }
 
 	//Es necesario para evitar los problemas de requires por el ruteo
-    function GetJsonFilePath(){
+    // function GetJsonFilePath(){
 
-        $initialPath = "Data/profile.json";
-        if(file_exists($initialPath)){
-            $jsonFilePath = $initialPath;
-        }else{
-            $jsonFilePath = "../".$initialPath;
-        }
+    //     $initialPath = "Data/profile.json";
+    //     if(file_exists($initialPath)){
+    //         $jsonFilePath = $initialPath;
+    //     }else{
+    //         $jsonFilePath = "../".$initialPath;
+    //     }
 
-        return $jsonFilePath;
-    }
+    //     return $jsonFilePath;
+    // }
 }
 
  ?>

@@ -1,6 +1,7 @@
 <?php 
 namespace Repositories;
 
+require_once("../Config/Autoload.php");
 use Models\User as User;
 
 class UserRepository {
@@ -43,38 +44,40 @@ class UserRepository {
 
 		}
 		$jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-		file_put_contents('./Data/user.json', $jsonContent);
+		//var_dump($jsonContent);
+		// exit;
+		file_put_contents('../Data/user.json', $jsonContent);
 	}
 
 	public function retrieveData(){
 		$this->userList = array();
 
 		//$jsonPath = $this->GetJsonFilePath();
-
-		 $jsonContent = file_get_contents('./Data/user.json');
-		//$jsonContent = file_get_contents($jsonPath);
-		
-		$arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
-		foreach ($arrayToDecode as $valueArray) {
-			$user = new User($valueArray['idUser'],$valueArray['idProfile'],$valueArray['email'],$valueArray['password']);
+		if(file_exists("../Data/user.json")){
+			$jsonContent = file_get_contents("../Data/user.json");
+			//$jsonContent = file_get_contents($jsonPath);
 			
-			array_push($this->userList, $user);
-		}
+			$arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+
+			foreach ($arrayToDecode as $valueArray) {
+				$user = new User($valueArray['idUser'],$valueArray['idProfile'],$valueArray['email'],$valueArray['password']);
+				
+				array_push($this->userList, $user);
+			}
+	    }
 	}
-
 	//Es necesario para evitar los problemas de requires por el ruteo
-    function GetJsonFilePath(){
+    // function GetJsonFilePath(){
 
-        $initialPath = "Data/user.json";
-        if(file_exists($initialPath)){
-            $jsonFilePath = $initialPath;
-        }else{
-            $jsonFilePath = "../".$initialPath;
-        }
+    //     $initialPath = "Data/user.json";
+    //     if(file_exists($initialPath)){
+    //         $jsonFilePath = $initialPath;
+    //     }else{
+    //         $jsonFilePath = "../".$initialPath;
+    //     }
 
-        return $jsonFilePath;
-    }
+    //     return $jsonFilePath;
+    // }
 }
 
  ?>
