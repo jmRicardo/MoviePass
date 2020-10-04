@@ -22,5 +22,17 @@
         "firstName": "Cin",
         "lastName": "Mura",
         "dni": "33333333"
+    },
+    {
+        "idProfile": 4857253,
+        "firstName": "qwert",
+        "lastName": "qwerty",
+        "dni": "qwerety"
+    },
+    {
+        "idProfile": 3453020,
+        "firstName": "Renzo",
+        "lastName": "Mainini",
+        "dni": "55555555"
     }
 ]
