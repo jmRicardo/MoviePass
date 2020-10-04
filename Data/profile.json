@@ -1,0 +1,26 @@
+[
+    {
+        "idProfile": 8532185,
+        "firstName": "Guillermo",
+        "lastName": "Mainini",
+        "dni": "28468194"
+    },
+    {
+        "idProfile": 3856943,
+        "firstName": "Facu",
+        "lastName": "Loscos",
+        "dni": "111111111"
+    },
+    {
+        "idProfile": 5789246,
+        "firstName": "Mano",
+        "lastName": "Ricardo",
+        "dni": "22222222"
+    },
+    {
+        "idProfile": 3710281,
+        "firstName": "Cin",
+        "lastName": "Mura",
+        "dni": "33333333"
+    }
+]
