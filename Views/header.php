@@ -10,6 +10,7 @@
      <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>global.css">     
      <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>login.css">
      <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>signup.css">
-     <title>Framework Example</title>
+         
+     <title>MoviePass</title>
 </head>
 <body>
