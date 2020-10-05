@@ -10,7 +10,8 @@
 		// try and log the user in with $_GET vars from facebook 
 		$fbLogin = $facebookDAO->tryAndLoginWithFacebook( $_GET );
 
-		header("Location:".VIEWS_PATH."myaccount.php");
+		//header("Location:".VIEWS_PATH."myaccount.php");
+		require_once(VIEWS_PATH."myaccount.php");     
 	}
 	// only if you are logged out can you view the login page
 	$userDAO = new UserDAO();

@@ -5,7 +5,7 @@
 	if ( !isLoggedIn() ) { // if user is not logged in they cannot see this page
 		header( 'location: index.php' );
 	} */
-
+/* 
 	require "../Config/Autoload.php";
 	require "../Config/Config.php";
 	use Config\Autoload as Autoload;
@@ -16,7 +16,7 @@
 		
 	Autoload::start();
 
-	session_start();
+	session_start(); */
 
 
 	use DAO\FacebookDAO as FacebookDAO;
@@ -28,13 +28,6 @@
 		$fbDebugTokenInfo = $facebookDAO->getDebugAccessTokenInfo( $_SESSION['user_info']['fb_access_token'] );
 	}
 ?>
-		<div class="site-header">
-			<div class="site-header-pad">
-				<a class="header-home-link" href="index.php">
-					Easy, Code Is
-				</a>
-			</div>
-		</div>
 		<div class="site-content-container">
 			<div class="site-content-centered">
 				<div class="site-content-section">
@@ -188,3 +181,4 @@
 		<br />
 		<br />
 		<br />
+		
