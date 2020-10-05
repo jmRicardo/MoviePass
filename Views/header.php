@@ -7,8 +7,16 @@
 
      <!-- Bootstrap CSS -->
      <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>bootstrap.min.css">
-     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>estilos.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>global.css">     
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>myaccount.css">     
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>loginFacebook.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>signup.css"> 
 
-     <title>Framework Example</title>
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>login.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>cabecera.css">
+     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+         
+     <title>MoviePass</title>
 </head>
 <body>
