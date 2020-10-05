@@ -1,5 +1,7 @@
 <?php
 
+namespace DAO;
+
 use DAO\IFacebookDAO;
 
 class FacebookDAO implements IFacebookDAO{
