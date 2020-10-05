@@ -1,40 +1,24 @@
 <?php
     namespace Controllers;
 
-    use DAO\StudentDAO as StudentDAO;
-    use Models\Student as Student;
-
-    class StudentController
+    class LoginController
     {
-        private $studentDAO;
-
         public function __construct()
         {
-            $this->studentDAO = new StudentDAO();
+           
         }
 
-        public function ShowAddView()
+        public function SignUp()
         {
-            require_once(VIEWS_PATH."student-add.php");
+            require_once(VIEWS_PATH."signup.php");           
         }
 
-        public function ShowListView()
+        public function SignIn()
         {
-            $studentList = $this->studentDAO->GetAll();
-
-            require_once(VIEWS_PATH."student-list.php");
+            require_once(PROCESS_PATH."signinprocess.php");
         }
+           
 
-        public function Add($recordId, $firstName, $lastName)
-        {
-            $student = new Student();
-            $student->setRecordId($recordId);
-            $student->setfirstName($firstName);
-            $student->setLastName($lastName);
-
-            $this->studentDAO->Add($student);
-
-            $this->ShowAddView();
-        }
+        
     }
 ?>

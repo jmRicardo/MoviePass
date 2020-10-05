@@ -7,8 +7,9 @@
 
      <!-- Bootstrap CSS -->
      <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>bootstrap.min.css">
-     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>estilos.css">
-
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>global.css">     
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>login.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>signup.css">
      <title>Framework Example</title>
 </head>
 <body>

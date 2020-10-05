@@ -6,17 +6,18 @@ define("FRONT_ROOT", "/MoviePass/");
 define("VIEWS_PATH", "Views/");
 define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "css/");
 define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
+define("PROCESS_PATH", "Process/");
 
 // Datos para el acceso a la base de datos
 define("DB_HOST", "localhost");
-define("DB_NAME", "University");
+define("DB_NAME", "MoviePass");
 define("DB_USER", "root");
 define("DB_PASS", "");
 
 // Credenciales para facebook
 define( 'FB_APP_ID', '384084776085842' );
 define( 'FB_APP_SECRET', '3c6512529b7c867ce84101b3be8d1bdf' );
-define( 'FB_REDIRECT_URI', 'http://localhost/easycodeis/login.php' );
+define( 'FB_REDIRECT_URI', "http://localhost/MoviePass/index.php" );
 
 // site global defines
 define( 'USER_LEVEL_ADMIN', '1' );
