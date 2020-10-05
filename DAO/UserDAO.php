@@ -9,7 +9,8 @@
 
     class UserDAO implements IUserDAO
     {
- 
+        private $connection;
+        private $tableName = "users";
         /**
          * Get DB connection
          *
@@ -25,7 +26,6 @@
                 return $e->getMessage();
             }
         }
-
         /**
          * Update user
          *
@@ -36,6 +36,7 @@
         function updateUserInfo( $info ) {
             // get database connection
             $databaseConnection = getDatabaseConnection();
+            $this->connection = Connection::GetInstance();
 
             // create our sql statment adding in password only if change password was checked
             $statement = $databaseConnection->prepare( '
@@ -78,7 +79,7 @@
          */
         function getRowWithValue( $tableName, $column, $value ) {
             // get database connection
-            $databaseConnection = getDatabaseConnection();
+            $databaseConnection = $this->getDatabaseConnection();
 
             // create our sql statment
             $statement = $databaseConnection->prepare( '
@@ -145,7 +146,7 @@
          */
         function updateRow( $tableName, $column, $value, $id ) {
             // get database connection
-            $databaseConnection = getDatabaseConnection();
+            $databaseConnection = $this->getDatabaseConnection();
 
             // create our sql statment
             $statement = $databaseConnection->prepare( '
@@ -176,7 +177,7 @@
          */
         function signUserUp( $info ) {
             // get database connection
-            $databaseConnection = getDatabaseConnection();
+            $databaseConnection = $this->getDatabaseConnection();
 
             // create our sql statment
             $statement = $databaseConnection->prepare( '

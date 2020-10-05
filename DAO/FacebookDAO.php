@@ -3,8 +3,16 @@
 namespace DAO;
 
 use DAO\IFacebookDAO;
+use DAO\UserDAO as UserDAO;
 
 class FacebookDAO implements IFacebookDAO{
+
+	private $userDAO;
+
+	public function __construct()
+	{
+		$this->userDAO = new UserDAO();
+	}
 
     /**
 	 * Make call to facebook endpoint
@@ -81,7 +89,7 @@ class FacebookDAO implements IFacebookDAO{
 		);
 
 		// make the api call
-		return makeFacebookApiCall( $endpoint, $params );
+		return $this->makeFacebookApiCall( $endpoint, $params );
 	}
 
 	/**
@@ -103,7 +111,7 @@ class FacebookDAO implements IFacebookDAO{
 		);
 
 		// make the api call
-		return makeFacebookApiCall( $endpoint, $params );
+		return $this->makeFacebookApiCall( $endpoint, $params );
 	}
 
 	/**
@@ -127,7 +135,7 @@ class FacebookDAO implements IFacebookDAO{
 			$message = $get['error_description'];
 		} else { // no error in facebook GET vars
 			// get an access token with the code facebook sent us
-			$accessTokenInfo = getAccessTokenWithCode( $get['code'] );
+			$accessTokenInfo = $this->getAccessTokenWithCode( $get['code'] );
 
 			if ( $accessTokenInfo['has_errors'] ) { // there was an error getting an access token with the code
 				$message = $accessTokenInfo['error_message'];
@@ -136,7 +144,7 @@ class FacebookDAO implements IFacebookDAO{
 				$_SESSION['fb_access_token'] = $accessTokenInfo['fb_response']['access_token'];
 
 				// get facebook user info with the access token
-				$fbUserInfo = getFacebookUserInfo( $_SESSION['fb_access_token'] );
+				$fbUserInfo = $this->getFacebookUserInfo( $_SESSION['fb_access_token'] );
 
 				if ( !$fbUserInfo['has_errors'] && !empty( $fbUserInfo['fb_response']['id'] ) && !empty( $fbUserInfo['fb_response']['email'] ) ) { // facebook gave us the users id/email
 					// 	all good!
@@ -146,15 +154,15 @@ class FacebookDAO implements IFacebookDAO{
 					$_SESSION['fb_user_info'] = $fbUserInfo['fb_response'];
 
 					// check for user with facebook id
-					$userInfoWithId = getRowWithValue( 'users', 'fb_user_id', $fbUserInfo['fb_response']['id'] );
+					$userInfoWithId = $this->userDAO->getRowWithValue( 'users', 'fb_user_id', $fbUserInfo['fb_response']['id'] );
 
 					// check for user with email
-					$userInfoWithEmail = getRowWithValue( 'users', 'email', $fbUserInfo['fb_response']['email'] );
+					$userInfoWithEmail = $this->userDAO->getRowWithValue( 'users', 'email', $fbUserInfo['fb_response']['email'] );
 
 					if ( $userInfoWithId || ( $userInfoWithEmail && !$userInfoWithEmail['password'] ) ) { // user has logged in with facebook before so we found them
 						// update user
-						updateRow( 'users', 'fb_access_token', $_SESSION['fb_access_token'], $userInfoWithId['id'] );
-						$userInfo = getRowWithValue( 'users', 'id', $userInfoWithId['id'] );
+						$this->userDAO->updateRow( 'users', 'fb_access_token', $_SESSION['fb_access_token'], $userInfoWithId['id'] );
+						$userInfo = $this->userDAO->getRowWithValue( 'users', 'id', $userInfoWithId['id'] );
 
 						// save info to php session so they are logged in
 						$_SESSION['is_logged_in'] = true;
@@ -164,8 +172,8 @@ class FacebookDAO implements IFacebookDAO{
 					} else { // user not found with id/email sign them up and log them in
 						// sign user up
 						$fbUserInfo['fb_response']['fb_access_token'] = $_SESSION['fb_access_token'];
-						$userId = signUserUp( $fbUserInfo['fb_response'] );
-						$userInfo = getRowWithValue( 'users', 'id', $userId );
+						$userId = $this->userDAO->signUserUp( $fbUserInfo['fb_response'] );
+						$userInfo = $this->userDAO->getRowWithValue( 'users', 'id', $userId );
 
 						// save info to php session so they are logged in
 						$_SESSION['is_logged_in'] = true;
@@ -202,7 +210,7 @@ class FacebookDAO implements IFacebookDAO{
 		);
 
 		// make the api call
-		return makeFacebookApiCall( $endpoint, $params );
+		return $this->makeFacebookApiCall( $endpoint, $params );
     }
 }
     

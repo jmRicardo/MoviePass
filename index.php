@@ -6,13 +6,6 @@
 	
 	require "Config/Autoload.php";
 	require "Config/Config.php";
-
-	// include global functions
-	include_once __DIR__  . '/Facebook/functions.php';
-
-	// include facebook api functions
-	include_once __DIR__  . '/Facebook/facebook_api.php';
-
 	use Config\Autoload as Autoload;
 	use Config\Router 	as Router;
 	use Config\Request 	as Request;

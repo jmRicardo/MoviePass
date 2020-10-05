@@ -1,15 +1,21 @@
 <?php
 	// load up global things
 	//include_once 'autoloader.php';
+	use DAO\FacebookDAO as FacebookDAO;
+	use DAO\UserDAO as UserDAO;
+
+	$facebookDAO = new FacebookDAO();
 	
 	if ( isset( $_GET['state'] ) && FB_APP_STATE == $_GET['state'] ) { // coming from facebook
 		// try and log the user in with $_GET vars from facebook 
-		$fbLogin = tryAndLoginWithFacebook( $_GET );
+		$fbLogin = $facebookDAO->tryAndLoginWithFacebook( $_GET );
 
-		var_dump($_SESSION);
+		header("Location:".VIEWS_PATH."myaccount.php");
 	}
 	// only if you are logged out can you view the login page
-	loggedInRedirect();
+	$userDAO = new UserDAO();
+	
+	//$userDAO->loggedInRedirect();
 ?>
 
 <!-- jquery -->
@@ -76,7 +82,7 @@
 					</div>
 				</div>
 				<div class="section-action-container">
-					<a href="<?php echo getFacebookLoginUrl(); ?>" class="a-fb">
+					<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
 						<div class="fb-button-container">
 							Login with Facebook
 						</div>
