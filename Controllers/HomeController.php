@@ -9,7 +9,7 @@
         {
             require_once(VIEWS_PATH."indexGuille.php");
         }
-        public function Facebook($message = "")
+        public function Facebook()
         {
             $facebookDAO = new FacebookDAO();
             

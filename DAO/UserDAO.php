@@ -38,7 +38,7 @@
          */
         function updateUserInfo( $info ) {
             // get database connection
-            $databaseConnection = getDatabaseConnection();
+            $databaseConnection = $this->getDatabaseConnection();
             $this->connection = Connection::GetInstance();
 
 
@@ -63,7 +63,7 @@
             );
 
             if ( isset( $info['change_password'] ) ) { // add password and key value if password checkbox is checked
-                $params['password'] = hashedPassword( $info['password'] );
+                $params['password'] = $this->hashedPassword( $info['password'] );
                 $params['key_value'] = $info['key_value'];
             } else { // only add key value, change password checkbox was not checked
                 $params['key_value'] = $info['key_value'];
@@ -83,17 +83,25 @@
          * @return array $info
          */
         function getRowWithValue( $tableName, $column, $value ) {
-            // get database connection
-            $databaseConnection = $this->getDatabaseConnection();
+           
 
-            /* $this->connection = Connection::GetInstance();
+          /*   $this->connection = Connection::GetInstance();
 
             $query = "SELECT * FROM ".$this->tableName." WHERE ". $column . " = :" . $column;
 
-            $result = $this->connection->Execute($query);
+            $params = array(
+                $column => trim( $value ));
 
-            return $result;
- */
+            $result = $this->connection->Execute($query,$params);
+
+            var_dump($result);
+
+            return $result;  */
+            
+
+            // get database connection
+            $databaseConnection = $this->getDatabaseConnection();
+ 
              // create our sql statment
             $statement = $databaseConnection->prepare( '
                 SELECT
@@ -112,7 +120,8 @@
 
             // get and return user
             $user = $statement->fetch();
-            return $user; 
+            var_dump($user);
+            return $user;    
         }
 
         /**
@@ -124,7 +133,7 @@
          */
         function getUserWithEmailAddress( $email ) {
             // get database connection
-            $databaseConnection = getDatabaseConnection();
+            $databaseConnection = $this->getDatabaseConnection();
 
             // create our sql statment
             $statement = $databaseConnection->prepare( '
@@ -287,7 +296,7 @@
          * @return boolean
          */
         function loggedInRedirect() {
-            if ( isLoggedIn() ) { // user is logged in
+            if ( $this->isLoggedIn() ) { // user is logged in
                 // send them to the home page
                 header( 'location:'.VIEWS_PATH.'index.php' );
             }
