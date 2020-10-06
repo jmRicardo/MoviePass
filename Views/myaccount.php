@@ -5,18 +5,6 @@
 	if ( !isLoggedIn() ) { // if user is not logged in they cannot see this page
 		header( 'location: index.php' );
 	} */
-/* 
-	require "../Config/Autoload.php";
-	require "../Config/Config.php";
-	use Config\Autoload as Autoload;
-	use Config\Router 	as Router;
-	use Config\Request 	as Request;
-
-
-		
-	Autoload::start();
-
-	session_start(); */
 
 
 	use DAO\FacebookDAO as FacebookDAO;

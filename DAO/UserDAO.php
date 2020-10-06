@@ -9,8 +9,11 @@
 
     class UserDAO implements IUserDAO
     {
+        
         private $connection;
         private $tableName = "users";
+
+
         /**
          * Get DB connection
          *
@@ -37,6 +40,8 @@
             // get database connection
             $databaseConnection = getDatabaseConnection();
             $this->connection = Connection::GetInstance();
+
+
 
             // create our sql statment adding in password only if change password was checked
             $statement = $databaseConnection->prepare( '
@@ -81,7 +86,15 @@
             // get database connection
             $databaseConnection = $this->getDatabaseConnection();
 
-            // create our sql statment
+            /* $this->connection = Connection::GetInstance();
+
+            $query = "SELECT * FROM ".$this->tableName." WHERE ". $column . " = :" . $column;
+
+            $result = $this->connection->Execute($query);
+
+            return $result;
+ */
+             // create our sql statment
             $statement = $databaseConnection->prepare( '
                 SELECT
                     *
@@ -99,7 +112,7 @@
 
             // get and return user
             $user = $statement->fetch();
-            return $user;
+            return $user; 
         }
 
         /**
@@ -207,8 +220,8 @@
                 'email' => trim( $info['email'] ),
                 'first_name' => trim( $info['first_name'] ),
                 'last_name' => trim( $info['last_name'] ),
-                'password' => isset( $info['password'] ) ? hashedPassword( $info['password'] ) : '',
-                'key_value' => newKey(),
+                'password' => isset( $info['password'] ) ? $this->hashedPassword( $info['password'] ) : '',
+                'key_value' => $this->newKey(),
                 'fb_user_id' => isset( $info['id'] ) ? $info['id'] : '',
                 'fb_access_token' => isset( $info['fb_access_token'] ) ? $info['fb_access_token'] : '',
             ) );

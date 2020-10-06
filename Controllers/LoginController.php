@@ -17,8 +17,10 @@
         {
             require_once(PROCESS_PATH."signinprocess.php");
         }
-           
 
-        
+        public function LoadInfo()
+        {
+            require_once(PROCESS_PATH."myaccount.php");
+        }
     }
 ?>
