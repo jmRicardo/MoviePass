@@ -1,21 +1,15 @@
 <?php
-	// load up global things
-	//include_once 'autoloader.php';
+	
 	use DAO\FacebookDAO as FacebookDAO;
 	use DAO\UserDAO as UserDAO;
 
 	$facebookDAO = new FacebookDAO();
-	
-	if ( isset( $_GET['state'] ) && FB_APP_STATE == $_GET['state'] ) { // coming from facebook
-		// try and log the user in with $_GET vars from facebook 
-		$fbLogin = $facebookDAO->tryAndLoginWithFacebook( $_GET );
 
-		header("Location:".VIEWS_PATH."myaccount.php");
-	}
 	// only if you are logged out can you view the login page
-	$userDAO = new UserDAO();
-	
+	$userDAO = new UserDAO();	
 	//$userDAO->loggedInRedirect();
+
+	//echo $userDAO->getRowWithValue('users','id','2');
 ?>
 
 <form action="Process/login.php" method="POST">

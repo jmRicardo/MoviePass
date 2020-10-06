@@ -9,8 +9,11 @@
 
     class UserDAO implements IUserDAO
     {
+        
         private $connection;
         private $tableName = "users";
+
+
         /**
          * Get DB connection
          *
@@ -35,8 +38,10 @@
          */
         function updateUserInfo( $info ) {
             // get database connection
-            $databaseConnection = getDatabaseConnection();
+            $databaseConnection = $this->getDatabaseConnection();
             $this->connection = Connection::GetInstance();
+
+
 
             // create our sql statment adding in password only if change password was checked
             $statement = $databaseConnection->prepare( '
@@ -58,7 +63,7 @@
             );
 
             if ( isset( $info['change_password'] ) ) { // add password and key value if password checkbox is checked
-                $params['password'] = hashedPassword( $info['password'] );
+                $params['password'] = $this->hashedPassword( $info['password'] );
                 $params['key_value'] = $info['key_value'];
             } else { // only add key value, change password checkbox was not checked
                 $params['key_value'] = $info['key_value'];
@@ -78,10 +83,26 @@
          * @return array $info
          */
         function getRowWithValue( $tableName, $column, $value ) {
+           
+
+          /*   $this->connection = Connection::GetInstance();
+
+            $query = "SELECT * FROM ".$this->tableName." WHERE ". $column . " = :" . $column;
+
+            $params = array(
+                $column => trim( $value ));
+
+            $result = $this->connection->Execute($query,$params);
+
+            var_dump($result);
+
+            return $result;  */
+            
+
             // get database connection
             $databaseConnection = $this->getDatabaseConnection();
-
-            // create our sql statment
+ 
+             // create our sql statment
             $statement = $databaseConnection->prepare( '
                 SELECT
                     *
@@ -99,7 +120,8 @@
 
             // get and return user
             $user = $statement->fetch();
-            return $user;
+            var_dump($user);
+            return $user;    
         }
 
         /**
@@ -111,7 +133,7 @@
          */
         function getUserWithEmailAddress( $email ) {
             // get database connection
-            $databaseConnection = getDatabaseConnection();
+            $databaseConnection = $this->getDatabaseConnection();
 
             // create our sql statment
             $statement = $databaseConnection->prepare( '
@@ -207,8 +229,8 @@
                 'email' => trim( $info['email'] ),
                 'first_name' => trim( $info['first_name'] ),
                 'last_name' => trim( $info['last_name'] ),
-                'password' => isset( $info['password'] ) ? hashedPassword( $info['password'] ) : '',
-                'key_value' => newKey(),
+                'password' => isset( $info['password'] ) ? $this->hashedPassword( $info['password'] ) : '',
+                'key_value' => $this->newKey(),
                 'fb_user_id' => isset( $info['id'] ) ? $info['id'] : '',
                 'fb_access_token' => isset( $info['fb_access_token'] ) ? $info['fb_access_token'] : '',
             ) );
@@ -274,7 +296,7 @@
          * @return boolean
          */
         function loggedInRedirect() {
-            if ( isLoggedIn() ) { // user is logged in
+            if ( $this->isLoggedIn() ) { // user is logged in
                 // send them to the home page
                 header( 'location:'.VIEWS_PATH.'index.php' );
             }

@@ -17,7 +17,7 @@ define("DB_PASS", "");
 // Credenciales para facebook
 define( 'FB_APP_ID', '384084776085842' );
 define( 'FB_APP_SECRET', '3c6512529b7c867ce84101b3be8d1bdf' );
-define( 'FB_REDIRECT_URI', "http://localhost/MoviePass/index.php" );
+define( 'FB_REDIRECT_URI', "http://localhost/MoviePass/Home/Facebook" );
 
 // site global defines
 define( 'USER_LEVEL_ADMIN', '1' );
