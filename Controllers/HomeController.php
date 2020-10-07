@@ -7,7 +7,7 @@
     {
         public function Index($message = "")
         {
-            require_once(VIEWS_PATH."indexGuille.php");
+            require_once(VIEWS_PATH."login.php");
         }
         public function Facebook()
         {
