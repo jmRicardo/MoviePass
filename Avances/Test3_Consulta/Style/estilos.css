@@ -1,0 +1,15 @@
+.contenedor{
+    width: 500px;
+    /* box-sizing: border-box; */
+    color: black;
+    
+/*     display: flex;
+ */    /* flex-wrap: wrap; */
+}
+
+.peli{
+    width: 200px;
+    margin: 30px;
+    padding: 20px;
+
+}
