@@ -41,8 +41,7 @@
                 $this->BindParameters($parameters, $queryType);
                 
                 $this->pdoStatement->setFetchMode( PDO::FETCH_ASSOC );
-                $this->pdoStatement->execute();
-                
+                $this->pdoStatement->execute();             
 
 
                 return $this->pdoStatement->fetchAll();

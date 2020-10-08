@@ -14,7 +14,7 @@
                          <th>VALOR TICKET</th>
                     </thead>
                     <tbody>
-                         <form action="<?php echo FRONT_ROOT ?>Cinema/Remove " method="post">
+                         <form action="<?php echo FRONT_ROOT ?>Cinema/Remove " method="post" id="from">
                          <?php
                               foreach($cinemaList as $cinema)
                               {
@@ -26,13 +26,19 @@
                                              <td><?php echo $cinema->getAddress() ?></td>
                                              <td><?php echo $cinema->getTicket_value() ?></td>
                                              <td>
-                                                  <button type="submit" name="id" class="delete_button" value="<?php echo $cinema->getId() ?>">
+                                                  <button type="submit" name="id" class="admin_buttons" value="<?php echo $cinema->getId() ?>">
                                                        <i class="fa fa-trash"></i>
                                                             Eliminar 
                                                   </button>
                                              </td>
                                              <td>
-                                                  <button class="delete_button">
+                                                  <button name="id" value="<?php echo $cinema->getId() ?>" class="admin_buttons" onclick="
+                                                       var frm = document.getElementById('from') || null;
+                                                       if(frm) {
+                                                            var a = '<?php echo FRONT_ROOT ?>';
+                                                            var b = 'Cinema/Update';
+                                                            frm.action = a.concat(b);     
+                                                       }">
                                                        <i class="fa fa-edit"></i>
                                                             Modificar
                                                   </button>

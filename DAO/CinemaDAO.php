@@ -51,6 +51,26 @@
             }
         }
 
+        public function GetCinema($id)
+        {
+            $query = "SELECT * FROM ".$this->tableName." WHERE (id = :id)";
+
+            $parameters["id"] =  $id;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query,$parameters);
+
+            $cinema = new Cinema(); 
+            $cinema->setId($result[0]["id"]);
+            $cinema->setName($result[0]["name"]);
+            $cinema->setTotal_capacity($result[0]["total_capacity"]);
+            $cinema->setAddress($result[0]["address"]);
+            $cinema->setTicket_value($result[0]["ticket_value"]);
+
+            return $cinema;
+        }
+
         public function GetAll()
         {
             try

@@ -45,5 +45,30 @@
 
             $this->ShowListView();
         }
+
+        public function Update($id)
+        {
+            
+            $cinema = $this->cinemaDAO->GetCinema($id);
+
+            require_once(VIEWS_PATH."cinema-update.php");
+        }
+
+        public function SaveUpdate($name,$total_capacity,$address,$ticket_value,$id)
+        {
+            
+            /* $this->cinemaDAO->Update($id,$name,$total_capacity,$address,$ticket_value); */
+            
+            $cinema = new Cinema();
+            $cinema->setId($id);
+            $cinema->setName($name);
+            $cinema->setTotal_capacity($total_capacity);
+            $cinema->setAddress($address);
+            $cinema->setTicket_value($ticket_value);
+
+            $this->cinemaDAO->UpdateCinema($cinema); 
+            
+            $this->ShowListView();
+        }
     }
 ?>
