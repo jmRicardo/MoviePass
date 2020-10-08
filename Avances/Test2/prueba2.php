@@ -1,11 +1,12 @@
 <?php
-    $url = "https://api.themoviedb.org/3/movie/lists?api_key=0e38635e1106aa97618b0e7fee7a5b57";
+    /* $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=0e38635e1106aa97618b0e7fee7a5b57"; */
+     $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=0e38635e1106aa97618b0e7fee7a5b57"; 
     $json = file_get_contents($url);
     $datos = json_decode($json,true);
     $dire = "https://image.tmdb.org/t/p/w500/";
 
-    /* var_dump((sizeof($datos['results'])));
-    exit; */
+     var_dump($datos);
+    exit; 
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +20,17 @@
 </head>
 <body>
     <div class="contenedor">
-
+    
         <div>
-            <?php for($i = 0; $i < sizeof($datos['results']) ; $i++){  ?>
+            <?php 
+                
+                foreach($datos['results'] as $r )
+                {
+                    var_dump($r["genre_ids"]);
+                } 
+                /* var_dump($datos);
+                exit(); */
+            for($i = 0; $i < sizeof($datos['results']) ; $i++){  ?>
                 <?php /* foreach($datos as $datas => $i){ */ ?>
                 <?php $imagen = $datos['results'][$i]['poster_path']; ?>
                 <td> <img src="<?php echo "$dire"."$imagen"; ?>" class="peli"/>    </td>       
