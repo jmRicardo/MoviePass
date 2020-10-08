@@ -163,8 +163,6 @@ class FacebookDAO implements IFacebookDAO{
 						// update user
 						$this->userDAO->updateRow( 'users', 'fb_access_token', $_SESSION['fb_access_token'], $userInfoWithId['id'] );
 						$userInfo = $this->userDAO->getRowWithValue( 'users', 'id', $userInfoWithId['id'] );
-						var_dump($userInfo);
-
 						// save info to php session so they are logged in
 						$_SESSION['is_logged_in'] = true;
 						$_SESSION['user_info'] = $userInfo;

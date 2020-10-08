@@ -9,72 +9,11 @@
 	$userDAO = new UserDAO();	
 	//$userDAO->loggedInRedirect();
 ?>
-
-<script>
-			$( function() { // once the document is ready, do things
-				// initialize our loader overlay
-				loader.initialize();
-
-				$( '#login_button' ).on( 'click', function() { // onclick for our login button
-					processLogin();
-				} );
-
-				$( '.form-input' ).keyup( function( e ) {
-					if ( e.keyCode == 13 ) { // our enter key
-						processLogin();
-					}
-				} );
-			} );
-
-			function processLogin() {
-				// clear error message and red borders on signup click
-				$( '#error_message' ).html( '' );
-				$( '#error_message_fb_php' ).html( '' );
-				$( '#error_message_twitter_php' ).html( '' );
-				$( '#error_message_twitch_php' ).html( '' );
-				$( 'input' ).removeClass( 'invalid-input' );
-
-				// assume no fields are blank
-				var allFieldsFilledIn = true;
-
-				$( 'input' ).each( function() { // simple front end check, loop over inputs
-					if ( '' == $( this ).val() ) { // input is blank, add red border and set flag to false
-						$( this ).addClass( 'invalid-input ');
-						allFieldsFilledIn = false;
-					}
-				} );
-
-				if ( allFieldsFilledIn ) { // all fields are filled in!
-					loader.showLoader();
-
-					// server side login
-					$.ajax( {
-						url: 'php/process_login.php',
-						data: $( '#login_form' ).serialize(),
-						type: 'post',
-						dataType: 'json',
-						success: function( data ) {
-							if ( 'ok' == data.status ) {
-								loader.hideLoader();
-								window.location.href = "index.php";
-							} else if ( 'fail' == data.status ) {
-								$( '#error_message' ).html( data.message );
-								loader.hideLoader();
-							}
-						}
-					} );
-				} else { // some fields are not filled in, show error message and scroll to top of page
-					$( '#error_message' ).html( 'All fields must be filled in.' );
-					$( window ).scrollTop( 0 );
-				}
-			}
-		</script>
-
 <div class="site-content-container">
 	<div class="site-content-centered">
 		<div class="site-content-section">
 			<div class="site-content-section-inner">
-				<div class="section-heading">Login</div>
+				<div class="section-heading">INICIO DE SESION</div>
 				<form id="login_form" name="login_form">
 					<div id="error_message" class="error-message">
 						<?php if ( isset( $_SESSION['eci_login_required_to_connect_facebook'] ) && $_SESSION['eci_login_required_to_connect_facebook'] ) : // enter password to connect account ?>
@@ -84,7 +23,7 @@
 						<?php endif; ?>
 					</div>
 					<div>
-						<div class="section-label">Email</div>
+						<div class="section-label">Correo electronico</div>
 						<div>
 							<?php if ( isset( $_SESSION['fb_user_info']['email'] ) ? $_SESSION['fb_user_info']['email'] : '' ) : // pre populate with facebook email ?>
 								<?php $inputEmail = $_SESSION['fb_user_info']['email']; ?>
@@ -95,17 +34,17 @@
 						</div>
 					</div>
 					<div class="section-mid-container">
-						<div class="section-label">Password</div>
+						<div class="section-label">Contraseña</div>
 						<div><input class="form-input" type="password" name="password" /></div>
 					</div>
 				</form>
 				<div class="section-action-container">
 					<div class="section-button-container" id="login_button">
-						<div>Login</div>
+						<div>Iniciar sesión</div>
 					</div>
 				</div>
 				<div class="section-action-container">
-					- OR -
+					- O -
 				</div>
 				<div class="section-action-container">
 					<div id="error_message_fb_php" class="error-message">
@@ -117,15 +56,50 @@
 				<div class="section-action-container">
 					<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
 						<div class="fb-button-container">
-							Login with Facebook
+						Iniciar sesión con Facebook
 						</div>
 					</a>
 				</div>
 				<div class="section-footer-container">
-					Not a member? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Sign Up</a>
+				¿No eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Registrate</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<script>
+function processLogin() {
+	// clear error message and red borders on signup click
+	$( '#error_message' ).html( '' );
+	$( '#error_message_fb_php' ).html( '' );
+	$( 'input' ).removeClass( 'invalid-input' );
+	// assume no fields are blank
+	var allFieldsFilledIn = true;
+	$( 'input' ).each( function() { // simple front end check, loop over inputs
+		if ( '' == $( this ).val() ) { // input is blank, add red border and set flag to false
+			$( this ).addClass( 'invalid-input ');
+			allFieldsFilledIn = false;
+		}
+	} );
+	if ( allFieldsFilledIn ) { // all fields are filled in!
+		// server side login
+		//$.post( "signinprocess.php" );
+	
+	} else { // some fields are not filled in, show error message and scroll to top of page
+		$( '#error_message' ).html( 'All fields must be filled in.' );
+		$( window ).scrollTop( 0 );
+	}
+}
+
+
+$( '#login_button' ).on( 'click', function() { // onclick for our login button
+	processLogin();
+} );
+
+$( '.form-input' ).keyup( function( e ) {
+	if ( e.keyCode == 13 ) { // our enter key
+		processLogin();
+	}
+} );
+</script>

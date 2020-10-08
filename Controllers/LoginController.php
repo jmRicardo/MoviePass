@@ -15,7 +15,12 @@
 
         public function SignIn()
         {
-            require_once(PROCESS_PATH."signinprocess.php");
+            require_once(VIEWS_PATH."login.php");           
+        }
+
+        public function Test()
+        {
+            require_once(PROCESS_PATH."signinprocess.php");           
         }
     }
 ?>
