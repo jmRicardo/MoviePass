@@ -1,12 +1,7 @@
 <?php
-	/* // load up global things
-	include_once 'autoloader.php';
-
-	if ( !isLoggedIn() ) { // if user is not logged in they cannot see this page
+	/* if ( !isLoggedIn() ) { // if user is not logged in they cannot see this page
 		header( 'location: index.php' );
-	} */
-
-
+	} */ 
 	use DAO\FacebookDAO as FacebookDAO;
 
 	$facebookDAO = new FacebookDAO();

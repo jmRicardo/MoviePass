@@ -1,30 +1,17 @@
 <?php
-	//loggedInRedirect();
+	
+	use DAO\FacebookDAO as FacebookDAO;
+	use DAO\UserDAO as UserDAO;
+
+	$facebookDAO = new FacebookDAO();
+
+	// only if you are logged out can you view the login page
+	$userDAO = new UserDAO();	
+	//$userDAO->loggedInRedirect();
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<!-- title of our page -->
-		<title>Easy, Code Is | Sign Up</title>
 
-		<!-- include fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
-
-		<!-- need this so everything looks good on mobile devices -->
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-
-		<!-- css styles for our signup page-->
-		<link href="css/global.css" rel="stylesheet" type="text/css">
-		<link href="css/signup.css" rel="stylesheet" type="text/css">
-
-		<!-- jquery -->
-		<script type="text/javascript" src="js/jquery.js"></script>
-
-		<!-- include our loader overlay script -->
-		<script type="text/javascript" src="js/loader.js"></script>
-
-		<script>
-			$( function() { // once the document is ready, do things
+<script>
+$( function() { // once the document is ready, do things
 				// initialize our loader overlay
 				loader.initialize();
 
@@ -77,66 +64,55 @@
 					$( window ).scrollTop( 0 );
 				}
 			}
-		</script>
-	</head>
-	<body>
-		<div class="site-header">
-			<div class="site-header-pad">
-				<a class="header-home-link" href="index.php">
-					Easy, Code Is
-				</a>
-			</div>
-		</div>
+</script>			
 		<div class="site-content-container">
 			<div class="site-content-centered">
 				<div class="site-content-section">
 					<div class="site-content-section-inner">
-						<div class="section-heading">Sign Up</div>
+						<div class="section-heading">REGISTRARSE</div>
 						<form id="signup_form" name="signup_form">
 							<div id="error_message" class="error-message">
 							</div>
 							<div>
-								<div class="section-label">Email</div>
+								<div class="section-label">Correo Electronico</div>
 								<div><input class="form-input" type="text" name="email" /></div>
 							</div>
 							<div class="section-mid-container">
-								<div class="section-label">First Name</div>
+								<div class="section-label">Nombre</div>
 								<div><input class="form-input" type="text" name="first_name" /></div>
 							</div>
 							<div class="section-mid-container">
-								<div class="section-label">Last Name</div>
+								<div class="section-label">Apellido</div>
 								<div><input class="form-input" type="text" name="last_name" /></div>
 							</div>
 							<div class="section-mid-container">
-								<div class="section-label">Password</div>
+								<div class="section-label">Contraseña</div>
 								<div><input class="form-input" type="password" name="password" /></div>
 							</div>
 							<div class="section-mid-container">
-								<div class="section-label">Confirm Password</div>
+								<div class="section-label">Confirmar contraseña</div>
 								<div><input class="form-input" type="password" name="confirm_password" /></div>
 							</div>
 						</form>
 						<div class="section-action-container">
 							<div class="section-button-container" id="signup_button">
-								<div>Sign Up</div>
+								<div>Registrarse</div>
 							</div>
 						</div>
 						<div class="section-action-container">
-							- OR -
+							- O -
 						</div>
 						<div class="section-action-container">
-							<a href="<?php echo getFacebookLoginUrl(); ?>" class="a-fb">
+							<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
 								<div class="fb-button-container">
-									Login with Facebook (PHP)
+									Registrarse con Faceboook
 								</div>
 							</a>
 						</div>
 						<div class="section-footer-container">
-							Already a member? <a class="a-default" href="login.php">Login</a>
+							¿Ya eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignIn">Inicia sesion</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</body>
-</html>

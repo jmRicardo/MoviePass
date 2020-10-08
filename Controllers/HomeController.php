@@ -7,6 +7,7 @@
     {
         public function Index($message = "")
         {
+            //require_once(VIEWS_PATH."login.php");
             require_once(VIEWS_PATH."login.php");
         }
         public function Facebook()
@@ -19,6 +20,13 @@
 
                 require_once(VIEWS_PATH."myaccount.php");
             }
-        }         
+        }
+        
+        public function LogOut()
+        {
+            session_destroy();
+
+            $this->Index();
+        }
     }
 ?>
