@@ -1,4 +1,17 @@
-@charset "utf-8";
+/* Style buttons */
+.admin_buttons {
+	background-color: DodgerBlue; /* Blue background */
+	border: none; /* Remove borders */
+	color: white; /* White text */ /* Some padding */
+	font-size: 12px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+  }
+  
+  /* Darker background on mouse-over */
+  .delete_button:hover {
+	background-color: RoyalBlue;
+  }
+
 
 body {
 	font-family: 'Coda';

@@ -120,7 +120,6 @@
 
             // get and return user
             $user = $statement->fetch();
-            var_dump($user);
             return $user;    
         }
 
