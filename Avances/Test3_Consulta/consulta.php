@@ -2,15 +2,13 @@
     $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=0e38635e1106aa97618b0e7fee7a5b57";
     $json = file_get_contents($url);
     $datos = json_decode($json,true);
-    //var_dump($datos);
+   /*  var_dump($datos);
+    exit(); */
     /////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////
     $url2 = "https://api.themoviedb.org/3/genre/movie/list?api_key=0e38635e1106aa97618b0e7fee7a5b57";
     $json2 = file_get_contents($url2);
     $datos2 = json_decode($json2,true);
-    // var_dump($datos2['genres'][0]['name']);
-    // var_dump(sizeof($datos2['genres']));
-    // exit();
 ?>
 
 <!DOCTYPE html>
