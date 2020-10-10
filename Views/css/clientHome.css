@@ -1,0 +1,14 @@
+
+.video-banner {
+    width: 500px;
+}
+
+.banner-container {
+    display: flex;
+    background: #2f2226;
+    justify-content: center;
+}
+
+.banner-container-video {
+    width: 500px;
+}
