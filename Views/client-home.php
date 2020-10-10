@@ -1,6 +1,7 @@
 <?php
-	require_once("nav-client.php");
-    ?>
+  require_once("nav-client.php");  
+
+?>
 <div class="banner-container">
     <div class="banner-video-container">
         <video class="video-banner" autoplay muted>
