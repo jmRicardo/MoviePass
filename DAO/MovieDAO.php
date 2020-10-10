@@ -4,6 +4,7 @@
     use \Exception as Exception;
     use DAO\IMovieDAO as IMovieDAO;
     use Models\Movie as Movie;
+    use Models\Genre as Genre;
     use Models\GenreByMovie as GenreByMovie;
     use DAO\Connection as Connection;
     
@@ -13,10 +14,49 @@
         private $connection;
         private $tableName = "movies";
         private $genreByMovieTableName = "genresByMovie";
+        private $genreTableName = "genres";
 
         public function __construct()
         {
            
+        }
+
+        public function GetGenres()
+        {
+            try
+            {
+                $genreList = array();
+
+                $query = "SELECT * FROM ". $this->genreTableName;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                $genreList = $this->ArrayToGenreObjects($resultSet);
+
+                return $genreList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function ArrayToGenreObjects($resultSet)
+        {
+            $genreList = array();
+
+            foreach($resultSet as $row)
+            {
+                $genre = new Genre();
+                $genre->setId($row[]);
+                $genre->setName($row[]);
+
+                array_push($genreList,$genre);
+            }
+
+            return $genreList;
         }
 
         public function GetMoviesByGenre($id)
@@ -87,8 +127,9 @@
                 $this->connection = Connection::GetInstance();
 
                 $resultSet = $this->connection->Execute($query);
+
                 
-                $this->ArrayToMovieObjects($resultSet);
+                $movieList = $this->ArrayToMovieObjects($resultSet);
 
                 return $movieList;
             }
