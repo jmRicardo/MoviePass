@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
 -- Query: select * from genresByMoviebymovie
-=======
--- Query: select * from genresbymovie
->>>>>>> master
 LIMIT 0, 500
 
 -- Date: 2020-10-10 00:57
