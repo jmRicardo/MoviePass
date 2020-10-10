@@ -86,8 +86,8 @@
         <div class="container">
             <h2 class="mb-4">Listado Filtrado por Genero</h2>
 
-                <table >
-                    <thead >
+                <table class="table bg-light">
+                    <thead class="bg-dark text-white">
                         
                         <th>Titulo</th>
                         
