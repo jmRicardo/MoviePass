@@ -21,6 +21,28 @@
            
         }
 
+        public function GetActiveGenres()
+        {
+            try
+            {
+                $genreList = array();
+
+                $query = "select distinct(g.idGenre),g.name from ". $this->genreTableName ." g left join ". $this->genreByMovieTableName ." gbm on g.idGenre = gbm.idGenre order by g.name;";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                $genreList = $this->ArrayToGenreObjects($resultSet);
+
+                return $genreList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
         public function GetGenres()
         {
             try
@@ -50,8 +72,8 @@
             foreach($resultSet as $row)
             {
                 $genre = new Genre();
-                $genre->setId($row[]);
-                $genre->setName($row[]);
+                $genre->setId($row["idGenre"]);
+                $genre->setName($row["name"]);
 
                 array_push($genreList,$genre);
             }
