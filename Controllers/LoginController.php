@@ -13,7 +13,7 @@
             require_once(VIEWS_PATH."signup.php");           
         }
 
-        public function SignIn()
+        public function Login()
         {
             require_once(VIEWS_PATH."login.php");           
         }

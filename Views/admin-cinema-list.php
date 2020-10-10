@@ -1,5 +1,6 @@
 <?php
-    require_once('nav.php');
+    require_once('admin-nav.php');
+
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
@@ -14,7 +15,7 @@
                          <th>VALOR TICKET</th>
                     </thead>
                     <tbody>
-                         <form action="<?php echo FRONT_ROOT ?>Cinema/Remove " method="post" id="from">
+                         <form action="<?php echo FRONT_ROOT ?>Admin/Remove " method="post" id="from">
                          <?php
                               foreach($cinemaList as $cinema)
                               {
@@ -36,7 +37,7 @@
                                                        var frm = document.getElementById('from') || null;
                                                        if(frm) {
                                                             var a = '<?php echo FRONT_ROOT ?>';
-                                                            var b = 'Cinema/Update';
+                                                            var b = 'Admin/Update';
                                                             frm.action = a.concat(b);     
                                                        }">
                                                        <i class="fa fa-edit"></i>

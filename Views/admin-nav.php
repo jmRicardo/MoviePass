@@ -4,10 +4,10 @@
      </span>
      <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Cinema/ShowAddView">Agregar Cines</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">Agregar Cines</a>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Cinema/ShowListView">Listar Cines</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowListView">Listar Cines</a>
           </li>
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Home/LogOut">Desconectarse</a>

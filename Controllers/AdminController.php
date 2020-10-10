@@ -4,7 +4,7 @@
     use Models\Cinema as Cinema;
     use DAO\CinemaDAO as CinemaDAO;
 
-    class CinemaController
+    class AdminController
     {
         private $cinemaDAO;
 
@@ -15,14 +15,14 @@
 
         public function ShowAddView()
         {
-            require_once(VIEWS_PATH."cinema-add.php");
+            require_once(VIEWS_PATH."admin-cinema-add.php");
         }
 
         public function ShowListView()
         {
             $cinemaList = $this->cinemaDAO->GetAll();
 
-            require_once(VIEWS_PATH."cinema-list.php");
+            require_once(VIEWS_PATH."admin-cinema-list.php");
         }
 
         public function Add($name,$total_capacity,$address,$ticket_value)
@@ -51,7 +51,7 @@
             
             $cinema = $this->cinemaDAO->GetCinema($id);
 
-            require_once(VIEWS_PATH."cinema-update.php");
+            require_once(VIEWS_PATH."admin-cinema-update.php");
         }
 
         public function SaveUpdate($name,$total_capacity,$address,$ticket_value,$id)
