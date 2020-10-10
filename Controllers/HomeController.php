@@ -5,16 +5,19 @@
 
     class HomeController
     {
+       
         public function Index($message = "")
         {
             //require_once(VIEWS_PATH."login.php");
-            require_once(VIEWS_PATH."cinema-list.php");
+            require_once(VIEWS_PATH."admin-cinema-add.php");
         }
+
         public function Facebook()
         {
             $facebookDAO = new FacebookDAO();
             
             if ( isset( $_GET['state'] ) && FB_APP_STATE == $_GET['state'] ) { // coming from facebook
+                
                 // try and log the user in with $_GET vars from facebook 
                 $fbLogin = $facebookDAO->tryAndLoginWithFacebook( $_GET );
 

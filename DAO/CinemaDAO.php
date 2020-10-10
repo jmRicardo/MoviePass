@@ -29,7 +29,9 @@
 
             $this->connection->ExecuteNonQuery($query, $parameters);
         }
+        
 
+        
         public function Add(Cinema $cinema)
         {
             try
