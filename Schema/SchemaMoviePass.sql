@@ -38,12 +38,14 @@ CREATE TABLE IF NOT EXISTS `genresByMovie` (
   `idGenreByMovie` int(11) not null AUTO_INCREMENT,
   `idGenre` int not null,
   `idMovie` int not null,
-  PRIMARY KEY (`idGenreByMovie`)
+  PRIMARY KEY (`idGenreByMovie`),
+  constraint fk_idGenre foreign key (idGenre) references genres(idGenre) on delete cascade on update cascade,
+  constraint fk_idMovie foreign key (idMovie) references movies(idMovie) on delete cascade on update cascade
 )Engine = InnoDB;
 
 DROP TABLE IF EXISTS `movies`;
 CREATE TABLE IF NOT EXISTS `movies` (
-  `idMovie` int(11) not null,
+  `idMovie` int(11) not null primary key,
   `adult` boolean,
   `posterPath` varchar(100) not null,
   `originalTitle` varchar(100) not null,
@@ -51,5 +53,5 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `title` varchar(100) not null,
   `overview` varchar(300),
   `releaseDate` date not null,
-  `trailerPath` varchar(100) not null
+  `trailerPath` varchar(100)
 )Engine = InnoDB; 

@@ -1,5 +1,9 @@
 <?php
     require_once('nav.php');
+
+    use DAO\MovieDAO as MovieDAO;
+
+    $movieDAO = new MovieDAO;
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
