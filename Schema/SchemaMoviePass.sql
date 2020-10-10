@@ -25,3 +25,31 @@ CREATE TABLE IF NOT EXISTS `cinemas` (
   `ticket_value` float NOT NULL,
   PRIMARY KEY (`id`)
 )Engine=InnoDB;
+
+DROP TABLE IF EXISTS `genres`;
+CREATE TABLE IF NOT EXISTS `genres` (
+  `idGenre` int(11) not null,
+  `name` varchar(100),
+  PRIMARY KEY (`idGenre`)
+)Engine = InnoDB;
+
+DROP TABLE IF EXISTS `genresByMovie`;
+CREATE TABLE IF NOT EXISTS `genresByMovie` (
+  `idGenreByMovie` int(11) not null AUTO_INCREMENT,
+  `idGenre` int not null,
+  `idMovie` int not null,
+  PRIMARY KEY (`idGenreByMovie`)
+)Engine = InnoDB;
+
+DROP TABLE IF EXISTS `movies`;
+CREATE TABLE IF NOT EXISTS `movies` (
+  `idMovie` int(11) not null,
+  `adult` boolean,
+  `posterPath` varchar(100) not null,
+  `originalTitle` varchar(100) not null,
+  `originalLanguage` varchar(100) not null,
+  `title` varchar(100) not null,
+  `overview` varchar(300),
+  `releaseDate` date not null,
+  `trailerPath` varchar(100) not null
+)Engine = InnoDB; 
