@@ -19,6 +19,63 @@
            
         }
 
+        public function GetMoviesByGenre($id)
+        {
+            //$query = "SELECT idMovie FROM ".$this->tableName." WHERE (idGenre = :idGenre)";
+
+            $query = "select * from ". $this->genreByMovieTableName ." gbm left join genres g on gbm.idGenre = g.idGenre left join ". $this->tableName . " m on gbm.idMovie = m.idMovie  where gbm.idGenre = :idGenre";
+
+            $parameters["idGenre"] =  $id;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query,$parameters);
+
+            $movieList = array();
+            
+            $movieList = $this->ArrayToMovieObjects($result);
+
+            return $movieList;
+        }
+
+        public function ArrayToMovieObjects($result)
+        {
+            $movieList = array();
+            
+            foreach ($result as $row)
+                {                
+                    $movie = new Movie();
+                    $movie->setIdMovie($row["idMovie"]);
+                    $movie->setAdult($row["adult"]);
+                    $movie->setPosterPath($row["posterPath"]);
+                    $movie->setOriginalTitle($row["originalTitle"]);
+                    $movie->setOriginalLanguage($row["originalLanguage"]);
+                    $movie->setTitle($row["title"]);
+                    $movie->setOverview($row["overview"]);
+                    $movie->setReleaseDate($row["releaseDate"]);
+                    $movie->setTrailerPath($row["trailerPath"]);
+
+                    array_push($movieList, $movie);
+                }
+
+            return count($movieList) == 1  ?  $movieList[0] : $movieList;
+        }
+
+        public function GetMovieByID($id)
+        {
+            $query = "SELECT * FROM ".$this->tableName." WHERE (idMovie = :idMovie)";
+
+            $parameters["idMovie"] =  $id;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query,$parameters);
+
+            $movie = $this->ArrayToMovieObjects($result);
+
+            return $movie;
+        }
+      
         public function GetAll()
         {
             try
@@ -31,21 +88,7 @@
 
                 $resultSet = $this->connection->Execute($query);
                 
-                foreach ($resultSet as $row)
-                {                
-                    $movie = new Movie();
-                    $movie->setIdMovie($row["idMovie"]);
-                    $movie->setAdult($row["adult"]);
-                    $movie->setPosterPath($row["posterPath"]);
-                    $movie->setOriginalTitle($row["originalTitle"]);
-                    $movie->setOriginalLanguage($row["originalLanguage"]);
-                    $movie->setTitle($row["title"]);
-                    $movie->setOverview($row["overview"]);
-                    $movie->setReleaseDate($row["releaseDate"]);
-
-
-                    array_push($movieList, $movie);
-                }
+                $this->ArrayToMovieObjects($resultSet);
 
                 return $movieList;
             }

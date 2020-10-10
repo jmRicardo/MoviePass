@@ -7,11 +7,12 @@
 
     interface IMovieDAO
     {
-        /* function GetMoviesByDate($date);
-        function GetMovie($id);*/
+        function GetMoviesByGenre($id);
+        function GetMovieByID($id);
         function GetAll();
         function NowPlayingToDataBase();
         function AddMovie(Movie $movie);
-        public function AddGenreByMovie(GenreByMovie $genreByMovie);
+        function AddGenreByMovie(GenreByMovie $genreByMovie);
+        function ArrayToMovieObjects(array $result);
     }
 ?>  
