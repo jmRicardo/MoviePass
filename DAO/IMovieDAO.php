@@ -16,5 +16,6 @@
         function ArrayToMovieObjects(array $result);
         function GetGenres();
         function GetActiveGenres();
+        function GetBillboardByDate(bool $comingUpNext);
     }
 ?>  
