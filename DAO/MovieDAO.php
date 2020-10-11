@@ -4,6 +4,7 @@
     use \Exception as Exception;
     use DAO\IMovieDAO as IMovieDAO;
     use Models\Movie as Movie;
+    use Models\Genre as Genre;
     use Models\GenreByMovie as GenreByMovie;
     use DAO\Connection as Connection;
     
@@ -13,10 +14,96 @@
         private $connection;
         private $tableName = "movies";
         private $genreByMovieTableName = "genresByMovie";
+        private $genreTableName = "genres";
+        private $dateTableName = "dates";
 
         public function __construct()
         {
            
+        }
+
+        public function GetBillboardByDate(bool $comingUpNext)
+        {
+            try
+            {
+                $movieList = array();
+
+                $query = "select * from " . $this->tableName . " where releaseDate " .( $comingUpNext ? " > ":" <= ") . "date_format(:date,'%Y-%m-%d');";
+
+                $parameters["date"] =  date("Y/m/d");
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query,$parameters);
+
+                $movieList = $this->ArrayToMovieObjects($result);
+
+                return $movieList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function GetActiveGenres()
+        {
+            try
+            {
+                $genreList = array();
+
+                $query = "select distinct(g.idGenre),g.name from ". $this->genreTableName ." g left join ". $this->genreByMovieTableName ." gbm on g.idGenre = gbm.idGenre order by g.name;";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                $genreList = $this->ArrayToGenreObjects($resultSet);
+
+                return $genreList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function GetGenres()
+        {
+            try
+            {
+                $genreList = array();
+
+                $query = "SELECT * FROM ". $this->genreTableName;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                $genreList = $this->ArrayToGenreObjects($resultSet);
+
+                return $genreList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function ArrayToGenreObjects($resultSet)
+        {
+            $genreList = array();
+
+            foreach($resultSet as $row)
+            {
+                $genre = new Genre();
+                $genre->setId($row["idGenre"]);
+                $genre->setName($row["name"]);
+
+                array_push($genreList,$genre);
+            }
+
+            return $genreList;
         }
 
         public function GetMoviesByGenre($id)
@@ -87,8 +174,9 @@
                 $this->connection = Connection::GetInstance();
 
                 $resultSet = $this->connection->Execute($query);
+
                 
-                $this->ArrayToMovieObjects($resultSet);
+                $movieList = $this->ArrayToMovieObjects($resultSet);
 
                 return $movieList;
             }

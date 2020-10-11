@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS `MoviePass`;
+
 USE `MoviePass`;
 
 DROP TABLE IF EXISTS `users`;

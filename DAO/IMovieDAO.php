@@ -14,5 +14,8 @@
         function AddMovie(Movie $movie);
         function AddGenreByMovie(GenreByMovie $genreByMovie);
         function ArrayToMovieObjects(array $result);
+        function GetGenres();
+        function GetActiveGenres();
+        function GetBillboardByDate(bool $comingUpNext);
     }
 ?>  
