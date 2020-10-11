@@ -8,8 +8,8 @@
        
         public function Index($message = "")
         {
-            //require_once(VIEWS_PATH."login.php");
-            require_once(VIEWS_PATH."client-home.php");
+            require_once(VIEWS_PATH."login.php");
+            //require_once(VIEWS_PATH."client-home.php");
         }
 
         public function Facebook()
