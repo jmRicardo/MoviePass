@@ -15,10 +15,35 @@
         private $tableName = "movies";
         private $genreByMovieTableName = "genresByMovie";
         private $genreTableName = "genres";
+        private $dateTableName = "dates";
 
         public function __construct()
         {
            
+        }
+
+        public function GetBillboardByDate(bool $comingUpNext)
+        {
+            try
+            {
+                $movieList = array();
+
+                $query = "select * from " . $this->tableName . " where releaseDate " .( $comingUpNext ? " > ":" <= ") . "date_format(:date,'%Y-%m-%d');";
+
+                $parameters["date"] =  date("Y/m/d");
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query,$parameters);
+
+                $movieList = $this->ArrayToMovieObjects($result);
+
+                return $movieList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         public function GetActiveGenres()

@@ -4,22 +4,7 @@
     use DAO\MovieDAO as MovieDAO;
 
     $movieDAO = new MovieDAO;
-
-<<<<<<< HEAD
-    $movie = $movieDAO->GetAll();
-    var_dump($movie);
-    exit();
-
     
-=======
-   /*  $movie = $movieDAO->GetMoviesByGenre(12);
-    var_dump($movie);
-    exit(); */
-
-    $movie = $movieDAO->GetMovieByID(337401);
-    var_dump($movie);
-    exit();
->>>>>>> master
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
