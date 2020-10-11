@@ -1,7 +1,3 @@
-<?php
-echo FRONT_ROOT . "FRONT_ROOT"; 
-echo ROOT;
-?>
 
 <main>
     <form action="<?php echo FRONT_ROOT ?>Contact/SendMail" method="POST" >
