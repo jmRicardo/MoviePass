@@ -9,7 +9,7 @@
         public function Index($message = "")
         {
             //require_once(VIEWS_PATH."login.php");
-            require_once(VIEWS_PATH."admin-cinema-add.php");
+            require_once(VIEWS_PATH."contact.php");
         }
 
         public function Facebook()
