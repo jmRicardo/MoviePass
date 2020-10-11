@@ -12,9 +12,9 @@
             //Juan 
             //require_once(VIEWS_PATH."contact.php");
             //Cin
-            //require_once(VIEWS_PATH."contact.php");
+            header("Location:".FRONT_ROOT."Client/Home");
             //Guille
-            require_once(VIEWS_PATH."contact.php");
+            require_once(VIEWS_PATH."client-home.php");
             //Facu
             //require_once(VIEWS_PATH."contact.php");
 
