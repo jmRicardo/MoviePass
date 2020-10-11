@@ -15,6 +15,6 @@
         function AddGenreByMovie(GenreByMovie $genreByMovie);
         function ArrayToMovieObjects(array $result);
         function GetGenres();
-       /*  function GetGenresActive(); */
+        function GetActiveGenres();
     }
 ?>  
