@@ -5,11 +5,22 @@
 
     class HomeController
     {
-       
+        
         public function Index($message = "")
         {
-            //require_once(VIEWS_PATH."login.php");
+            
+            //Juan 
+            //require_once(VIEWS_PATH."contact.php");
+            //Cin
+            //require_once(VIEWS_PATH."contact.php");
+            //Guille
             require_once(VIEWS_PATH."contact.php");
+            //Facu
+            //require_once(VIEWS_PATH."contact.php");
+
+
+
+
         }
 
         public function Facebook()

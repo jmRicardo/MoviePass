@@ -1,6 +1,8 @@
 <?php
     namespace Controllers;
 
+    
+
     class ContactController{
 
         public function SendMail($name,$asunto,$msg,$email){
@@ -10,7 +12,12 @@
 
         mail("guimainini@gmail.com", $asunto, $msg, $header);
 
+        
         }    
+        
+
+
+
         
     }    
 
