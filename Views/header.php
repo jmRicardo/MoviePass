@@ -29,7 +29,9 @@
 
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>navClient.css">  <!-- nav client -->
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientHome.css">  <!-- home client -->
-
+     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'><!--font roboto -->
+     
+     
      <title>MoviePass</title>
 </head>
 <body>
