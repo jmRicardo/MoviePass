@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `originalTitle` varchar(100) not null,
   `originalLanguage` varchar(100) not null,
   `title` varchar(100) not null,
-  `overview` varchar(300),
+  `overview` varchar(500),
   `releaseDate` date not null,
   `trailerPath` varchar(100)
 )Engine = InnoDB; 
