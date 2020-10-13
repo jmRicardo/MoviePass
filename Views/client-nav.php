@@ -23,7 +23,7 @@
                 <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     <span class="icon-option">Perfil</span>
                 </a>
-                <a class="dropdown-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>Home/LogOut"><i class="fa fa-sign-out" aria-hidden="true"></i>
                     <span class="icon-option">Salir</span>
                 </a>
             </div>

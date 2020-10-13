@@ -297,7 +297,7 @@
         function loggedInRedirect() {
             if ( $this->isLoggedIn() ) { // user is logged in
                 // send them to the home page
-                header( 'location:'.VIEWS_PATH.'index.php' );
+                header( 'location:'.VIEWS_PATH."Client/Home" );
             }
         }
 
