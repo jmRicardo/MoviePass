@@ -13,10 +13,15 @@
             //require_once(VIEWS_PATH."contact.php");
             //Cin
             header("Location:".FRONT_ROOT."Client/Home");
+            //require_once(VIEWS_PATH."contact.php");
             //Guille
             //require_once(VIEWS_PATH."client-home.php");
             //Facu
             //require_once(VIEWS_PATH."contact.php");
+
+
+
+
         }
 
         public function Facebook()
