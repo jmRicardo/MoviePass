@@ -1,5 +1,4 @@
-<?php
-	
+<?php	
 	use DAO\FacebookDAO as FacebookDAO;
 	use DAO\UserDAO as UserDAO;
 
@@ -9,69 +8,14 @@
 	$userDAO = new UserDAO();	
 	//$userDAO->loggedInRedirect();
 ?>
-
-<script>
-$( function() { // once the document is ready, do things
-				// initialize our loader overlay
-				loader.initialize();
-
-				$( '#signup_button' ).on( 'click', function() { // onclick for our signup button
-					processSignup();
-				} );
-
-				$( '.form-input' ).keyup( function( e ) {
-					if ( e.keyCode == 13 ) { // our enter key
-						processSignup();
-					}
-				} );
-			} );
-
-			function processSignup() {
-				// clear error message and red borders on signup click
-				$( '#error_message' ).html( '' );
-				$( 'input' ).removeClass( 'invalid-input' );
-
-				// assume no fields are blank
-				var allFieldsFilledIn = true;
-
-				$( 'input' ).each( function() { // simple front end check, loop over inputs
-					if ( '' == $( this ).val() ) { // input is blank, add red border and set flag to false
-						$( this ).addClass( 'invalid-input ');
-						allFieldsFilledIn = false;
-					}
-				} );
-
-				if ( allFieldsFilledIn ) { // all fields are filled in!
-					loader.showLoader();
-
-					$.ajax( {
-						url: 'php/process_signup.php',
-						data: $( '#signup_form' ).serialize(),
-						type: 'post',
-						dataType: 'json',
-						success: function( data ) {
-							if ( 'ok' == data.status ) {
-								loader.hideLoader();
-								window.location.href = "login.php";
-							} else if ( 'fail' == data.status ) {
-								$( '#error_message' ).html( data.message );
-								loader.hideLoader();
-							}
-						}
-					} );
-				} else { // some fields are not filled in, show error message and scroll to top of page
-					$( '#error_message' ).html( 'All fields must be filled in.' );
-					$( window ).scrollTop( 0 );
-				}
-			}
-</script>			
 		<div class="site-content-container">
 			<div class="site-content-centered">
 				<div class="site-content-section">
 					<div class="site-content-section-inner">
 						<div class="section-heading">REGISTRARSE</div>
-						<form id="signup_form" name="signup_form">
+						<form id="signup_form" name="signup_form" action="<?php echo FRONT_ROOT ?>Login/SignUpProcess" method="POST">
 							<div id="error_message" class="error-message">
+								<?php  if (isset($message)) {echo $message;} ?>
 							</div>
 							<div>
 								<div class="section-label">Correo Electronico</div>
@@ -93,12 +37,14 @@ $( function() { // once the document is ready, do things
 								<div class="section-label">Confirmar contraseña</div>
 								<div><input class="form-input" type="password" name="confirm_password" /></div>
 							</div>
-						</form>
-						<div class="section-action-container">
-							<div class="section-button-container" id="signup_button">
+							<div class="section-action-container">
+							<!-- <div class="section-button-container" id="signup_button" type="submit">
 								<div>Registrarse</div>
-							</div>
+							</div> -->
+							<button type="submit">Registrarse!</button>
 						</div>
+						</form>
+						
 						<div class="section-action-container">
 							- O -
 						</div>

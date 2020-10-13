@@ -1,3 +1,11 @@
+.login_button_submit{
+
+	background: transparent;
+	border: none !important;
+}
+
+
+
 /* Style buttons */
 .admin_buttons {
 	background-color: DodgerBlue; /* Blue background */
