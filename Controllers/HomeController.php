@@ -10,17 +10,13 @@
         {
             
             //Juan 
-            //require_once(VIEWS_PATH."contact.php");
+            require_once(VIEWS_PATH."login-signin.php");
             //Cin
-            header("Location:".FRONT_ROOT."Client/Home");
+            //header("Location:".FRONT_ROOT."Client/Home");
             //Guille
-            require_once(VIEWS_PATH."client-home.php");
+            //require_once(VIEWS_PATH."client-home.php");
             //Facu
             //require_once(VIEWS_PATH."contact.php");
-
-
-
-
         }
 
         public function Facebook()
@@ -31,14 +27,16 @@
                 
                 // try and log the user in with $_GET vars from facebook 
                 $fbLogin = $facebookDAO->tryAndLoginWithFacebook( $_GET );
-
-                require_once(VIEWS_PATH."myaccount.php");
             }
+
+            header("Location:".FRONT_ROOT."Client/Home");
         }
         
         public function LogOut()
         {
             session_destroy();
+
+            session_start();
 
             $this->Index();
         }

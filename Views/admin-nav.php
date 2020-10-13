@@ -10,6 +10,9 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowListView">Listar Cines</a>
           </li>
           <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Client/Home">Volver a Inicio</a>
+          </li> 
+          <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Home/LogOut">Desconectarse</a>
           </li>           
      </ul>

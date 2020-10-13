@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+.login_button_submit{
+
+	background: transparent;
+	border: none !important;
+}
+
 input {
 	border: 1px solid #dedede;
 	border-radius: 5px;
