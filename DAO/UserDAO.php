@@ -301,13 +301,13 @@
             }
         }
 
-        function isAdmin() {
+        static function isAdmin() {
             if ( isset( $_SESSION['user_info'] ) && $_SESSION['user_info'] && USER_LEVEL_ADMIN == $_SESSION['user_info']['user_level'] ) {
                 return true;
             } else {
                 return false;
             }
-        }
+        } 
 
     }
 ?>
