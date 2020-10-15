@@ -4,6 +4,9 @@
      </span>
      <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">Agregar Funcion</a>
+          </li>
+          <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">Agregar Cines</a>
           </li>
           <li class="nav-item">
