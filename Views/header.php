@@ -18,18 +18,18 @@
 
      <!-- Add icon library -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!--Jquery-->
      
-     <!-- <script href="<?php echo CSS_PATH ?>jquery.js"></script>
-     <script href="<?php echo CSS_PATH ?>loader.js"></script> -->
+     <!--Jquery-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>global.css">
 
-     <link rel="stylesheet" href="<?php echo CSS_PATH ?>navClient.css">  <!-- nav client -->
-     <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientHome.css">  <!-- home client -->
-     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'><!--font roboto -->
-     
+     <!-- nav client -->
+     <link rel="stylesheet" href="<?php echo CSS_PATH ?>navClient.css">  
+     <!-- home client -->
+     <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientHome.css">  
+     <!--font roboto -->
+     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>     
      
      <title>MoviePass</title>
 </head>

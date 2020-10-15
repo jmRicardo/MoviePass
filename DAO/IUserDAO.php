@@ -14,6 +14,6 @@
         function signUserUp( $info );
         function newKey( $length = 32 );
         function hashedPassword( $password );
-        function isAdmin();
+        static function isAdmin();
     }
 ?>

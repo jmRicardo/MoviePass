@@ -14,8 +14,9 @@
 		<div class="site-content-section">
 			<div class="site-content-section-inner">
 				<div class="section-heading">INICIO DE SESION</div>
-				<form id="login_form" name="login_form">
+				<form id="login_form" name="login_form" method="POST" action="<?php echo FRONT_ROOT ?>Login/SignInProcess" >
 					<div id="error_message" class="error-message">
+						<?php  if (isset($message)) {echo $message;} ?>
 						<?php if ( isset( $_SESSION['eci_login_required_to_connect_facebook'] ) && $_SESSION['eci_login_required_to_connect_facebook'] ) : // enter password to connect account ?>
 							<div style="margin-bottom:10px;">
 								An account already exists with that email address. To connect your Facebook account, enter your password.
@@ -37,12 +38,19 @@
 						<div class="section-label">Contraseña</div>
 						<div><input class="form-input" type="password" name="password" /></div>
 					</div>
-				</form>
-				<div class="section-action-container">
+
+					<div class="section-action-container">
 					<div class="section-button-container" id="login_button">
-						<div>Iniciar sesión</div>
+						<div>
+								<button class="login_button_submit" type="submit">Iniciar Sesion</button>
+						</div>				
 					</div>
-				</div>
+					</div>
+
+					
+				</form>
+				
+				
 				<div class="section-action-container">
 					- O -
 				</div>
@@ -66,9 +74,14 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div><!-- 
 
 <script>
+
+	$( '#error_message' ).html( "<?php echo isset( $_GET['message'] );?>" );
+
+
+
 function processLogin() {
 	// clear error message and red borders on signup click
 	$( '#error_message' ).html( '' );
@@ -84,7 +97,7 @@ function processLogin() {
 	} );
 	if ( allFieldsFilledIn ) { // all fields are filled in!
 		// server side login
-		//$.post( "signinprocess.php" );
+		window.location.href = "<?php echo FRONT_ROOT ?>Login/SignIn";
 	
 	} else { // some fields are not filled in, show error message and scroll to top of page
 		$( '#error_message' ).html( 'All fields must be filled in.' );
@@ -103,3 +116,4 @@ $( '.form-input' ).keyup( function( e ) {
 	}
 } );
 </script>
+ -->

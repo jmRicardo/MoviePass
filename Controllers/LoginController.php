@@ -8,19 +8,24 @@
            
         }
 
-        public function SignUp()
+        public function SignUp($message = "")
         {
-            require_once(VIEWS_PATH."signup.php");           
+            require_once(VIEWS_PATH."login-signup.php");           
         }
 
-        public function Login()
-        {
-            require_once(VIEWS_PATH."login.php");           
+        public function SignUpProcess()
+        {            
+            require_once(VIEWS_PATH."signup-process.php");           
         }
 
-        public function Test()
+        public function SignIn($message = "")
         {
-            require_once(PROCESS_PATH."signinprocess.php");           
+            require_once(VIEWS_PATH."login-signin.php");           
+        }
+
+        public function SignInProcess()
+        {
+            require_once(VIEWS_PATH."signin-process.php");           
         }
     }
 ?>
