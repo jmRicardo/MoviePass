@@ -1,0 +1,31 @@
+.category-selector {
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    padding: 5px 5px 5px 40px;
+    border-radius: 60px;
+}
+
+.category-select {
+    border: none;
+    background: #fafafa;
+}
+
+.category-button {
+    margin-left: 10px;
+    padding: 6px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.category-label {
+    color: #6a6a6a;
+    font-size: 14px;
+    margin-bottom: 0px;
+    min-width: 200px;
+}
+
+.category-selector .form-group {
+    margin-bottom: 0;
+}

@@ -10,6 +10,7 @@
 		$fbUserInfo = $facebookDAO->getFacebookUserInfo( $_SESSION['user_info']['fb_access_token'] );
 		$fbDebugTokenInfo = $facebookDAO->getDebugAccessTokenInfo( $_SESSION['user_info']['fb_access_token'] );
 	}
+	require_once(VIEWS_PATH . "client-nav.php");
 ?>
 		<div class="site-content-container">
 			<div class="site-content-centered">

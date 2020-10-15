@@ -31,6 +31,9 @@
      <!--font roboto -->
      <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>     
      
+     <!-- select Movies -->
+     <link rel="stylesheet" href="<?php echo CSS_PATH ?>selectMovies.css">  
+
      <title>MoviePass</title>
 </head>
 <body>

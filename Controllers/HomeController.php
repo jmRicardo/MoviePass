@@ -8,15 +8,7 @@
         
         public function Index($message = "")
         {
-            
-            //Juan 
-            require_once(VIEWS_PATH."login-signin.php");
-            //Cin
-            //header("Location:".FRONT_ROOT."Client/Home");
-            //Guille
-            //require_once(VIEWS_PATH."client-home.php");
-            //Facu
-            //require_once(VIEWS_PATH."contact.php");
+            header("Location:".FRONT_ROOT."Client/Home");     
         }
 
         public function Facebook()
@@ -29,7 +21,7 @@
                 $fbLogin = $facebookDAO->tryAndLoginWithFacebook( $_GET );
             }
 
-            header("Location:".FRONT_ROOT."Client/Home");
+            $this->Index();
         }
         
         public function LogOut()
