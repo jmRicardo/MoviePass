@@ -14,6 +14,10 @@ define("DB_NAME", "MoviePass");
 define("DB_USER", "root");
 define("DB_PASS", "");
 
+// LLave para la Api de movie data base
+
+define("TMDB_API_KEY","0e38635e1106aa97618b0e7fee7a5b57");
+
 // Credenciales para facebook
 define( 'FB_APP_ID', '384084776085842' );
 define( 'FB_APP_SECRET', '3c6512529b7c867ce84101b3be8d1bdf' );
