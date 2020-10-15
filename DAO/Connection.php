@@ -4,8 +4,9 @@
     use \PDO as PDO;
     use \Exception as Exception;
     use DAO\QueryType as QueryType;
+use PDOException;
 
-    class Connection
+class Connection
     {
         private $pdo = null;
         private $pdoStatement = null;
@@ -64,7 +65,12 @@
 
                 return $this->pdoStatement->rowCount();
             }
-            catch(Exception $ex)
+            catch( PDOException $Exception ) {
+                if ($Exception->getCode() == 23000)
+                    echo  $Exception->getMessage() ." // Valor duplicado, ya existe en la base de datos." . "<br>";
+                else
+                    throw $Exception;
+            }catch(Exception $ex)
             {
                 throw $ex;
             }        	    	

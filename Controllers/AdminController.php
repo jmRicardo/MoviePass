@@ -2,18 +2,30 @@
     namespace Controllers;
 
     use Models\Cinema as Cinema;
+    use Models\Movie as Movie;
     use DAO\CinemaDAO as CinemaDAO;
+    use DAO\MovieDAO as MovieDAO;
+
 
     class AdminController
     {
         private $cinemaDAO;
+        private $movieDAO;
 
         public function __construct()
         {
             $this->cinemaDAO = new CinemaDAO();
+            $this->movieDAO = new MovieDAO();
         }
 
-        public function ShowAddView()
+        public function NowPlaying()
+        {
+            $this->movieDAO->NowPlayingToDataBase();
+
+            $this->ShowAddView("Actualizacion Realizada!");
+        }
+
+        public function ShowAddView($message = "")
         {
             require_once(VIEWS_PATH."admin-cinema-add.php");
         }
