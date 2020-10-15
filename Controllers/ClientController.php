@@ -13,5 +13,16 @@
             $movies=$this->movieDao->GetAll();
             require_once(VIEWS_PATH."client-home.php");
         }
+
+        function Account() {
+            require_once(VIEWS_PATH."myaccount.php");
+        }
+
+        function Select() {
+            $genres=$this->movieDao->GetGenres();
+            $movies=$this->movieDao->GetAll();
+            require_once(VIEWS_PATH."select-movie.php");
+        }
     }
+
 ?>
