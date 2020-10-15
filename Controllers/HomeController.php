@@ -21,7 +21,7 @@
                 $fbLogin = $facebookDAO->tryAndLoginWithFacebook( $_GET );
             }
 
-            header("Location:".FRONT_ROOT."Client/Home");
+            $this->Index();
         }
         
         public function LogOut()
