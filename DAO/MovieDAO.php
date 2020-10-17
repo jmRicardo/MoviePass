@@ -189,7 +189,7 @@
         public function NowPlayingToDataBase()
         {
             
-            $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=0e38635e1106aa97618b0e7fee7a5b57&language=es-ES";
+            $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=". TMDB_API_KEY ."&language=es-ES";
             
             $json = file_get_contents($url);
             
