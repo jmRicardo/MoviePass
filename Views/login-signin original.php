@@ -1,6 +1,6 @@
 <?php
 	
-	//require_once(VIEWS_PATH . "login-nav.php");
+	require_once(VIEWS_PATH . "login-nav.php");
     
 
 
@@ -14,20 +14,17 @@
 	//$userDAO->loggedInRedirect();
 ?>
 
-<!-- <button type="button" href="<?php echo FRONT_ROOT ?>Login/SignIn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Iniciar sesión
-            </button> -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        
-        
-		<div class="site-content-section-inner">
-					<div class="section-heading ">INICIO DE SESION</div>
+
+
+
+<body class="bg-dark" >
+	<div class="site-content-container">
+		<div class="site-content-centered">
+			<div class="site-content-section">
+				<div class="site-content-section-inner">
+					<div class="section-heading">INICIO DE SESION</div>
 					<form id="login_form" name="login_form" method="POST" action="<?php echo FRONT_ROOT ?>Login/SignInProcess" >
 						<div id="error_message" class="error-message">
 							<?php  if (isset($message)) {echo $message;} ?>
@@ -83,28 +80,13 @@
 						</a>
 					</div>
 					<div class="section-footer-container">
-					<!-- ¿No eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Registrate</a> -->
-					
-					<button type="button" href="<?php echo FRONT_ROOT ?>Login/SignUp" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalNext" data-dismiss="model" >
-                		Registrate
-            		</button>
-					
+					¿No eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Registrate</a>
 					</div>
 				</div>
-
-				
-
-				
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
+			</div>
+		</div>
+	</div> 
+</body>
 <!--<script>
 
 	$( '#error_message' ).html( "<?php echo isset( $_GET['message'] );?>" );
