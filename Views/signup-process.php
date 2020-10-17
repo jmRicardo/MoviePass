@@ -25,6 +25,6 @@
 		$userId =  $userDAO->signUserUp( $_POST );
 	}
 
-	header("Location:".FRONT_ROOT ."Login/SignUp?message=".$message);
+	header("Location:".FRONT_ROOT ."Client/Home?message=".$message);
 
 ?>
