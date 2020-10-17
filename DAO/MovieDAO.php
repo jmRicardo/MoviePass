@@ -52,7 +52,7 @@
             {
                 $genreList = array();
 
-                $query = "select distinct(g.idGenre),g.name from ". $this->genreTableName ." g left join ". $this->genreByMovieTableName ." gbm on g.idGenre = gbm.idGenre order by g.name;";
+                $query = "select distinct(g.idGenre),g.name from ". $this->genreTableName ." g inner join ". $this->genreByMovieTableName ." gbm on g.idGenre = gbm.idGenre order by g.name;";
 
                 $this->connection = Connection::GetInstance();
 
