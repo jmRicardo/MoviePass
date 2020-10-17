@@ -19,10 +19,18 @@
         }
 
         function Select() {
-            $genres=$this->movieDao->GetGenres();
+            $idGenre = 0;
+            $genres=$this->movieDao->GetActiveGenres();
             $movies=$this->movieDao->GetAll();
             require_once(VIEWS_PATH."select-movie.php");
         }
+
+        function filter($idGenre){
+            $genres=$this->movieDao->GetActiveGenres();
+            $movies=$this->movieDao->GetMoviesByGenre($idGenre);
+            require_once(VIEWS_PATH."select-movie.php");
+        }
+
     }
 
 ?>
