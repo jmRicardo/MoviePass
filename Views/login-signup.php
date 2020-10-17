@@ -4,11 +4,25 @@
 
 	$facebookDAO = new FacebookDAO();
 
+	//require_once(VIEWS_PATH . "login-nav.php");
+
 	// only if you are logged out can you view the login page
 	$userDAO = new UserDAO();	
 	//$userDAO->loggedInRedirect();
 ?>
-		<div class="site-content-container">
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalNext" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+
+	  <div class="site-content-container">
 			<div class="site-content-centered">
 				<div class="site-content-section">
 					<div class="site-content-section-inner">
@@ -62,3 +76,34 @@
 				</div>
 			</div>
 		</div>
+
+
+
+
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<body class="bg-dark" >
+		
+	</body>

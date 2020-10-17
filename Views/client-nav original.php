@@ -36,11 +36,9 @@
         <i class="fa fa-user-o" aria-hidden="true"></i>
         <?php else: ?>
             <li class="nav-item">
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>Login/SignIn">Iniciar sesión</a>
             
-            <!-- <a class="nav-link" href="<?php echo FRONT_ROOT ?>Login/SignIn">Iniciar sesión</a> -->
-            <button type="button" href="<?php echo FRONT_ROOT ?>Login/SignIn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Iniciar sesión
-            </button>
+            
             
             
             </li>
