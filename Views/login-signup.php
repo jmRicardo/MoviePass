@@ -4,10 +4,13 @@
 
 	$facebookDAO = new FacebookDAO();
 
+	require_once(VIEWS_PATH . "login-nav.php");
+
 	// only if you are logged out can you view the login page
 	$userDAO = new UserDAO();	
 	//$userDAO->loggedInRedirect();
 ?>
+	<body class="bg-dark" >
 		<div class="site-content-container">
 			<div class="site-content-centered">
 				<div class="site-content-section">
@@ -62,3 +65,4 @@
 				</div>
 			</div>
 		</div>
+	</body>
