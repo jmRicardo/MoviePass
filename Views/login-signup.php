@@ -52,12 +52,12 @@
 									<!-- <div class="section-button-container" id="signup_button" type="submit">
 										<div>Registrarse</div>
 									</div> -->
-										<button type="submit" class="btn btn-outline-info btn-lg btn-block">Registrarse!</button>
+										<button type="submit" class="btn btn-outline-info btn-lg">Registrarse!</button>
 									</div>
 								</form>
 								<div class="section-action-container">
 									<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
-										<div class="btn btn-primary btn-lg btn-block">
+										<div class="btn btn-primary btn-lg">
 											Registrarse con Faceboook
 										</div>
 									</a>
