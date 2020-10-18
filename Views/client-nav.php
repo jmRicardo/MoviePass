@@ -38,10 +38,10 @@
         <?php else: ?>
             <li class="nav-item">
             
-            <!-- <a class="nav-link" href="<?php echo FRONT_ROOT ?>Login/SignIn">Iniciar sesión</a> -->
-            <button type="button" href="<?php echo FRONT_ROOT ?>Login/SignIn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>Login/SignIn" data-toggle="modal" data-target="#exampleModal" >Iniciar sesión</a>
+            <!-- <button type="button" href="<?php echo FRONT_ROOT ?>Login/SignIn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Iniciar sesión
-            </button>
+            </button> -->
             
             
             </li>
