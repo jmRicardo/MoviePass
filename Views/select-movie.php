@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <form action="<?php echo FRONT_ROOT. "Client/filter"?>" method="GET">
                 <div class="category-selector">
-                    <label class="category-label" for="category">What would you like to see?</label>
+                    <label class="category-label" for="category">¿Qué te gustaría ver?</label>
                         <div class="form-group w-100">
                         <select class="form-control category-select" name="category" placeholder="genre">
                             <option disabled selected></option>
