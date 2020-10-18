@@ -21,84 +21,81 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        
-        
-		<div class="site-content-section-inner">
-					<div class="section-heading ">INICIO DE SESION</div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+        	<div class="site-content-section-inner">
+				<div class="section-heading ">INICIO DE SESION</div>
 					<form id="login_form" name="login_form" method="POST" action="<?php echo FRONT_ROOT ?>Login/SignInProcess" >
 						<div id="error_message" class="error-message">
 							<?php  if (isset($message)) {echo $message;} ?>
-							<?php if ( isset( $_SESSION['eci_login_required_to_connect_facebook'] ) && $_SESSION['eci_login_required_to_connect_facebook'] ) : // enter password to connect account ?>
-								<div style="margin-bottom:10px;">
-									An account already exists with that email address. To connect your Facebook account, enter your password.
-								</div>
-							<?php endif; ?>
-						</div>
-						<div>
-							<div class="section-label">Correo electronico</div>
-							<div>
-								<?php if ( isset( $_SESSION['fb_user_info']['email'] ) ? $_SESSION['fb_user_info']['email'] : '' ) : // pre populate with facebook email ?>
-									<?php $inputEmail = $_SESSION['fb_user_info']['email']; ?>
-								<?php else : ?>
-									<?php $inputEmail = ''; ?>
+								<?php if ( isset( $_SESSION['eci_login_required_to_connect_facebook'] ) && $_SESSION['eci_login_required_to_connect_facebook'] ) : // enter password to connect account ?>
+									<div style="margin-bottom:10px;">
+										An account already exists with that email address. To connect your Facebook account, enter your password.
+									</div>
 								<?php endif; ?>
-								<input class="form-input" type="text" name="email" value="<?php echo $inputEmail; ?>" />
-							</div>
 						</div>
-						<div class="section-mid-container">
-							<div class="section-label">Contraseña</div>
-							<div><input class="form-input" type="password" name="password" /></div>
-						</div>
-
-						<div class="section-action-container">
-						<div class="section-button-container" id="login_button">
 							<div>
-									<button class="login_button_submit" type="submit">Iniciar Sesion</button>
-							</div>				
-						</div>
-						</div>
-
-						
-					</form>
-					
-					
-					<div class="section-action-container">
-						- O -
-					</div>
-					<div class="section-action-container">
-						<div id="error_message_fb_php" class="error-message">
-							<?php if ( !empty( $fbLogin['status'] ) && 'fail' == $fbLogin['status'] ) : // we have a facebook error to display ?>
-								<?php echo $fbLogin['message']; ?>
-							<?php endif; ?>
-						</div>
-					</div>
-					<div class="section-action-container">
-						<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
-							<div class="fb-button-container">
-							Iniciar sesión con Facebook
+								<div class="section-label">Correo electronico</div>
+									<div>
+										<?php if ( isset( $_SESSION['fb_user_info']['email'] ) ? $_SESSION['fb_user_info']['email'] : '' ) : // pre populate with facebook email ?>
+											<?php $inputEmail = $_SESSION['fb_user_info']['email']; ?>
+										<?php else : ?>
+											<?php $inputEmail = ''; ?>
+										<?php endif; ?>
+										<input class="form-input" type="text" name="email" value="<?php echo $inputEmail; ?>" />
+									</div>
+								</div>
+							<div class="section-mid-container">
+								<div class="section-label">Contraseña</div>
+								<div><input class="form-input" type="password" name="password" /></div>
 							</div>
-						</a>
-					</div>
-					<div class="section-footer-container">
-					<!-- ¿No eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Registrate</a> -->
-					
-					<button type="button" href="<?php echo FRONT_ROOT ?>Login/SignUp" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalNext" data-dismiss="model" >
-                		Registrate
-            		</button>
-					
-					</div>
+
+								<div class="section-action-container">
+									<div class="section-button-container" id="login_button">
+										<div>
+												<button class="login_button_submit" type="submit">Iniciar Sesion</button>
+										</div>				
+									</div>
+								</div>
+
+							
+					</form>
+						
+						
+						<div class="section-action-container">
+							- O -
+						</div>
+							<div class="section-action-container">
+								<div id="error_message_fb_php" class="error-message">
+									<?php if ( !empty( $fbLogin['status'] ) && 'fail' == $fbLogin['status'] ) : // we have a facebook error to display ?>
+										<?php echo $fbLogin['message']; ?>
+									<?php endif; ?>
+								</div>
+							</div>
+						<div class="section-action-container">
+							<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
+								<div class="fb-button-container">
+								Iniciar sesión con Facebook
+								</div>
+							</a>
+						</div>
+						<div class="section-footer-container">
+						<!-- ¿No eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Registrate</a> -->
+							¿No eres usuario?
+							<button type="button" href="<?php echo FRONT_ROOT ?>Login/SignUp" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalNext" class="close" >
+								Registrate
+							</button>
+						
+						</div>
 				</div>
-
-				
-
-				
-
-    </div>
-  </div>
+			</div>
+		</div>
+	</div>
 </div>
+				
+
+				
+
 
 
 
