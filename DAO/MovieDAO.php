@@ -145,7 +145,8 @@
                     array_push($movieList, $movie);
                 }
 
-            return count($movieList) == 1  ?  $movieList[0] : $movieList;
+            //return count($movieList) == 1  ?  $movieList[0] : $movieList;
+            return $movieList;
         }
 
         public function GetMovieByID($id)
@@ -266,6 +267,33 @@
                 throw $ex;
             }
         }     
+
+        public function GetGenresMovie($idMovie)
+        {
+            try
+            {
+                $genreList = array();
+
+                $query = "SELECT gbm.idGenre, g.name
+                FROM ".$this->genreByMovieTableName." AS gbm
+                INNER JOIN ".$this->genreTableName." AS g ON gbm.idGenre=g.idGenre
+                WHERE gbm.idMovie= :idMovie";
+
+                $parameters["idMovie"] = $idMovie;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query,$parameters);
+                
+                $genreList = $this->ArrayToGenreObjects($resultSet);
+
+                return $genreList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
     }
 
 ?>
