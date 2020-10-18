@@ -145,7 +145,8 @@
                     array_push($movieList, $movie);
                 }
 
-            return count($movieList) == 1  ?  $movieList[0] : $movieList;
+            //return count($movieList) == 1  ?  $movieList[0] : $movieList;
+            return $movieList;
         }
 
         public function GetMovieByID($id)
