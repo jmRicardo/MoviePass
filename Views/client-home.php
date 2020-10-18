@@ -16,5 +16,9 @@
 <?php
 
     require_once(VIEWS_PATH . "list-movies.php");
+
+    //ventana emergentes de logeo
+    require_once(VIEWS_PATH . "login-signin.php");
+    require_once(VIEWS_PATH . "login-signup.php");
 ?>
 

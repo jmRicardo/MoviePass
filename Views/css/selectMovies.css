@@ -9,6 +9,7 @@
 .category-select {
     border: none;
     background: #fafafa;
+    cursor: pointer;
 }
 
 .category-button {
