@@ -37,7 +37,7 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" name="button" class="admin_buttons">Agregar</button>
+                    <button type="submit" name="button" class="btn btn-primary ">Agregar</button>
                </form>
           </div>
      </section>
