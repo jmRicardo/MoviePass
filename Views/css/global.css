@@ -26,7 +26,8 @@ body {
 	font-family: 'Roboto', sans-serif;
 	padding: 0px;
 	margin: 0px;
-	background: #ebeeef;
+	background: #2f2226;
+	color: #fafafa;
 }
 
 .a-default {
@@ -141,7 +142,6 @@ body {
 }
 
 
-body {
-	background: #2f2226;
+.table {
 	color: #fafafa;
 }

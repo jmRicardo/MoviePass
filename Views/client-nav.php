@@ -33,7 +33,8 @@
                 </a>
             </div>
         </li>
-        <i class="fa fa-user-o" aria-hidden="true"></i>
+       <img src="<?php
+        echo FRONT_ROOT . VIEWS_PATH ?>img/oveja.png" alt="" width="40" height="40">
         <?php else: ?>
             <li class="nav-item">
             
