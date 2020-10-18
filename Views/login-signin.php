@@ -51,9 +51,9 @@
 							</div>
 
 								<div class="section-action-container">
-									<div class="section-button-container" id="login_button">
+									<div id="login_button">
 										<div>
-												<button class="login_button_submit" type="submit">Iniciar Sesion</button>
+												<button class="btn btn-outline-info btn-lg btn-block" type="submit">Iniciar Sesion</button>
 										</div>				
 									</div>
 								</div>
@@ -74,7 +74,7 @@
 							</div>
 						<div class="section-action-container">
 							<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
-								<div class="fb-button-container">
+								<div class="btn btn-primary btn-lg btn-block">
 								Iniciar sesión con Facebook
 								</div>
 							</a>
