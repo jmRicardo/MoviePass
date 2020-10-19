@@ -21,11 +21,11 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
+	<div class="modal-dialog  ">
+		<div class="modal-content  ">
 
-        	<div class="site-content-section-inner">
-				<div class="section-heading text-primary ">INICIO DE SESION</div>
+        	<div class="section-action-container ">
+				<div class=" text-primary ">INICIO DE SESION</div>
 					<form id="login_form" name="login_form" method="POST" action="<?php echo FRONT_ROOT ?>Login/SignInProcess" >
 						<div id="error_message" class="error-message">
 							<?php  if (isset($message)) {echo $message;} ?>
@@ -49,13 +49,13 @@
 										<div class="section-mid-container">
 											<div class="section-label">Contraseña</div>
 											<div><input class="form-input" type="password" name="password" /></div>
-											     
+											
 										</div>
 
 									<div class="section-action-container">
 										<div id="login_button">
 											<div>
-													<button class="btn btn-outline-info btn-lg" type="submit">Iniciar Sesion</button>
+													<button class="btn btn-outline-info btn-md" type="submit">Iniciar Sesion</button>
 											</div>				
 										</div>
 									</div>
@@ -74,7 +74,7 @@
 							</div>
 						<div class="section-action-container">
 							<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
-								<div class="btn btn-primary btn-lg">
+								<div class="btn btn-primary btn-md">
 								Iniciar sesión con Facebook
 								</div>
 							</a>
@@ -102,7 +102,7 @@ $(document).ready(function(){
 });
 </script>
 
-				
+
 
 
 
