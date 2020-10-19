@@ -15,12 +15,21 @@
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
+        
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <div class="modal-body">
+                        <p><?php echo $qwerty; ?></p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
 
 
 
-        
-        
-        
 <?php        $_SESSION['message'] = null;
 } ?>    
 
