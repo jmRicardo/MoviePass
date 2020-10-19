@@ -15,7 +15,7 @@
          $_SESSION['message'] = 'Correo Electronico o contraseña incorrecta';
      } else { // all good
          $status = 'ok';
-         $_SESSION['message'] = 'Exito!';
+         $_SESSION['message'] = null;
 
          if ( isset( $_SESSION['fb_user_info']['id'] ) ) { // if we have facebook id save it
             $userDAO->updateRow( 'users', 'fb_user_id', $_SESSION['fb_user_info']['id'], $userInfo['id'] );
