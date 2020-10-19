@@ -16,7 +16,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade  " id="exampleModalNext" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="exampleModalNext" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog  ">
 		<div class="modal-content  ">
 			<div class="modal-header">
@@ -64,7 +64,7 @@
 								</div>
 							    <div class="section-footer-container">
 								¿Ya eres usuario? <a class="a-default" id="volverASignIn" data-dismiss="modal" data-target="#exampleModalNext">Inicia sesion</a>
-								</div> -->
+								</div>
 							</div>
 						</div>	
 					</div>		
