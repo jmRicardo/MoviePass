@@ -62,9 +62,9 @@
 										</div>
 									</a>
 								</div>
-							<!-- <div class="section-footer-container">
-								¿Ya eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignIn">Inicia sesion</a>
-							</div> -->
+							    <div class="section-footer-container">
+								¿Ya eres usuario? <a class="a-default" id="volverASignIn" data-dismiss="modal" data-target="#exampleModalNext">Inicia sesion</a>
+								</div> -->
 							</div>
 						</div>	
 					</div>		
@@ -73,6 +73,15 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$(document).ready(function(){
+  
+  $("#exampleModalNext").on('hide.bs.modal', function(){
+    $("#exampleModal").modal("show");
+  });
+});
+</script>
 
 
 

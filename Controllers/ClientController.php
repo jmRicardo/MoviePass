@@ -9,7 +9,7 @@
             $this->movieDao= new MovieDAO();
         }
         
-        function Home() {
+        function Home($message = "") {
             $movies=$this->movieDao->GetAll();
             require_once(VIEWS_PATH."client-home.php");
         }
