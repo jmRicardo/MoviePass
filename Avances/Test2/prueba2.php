@@ -3,7 +3,7 @@
      $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=0e38635e1106aa97618b0e7fee7a5b57"; 
     $json = file_get_contents($url);
     $datos = json_decode($json,true);
-    $dire = "https://image.tmdb.org/t/p/w500/";
+    //$dire = "https://image.tmdb.org/t/p/w500/";
 
      var_dump($datos);
     exit; 

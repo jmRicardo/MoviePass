@@ -27,13 +27,13 @@
                                              <td><?php echo $cinema->getAddress() ?></td>
                                              <td><?php echo $cinema->getTicket_value() ?></td>
                                              <td>
-                                                  <button type="submit" name="id" class="admin_buttons" value="<?php echo $cinema->getId() ?>">
-                                                       <i class="fa fa-trash"></i>
+                                                  <button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId() ?>">
+                                                       <i class="fa fa-trash "></i>
                                                             Eliminar 
                                                   </button>
                                              </td>
                                              <td>
-                                                  <button name="id" value="<?php echo $cinema->getId() ?>" class="admin_buttons" onclick="
+                                                  <button name="id" value="<?php echo $cinema->getId() ?>" class="btn btn-warning" onclick="
                                                        var frm = document.getElementById('from') || null;
                                                        if(frm) {
                                                             var a = '<?php echo FRONT_ROOT ?>';
