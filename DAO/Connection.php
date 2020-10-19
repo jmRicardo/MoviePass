@@ -65,12 +65,10 @@ class Connection
 
                 return $this->pdoStatement->rowCount();
             }
-            catch( PDOException $Exception ) {
+           /*  catch( PDOException $Exception ) {
                 if ($Exception->getCode() == 23000)
                     echo  $Exception->getMessage() ." // Valor duplicado, ya existe en la base de datos." . "<br>";
-                else
-                    throw $Exception;
-            }catch(Exception $ex)
+            } */catch(Exception $ex)
             {
                 throw $ex;
             }        	    	

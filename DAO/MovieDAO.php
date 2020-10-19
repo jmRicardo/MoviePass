@@ -196,7 +196,8 @@
             
             $datos = json_decode($json,true);
 
-         
+            $duplicates = 0;
+            
             foreach($datos['results'] as $value)
             {
                            
@@ -210,17 +211,26 @@
                 $movie->setOverview($value["overview"]);
                 $movie->setReleaseDate($value["release_date"]);
 
-                $this->AddMovie($movie);               
-
-                 foreach($value['genre_ids'] as $gKey)
+                try
                 {
+                    $this->AddMovie($movie);               
+
+                    foreach($value['genre_ids'] as $gKey)
+                    {
                     $genreByMovie = new GenreByMovie();
                     $genreByMovie->setIdGenre($gKey);
                     $genreByMovie->setIdMovie($value["id"]);                    
                     
                     $this->AddGenreByMovie($genreByMovie);     
-                }             
-            }            
+                    }
+                }
+                catch(Exception $ex)
+                {
+                    $duplicates++;
+                }           
+            }
+            
+            return $duplicates;
         }
 
         public function AddGenreByMovie(GenreByMovie $genreByMovie)

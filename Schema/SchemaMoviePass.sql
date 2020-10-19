@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `genresByMovie` (
   `idGenreByMovie` int not null AUTO_INCREMENT,
   `idGenre` int not null,
   `idMovie` int not null,
-  PRIMARY KEY (`idGenreByMovie`),
+  constraint pk_idPerMovie PRIMARY KEY (`idGenre`,`idMovie`),
   constraint fk_idGenre foreign key (idGenre) references genres(idGenre) on delete cascade on update cascade,
   constraint fk_idMovie foreign key (idMovie) references movies(idMovie) on delete cascade on update cascade
 )Engine = InnoDB; 
