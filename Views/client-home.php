@@ -3,47 +3,17 @@
 ?>
 
 <?php if (isset($_SESSION['message'])){ 
-        $qwerty = $_SESSION['message']; ?>
-        
-        <!-- cartel pedorro -->
-        <!-- echo "<script> alert(' $qwerty ');</script>"; -->
-
-        <!-- cartel con mas onda, pero no gusta -->
-        <!-- <div class="alert alert-dismissible fade show" role="alert">
+        $qwerty = $_SESSION['message']; ?>   
+        <div class="alert alert-dismissible fade show" role="alert">
         <strong><?php echo $qwerty; ?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        </div> -->
-        
-        <div class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <p><?php echo $qwerty; ?></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<?php $_SESSION['message'] = null;
-} ?>    
-
-
-                
+        </div>   
+<?php        $_SESSION['message'] = null;
+} ?>            
             
-
-
-
-
-
-
-
-
- <div class="container-fluid no-padding">
+<div class="container-fluid no-padding">
         <div class="banner-container">
             <div class="banner-video-container">
                 <video class="video-banner" autoplay muted>
