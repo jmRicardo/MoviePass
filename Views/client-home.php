@@ -1,7 +1,9 @@
 <?php
     require_once(VIEWS_PATH . "client-nav.php");
-    ?>
-    <div class="container-fluid no-padding">
+?>
+ <?php if (isset($_SESSION['message'])) echo $_SESSION['message']; ?>
+ 
+ <div class="container-fluid no-padding">
         <div class="banner-container">
             <div class="banner-video-container">
                 <video class="video-banner" autoplay muted>
