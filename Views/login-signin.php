@@ -82,7 +82,7 @@
 						<div class="section-footer-container">
 						<!-- ¿No eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Registrate</a> -->
 							¿No eres usuario?
-							<button type="button" href="<?php echo FRONT_ROOT ?>Login/SignUp" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalNext" class="close" >
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalNext" class="close" >
 								Registrate
 							</button>
 						
@@ -92,7 +92,15 @@
 		</div>
 	</div>
 </div>
-				
+
+<script>
+$(document).ready(function(){
+  
+  $("#exampleModalNext").on('show.bs.modal', function(){
+    $("#exampleModal").modal("hide");
+  });
+});
+</script>
 
 				
 
