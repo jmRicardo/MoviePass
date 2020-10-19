@@ -51,7 +51,6 @@ CREATE TABLE IF NOT EXISTS `movies` (
 
 DROP TABLE IF EXISTS `genresByMovie`;
 CREATE TABLE IF NOT EXISTS `genresByMovie` (
-  `idGenreByMovie` int not null AUTO_INCREMENT,
   `idGenre` int not null,
   `idMovie` int not null,
   constraint pk_idPerMovie PRIMARY KEY (`idGenre`,`idMovie`),
