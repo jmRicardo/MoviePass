@@ -9,13 +9,13 @@
 
      if ( '' == $_POST['email'] || empty( $userInfo ) ) { // no email or password is invalid
          $status = 'fail';
-         $message = 'Correo Electronico o contraseña incorrecta';
+         $_SESSION['message'] = 'Correo Electronico o contraseña incorrecta';
      } elseif ( '' == $_POST['password'] || !password_verify( $_POST['password'], $userInfo['password'] ) ) { // password check
          $status = 'fail';
-         $message = 'Correo Electronico o contraseña incorrecta';
+         $_SESSION['message'] = 'Correo Electronico o contraseña incorrecta';
      } else { // all good
          $status = 'ok';
-         $message = '';
+         $_SESSION['message'] = 'Exito!';
 
          if ( isset( $_SESSION['fb_user_info']['id'] ) ) { // if we have facebook id save it
             $userDAO->updateRow( 'users', 'fb_user_id', $_SESSION['fb_user_info']['id'], $userInfo['id'] );
@@ -33,9 +33,7 @@
          $_SESSION['user_info'] = $userInfo;
      }
 
-     if ( $status == 'ok')
-        header("Location:".FRONT_ROOT."Client/Home");
-     else
-        header("Location:".FRONT_ROOT."Login/SignIn/".$message); 
+     header("Location:".FRONT_ROOT."Client/Home");   
+  
      
  ?>
