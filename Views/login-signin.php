@@ -21,10 +21,10 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog  ">
-		<div class="modal-content  ">
-
-        	<div class="section-action-container ">
+	<div class="modal-dialog ">
+		<div class="modal-content ">
+		
+        	<div class="section-action-container">
 				<div class=" text-primary ">INICIO DE SESION</div>
 					<form id="login_form" name="login_form" method="POST" action="<?php echo FRONT_ROOT ?>Login/SignInProcess" >
 						<div id="error_message" class="error-message">
@@ -49,9 +49,8 @@
 										<div class="section-mid-container">
 											<div class="section-label">Contraseña</div>
 											<div><input class="form-input" type="password" name="password" /></div>
-											
 										</div>
-
+											
 									<div class="section-action-container">
 										<div id="login_button">
 											<div>
@@ -59,12 +58,9 @@
 											</div>				
 										</div>
 									</div>
+					</form>
 
 							
-					</form>
-						
-						
-						
 							<div class="section-action-container">
 								<div id="error_message_fb_php" class="error-message">
 									<?php if ( !empty( $fbLogin['status'] ) && 'fail' == $fbLogin['status'] ) : // we have a facebook error to display ?>
@@ -82,14 +78,6 @@
 						<div class="section-footer-container">
 							¿No eres usuario?
 							<a class="a-default"  data-toggle="modal" data-target="#exampleModalNext" class="close" >Registrate</a>
-								
-							
-							
-									
-							
-
-
-
 						</div>
 				</div>
 			</div>
