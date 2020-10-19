@@ -5,32 +5,31 @@
 <?php if (isset($_SESSION['message'])){ 
         $qwerty = $_SESSION['message']; ?>
         
-        
+        <!-- cartel pedorro -->
         <!-- echo "<script> alert(' $qwerty ');</script>"; -->
 
-
-        <div class="alert alert-dismissible fade show" role="alert">
+        <!-- cartel con mas onda, pero no gusta -->
+        <!-- <div class="alert alert-dismissible fade show" role="alert">
         <strong><?php echo $qwerty; ?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        </div>
+        </div> -->
         
         <div class="modal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
-                
                     <div class="modal-body">
                         <p><?php echo $qwerty; ?></p>
                     </div>
-                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-
-
-<?php        $_SESSION['message'] = null;
+<?php $_SESSION['message'] = null;
 } ?>    
 
 
