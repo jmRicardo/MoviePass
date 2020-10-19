@@ -72,20 +72,24 @@
 									<?php endif; ?>
 								</div>
 							</div>
-						<div class="section-action-container">
-							<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
-								<div class="btn btn-primary btn-md">
-								Iniciar sesión con Facebook
-								</div>
-							</a>
-						</div>
+							<div class="section-action-container">
+								<a href="<?php echo $facebookDAO->getFacebookLoginUrl(); ?>" class="a-fb">
+									<div class="btn btn-primary btn-md">
+									Iniciar sesión con Facebook
+									</div>
+								</a>
+							</div>
 						<div class="section-footer-container">
-						<!-- ¿No eres usuario? <a class="a-default" href="<?php echo FRONT_ROOT ?>Login/SignUp">Registrate</a> -->
 							¿No eres usuario?
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalNext" class="close" >
-								Registrate
-							</button>
-						
+							<a class="a-default"  data-toggle="modal" data-target="#exampleModalNext" class="close" >Registrate</a>
+								
+							
+							
+									
+							
+
+
+
 						</div>
 				</div>
 			</div>

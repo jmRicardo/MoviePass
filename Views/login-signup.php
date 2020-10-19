@@ -64,7 +64,7 @@
 								</div>
 							    <div class="section-footer-container">
 								¿Ya eres usuario? <a class="a-default" id="volverASignIn" data-dismiss="modal" data-target="#exampleModalNext">Inicia sesion</a>
-								</div> -->
+								</div>
 							</div>
 						</div>	
 					</div>		
