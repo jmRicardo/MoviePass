@@ -32,7 +32,7 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" name="id" class="admin_buttons" value="<?php echo $cinema->getId() ?>">Guardar</button>
+                    <button type="submit" name="id" class="btn btn-primary" value="<?php echo $cinema->getId() ?>">Guardar</button>
                </form>
           </div>
      </section>

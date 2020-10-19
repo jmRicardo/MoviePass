@@ -16,14 +16,14 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalNext" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
+<div class="modal fade  " id="exampleModalNext" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog  ">
+		<div class="modal-content  ">
 			<div class="modal-header">
 				<button tyle="button" class="close right" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<div class="site-content-container">
-						<div class="site-content-section">
-							<div class="site-content-section-inner">
+						<div class="site-content-section  ">
+							<div class="site-content-section-inner  ">
 								<form id="signup_form" name="signup_form" action="<?php echo FRONT_ROOT ?>Login/SignUpProcess" method="POST">
 									<div id="error_message" class="error-message">
 										<?php  if (isset($message)) {echo $message;} ?>
