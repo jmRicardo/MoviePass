@@ -1,6 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `MoviePass`;
-USE `MoviePass`;
-
+USE ic1fGMePQ6;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
@@ -39,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `genres` (
 DROP TABLE IF EXISTS `movies`;
 CREATE TABLE IF NOT EXISTS `movies` (
   `idMovie` int not null primary key,
-  `adult` boolean,
+  `adult` bool,
   `posterPath` varchar(100) not null,
   `originalTitle` varchar(100) not null,
   `originalLanguage` varchar(100) not null,

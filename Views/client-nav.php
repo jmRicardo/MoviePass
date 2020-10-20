@@ -1,4 +1,10 @@
-<?php use DAO\UserDAO;?>
+<?php 
+    
+    use DAO\UserDAO;
+    use Utils\Util as Util;
+
+
+?>
 
 <nav class="navbar navbar-expand-lg  navbar-dark nav-client">
    <a  href="<?php echo FRONT_ROOT ?>client/home"><img src="<?php
@@ -6,7 +12,7 @@
    </a>
     <ul class="navbar-nav ml-auto">
 
-        <?php if (UserDAO::isAdmin()) : ?>
+        <?php if (Util::isAdmin()) : ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">MODO ADMIN</a>
         </li>
