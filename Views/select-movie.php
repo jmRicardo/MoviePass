@@ -6,7 +6,7 @@
     <div class="row pb-4">
         <div class="col-md"></div>
         <div class="col-md-8">
-            <form action="<?php echo FRONT_ROOT. "Client/filter"?>" method="GET">
+            <form action="<?php echo FRONT_ROOT. "Client/Filter"?>" method="GET">
                 <div class="category-selector">
                     <label class="category-label" for="category">¿Qué te gustaría ver?</label>
                         <div class="form-group w-100">
