@@ -7,6 +7,7 @@ define("VIEWS_PATH", "Views/");
 define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "css/");
 define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
 define("PROCESS_PATH", "Process/");
+define("UTILS_PATH", "Utils/");
 
 /* // Datos para el acceso a la base de datos
 define("DB_HOST", "localhost");
