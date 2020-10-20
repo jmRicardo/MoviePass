@@ -12,7 +12,7 @@ use DAO\MovieDAO;
         return substr($stringGenres,0,-2);
     }
 ?>
-<div class="bg-black">
+<div>
     <div class="container">
         <div class="row py-4 movie-expanded">
             <div class="col-4 text-white">

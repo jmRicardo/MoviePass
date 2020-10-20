@@ -48,6 +48,31 @@
 }   
 .movie-container {
     position:relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+@media screen and ( min-width: 576px ) { 
+	.movie-container {
+		height: 229px;
+}
+
+@media screen and ( min-width: 768px ) { 
+	.movie-container {
+		height: 300px;
+	}
+}
+
+@media screen and ( min-width: 992px ) { 
+	.movie-container {
+		height: 202px;
+	}
+}
+
+@media screen and ( min-width: 1200px ) { 
+	.movie-container {
+		height: 240px;
+	}
 }
 
 .movie-name {

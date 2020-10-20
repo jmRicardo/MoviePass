@@ -3,7 +3,7 @@ update movies set trailerPath = "1dnaQjFL67k" where idMovie = 337401;#mulan
 update movies set trailerPath = "DI3gW94_uFc" where idMovie = 413518;#Pinocho
 update movies set trailerPath = "7HMT1TAsDaQ" where idMovie = 425001;#The war with Granpa
 update movies set trailerPath = "kDeZ4-ENjdI" where idMovie = 446893;#Trolls 2 Gira mundial
-update movies set trailerPath = "cjSN5Q5_pG0" where idMovie = 479259;#I Am Not a Bird
+update movies set trailerPath = "UkFgYuHhU-Q" where idMovie = 479259;#I Am Not a Bird
 update movies set trailerPath = "KtN6fpjRSHs" where idMovie = 499932;#El diablo a todas horas
 update movies set trailerPath = "OPwg_pv93rI" where idMovie = 501979;#Bill & Ted Face the Music
 update movies set trailerPath = "_iBgmin5e7I" where idMovie = 528085;#2067
