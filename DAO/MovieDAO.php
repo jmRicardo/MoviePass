@@ -194,7 +194,7 @@
             
             $json = file_get_contents($url);
             
-            $datos = json_decode($json,true);
+            $datos = json_decode($json,true);         
 
             $duplicates = 0;
             
@@ -203,7 +203,7 @@
                            
                 $movie = new Movie();
                 $movie->setIdMovie($value["id"]);
-                $movie->setAdult($value["adult"]);
+                $movie->setAdult($value["adult"] ? 1 : 0);
                 $movie->setPosterPath($value["poster_path"]);
                 $movie->setOriginalTitle($value["original_title"]);
                 $movie->setOriginalLanguage($value["original_language"]);
@@ -224,8 +224,9 @@
                     $this->AddGenreByMovie($genreByMovie);     
                     }
                 }
-                catch(Exception $ex)
+                catch(Exception $Exception)
                 {
+                    echo $Exception->getMessage();
                     $duplicates++;
                 }           
             }
