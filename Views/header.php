@@ -38,4 +38,4 @@
 
      <title>MoviePass</title>
 </head>
-<body>
+<body class="body">

@@ -136,6 +136,11 @@ body {
 .bg-black {
 	background: #2f2226;
 }
+.bg-black .body {
+	background: #2f2226 !important;
+	
+}
+
 
 .text-white {
 	color: white; 
@@ -144,4 +149,8 @@ body {
 
 .table {
 	color: #fafafa;
+}
+
+.footer {
+	margin-top: 10px;
 }
