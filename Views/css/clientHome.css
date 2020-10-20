@@ -54,7 +54,8 @@
 
 @media screen and ( min-width: 576px ) { 
 	.movie-container {
-		height: 229px;
+        height: 229px;
+    }
 }
 
 @media screen and ( min-width: 768px ) { 
@@ -88,7 +89,4 @@
 
 .movie-expanded {
     display: none;
-}
-
-
 }

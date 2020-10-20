@@ -4,7 +4,7 @@
 
     class GenreByMovie {
 
-        private $idGenreByMovie;
+        private $id;
         private $idGenre;
         private $idMovie;
 
@@ -12,12 +12,12 @@
 
         }
 
-        public function getIdGenreByMovie(){
-            return $this->idGenreByMovie;
+        public function getid(){
+            return $this->id;
         }
     
-        public function setIdGenreByMovie($idGenreByMovie){
-            $this->idGenreByMovie = $idGenreByMovie;
+        public function setid($id){
+            $this->id = $id;
         }
     
         public function getIdGenre(){

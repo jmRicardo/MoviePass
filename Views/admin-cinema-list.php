@@ -8,11 +8,8 @@
                <h2 class="mb-4">Listado de Cines</h2>
                <table class="table bg-light-alpha">
                     <thead>
-                         <th>ID</th>
                          <th>Nombre</th>
-                         <th>Capacidad TOTAL</th>
                          <th>Direccion</th>
-                         <th>VALOR TICKET</th>
                     </thead>
                     <tbody>
                          <form action="<?php echo FRONT_ROOT ?>Admin/Remove " method="post" id="from">
@@ -21,11 +18,8 @@
                               {
                                    ?>
                                         <tr>
-                                             <td><?php echo $cinema->getId() ?></td>
                                              <td><?php echo $cinema->getName() ?></td>
-                                             <td><?php echo $cinema->getTotal_capacity() ?></td>
                                              <td><?php echo $cinema->getAddress() ?></td>
-                                             <td><?php echo $cinema->getTicket_value() ?></td>
                                              <td>
                                                   <button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId() ?>">
                                                        <i class="fa fa-trash "></i>

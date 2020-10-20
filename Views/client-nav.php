@@ -11,7 +11,6 @@
         echo FRONT_ROOT . VIEWS_PATH ?>img/logo.png" alt="" width="170" height="60">
    </a>
     <ul class="navbar-nav ml-auto">
-
         <?php if (Util::isAdmin()) : ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">MODO ADMIN</a>
@@ -43,17 +42,13 @@
         echo FRONT_ROOT . VIEWS_PATH ?>img/oveja.png" alt="" width="40" height="40">
         <?php else: ?>
             <li class="nav-item">
-            
             <a id="algo" class="nav-link"  type="button" data-toggle="modal" data-target="#exampleModal" >Iniciar sesión</a>
             <!-- <button type="button" href="<?php echo FRONT_ROOT ?>Login/SignIn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Iniciar sesión
             </button> -->
-            
-            
             </li>
         <?php endif; ?>
     </ul>
-
 </nav>
 <div class="content-container"> <!-- abro div contenedor -->
 
