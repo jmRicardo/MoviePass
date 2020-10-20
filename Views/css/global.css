@@ -28,6 +28,7 @@ body {
 	margin: 0px;
 	background: #2f2226;
 	color: #fafafa;
+	overflow-x: hidden;
 }
 
 .a-default {
@@ -152,5 +153,17 @@ body {
 }
 
 .footer {
-	margin-top: 10px;
+	padding: 10px;
+    background: black;
+}
+.footer p {
+	margin: 0;
+}
+
+.content-container {
+	min-height: calc(100vh - 120px);
+}
+
+.admin-nav {
+	height: 76px;
 }

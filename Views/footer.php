@@ -1,5 +1,5 @@
 
-
+</div> <!-- cierra div contenedor -->
 <div class="wrapper row4">
   <footer id="footer" class="clear"></footer>
 </div>
