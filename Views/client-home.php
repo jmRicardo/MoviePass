@@ -1,9 +1,19 @@
 <?php
     require_once(VIEWS_PATH . "client-nav.php");
 ?>
- <?php if (isset($_SESSION['message'])) echo $_SESSION['message']; ?>
- 
- <div class="container-fluid no-padding">
+
+<?php if (isset($_SESSION['message'])){ 
+        $qwerty = $_SESSION['message']; ?>   
+        <div class="alert alert-dismissible fade show" role="alert">
+        <strong><?php echo $qwerty; ?></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>   
+<?php        $_SESSION['message'] = null;
+} ?>            
+            
+<div class="container-fluid no-padding">
         <div class="banner-container">
             <div class="banner-video-container">
                 <video class="video-banner" autoplay muted>

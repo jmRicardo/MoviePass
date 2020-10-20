@@ -20,9 +20,9 @@
 
         public function NowPlaying()
         {
-            $this->movieDAO->NowPlayingToDataBase();
+            $duplicates = $this->movieDAO->NowPlayingToDataBase();
 
-            $this->ShowAddView("Actualizacion Realizada!");
+            $this->ShowAddView("Actualizacion Realizada! " . $duplicates . " Elementos duplicados!");
         }
 
         public function ShowAddView($message = "")
