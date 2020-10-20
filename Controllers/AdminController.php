@@ -37,13 +37,11 @@
             require_once(VIEWS_PATH."admin-cinema-list.php");
         }
 
-        public function Add($name,$total_capacity,$address,$ticket_value)
+        public function Add($name,$address)
         {
             $cinema = new Cinema();
             $cinema->setName($name);
-            $cinema->setTotal_capacity($total_capacity);
             $cinema->setAddress($address);
-            $cinema->setTicket_value($ticket_value);
 
             $this->cinemaDAO->Add($cinema);
 
@@ -66,17 +64,13 @@
             require_once(VIEWS_PATH."admin-cinema-update.php");
         }
 
-        public function SaveUpdate($name,$total_capacity,$address,$ticket_value,$id)
+        public function SaveUpdate($name,$address,$id)
         {
-            
-            /* $this->cinemaDAO->Update($id,$name,$total_capacity,$address,$ticket_value); */
             
             $cinema = new Cinema();
             $cinema->setId($id);
             $cinema->setName($name);
-            $cinema->setTotal_capacity($total_capacity);
             $cinema->setAddress($address);
-            $cinema->setTicket_value($ticket_value);
 
             $this->cinemaDAO->UpdateCinema($cinema); 
             

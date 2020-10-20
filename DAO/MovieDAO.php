@@ -132,6 +132,7 @@
             foreach ($result as $row)
                 {                
                     $movie = new Movie();
+                    $movie->setId($row["id"]);
                     $movie->setIdMovie($row["idMovie"]);
                     $movie->setAdult($row["adult"]);
                     $movie->setPosterPath($row["posterPath"]);

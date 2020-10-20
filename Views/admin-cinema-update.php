@@ -15,20 +15,8 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Capacidad Total</label>
-                                   <input type="text" name="total_capacity" value="<?php echo $cinema->getTotal_capacity() ?>" class="form-control" required>
-                              </div>
-                         </div>
-                         <div class="col-lg-4">
-                              <div class="form-group">
                                    <label for="">Direccion</label>
                                    <input type="text" name="address" value="<?php echo $cinema->getAddress() ?>" class="form-control" required>
-                              </div>
-                         </div>
-                         <div class="col-lg-4">
-                              <div class="form-group">
-                                   <label for="">Valor de Ticket</label>
-                                   <input type="text" name="ticket_value" value="<?php echo $cinema->getTicket_value() ?>" class="form-control" required>
                               </div>
                          </div>
                     </div>
