@@ -8,11 +8,19 @@ define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "css/");
 define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
 define("PROCESS_PATH", FRONT_ROOT."Process/");
 
-// Datos para el acceso a la base de datos
+/* // Datos para el acceso a la base de datos
 define("DB_HOST", "localhost");
 define("DB_NAME", "MoviePass");
 define("DB_USER", "root");
 define("DB_PASS", "");
+ */
+
+// Datos para el acceso a la base de datos REMOTA
+define("DB_HOST", "remotemysql.com");
+define("DB_NAME", "ic1fGMePQ6");
+define("DB_USER", "ic1fGMePQ6");
+define("DB_PASS", "k9Adageba0");
+
 
 // LLave para la Api de movie data base
 
