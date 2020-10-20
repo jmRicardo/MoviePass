@@ -1,6 +1,6 @@
 <?php
     require_once('admin-nav.php');
-
+    require_once(UTILS_PATH . "MessageBox.php");
     use DAO\MovieDAO as MovieDAO;
 
     $movieDAO = new MovieDAO;
