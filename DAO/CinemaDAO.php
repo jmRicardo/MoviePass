@@ -14,16 +14,12 @@
         {
             $query = "UPDATE " .$this->tableName. 
             " SET name = :name,  
-            total_capacity = :total_capacity,
-            address = :address,
-            ticket_value = :ticket_value
+            address = :address
             WHERE (id = :id)";
         
             $parameters["id"] = $cinema->getId();
             $parameters["name"] = $cinema->getName();
-            $parameters["total_capacity"] = $cinema->getTotal_capacity();
             $parameters["address"] = $cinema->getAddress();
-            $parameters["ticket_value"] = $cinema->getTicket_value();
 
             $this->connection = Connection::GetInstance();
 
@@ -36,12 +32,10 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (name, total_capacity, address, ticket_value) VALUES (:name, :total_capacity, :address, :ticket_value);";
+                $query = "INSERT INTO ".$this->tableName." (name, address) VALUES (:name, :address);";
                 
                 $parameters["name"] = $cinema->getName();
-                $parameters["total_capacity"] = $cinema->getTotal_capacity();
                 $parameters["address"] = $cinema->getAddress();
-                $parameters["ticket_value"] = $cinema->getTicket_value();
 
                 $this->connection = Connection::GetInstance();
 
@@ -66,9 +60,7 @@
             $cinema = new Cinema(); 
             $cinema->setId($result[0]["id"]);
             $cinema->setName($result[0]["name"]);
-            $cinema->setTotal_capacity($result[0]["total_capacity"]);
             $cinema->setAddress($result[0]["address"]);
-            $cinema->setTicket_value($result[0]["ticket_value"]);
 
             return $cinema;
         }
@@ -90,9 +82,7 @@
                     $cinema = new Cinema(); 
                     $cinema->setId($row["id"]);
                     $cinema->setName($row["name"]);
-                    $cinema->setTotal_capacity($row["total_capacity"]);
                     $cinema->setAddress($row["address"]);
-                    $cinema->setTicket_value($row["ticket_value"]);
 
                     array_push($cinemaList, $cinema);
                 }
@@ -116,20 +106,16 @@
             $this->connection->ExecuteNonQuery($query, $parameters);
         }
 
-        public function Update($id,$name,$total_capacity,$address,$ticket_value)
+        public function Update($id,$name,$address)
         {
             $query = "UPDATE " .$this->tableName. " SET name = :name,  
-                                                        total_capacity = :total_capacity,
-                                                        address = :address,
-                                                        ticket_value = :ticket_value
+                                                        address = :address 
                                                     WHERE (id = :id)";
             
 
             $parameters["id"] =  $id;
             $parameters["name"] =  $name;
-            $parameters["total_capacity"] =  $total_capacity;
             $parameters["address"] =  $address;
-            $parameters["ticket_value"] =  $ticket_value;
 
             $this->connection = Connection::GetInstance();
 

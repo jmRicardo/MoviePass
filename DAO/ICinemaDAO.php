@@ -10,7 +10,7 @@
         function GetAll();
         function GetCinema($id);
         function Remove($id);
-        function Update($id,$name,$total_capacity,$address,$ticket_value);
+        function Update($id,$name,$address);
         function UpdateCinema(Cinema $cinema);
         
     }

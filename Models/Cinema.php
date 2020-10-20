@@ -7,9 +7,7 @@
 
         private $id;
         private $name;
-        private $total_capacity;
         private $address;
-        private $ticket_value;
 
         public function __construct()
         {
@@ -56,25 +54,6 @@
                 return $this;
         }
 
-        /**
-         * Get the value of total_capacity
-         */ 
-        public function getTotal_capacity()
-        {
-                return $this->total_capacity;
-        }
-
-        /**
-         * Set the value of total_capacity
-         *
-         * @return  self
-         */ 
-        public function setTotal_capacity($total_capacity)
-        {
-                $this->total_capacity = $total_capacity;
-
-                return $this;
-        }
 
         /**
          * Get the value of address
@@ -96,25 +75,6 @@
                 return $this;
         }
 
-        /**
-         * Get the value of ticket_value
-         */ 
-        public function getTicket_value()
-        {
-                return $this->ticket_value;
-        }
-
-        /**
-         * Set the value of ticket_value
-         *
-         * @return  self
-         */ 
-        public function setTicket_value($ticket_value)
-        {
-                $this->ticket_value = $ticket_value;
-
-                return $this;
-        }
     }
     
 

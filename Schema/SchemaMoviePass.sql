@@ -20,10 +20,8 @@ select * from movies;
 DROP TABLE IF EXISTS `cinemas`;
 CREATE TABLE IF NOT EXISTS `cinemas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100)  NOT NULL,
-  `total_capacity` int NOT NULL,
+  `name` varchar(100)  NOT NULL UNIQUE,
   `address` text NOT NULL,
-  `ticket_value` float NOT NULL,
   PRIMARY KEY (`id`)
 )Engine=InnoDB;
 
@@ -36,7 +34,8 @@ CREATE TABLE IF NOT EXISTS `genres` (
 
 DROP TABLE IF EXISTS `movies`;
 CREATE TABLE IF NOT EXISTS `movies` (
-  `idMovie` int not null primary key,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idMovie` int not null UNIQUE,
   `adult` bool,
   `posterPath` varchar(100) not null,
   `originalTitle` varchar(100) not null,
@@ -45,13 +44,16 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `overview` text,
   `releaseDate` date not null,
   `trailerPath` varchar(100)
+  constraint pkId primary key (`id`),
 )Engine = InnoDB;
 
 DROP TABLE IF EXISTS `genresByMovie`;
 CREATE TABLE IF NOT EXISTS `genresByMovie` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `idGenre` int not null,
   `idMovie` int not null,
-  constraint pk_idPerMovie PRIMARY KEY (`idGenre`,`idMovie`),
+  constraint pdId primary key (`id`),
+  constraint unq_idPerMovie UNIQUE (`idGenre`,`idMovie`),
   constraint fk_idGenre foreign key (idGenre) references genres(idGenre) on delete cascade on update cascade,
   constraint fk_idMovie foreign key (idMovie) references movies(idMovie) on delete cascade on update cascade
 )Engine = InnoDB; 
@@ -61,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `idRoom` int not null auto_increment,
   `idCinema` int not null,
   `name` varchar(100),
-  `ticketValue` float,  
+  `price` float,  
   `capacity` int NOT NULL,
   constraint pkIdRoom primary key (`idRoom`),
   constraint pkIdCinema foreign key (`idCinema`) references cinemas(`id`)
