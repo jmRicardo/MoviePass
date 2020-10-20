@@ -15,7 +15,7 @@
 
         public function SignUpProcess()
         {            
-            require_once(VIEWS_PATH."signup-process.php");           
+            require_once(PROCESS_PATH."signup-process.php");           
         }
 
         public function SignIn($message = "")
@@ -25,7 +25,7 @@
 
         public function SignInProcess()
         {
-            require_once(VIEWS_PATH."signin-process.php");           
+            require_once(PROCESS_PATH."signin-process.php");           
         }
     }
 ?>
