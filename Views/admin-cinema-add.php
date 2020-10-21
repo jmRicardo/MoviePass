@@ -15,13 +15,13 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Nombre</label>
-                                   <input type="text" name="name" value="" class="form-control">
+                                   <input type="text" name="name" value="" class="form-control" required >
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Direccion</label>
-                                   <input type="text" name="address" value="" class="form-control">
+                                   <input type="text" name="address" value="" class="form-control" required >
                               </div>
                          </div>
                     </div>

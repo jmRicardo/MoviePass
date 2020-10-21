@@ -12,13 +12,13 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="text" name="name" value="" class="form-control">
+                                <input type="text" name="name" value="" class="form-control" required >
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="">Precio de la entrada</label>
-                                <input type="text" name="price" value="" class="form-control">
+                                <input type="text" name="price" value="" class="form-control" required >
                             </div>
                         </div>
                         <!-- <div class="col-lg-4">
@@ -32,6 +32,7 @@
                             </div>
                         </div> -->
                         <div class="col-lg-4">
+                            <label>Capacidad</label><br>
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-secondary active">
                                         <input type="radio" name="capacity" id="option1" value="100" autocomplete="off" checked>100
@@ -49,5 +50,64 @@
                     <button type="submit" name="id" value="<?php echo $cinema->getId(); ?>" class="btn btn-primary ">Agregar</button>
                 </form>
         </div>
+    </section>  
+    <hr>
+    <!-- /////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////// -->
+    <section id="listado" class="mb-5">
+        <div class="container">
+            <h2 class="mb-4">Listado de las Salas</h2>
+                <table class="table bg-light-alpha">
+                    <thead>
+                        <th>Id Sala</th>
+                        <th>Id Cine</th>
+                        <th>Nombre del Cine</th>
+                        <th>Precio</th>
+                        <th>Capacidad</th>
+                    </thead>
+                    <tbody>
+                        
+                        <form action="<?php echo FRONT_ROOT ?>Admin/FilterRoom" method="post" id="from">
+                        <?php
+                                 var_dump($cinema);
+                                var_dump($listId);
+                                 var_dump($roomsList); 
+                                    exit();  
+
+
+                            foreach($listId as $room) { ?>
+                                <tr>
+                                    <td><?php echo $room->getIdRoom() ?></td>
+                                    <td><?php echo $room->getIdCinema() ?></td>
+                                    <td><?php echo $room->getName() ?></td>
+                                    <td><?php echo $room->getPrice() ?></td>
+                                    <td><?php echo $room->getCapacity() ?></td>
+                                    <!--<td>
+                                            button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId() ?>">
+                                            <i class="fa fa-trash "></i>
+                                                Eliminar 
+                                            </button>
+                                        </td> -->
+                                </tr>
+                            <?php }  ?>
+                        
+                        </form>
+                    </tbody>
+                </table>
+            </div>
     </section>
+<!-- function GetAll();
+function GetAllByCinema($id);
+function Add(Room $room); -->
+   
+
+
+
+
+
+
+
+
+
+
 </main>

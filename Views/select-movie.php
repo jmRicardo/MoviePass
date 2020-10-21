@@ -7,11 +7,16 @@
         <div class="col-md"></div>
         <div class="col-md-8">
             <form action="<?php echo FRONT_ROOT. "Client/Filter"?>" method="GET">
+                
+                <?php /* var_dump($genres);
+                exit();  */?>  
+                
                 <div class="category-selector">
                     <label class="category-label" for="category">¿Qué te gustaría ver?</label>
                         <div class="form-group w-100">
                         <select class="form-control category-select" name="category" placeholder="genre">
                             <option disabled selected></option>
+                            
                             <?php foreach($genres as $genre){?>
                             <option <?php if ($idGenre==$genre->getId()) echo "selected"; ?> value="<?php echo $genre->getId();?>" >
                                 <?php echo $genre->getName();?>
