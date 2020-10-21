@@ -19,3 +19,7 @@ update movies set trailerPath = "a5vWXRaHr6U" where idMovie = 659986;#The Owners
 update movies set trailerPath = "_zhnfqkATwU" where idMovie = 667141;#12 Hour Shift
 update movies set trailerPath = "UHMbulic8kw" where idMovie = 694919;#El avión del dinero
 update movies set trailerPath = "D9tLTFdaLSs" where idMovie = 726739;#Como perros y gatos: La patrulla unida
+update movies set trailerPath = "33k9Gmw2TAE" where idMovie = 718444;#Rogue
+update movies set trailerPath = "uJFk-rscWAM" where idMovie = 590223;#love and monsters
+update movies set trailerPath = "FeI0AOuz_so" where idMovie = 597398;#away
+update movies set trailerPath = "qzziCBTeVXM" where idMovie = 554311;#Zombie Child
