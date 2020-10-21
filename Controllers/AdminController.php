@@ -3,19 +3,22 @@
 
     use Models\Cinema as Cinema;
     use Models\Movie as Movie;
+    use Models\Room as Room;
     use DAO\CinemaDAO as CinemaDAO;
     use DAO\MovieDAO as MovieDAO;
-
+    use DAO\RoomDAO;
 
     class AdminController
     {
         private $cinemaDAO;
         private $movieDAO;
+        private $roomDAO;
 
         public function __construct()
         {
             $this->cinemaDAO = new CinemaDAO();
             $this->movieDAO = new MovieDAO();
+            $this->roomDAO = new RoomDAO();
         }
 
         public function NowPlaying()
@@ -64,12 +67,25 @@
             require_once(VIEWS_PATH."admin-cinema-update.php");
         }
 
-        public function AddRooms($id)
+        public function AddRoom($name,$price,$capacity,$id)
+        {                                
+            $room = new Room();
+            $room->setIdCinema($id);
+            $room->setName($name);
+            $room->setCapacity($capacity);
+            $room->setPrice($price);
+
+            $_SESSION['message'] = $this->roomDAO->Add($room);           
+
+            $this->ShowAddRoom($id);
+        }
+
+        public function ShowAddRoom($id)
         {
             
             $cinema = $this->cinemaDAO->GetCinema($id);
 
-            require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
+            require_once(VIEWS_PATH."admin-cinema-addrooms.php");
         }
 
         public function SaveUpdate($name,$address,$id)
@@ -85,4 +101,3 @@
             $this->ShowListView();
         }
     }
-?>
