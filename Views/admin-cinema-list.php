@@ -13,19 +13,16 @@
                     </thead>
                     <tbody>
                          <form action="<?php echo FRONT_ROOT ?>Admin/Remove " method="post" id="from">
-                         <?php
-                              foreach($cinemaList as $cinema)
-                              {
-                                   ?>
-                                        <tr>
-                                             <td><?php echo $cinema->getName() ?></td>
-                                             <td><?php echo $cinema->getAddress() ?></td>
-                                             <td>
-                                                  <button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId() ?>">
-                                                       <i class="fa fa-trash "></i>
-                                                            Eliminar 
-                                                  </button>
-                                             </td>
+                         <?php foreach($cinemaList as $cinema) { ?>
+                              <tr>
+                                   <td><?php echo $cinema->getName() ?></td>
+                                   <td><?php echo $cinema->getAddress() ?></td>
+                                        <td>
+                                             <button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId() ?>">
+                                                  <i class="fa fa-trash "></i>
+                                                       Eliminar 
+                                             </button>
+                                        </td>
                                              <td>
                                                   <button name="id" value="<?php echo $cinema->getId() ?>" class="btn btn-warning" onclick="
                                                        var frm = document.getElementById('from') || null;
@@ -43,7 +40,7 @@
                                                             frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/ShowAddRoom');     
                                                        }">
                                                        <i class="fa fa-edit"></i>
-                                                            Añadir Salas
+                                                            Administrar Salas
                                                   </button>
                                              </td>
 

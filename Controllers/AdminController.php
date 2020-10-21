@@ -6,7 +6,7 @@
     use Models\Room as Room;
     use DAO\CinemaDAO as CinemaDAO;
     use DAO\MovieDAO as MovieDAO;
-    use DAO\RoomDAO;
+    use DAO\RoomDAO as RoomDAO;
 
     class AdminController
     {
@@ -40,6 +40,17 @@
             require_once(VIEWS_PATH."admin-cinema-list.php");
         }
 
+        public function ShowListViewRoom()
+        {
+            $roomList = $this->roomDAO->GetAll();
+
+            require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
+        }
+
+
+
+
+
         public function Add($name,$address)
         {
             $cinema = new Cinema();
@@ -58,6 +69,22 @@
 
             $this->ShowListView();
         }
+
+
+
+        public function RemoveRoom($idRoom)
+        {
+            
+            $this->roomDAO->RemoveRoom($idRoom);
+
+            $this->ShowListViewRoom();
+            //$this->ShowAddRoom($id);
+            require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
+        }
+
+
+
+
 
         public function Update($id)
         {
@@ -84,6 +111,8 @@
         {
             
             $cinema = $this->cinemaDAO->GetCinema($id);
+            $listId=$this->roomDAO->GetAllByCinema($id);
+
 
             require_once(VIEWS_PATH."admin-cinema-addrooms.php");
         }
@@ -103,11 +132,11 @@
 
         
 
-        function FilterRoom($id){
-            $listId=$this->RoomDao->GetAllByCinema($id);
+        // function FilterRoom($id){
+        //     $listId=$this->RoomDao->GetAllByCinema($id);
             
-            require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
-        }
+        //     require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
+        // }
 
 
 
