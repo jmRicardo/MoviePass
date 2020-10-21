@@ -9,9 +9,9 @@
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/NowPlaying">Actualizar BD</a>
           </li>          
-          <li class="nav-item">
+          <!-- <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">Agregar Funcion</a>
-          </li>
+          </li> -->
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">Agregar Cines</a>
           </li>

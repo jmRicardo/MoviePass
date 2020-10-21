@@ -100,4 +100,16 @@
             
             $this->ShowListView();
         }
+
+        
+
+        function FilterRoom($id){
+            $listId=$this->RoomDao->GetAllByCinema($id);
+            
+            require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
+        }
+
+
+
+
     }
