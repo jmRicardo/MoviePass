@@ -38,6 +38,18 @@
                                                             Modificar
                                                   </button>
                                              </td>
+                                             <td>
+                                                  <button name="id" value="<?php echo $cinema->getId() ?>" class="btn btn-success" onclick="
+                                                       var frm = document.getElementById('from') || null;
+                                                       if(frm) {
+                                                            var a = '<?php echo FRONT_ROOT ?>';
+                                                            var b = 'Admin/AddRooms';
+                                                            frm.action = a.concat(b);     
+                                                       }">
+                                                       <i class="fa fa-edit"></i>
+                                                            Añadir Salas
+                                                  </button>
+                                             </td>
 
                                         </tr>
                                    <?php
