@@ -107,6 +107,21 @@
                 throw $ex;
             }
         }
+
+        public function RemoveRoom($idRoom)
+        {            
+            $query = "DELETE FROM ".$this->tableName." WHERE (idRoom = :idRoom)";
+
+            $parameters["idRoom"] =  $idRoom;
+
+            $this->connection = Connection::GetInstance();
+
+            $this->connection->ExecuteNonQuery($query, $parameters);
+        }
+
+
+
+
     }
 
 
