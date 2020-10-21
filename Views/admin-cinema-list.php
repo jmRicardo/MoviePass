@@ -30,9 +30,7 @@
                                                   <button name="id" value="<?php echo $cinema->getId() ?>" class="btn btn-warning" onclick="
                                                        var frm = document.getElementById('from') || null;
                                                        if(frm) {
-                                                            var a = '<?php echo FRONT_ROOT ?>';
-                                                            var b = 'Admin/Update';
-                                                            frm.action = a.concat(b);     
+                                                            frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/Update');     
                                                        }">
                                                        <i class="fa fa-edit"></i>
                                                             Modificar
@@ -42,9 +40,7 @@
                                                   <button name="id" value="<?php echo $cinema->getId() ?>" class="btn btn-success" onclick="
                                                        var frm = document.getElementById('from') || null;
                                                        if(frm) {
-                                                            var a = '<?php echo FRONT_ROOT ?>';
-                                                            var b = 'Admin/AddRooms';
-                                                            frm.action = a.concat(b);     
+                                                            frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/ShowAddRoom');     
                                                        }">
                                                        <i class="fa fa-edit"></i>
                                                             Añadir Salas

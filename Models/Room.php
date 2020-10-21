@@ -10,36 +10,30 @@
         private $price;
         private $capacity;
 
-        public function getIdRoom(){
-            return $this->idRoom;
-        }
+        public function __construct()
+        {
+            
+        }  
     
-        public function setIdRoom($idRoom){
-            $this->idRoom = $idRoom;
+
+        /**
+         * Get the value of idRoom
+         */ 
+        public function getIdRoom()
+        {
+                return $this->idRoom;
         }
-    
-        public function getName(){
-            return $this->name;
-        }
-    
-        public function setName($name){
-            $this->name = $name;
-        }
-    
-        public function getPrice(){
-            return $this->price;
-        }
-    
-        public function setPrice($price){
-            $this->price = $price;
-        }
-    
-        public function getCapacity(){
-            return $this->capacity;
-        }
-    
-        public function setCapacity($capacity){
-            $this->capacity = $capacity;
+
+        /**
+         * Set the value of idRoom
+         *
+         * @return  self
+         */ 
+        public function setIdRoom($idRoom)
+        {
+                $this->idRoom = $idRoom;
+
+                return $this;
         }
 
         /**
@@ -61,9 +55,69 @@
 
                 return $this;
         }
+
+        /**
+         * Get the value of name
+         */ 
+        public function getName()
+        {
+                return $this->name;
+        }
+
+        /**
+         * Set the value of name
+         *
+         * @return  self
+         */ 
+        public function setName($name)
+        {
+                $this->name = $name;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of price
+         */ 
+        public function getPrice()
+        {
+                return $this->price;
+        }
+
+        /**
+         * Set the value of price
+         *
+         * @return  self
+         */ 
+        public function setPrice($price)
+        {
+                $this->price = $price;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of capacity
+         */ 
+        public function getCapacity()
+        {
+                return $this->capacity;
+        }
+
+        /**
+         * Set the value of capacity
+         *
+         * @return  self
+         */ 
+        public function setCapacity($capacity)
+        {
+                $this->capacity = $capacity;
+
+                return $this;
+        }
     }
 
-
+        
 
 
 
