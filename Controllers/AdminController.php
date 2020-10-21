@@ -64,6 +64,14 @@
             require_once(VIEWS_PATH."admin-cinema-update.php");
         }
 
+        public function AddRooms($id)
+        {
+            
+            $cinema = $this->cinemaDAO->GetCinema($id);
+
+            require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
+        }
+
         public function SaveUpdate($name,$address,$id)
         {
             
