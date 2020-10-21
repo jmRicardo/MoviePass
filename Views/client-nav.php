@@ -19,6 +19,23 @@
         <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT?>Client/Select">Peliculas</a>
         </li>
+        
+
+
+
+        <?php if (!Util::isAdmin()) : ?>
+        <li class="nav-item">
+            <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModalMail" data-whatever="@fat">@Contactenos</a>
+            
+        </li>
+        <?php endif; ?>
+        
+
+
+
+        
+        
+        
         <?php if (isset($_SESSION['is_logged_in'])) : ?>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
