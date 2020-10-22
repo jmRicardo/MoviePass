@@ -40,6 +40,7 @@
             require_once(VIEWS_PATH."admin-cinema-list.php");
         }
 
+
         public function ShowListViewRoom()
         {
             $roomList = $this->roomDAO->GetAll();
@@ -78,8 +79,8 @@
             $this->roomDAO->RemoveRoom($idRoom);
 
             $this->ShowListViewRoom();
-            //$this->ShowAddRoom($id);
-            require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
+            //$this->ShowAddRoom($idRoom);
+            //require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
         }
 
 
@@ -111,10 +112,10 @@
         {
             
             $cinema = $this->cinemaDAO->GetCinema($id);
-            $listId=$this->roomDAO->GetAllByCinema($id);
+            $listId = $this->roomDAO->GetAllByCinema($id);
 
 
-            require_once(VIEWS_PATH."admin-cinema-addrooms.php");
+            require_once(VIEWS_PATH."admin-cinema-addRooms.php");
         }
 
         public function SaveUpdate($name,$address,$id)

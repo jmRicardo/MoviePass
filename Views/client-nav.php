@@ -10,12 +10,26 @@
    <a  href="<?php echo FRONT_ROOT ?>client/home"><img src="<?php
         echo FRONT_ROOT . VIEWS_PATH ?>img/logo.png" alt="" width="170" height="60">
    </a>
+
+
+   <ul class="navbar-nav mr-auto">
+    <?php if (!Util::isAdmin()) : ?>
+            <li class="nav-item">
+            <a  id="algo" type="button" class="nav-link" data-toggle="modal" data-target="#exampleModalTwo">@Contactenos</a>
+            </li>
+    <?php endif; ?>
+   </ul>
+
+
+
     <ul class="navbar-nav ml-auto">
         <?php if (Util::isAdmin()) : ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">MODO ADMIN</a>
         </li>
         <?php endif; ?>
+
+        
         <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT?>Client/Select">Peliculas</a>
         </li>
