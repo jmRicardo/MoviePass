@@ -15,11 +15,40 @@
    <ul class="navbar-nav mr-auto">
     <?php if (!Util::isAdmin()) : ?>
             <li class="nav-item">
-            <a  id="algo" type="button" class="nav-link" data-toggle="modal" data-target="#exampleModalTwo">@Contactenos</a>
+            
+            <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal2" data-whatever="@fat">@Contactenos</a>    
             </li>
     <?php endif; ?>
    </ul>
 
+   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send messchgfghfage</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <ul class="navbar-nav ml-auto">
@@ -56,7 +85,7 @@
         echo FRONT_ROOT . VIEWS_PATH ?>img/oveja.png" alt="" width="40" height="40">
         <?php else: ?>
             <li class="nav-item">
-            <a id="algo" class="nav-link"  type="button" data-toggle="modal" data-target="#exampleModal" >Iniciar sesión</a>
+            <a id="algo" class="nav-link"  type="button" data-toggle="modal" data-target="#sectionStart" >Iniciar sesión</a>
             <!-- <button type="button" href="<?php echo FRONT_ROOT ?>Login/SignIn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Iniciar sesión
             </button> -->

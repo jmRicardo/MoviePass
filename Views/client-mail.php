@@ -4,7 +4,7 @@
 
 
 
-<div class="modal fade" id="exampleModalTwo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="sendMail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -16,7 +16,7 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <label for="recipient-name" class="col-form-label">Recipiyuj</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
           <div class="form-group">
@@ -32,4 +32,3 @@
     </div>
   </div>
 </div>
-
