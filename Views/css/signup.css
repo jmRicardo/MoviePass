@@ -6,7 +6,12 @@ input {
 	padding: 8px;
 	width: 50%;
 	box-sizing: border-box;
+	margin-bottom: 20px;
 }
+
+
+
+
 
 .site-header {
 	background: #333;

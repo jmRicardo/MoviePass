@@ -26,7 +26,7 @@
     <ul class="navbar-nav ml-auto">
         <?php if (Util::isAdmin()) : ?>
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">MODO ADMIN</a>
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">MODO ADMIN</a>
         </li>
         <?php endif; ?>
 

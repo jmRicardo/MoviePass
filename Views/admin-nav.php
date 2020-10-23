@@ -13,11 +13,11 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">Agregar Funcion</a>
           </li> -->
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowAddView">Agregar Cines</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">Administrar Cines</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowListView">Listar Cines</a>
-          </li>
+          </li> -->
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Client/Home">Volver a Inicio</a>
           </li> 
