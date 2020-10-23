@@ -20,7 +20,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="sectionStart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog ">
 		<div class="modal-content ">
 		
@@ -77,7 +77,7 @@
 							</div>
 						<div class="section-footer-container">
 							¿No eres usuario?
-							<a class="a-default"  data-toggle="modal" data-target="#exampleModalNext" class="close" >Registrate</a>
+							<a class="a-default"  data-toggle="modal" data-target="#checkIn" class="close" >Registrate</a>
 						</div>
 				</div>
 			</div>

@@ -25,19 +25,20 @@
         {
             $duplicates = $this->movieDAO->NowPlayingToDataBase();
 
-            $this->ShowAddView("Actualizacion Realizada! " . $duplicates . " Elementos duplicados!");
+            $this->ShowCinemaList("Actualizacion Realizada! " . $duplicates . " Elementos duplicados!");
         }
 
-        public function ShowAddView($message = "")
-        {
+        public function ShowCinemaList($message = "")
+        {   
+            $cinemaList = $this->cinemaDAO->GetAll();
             require_once(VIEWS_PATH."admin-cinema-add.php");
         }
 
         public function ShowListView()
         {
-            $cinemaList = $this->cinemaDAO->GetAll();
+            // $cinemaList = $this->cinemaDAO->GetAll();
 
-            require_once(VIEWS_PATH."admin-cinema-list.php");
+            require_once(VIEWS_PATH."admin-cinema-add.php");
         }
 
 
@@ -60,15 +61,15 @@
 
             $this->cinemaDAO->Add($cinema);
 
-            $this->ShowAddView();
+            $this->ShowCinemaList();
         }
         
         public function Remove($id)
         {
             
             $this->cinemaDAO->Remove($id);
+            $this->ShowCinemaList();
 
-            $this->ShowListView();
         }
 
 
@@ -131,7 +132,7 @@
 
             $this->cinemaDAO->UpdateCinema($cinema); 
             
-            $this->ShowListView();
+            $this->ShowCinemaList();
         }
 
         
