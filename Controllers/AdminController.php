@@ -137,11 +137,12 @@
 
         
 
-        // function FilterRoom($id){
-        //     $listId=$this->RoomDao->GetAllByCinema($id);
-            
-        //     require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
-        // }
+        public function ShowListViewFunction()
+        {
+            // $cinemaList = $this->cinemaDAO->GetAll();
+            $movies=$this->movieDAO->GetAll();
+            require_once(VIEWS_PATH."admin-cinema-addfunction.php");
+        }
 
 
 
