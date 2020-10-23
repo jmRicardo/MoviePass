@@ -66,7 +66,8 @@
                         <th>Capacidad</th>
                     </thead>
                     <tbody>
-                        
+                    <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="post" id="from">
+                        <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>"  >
                             <?php foreach($listId as $room) { ?>
                                 <tr>
                                     <td><?php echo $room->getIdRoom() ?></td>
@@ -75,10 +76,10 @@
                                     <td><?php echo $room->getPrice() ?></td>
                                     <td><?php echo $room->getCapacity() ?></td>
                                         <td>
-                                                <!-- <button type="submit" name="idRoom" class="btn btn-danger" value="<?php echo $room->getIdRoom() ?>">
+                                                <!-- <a type="submit"   name="idRoom" value="<?php echo $room->getIdRoom() ?>" href="<?php echo FRONT_ROOT.'Admin/RemoveRoom' ?>" class="btn btn-danger" >
                                                 <i class="fa fa-trash "></i>
                                                     Eliminar 
-                                                </button> -->
+                                                </a> -->
 
                                                 <button name="idRoom" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
                                                     var frm = document.getElementById('from') || null;
@@ -90,7 +91,14 @@
                                                 </button>
 
 
-
+                                                <!-- <button name="idRoom" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
+                                                    var frm = document.getElementById('from') || null;
+                                                    if(frm) {
+                                                            frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/RemoveRoom');     
+                                                    }">
+                                                    <i class="fa fa-edit"></i>
+                                                            Eliminar
+                                                </button> -->
 
 
 
@@ -98,7 +106,7 @@
                                         </td>
                                 </tr>
                             <?php }  ?>
-                            
+                        <form/>    
                     </tbody>
                 </table>
         </div>
