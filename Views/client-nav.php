@@ -12,14 +12,14 @@
    </a>
 
 
-   <ul class="navbar-nav mr-auto">
+   <!-- <ul class="navbar-nav mr-auto">
     <?php if (!Util::isAdmin()) : ?>
             <li class="nav-item">
             
                 <a type="button" class="nav-link" data-toggle="modal" data-target="#sendMail" data-whatever="@fat">@Contactenos</a>    
             </li>
     <?php endif; ?>
-   </ul>
+   </ul> -->
 
 
 

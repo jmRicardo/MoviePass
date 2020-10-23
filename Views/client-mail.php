@@ -7,28 +7,26 @@
 <div class="modal fade" id="sendMail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipiyuj</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
+      <form id="sendMail" name="sendMail" method="POST" action="<?php echo FRONT_ROOT?>Client/SendMail" >
+            <div class="modal-header">
+              <h5 class="modal-title text-primary " id="exampleModalLabel">Escribanos su consulta</h5>
+            </div>
+            <div class="modal-body">
+                  <label for="recipient-name" class="col-form-label text-primary">Introduzca su nombre y mail asi nos comunicaremos con usted!!!</label>
+                  <input type="text" placeholder="Nombre" class="form-control" name="name">
+                  <input type="email" placeholder="ejemplo@email.com" class="form-control" name="email">
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label text-primary">Mensaje:</label>
+                  <textarea placeholder="mensaje"class="form-control" name="msg"></textarea>
+                </div>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <input type="submit" class="btn btn-primary" name="enviar">
+            </div>
+      </form>  
     </div>
   </div>
 </div>
+
+<?php require_once(VIEWS_PATH . "client-home.php"); ?>
