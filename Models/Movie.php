@@ -13,6 +13,7 @@
         private $overview;
         private $releaseDate;
         private $trailerPath;
+        private $runtime;
 
         function __construct() {
             
@@ -215,6 +216,26 @@
         public function setId($id)
         {
                 $this->id = $id;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of runtime
+         */ 
+        public function getRuntime()
+        {
+                return $this->runtime;
+        }
+
+        /**
+         * Set the value of runtime
+         *
+         * @return  self
+         */ 
+        public function setRuntime($runtime)
+        {
+                $this->runtime = $runtime;
 
                 return $this;
         }
