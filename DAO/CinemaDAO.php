@@ -12,18 +12,25 @@
 
         public function UpdateCinema($cinema)
         {
-            $query = "UPDATE " .$this->tableName. 
-            " SET name = :name,  
-            address = :address
-            WHERE (id = :id)";
-        
-            $parameters["id"] = $cinema->getId();
-            $parameters["name"] = $cinema->getName();
-            $parameters["address"] = $cinema->getAddress();
+            try
+            {
+                $query = "UPDATE " .$this->tableName. 
+                " SET name = :name,  
+                address = :address
+                WHERE (id = :id)";
+            
+                $parameters["id"] = $cinema->getId();
+                $parameters["name"] = $cinema->getName();
+                $parameters["address"] = $cinema->getAddress();
 
-            $this->connection = Connection::GetInstance();
+                $this->connection = Connection::GetInstance();
 
-            $this->connection->ExecuteNonQuery($query, $parameters);
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
         }
         
 
@@ -97,29 +104,42 @@
 
         public function Remove($id)
         {            
-            $query = "DELETE FROM ".$this->tableName." WHERE (id = :id)";
+            try
+            {
+                $query = "DELETE FROM ".$this->tableName." WHERE (id = :id)";
 
-            $parameters["id"] =  $id;
+                $parameters["id"] =  $id;
 
-            $this->connection = Connection::GetInstance();
+                $this->connection = Connection::GetInstance();
 
-            $this->connection->ExecuteNonQuery($query, $parameters);
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
         }
 
         public function Update($id,$name,$address)
         {
-            $query = "UPDATE " .$this->tableName. " SET name = :name,  
-                                                        address = :address 
-                                                    WHERE (id = :id)";
-            
+            try
+            {               
+                $query = "UPDATE " .$this->tableName. " SET name = :name,  
+                                                            address = :address 
+                                                        WHERE (id = :id)";            
 
-            $parameters["id"] =  $id;
-            $parameters["name"] =  $name;
-            $parameters["address"] =  $address;
+                $parameters["id"] =  $id;
+                $parameters["name"] =  $name;
+                $parameters["address"] =  $address;
 
-            $this->connection = Connection::GetInstance();
+                $this->connection = Connection::GetInstance();
 
-            $this->connection->ExecuteNonQuery($query, $parameters);
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
         }
     }
 ?>

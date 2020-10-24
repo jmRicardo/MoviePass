@@ -39,7 +39,7 @@
         static function loggedInRedirect() {
             if ( !Util::isLoggedIn() ) { // user is not logged in
                 // send them to the home page
-                header( 'location:'.VIEWS_PATH."Client/Home" );
+                header( 'location:'.FRONT_ROOT."Client/Home" );
             }
         }
 

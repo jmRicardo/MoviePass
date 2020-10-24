@@ -188,6 +188,48 @@
             }
         }
 
+        public function UpdateMoviesRunTime()
+        {
+            $movieList = $this->GetAll();
+
+            foreach($movieList as $movie)
+            {
+                $idMovie = $movie->getIdMovie();                
+                
+                $url = "https://api.themoviedb.org/3/movie/". $idMovie ."?api_key=". TMDB_API_KEY ."&language=es-ES";
+            
+                $json = file_get_contents($url);
+            
+                $datos = json_decode($json,true);
+
+                $runtime = $datos['runtime'];
+
+                $this->UpdateRuntime($runtime,$idMovie);                                               
+            }        
+        }
+
+        public function UpdateRuntime($runtime,$idMovie)
+        {
+            try
+            {
+                $query = "UPDATE " .$this->tableName. 
+                " SET runtime = :runtime 
+                WHERE (idMovie = :idMovie)";
+            
+                $parameters["runtime"] = $runtime;
+                $parameters["idMovie"] = $idMovie;
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
+
+        }
+
         public function NowPlayingToDataBase()
         {
             
@@ -227,12 +269,12 @@
                 }
                 catch(Exception $Exception)
                 {
-                    echo $Exception->getMessage();
                     $duplicates++;
+                    $error = " elementos Duplicados";
                 }           
             }
             
-            return $duplicates;
+            return $duplicates . $error;
         }
 
         public function AddGenreByMovie(GenreByMovie $genreByMovie)

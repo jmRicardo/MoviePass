@@ -8,6 +8,8 @@
     use DAO\MovieDAO as MovieDAO;
     use DAO\RoomDAO as RoomDAO;
 
+    use Utils\Util;
+
     class AdminController
     {
         private $cinemaDAO;
@@ -23,81 +25,93 @@
 
         public function NowPlaying()
         {
-            $duplicates = $this->movieDAO->NowPlayingToDataBase();
+            Util::loggedInRedirect();
+            
+            $error = $this->movieDAO->NowPlayingToDataBase();
 
-            $this->ShowCinemaList("Actualizacion Realizada! " . $duplicates . " Elementos duplicados!");
+            $this->movieDAO->UpdateMoviesRunTime();
+
+            $_SESSION['message'] = "Actualizacion Realizada! " . (isset($error) ? $error : "" );
+
+            $this->ShowCinemaList();
         }
 
-        public function ShowCinemaList($message = "")
+        public function ShowCinemaList()
         {   
+            Util::loggedInRedirect();
+            
             $cinemaList = $this->cinemaDAO->GetAll();
-            require_once(VIEWS_PATH."admin-cinema-add.php");
-        }
-
-        public function ShowListView()
-        {
-            // $cinemaList = $this->cinemaDAO->GetAll();
 
             require_once(VIEWS_PATH."admin-cinema-add.php");
         }
-
-
-        // public function ShowListViewRoom()
-        // {
-        //     $roomList = $this->roomDAO->GetAll();
-
-        //     require_once(VIEWS_PATH."admin-cinema-AddRooms.php");
-        // }
-
-
-
-
 
         public function Add($name,$address)
         {
+            Util::loggedInRedirect();
+            
             $cinema = new Cinema();
             $cinema->setName($name);
             $cinema->setAddress($address);
 
             $this->cinemaDAO->Add($cinema);
 
+            $_SESSION['message'] = "Cine agregado con exito!";
+
             $this->ShowCinemaList();
         }
         
         public function Remove($id)
-        {
+        {            
+            Util::loggedInRedirect();
             
-            $this->cinemaDAO->Remove($id);
-            $this->ShowCinemaList();
+            $error = $this->cinemaDAO->Remove($id);
 
+            $_SESSION['message'] = isset($error) ? $error : "Cine eliminado con exito!";
+
+            $this->ShowCinemaList();
         }
 
+        public function Update($id)
+        {
+            Util::loggedInRedirect();
+            
+            $cinema = $this->cinemaDAO->GetCinema($id);            
 
+            require_once(VIEWS_PATH."admin-cinema-update.php");
+        }
+
+        public function SaveUpdate($name,$address,$id)
+        {
+            Util::loggedInRedirect();
+
+            $cinema = new Cinema();
+            $cinema->setId($id);
+            $cinema->setName($name);
+            $cinema->setAddress($address);
+
+            $error =  $this->cinemaDAO->UpdateCinema($cinema); 
+
+            $_SESSION['message'] = isset($error) ? $error : "Cine actualizado con exito!";
+            
+            $this->ShowCinemaList();
+        }
+
+        // de aca empiezan los metodos que controlan las SALAS
 
         public function RemoveRoom($id, $idRoom)
         {   
+            Util::loggedInRedirect();
             
             $this->roomDAO->RemoveRoom($idRoom);
-
             
             $this->ShowAddRoom($id);
             
         }
 
-
-
-
-
-        public function Update($id)
-        {
-            
-            $cinema = $this->cinemaDAO->GetCinema($id);
-
-            require_once(VIEWS_PATH."admin-cinema-update.php");
-        }
-
         public function AddRoom($name,$price,$capacity,$id)
         {                                
+            Util::loggedInRedirect();
+            
             $room = new Room();
             $room->setIdCinema($id);
             $room->setName($name);
@@ -112,39 +126,14 @@
 
         public function ShowAddRoom($id)
         {
+            Util::loggedInRedirect();            
             
             $cinema = $this->cinemaDAO->GetCinema($id);
             $listId = $this->roomDAO->GetAllByCinema($id);
 
-
             require_once(VIEWS_PATH."admin-cinema-addRooms.php");
         }
 
-
-
-        public function SaveUpdate($name,$address,$id)
-        {
-            
-            $cinema = new Cinema();
-            $cinema->setId($id);
-            $cinema->setName($name);
-            $cinema->setAddress($address);
-
-            $this->cinemaDAO->UpdateCinema($cinema); 
-            
-            $this->ShowCinemaList();
-        }
-
-        
-
-        public function ShowListViewFunction()
-        {
-            // $cinemaList = $this->cinemaDAO->GetAll();
-            $movies=$this->movieDAO->GetAll();
-            require_once(VIEWS_PATH."admin-cinema-addfunction.php");
-        }
-
-
-
-
     }
+
+?>
