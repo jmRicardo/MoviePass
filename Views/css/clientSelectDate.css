@@ -1,0 +1,28 @@
+.day-selector {
+    margin-top: 20px;
+    border-color: grey;
+}
+
+.nav-link.selected-day.active {
+    color: white;
+    background: grey;
+    border: grey;
+}
+
+.nav-tabs .nav-item.day-item {
+    margin-bottom: -3px;
+}
+
+.day-link {
+    color: #CECECE;
+}
+
+.day-link:hover {
+    color: white;
+    border: none; 
+}
+
+/* focus: elemento seleccionado*/
+.day-link:focus {
+    border: none; 
+}

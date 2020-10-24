@@ -20,6 +20,8 @@ use DAO\MovieDAO;
                 <p><b>Estreno: </b><span id="movie-release-date"></span></p>
                 <p><b>Género: </b><span id="movie-genres"></span></p>
                 <p id="movie-overview"></p>
+                <form action="<?php echo FRONT_ROOT. "Client/selectDate"?>" method="GET">
+                    <button class="btn btn-primary" id="movie-reservation">Reservar</button></form>
             </div>
             <div class="col-8">
             <iframe class="movie-trailer"
@@ -27,10 +29,6 @@ use DAO\MovieDAO;
             </div>
         </div>
         <div class="row">
-            <?php
-            // var_dump($movies);
-            // exit(); 
-            ?>
             <?php foreach($movies as $movie){?>
                 <div class="col-lg-2 col-sm-4 px-1">
                     <div class="movie-container">

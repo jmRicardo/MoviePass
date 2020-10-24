@@ -36,6 +36,9 @@
      <!-- select Movies -->
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>selectMovies.css">  
 
+      <!-- Date Selector-->
+      <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientSelectDate.css">
+
      <title>MoviePass</title>
 </head>
 <body class="body">
