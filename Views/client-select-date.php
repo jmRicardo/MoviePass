@@ -25,4 +25,26 @@
             <a class="nav-link day-link" href="#">Domingo</a>
         </li>
     </ul>
+
+    <div class="row">  
+        <div class="col-lg-4">
+            <div class="cine-box">
+                <div class="cine-header">
+                    <h2>Cines el paseo</h2>
+                </div>
+                <div class="cine-times">
+                
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="cine-box">
+                <div class="cine-header">
+                hola
+                </div>
+                <div class="cine-times">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

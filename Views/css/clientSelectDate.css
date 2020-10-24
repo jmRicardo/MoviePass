@@ -6,7 +6,7 @@
 .nav-link.selected-day.active {
     color: white;
     background: grey;
-    border: grey;
+    border-color: grey;
 }
 
 .nav-tabs .nav-item.day-item {
@@ -25,4 +25,23 @@
 /* focus: elemento seleccionado*/
 .day-link:focus {
     border: none; 
+}
+
+.cine-box {
+    margin-top: 15px;
+    border: 1px solid #CECECE;
+    height: 200px;
+}
+
+
+.cine-header {
+    width: 100%;
+    background: red;
+    padding: 15px;
+}
+                
+.cine-times {
+    width: 100%;
+    background: blue;
+    padding: 15px;
 }
