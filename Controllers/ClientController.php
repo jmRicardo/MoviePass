@@ -15,6 +15,8 @@
         {
             $movies=$this->movieDao->GetAll();
             require_once(VIEWS_PATH."client-home.php");
+            // require_once(VIEWS_PATH."admin-cinema-add.php");
+
         }
 
         function Account()

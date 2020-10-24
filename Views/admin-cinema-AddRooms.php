@@ -79,7 +79,7 @@
                                                 <i class="fa fa-trash "></i>
                                                     Eliminar 
                                                 </a> -->
-
+                                            <td>
                                                 <button name="idRoom" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
                                                     var frm = document.getElementById('from') || null;
                                                     if(frm) {
@@ -88,8 +88,17 @@
                                                     <i class="fa fa-edit"></i>
                                                             Eliminar
                                                 </button>
-
-
+                                            </td>
+                                            <td>
+                                                <button name="id" value="<?php echo $room->getIdRoom() ?>" class="btn btn-success" onclick="
+                                                    var frm = document.getElementById('from') || null;
+                                                    if(frm) {
+                                                            frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/ShowListViewFunction');     
+                                                    }">
+                                                    <i class="fa fa-edit"></i>
+                                                            Agregar Funciones
+                                                </button>
+                                            </td>   
                                                 <!-- <button name="idRoom" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
                                                     var frm = document.getElementById('from') || null;
                                                     if(frm) {

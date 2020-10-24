@@ -27,6 +27,10 @@ use DAO\MovieDAO;
             </div>
         </div>
         <div class="row">
+            <?php
+            // var_dump($movies);
+            // exit(); 
+            ?>
             <?php foreach($movies as $movie){?>
                 <div class="col-lg-2 col-sm-4 px-1">
                     <div class="movie-container">
