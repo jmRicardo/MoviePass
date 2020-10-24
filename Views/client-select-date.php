@@ -25,15 +25,21 @@
             <a class="nav-link day-link" href="#">Domingo</a>
         </li>
     </ul>
-
     <div class="row">  
         <div class="col-lg-4">
             <div class="cine-box">
                 <div class="cine-header">
-                    <h2>Cines el paseo</h2>
+                    <h3 class="cine-name">Cines el paseo</h3>
+                    <span>Santiago del estero 2020</span>
                 </div>
                 <div class="cine-times">
-                
+                    <button type="button" class="btn btn-warning cine-time">05:30 pm</button>
+                    <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
+                    <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
+                    <button type="button" class="btn btn-warning cine-time">10:30 pm</button>
+                    <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
+                    <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
+                    <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
                 </div>
             </div>
         </div>
@@ -43,6 +49,7 @@
                 hola
                 </div>
                 <div class="cine-times">
+                    <button type="button" class="btn btn-secondary">Secondary</button>
                 </div>
             </div>
         </div>
