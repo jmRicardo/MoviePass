@@ -1,7 +1,34 @@
 <?php
+    namespace DAO; 
+    use DAO\MovieDAO;
+
+    function listGenres ($idMovie) {
+        $movieDao= new MovieDAO();
+        $genres= $movieDao->GetGenresMovie($idMovie);
+        $stringGenres= "";
+        foreach($genres as $genre){
+            $stringGenres= $stringGenres . $genre->getName(). ", ";
+        }
+        return substr($stringGenres,0,-2);
+    }
     require_once(VIEWS_PATH . "client-nav.php");
 ?>
 <div class="container"> 
+    <div class="row">
+        <div class="col-lg-5">
+            <img class="image-poster" src="<?php echo MOVIE_API_IMAGE_URL . $movie->getPosterPath();?>"/>
+        </div>
+        <div class="col-lg-7"></div>
+
+    </div>
+    <div class="row py-4">
+        <div class="col-4 text-white">
+            <h2><?php echo $movie->getTitle()?></h2>
+            <p><b>Estreno: </b><span><?php echo $movie->getReleaseDate()?></span></p>
+            <p><b>Géneros: </b><span><?php echo listGenres($movie->getIdMovie())?></span></p>
+            <p><?php echo $movie->getOverview()?></p>
+        </div>
+    </div>
     <ul class="nav nav-tabs day-selector">
         <li class="nav-item day-item">
             <a class="nav-link day-link selected-day active " href="#">Lunes</a>

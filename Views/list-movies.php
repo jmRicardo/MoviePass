@@ -20,8 +20,9 @@ use DAO\MovieDAO;
                 <p><b>Estreno: </b><span id="movie-release-date"></span></p>
                 <p><b>Género: </b><span id="movie-genres"></span></p>
                 <p id="movie-overview"></p>
-                <form action="<?php echo FRONT_ROOT. "Client/selectDate"?>" method="GET">
-                    <button class="btn btn-primary" id="movie-reservation">Reservar</button></form>
+                <a id="movie-id">
+                    <button type="submit" class="btn btn-primary" id="movie-reservation">Reservar</button>
+                </a>
             </div>
             <div class="col-8">
             <iframe class="movie-trailer"
@@ -35,7 +36,7 @@ use DAO\MovieDAO;
                         <img class="movie-image" src="<?php echo MOVIE_API_IMAGE_URL . $movie->getPosterPath();?>"/>
                         <div class="movie-overlay"> 
                             <span class="movie-name"><?php  echo $movie->getTitle();?></span>
-                            <button type="button" onclick="expandMovie('<?php echo $movie->getTitle(); ?>', '<?php echo $movie->getReleaseDate(); ?>', '<?php echo $movie->getOverview(); ?>','<?php echo listGenres($movie->getIdMovie());?>','<?php echo $movie->getTrailerPath(); ?>')" class="btn btn-primary ver-mas">Ver más</button>
+                            <button type="button" onclick="expandMovie('<?php echo $movie->getTitle(); ?>', '<?php echo $movie->getReleaseDate(); ?>', '<?php echo $movie->getOverview(); ?>','<?php echo listGenres($movie->getIdMovie());?>','<?php echo $movie->getTrailerPath(); ?>','<?php echo $movie->getIdMovie(); ?>')" class="btn btn-primary ver-mas">Ver más</button>
                         </div>
                     </div>
                 </div>
@@ -44,13 +45,15 @@ use DAO\MovieDAO;
     </div>
 </div>
 <script>
-    function expandMovie(title, releaseDate, overview, genres,trailerPath) {
+    function expandMovie(title, releaseDate, overview, genres,trailerPath,idMovie) {
+        var reservateUrl = "<?php echo FRONT_ROOT. "Client/selectDate/"?>" + idMovie;
         $("#movie-title").html(title);
         $("#movie-release-date").html(releaseDate);
         $("#movie-overview").html(overview);
         $("#movie-genres").html(genres);
         $(".movie-trailer").attr("src","https://www.youtube.com/embed/"+ trailerPath +"?autoplay=1&mute=1");
-        $(".movie-expanded").css('display', 'flex').animate();
-    }
+        $("#movie-id").attr("href", reservateUrl);
+        $(".movie-expanded").css('display', 'flex');
+    } 
 </script>
 

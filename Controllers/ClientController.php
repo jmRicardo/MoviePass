@@ -39,9 +39,9 @@
             require_once(VIEWS_PATH."client-select-movie.php");
         }
 
-        function SelectDate()
+        function SelectDate($idMovie)
         {
-            $genres=$this->movieDao->GetActiveGenres();
+            $movie=$this->movieDao->GetMovieByID($idMovie);
             require_once(VIEWS_PATH."client-select-date.php");
         }
         
