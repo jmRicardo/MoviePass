@@ -15,11 +15,7 @@
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>loginFacebook.css">
 
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>signup.css"> 
-     //boostrap date picker
      
-     <script src="<?php echo DATE_PATH ?>js/bootstrap-datepicker.min.js"></script>
-     <link rel="stylesheet" href="<?php echo DATE_PATH ?>css/bootstrap-datepicker.css"> 
-
      <!-- Add icon library -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
      
