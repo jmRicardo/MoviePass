@@ -6,6 +6,7 @@
     use DAO\Connection as Connection;
     use DAO\IRoomDAO as IRoomDAO;
     use Models\Room;
+    use Models\Cinema;
     use \PDO as PDO;
     use \PDOException as PDOException;
 
@@ -13,6 +14,7 @@
 
         private $connection;
         private $tableName = "rooms";
+        private $tableNameCinema = "cinemas";
 
         public function __construct()
         {
@@ -103,8 +105,6 @@
             catch(Exception $ex)
             {
                 return $ex->getMessage();
-
-                throw $ex;
             }
         }
 
@@ -119,9 +119,31 @@
             $this->connection->ExecuteNonQuery($query, $parameters);
         }
 
+        public function GetCinemaByRoom($idRoom)
+        {
+            try
+            {
+                $query = "SELECT * FROM ".$this->tableNameCinema." 
+                                    WHERE (id = ( SELECT idCinema FROM " . $this->tableName . " WHERE idRoom = :idRoom))";
 
+                $parameters["idRoom"] =  $idRoom;
 
+                $this->connection = Connection::GetInstance();
 
+                $result = $this->connection->Execute($query,$parameters);
+
+                $cinema = new Cinema(); 
+                $cinema->setId($result[0]["id"]);
+                $cinema->setName($result[0]["name"]);
+                $cinema->setAddress($result[0]["address"]);
+
+                return $cinema;
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }             
+        }
     }
 
 
