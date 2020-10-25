@@ -151,12 +151,30 @@
             
         }
     
-        public function AddDate($date,$idRoom,$idMovie)
+        public function AddDate($idRoom,$idMovie,$date,$time)
         {
+            
+
             //require_once(PROCESS_PATH."date-process.php");
+            // var_dump($idRoom);
+            // var_dump($date);
+            // var_dump($idMovie);
+            // var_dump($time);
+            $result = explode('-',$date);
+            $dia = $result[2];
+            $mes = $result[1];
+            $año = $result[0];
+
+
+            $dateTime = $dia."-".$mes."-"."$año"." ".$time.":00";
 
             $dateObject = new Date();
+            $dateObject->setDate($dateTime);
+            $dateObject->setIdRoom($idRoom);
+            $dateObject->setIdMovie($idMovie);
 
+            var_dump($dateObject);
+            exit();
             $this->dateDAO->AddDate($dateObject);
 
             header("Location:".FRONT_ROOT."Admin/ShowDates");

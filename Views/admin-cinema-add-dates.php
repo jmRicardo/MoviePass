@@ -38,21 +38,26 @@
                 <div class="container">
                     <h2 class="mb-4"> Agregar Funcion </h2>
 
-                    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET">
-                        <select class="form-control category-select" name="category" placeholder="genre">
-                            <option disabled selected></option>
+                    <form action="<?php echo FRONT_ROOT ?>Admin/AddDate" method="GET">
+                    <input type="hidden" name="idRoom" value="<?php echo $_POST['idRoom']; ?>">
+                        
+                        <select class="form-control category-select" name="nameMovie"  >
+                            <option disabled selected  ></option>
                                 <?php foreach($movies as $movie){?>
-                                <option>
+                                <option value="<?php echo $movie->getIdMovie()?>">
                                     <?php echo $movie->getTitle();?>
                                 </option>
                             <?php } ?>
                         </select>
 
                         <input type="date" min="2020-10-24" max="2020-11-24" name="date">
+                        
                         <input type="time" name="time">
-                        <input type="week" name="week">
-                        <input type="datetime-local" name="completito" ><br/>
-                        <button type="submit" name="id" class="btn btn-primary" >Agregar Pelicula</button>
+                        
+                        <!-- $date
+                        ,$idRoom,     ya esta
+                        $idMovie -->  
+                        <button type="submit" class="btn btn-primary" >Agregar Pelicula</button>
                     </form>                
                 </div>
             </section>
