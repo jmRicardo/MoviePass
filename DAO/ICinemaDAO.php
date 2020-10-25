@@ -11,7 +11,6 @@
         function GetCinema($id);
         function Remove($id);
         function Update($id,$name,$address);
-        function UpdateCinema(Cinema $cinema);
-        
+        function UpdateCinema(Cinema $cinema);        
     }
 ?>
