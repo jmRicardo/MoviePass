@@ -74,6 +74,6 @@
 </main>
 <?PHP 
 var_dump($_GET);
-exit();
+// exit();
 ?>
 
