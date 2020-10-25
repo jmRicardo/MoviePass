@@ -4,7 +4,9 @@
     use Models\Cinema as Cinema;
     use Models\Movie as Movie;
     use Models\Room as Room;
+    use Models\Date as Date;
     use DAO\CinemaDAO as CinemaDAO;
+    use DAO\DateDAO as DateDAO;
     use DAO\MovieDAO as MovieDAO;
     use DAO\RoomDAO as RoomDAO;
 
@@ -15,12 +17,14 @@
         private $cinemaDAO;
         private $movieDAO;
         private $roomDAO;
+        private $dateDAO;
 
         public function __construct()
         {
             $this->cinemaDAO = new CinemaDAO();
             $this->movieDAO = new MovieDAO();
             $this->roomDAO = new RoomDAO();
+            $this->dateDAO = new DateDAO();
         }
 
         public function NowPlaying()
@@ -145,6 +149,17 @@
 
             require_once(VIEWS_PATH."admin-cinema-add-dates.php");
             
+        }
+    
+        public function AddDate($date,$idRoom,$idMovie)
+        {
+            //require_once(PROCESS_PATH."date-process.php");
+
+            $dateObject = new Date();
+
+            $this->dateDAO->AddDate($dateObject);
+
+            header("Location:".FRONT_ROOT."Admin/ShowDates");
         }
 
     }
