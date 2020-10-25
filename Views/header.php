@@ -15,7 +15,7 @@
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>loginFacebook.css">
 
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>signup.css"> 
-
+     
      <!-- Add icon library -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
      
@@ -35,6 +35,9 @@
      
      <!-- select Movies -->
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>selectMovies.css">  
+
+      <!-- Date Selector-->
+      <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientSelectDate.css">
 
      <title>MoviePass</title>
 </head>
