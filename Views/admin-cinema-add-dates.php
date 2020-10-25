@@ -1,23 +1,14 @@
 <?php
     require_once('admin-nav.php');
 
-    foreach( $listCinema as $nameCinema ){
-        if($nameCinema->getId() == $_POST['id']){
-            $realCinema = $nameCinema->getName();
-        }
-    }
-    foreach( $listRooms as $nameRoom ){
-        if($nameRoom->getIdRoom() == $_POST['idRoom']){
-            $realRoom = $nameRoom->getName();
-        }
-    }
+    
     
 
 ?>
 <main class="py-5">
 
-<!-- <h2 class="mb-4">Este es el Cine -> <?php echo $realCinema; ?></h2>
-<h2 class="mb-4">Esta es la Sala -> <?php echo $realRoom; ?></h2> -->
+<h2 class="mb-4">Este es el Cine -> <?php echo $id2; ?></h2>
+<h2 class="mb-4">Esta es la Sala -> <?php echo $idRoom2; ?></h2>
 
     <!-- <div class="modal fade" id="addDates" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -39,7 +30,7 @@
                     <h2 class="mb-4"> Agregar Funcion </h2>
 
                     <form action="<?php echo FRONT_ROOT ?>Admin/AddDate" method="GET">
-                    <input type="hidden" name="idRoom" value="<?php echo $_POST['idRoom']; ?>">
+                    <input type="hidden" name="idRoom" value="<?php echo $idRoom2; ?>">
                         
                         <select class="form-control category-select" name="nameMovie"  >
                             <option disabled selected  ></option>
@@ -58,6 +49,11 @@
                         ,$idRoom,     ya esta
                         $idMovie -->  
                         <button type="submit" class="btn btn-primary" >Agregar Pelicula</button>
+                        
+                        
+
+
+                    
                     </form>                
                 </div>
             </section>
@@ -78,7 +74,7 @@
     </div> -->
 </main>
 <?PHP 
-var_dump($_GET);
-// exit();
+
+
 ?>
 

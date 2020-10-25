@@ -140,8 +140,10 @@
 
         //aca empiezan las funciones de administrar Funciones
 
-        public function ShowDates()
+        public function ShowDates($id2,$idRoom2)
         {
+            // var_dump($id2,$idRoom2);
+            // exit();
             Util::loggedInRedirect();
             $movies=$this->movieDAO->GetAll();
             $listRooms=$this->roomDAO->GetAll();
@@ -156,25 +158,15 @@
             
 
             //require_once(PROCESS_PATH."date-process.php");
-            // var_dump($idRoom);
-            // var_dump($date);
-            // var_dump($idMovie);
-            // var_dump($time);
-            $result = explode('-',$date);
-            $dia = $result[2];
-            $mes = $result[1];
-            $año = $result[0];
-
-
-            $dateTime = $dia."-".$mes."-"."$año"." ".$time.":00";
+            
+            $dateTime = $date." ".$time.":00";
 
             $dateObject = new Date();
             $dateObject->setDate($dateTime);
             $dateObject->setIdRoom($idRoom);
             $dateObject->setIdMovie($idMovie);
 
-            var_dump($dateObject);
-            exit();
+            
             $this->dateDAO->AddDate($dateObject);
 
             header("Location:".FRONT_ROOT."Admin/ShowDates");
