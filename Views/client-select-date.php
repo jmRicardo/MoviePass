@@ -1,5 +1,4 @@
 <?php
-    namespace DAO; 
     use DAO\MovieDAO;
 
     function listGenres ($idMovie) {
@@ -22,27 +21,24 @@
             <h2><?php echo $movie->getTitle()?></h2>
             <p><b>Géneros: </b><span><?php echo listGenres($movie->getIdMovie())?></span></p>
             <ul class="nav nav-tabs day-selector">
+                <?php
+                    setlocale(LC_TIME,"spanish");
+                    $day = new DateTime();
+                    define("CHARSET", "iso-8859-1");
+                ?>
                 <li class="nav-item day-item">
-                    <a class="nav-link day-link selected-day active " href="#">Lunes</a>
+                    <a class="nav-link day-link selected-day active " href="#"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
                 </li>
-                <li class="nav-item day-item">
-                    <a class="nav-link day-link" href="#">Martes</a>
-                </li>
-                <li class="nav-item day-item">
-                    <a class="nav-link day-link" href="#">Miercoles</a>
-                </li>
-                <li class="nav-item day-item">
-                    <a class="nav-link day-link" href="#">Jueves</a>
-                </li>
-                <li class="nav-item day-item">
-                    <a class="nav-link day-link" href="#">Viernes</a>
-                </li>
-                <li class="nav-item day-item">
-                    <a class="nav-link day-link" href="#">Sabado</a>
-                </li>
-                <li class="nav-item day-item">
-                    <a class="nav-link day-link" href="#">Domingo</a>
-                </li>
+                <?php
+                    for ($i=0; $i < 6; $i++) {
+                        $day->modify("+1 day");
+                        ?>
+                        <li class="nav-item day-item">
+                            <a class="nav-link day-link" href="#"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
+                        </li>
+                        <?php
+                    }
+                ?>
                 <li class=" dropdown nav-item day-item">
                     <a class="nav-link day-link" href="#">Ver más</a>
                 </li>
