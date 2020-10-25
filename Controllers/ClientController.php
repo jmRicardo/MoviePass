@@ -15,8 +15,6 @@
         {
             $movies=$this->movieDao->GetAll();
             require_once(VIEWS_PATH."client-home.php");
-            // require_once(VIEWS_PATH."admin-cinema-add.php");
-
         }
 
         function Account()
@@ -39,16 +37,23 @@
             require_once(VIEWS_PATH."client-select-movie.php");
         }
 
-        function SelectDate()
+        function SelectDate($idMovie)
         {
-            $genres=$this->movieDao->GetActiveGenres();
+            $movie=$this->movieDao->GetMovieByID($idMovie);
             require_once(VIEWS_PATH."client-select-date.php");
+        }
+        function listCarusel()
+        {
+            $movies=$this->movieDao->GetAll();
+            require_once(VIEWS_PATH."client-list-carusel.php");
         }
         
         function SendMail(){
 
             require_once(PROCESS_PATH."mail-process.php");             
         }
+
+
         
 
     }

@@ -160,7 +160,9 @@
 
             $result = $this->connection->Execute($query,$parameters);
 
-            $movie = $this->ArrayToMovieObjects($result);
+            $movies = $this->ArrayToMovieObjects($result);
+
+            $movie = array_pop($movies);
 
             return $movie;
         }
