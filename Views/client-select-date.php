@@ -24,6 +24,9 @@
         <li class="nav-item day-item">
             <a class="nav-link day-link" href="#">Domingo</a>
         </li>
+        <li class=" dropdown nav-item day-item">
+            <a class="nav-link day-link" href="#">Ver más</a>
+        </li>
     </ul>
     <div class="row">  
         <div class="col-lg-4">
