@@ -1,0 +1,10 @@
+.movie-container {
+    width: 90%;
+    margin: auto;
+}
+
+.movie-container .movie-recomended{
+    display: flex;
+    align-items: center;
+    position: relative;
+}

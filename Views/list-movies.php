@@ -1,5 +1,4 @@
-<?php
-namespace DAO; 
+<?php 
 use DAO\MovieDAO;
 
     function listGenres ($idMovie) {
