@@ -167,3 +167,9 @@ body {
 .admin-nav {
 	height: 76px;
 }
+
+.footer-content {
+	justify-content: center;
+    display: flex;
+    align-items: center;
+}

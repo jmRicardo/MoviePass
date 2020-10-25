@@ -4,9 +4,13 @@
     <footer id="footer" class="clear"></footer>
   </div>
   <div class="wrapper row6 footer">
-    <div id="copyright" class="clear" align="center"> 
-      <p >Copyright &copy; <?php echo date('Y'); ?> - All Rights Reserved - UTN Laboratorio IV</p>
-      <a type="button" class="nav-link" data-toggle="modal" data-target="#sendMail" data-whatever="@fat">@Contactenos</a>    
+    <div id="copyright" class="clear footer-content" align="center"> 
+      <div class="copyrigth">
+        <p>Copyright &copy; <?php echo date('Y'); ?> - All Rights Reserved - UTN Laboratorio IV</p>
+      </div>
+      <div class="contact">
+        <a type="button" class="nav-link" data-toggle="modal" data-target="#sendMail" data-whatever="@fat">@Contactenos</a>    
+      </div>
     </div>
   </div>
 </body>
