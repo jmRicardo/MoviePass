@@ -68,3 +68,14 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   constraint pkIdRoom primary key (`idRoom`),
   constraint pkIdCinema foreign key (`idCinema`) references cinemas(`id`)
 )Engine = InnoDB;
+
+DROP TABLE IF EXISTS dates;
+CREATE TABLE IF NOT EXISTS dates 
+(
+	id int not null auto_increment primary key,
+  `date` datetime not null,
+  idRoom int not null,
+  idMovie int not null,
+  constraint fk_idRoom foreign key (idRoom) references rooms(idRoom) on delete cascade on update cascade,
+	constraint fk_idMovieDates foreign key (idMovie) references movies(idMovie) on delete cascade on update cascade
+)Engine = InnoDB;
