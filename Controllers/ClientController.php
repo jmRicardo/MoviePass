@@ -47,6 +47,11 @@
             $movies=$this->movieDao->GetAll();
             require_once(VIEWS_PATH."client-list-carusel.php");
         }
+
+        function selectSeat()
+        {
+            require_once(VIEWS_PATH."client-select-seat.php");
+        }
         
         function SendMail(){
 
