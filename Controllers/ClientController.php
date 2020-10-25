@@ -29,14 +29,20 @@
             $idGenre = 0;
             $genres=$this->movieDao->GetActiveGenres();
             $movies=$this->movieDao->GetAll();
-            require_once(VIEWS_PATH."select-movie.php");
+            require_once(VIEWS_PATH."client-select-movie.php");
         }
 
         function Filter($idGenre)
         {
             $genres=$this->movieDao->GetActiveGenres();
             $movies=$this->movieDao->GetMoviesByGenre($idGenre);
-            require_once(VIEWS_PATH."select-movie.php");
+            require_once(VIEWS_PATH."client-select-movie.php");
+        }
+
+        function SelectDate()
+        {
+            $genres=$this->movieDao->GetActiveGenres();
+            require_once(VIEWS_PATH."client-select-date.php");
         }
         
         function SendMail(){
