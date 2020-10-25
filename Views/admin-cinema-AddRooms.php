@@ -66,7 +66,10 @@
                     </thead>
                     <tbody>
                     <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="post" id="from">
-                        <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>"  >
+                        <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>">
+                        <input type="hidden" name="id2" value="<?php echo $cinema->getName() ?>">
+                        
+
                             <?php foreach($listId as $room) { ?>
                                 <tr>
                                     <td><?php echo $room->getIdRoom() ?></td>
@@ -90,15 +93,29 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <button name="id" value="<?php echo $room->getIdRoom() ?>" class="btn btn-success" onclick="
+                                                <button name="idRoom"  value="<?php echo $room->getIdRoom() ?>" class="btn btn-success" onclick="
                                                     var frm = document.getElementById('from') || null;
                                                     if(frm) {
-                                                            frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/ShowListViewFunction');     
+                                                            frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/ShowDates');     
                                                     }">
                                                     <i class="fa fa-edit"></i>
                                                             Agregar Funciones
                                                 </button>
                                             </td>   
+                                            
+                                            
+
+
+
+
+
+
+
+
+
+
+
+
                                                 <!-- <button name="idRoom" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
                                                     var frm = document.getElementById('from') || null;
                                                     if(frm) {

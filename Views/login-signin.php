@@ -88,8 +88,8 @@
 <script>
 $(document).ready(function(){
   
-  $("#exampleModalNext").on('show.bs.modal', function(){
-    $("#exampleModal").modal("hide");
+  $("#checkIn").on('show.bs.modal', function(){
+    $("#sectionStart").modal("hide");
   });
 });
 </script>
