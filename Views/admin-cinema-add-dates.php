@@ -1,23 +1,14 @@
 <?php
     require_once('admin-nav.php');
 
-    foreach( $listCinema as $nameCinema ){
-        if($nameCinema->getId() == $_POST['id']){
-            $realCinema = $nameCinema->getName();
-        }
-    }
-    foreach( $listRooms as $nameRoom ){
-        if($nameRoom->getIdRoom() == $_POST['idRoom']){
-            $realRoom = $nameRoom->getName();
-        }
-    }
+    
     
 
 ?>
 <main class="py-5">
 
-<!-- <h2 class="mb-4">Este es el Cine -> <?php echo $realCinema; ?></h2>
-<h2 class="mb-4">Esta es la Sala -> <?php echo $realRoom; ?></h2> -->
+<h2 class="mb-4">Este es el Cine -> <?php echo $id2; ?></h2>
+<h2 class="mb-4">Esta es la Sala -> <?php echo $idRoom2; ?></h2>
 
     <!-- <div class="modal fade" id="addDates" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -38,21 +29,31 @@
                 <div class="container">
                     <h2 class="mb-4"> Agregar Funcion </h2>
 
-                    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET">
-                        <select class="form-control category-select" name="category" placeholder="genre">
-                            <option disabled selected></option>
+                    <form action="<?php echo FRONT_ROOT ?>Admin/AddDate" method="GET">
+                    <input type="hidden" name="idRoom" value="<?php echo $idRoom2; ?>">
+                        
+                        <select class="form-control category-select" name="nameMovie"  >
+                            <option disabled selected  ></option>
                                 <?php foreach($movies as $movie){?>
-                                <option>
+                                <option value="<?php echo $movie->getIdMovie()?>">
                                     <?php echo $movie->getTitle();?>
                                 </option>
                             <?php } ?>
                         </select>
 
                         <input type="date" min="2020-10-24" max="2020-11-24" name="date">
+                        
                         <input type="time" name="time">
-                        <input type="week" name="week">
-                        <input type="datetime-local" name="completito" ><br/>
-                        <button type="submit" name="id" class="btn btn-primary" >Agregar Pelicula</button>
+                        
+                        <!-- $date
+                        ,$idRoom,     ya esta
+                        $idMovie -->  
+                        <button type="submit" class="btn btn-primary" >Agregar Pelicula</button>
+                        
+                        
+
+
+                    
                     </form>                
                 </div>
             </section>
@@ -73,7 +74,7 @@
     </div> -->
 </main>
 <?PHP 
-var_dump($_GET);
-// exit();
+
+
 ?>
 

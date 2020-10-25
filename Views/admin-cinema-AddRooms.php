@@ -66,7 +66,7 @@
                     </thead>
                     <tbody>
                     <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="post" id="from">
-                        <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>">
+                        <!-- <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>"> -->
                         <input type="hidden" name="id2" value="<?php echo $cinema->getName() ?>">
                         
 
@@ -93,7 +93,7 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <button name="idRoom"  value="<?php echo $room->getIdRoom() ?>" class="btn btn-success" onclick="
+                                                <button name="idRoom2"  value="<?php echo $room->getIdRoom() ?>" class="btn btn-success" onclick="
                                                     var frm = document.getElementById('from') || null;
                                                     if(frm) {
                                                             frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/ShowDates');     
