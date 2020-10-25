@@ -4,33 +4,32 @@
 
     class Date{
 
-        private $idDate;
+        private $id;
         private $date;
-        private $cinema;
+        private $idRoom;
         private $idMovie;
 
         public function __construct()
         {
-            $date = date("Y-m-d");
-            $cinema = new Cinema();
-        }
+                
+        }      
 
         /**
-         * Get the value of idDate
+         * Get the value of id
          */ 
-        public function getIdDate()
+        public function getId()
         {
-                return $this->idDate;
+                return $this->id;
         }
 
         /**
-         * Set the value of idDate
+         * Set the value of id
          *
          * @return  self
          */ 
-        public function setIdDate($idDate)
+        public function setId($id)
         {
-                $this->idDate = $idDate;
+                $this->id = $id;
 
                 return $this;
         }
@@ -56,21 +55,21 @@
         }
 
         /**
-         * Get the value of cinema
+         * Get the value of idRoom
          */ 
-        public function getCinema()
+        public function getIdRoom()
         {
-                return $this->cinema;
+                return $this->idRoom;
         }
 
         /**
-         * Set the value of cinema
+         * Set the value of idRoom
          *
          * @return  self
          */ 
-        public function setCinema($cinema)
+        public function setIdRoom($idRoom)
         {
-                $this->cinema = $cinema;
+                $this->idRoom = $idRoom;
 
                 return $this;
         }
@@ -95,7 +94,4 @@
                 return $this;
         }
     }
-
-
-
 ?>

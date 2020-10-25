@@ -134,6 +134,19 @@
             require_once(VIEWS_PATH."admin-cinema-addRooms.php");
         }
 
+        //aca empiezan las funciones de administrar Funciones
+
+        public function ShowDates()
+        {
+            Util::loggedInRedirect();
+            $movies=$this->movieDAO->GetAll();
+            $listRooms=$this->roomDAO->GetAll();
+            $listCinema=$this->cinemaDAO->GetAll();
+
+            require_once(VIEWS_PATH."admin-cinema-add-dates.php");
+            
+        }
+
     }
 
 ?>
