@@ -1,7 +1,11 @@
 <?php
     use DAO\MovieDAO;
+    use DAO\RoomDAO;
 
-    function listGenres ($idMovie) {
+    use function Controllers\getCinemasByDay;
+    use function Controllers\getCinemaByRoom;
+
+function listGenres ($idMovie) {
         $movieDao= new MovieDAO();
         $genres= $movieDao->GetGenresMovie($idMovie);
         $stringGenres= "";
@@ -20,60 +24,72 @@
         <div class="col-lg-8">
             <h2><?php echo $movie->getTitle()?></h2>
             <p><b>Géneros: </b><span><?php echo listGenres($movie->getIdMovie())?></span></p>
-            <ul class="nav nav-tabs day-selector">
+            <ul class="nav nav-tabs day-selector" id="myTab" role="tablist">
                 <?php
                     setlocale(LC_TIME,"spanish");
                     $day = new DateTime();
                     define("CHARSET", "iso-8859-1");
-                ?>
-                <li class="nav-item day-item">
-                    <a class="nav-link day-link selected-day active " href="#"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
-                </li>
-                <?php
-                    for ($i=0; $i < 6; $i++) {
-                        $day->modify("+1 day");
+                    for ($i=0; $i < 7; $i++) {
+                        $currentDay = $day->format("j");
                         ?>
-                        <li class="nav-item day-item">
-                            <a class="nav-link day-link" href="#"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
+                        <li class="nav-item day-item" role="presentation">
+                            <a class="nav-link day-link <?php if ($i === 0) echo "active";?>" id="date-<?php echo $currentDay; ?>-tab" data-toggle="tab" href="#date-<?php echo $currentDay; ?>" role="tab" aria-controls="date-<?php echo $currentDay; ?>" aria-selected="true"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
                         </li>
                         <?php
+                        $day->modify("+1 day");
                     }
                 ?>
                 <li class=" dropdown nav-item day-item">
                     <a class="nav-link day-link" href="#">Ver más</a>
                 </li>
             </ul>
-            <div class="row">  
-                <div class="col-lg-6">
-                    <div class="cine-box">
-                        <div class="cine-header">
-                            <h3 class="cine-name">Cines del paseo</h3>
-                            <span>Santiago del estero 2020</span>
+            <div class="tab-content" id="myTabContent">
+                <?php
+                    $day = new DateTime();
+                    for ($i=0; $i < 7; $i++) {
+                        $currentDay = $day->format("j");
+                        $cinemas = getCinemasByDay($day, $dates);
+                ?>
+                <div class="tab-pane fade <?php if ($i === 0) echo "show active";?>" id="date-<?php echo $currentDay; ?>" role="tab-panel" aria-labelledby="date-<?php echo $currentDay; ?>-tab">
+                    <div class="row">
+                        <?php
+                             $roomDao= new RoomDAO();
+                            foreach ($cinemas as $room=>$currentDates) {
+                               
+                                $cine = $roomDao->getCinemaByRoom($room);
+                        ?>
+                        <div class="col-lg-6">
+                            <div class="cine-box">
+                                <div class="cine-header">
+                                    <h3 class="cine-name"><?php echo $cine->getName(); ?></h3>
+                                    <span><?php echo $cine->getAddress();?></span>
+                                </div>
+                                <div class="cine-times">
+                                    <?php
+                                        foreach ($currentDates as $date) {
+                                    ?>
+                                    <button type="button" class="btn btn-warning cine-time">
+                                        <?php
+                                            $hour = new DateTime($date->getDate());
+                                            echo $hour->format("g:i a");
+                                        ?>
+                                    </button>
+
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                            </div>
                         </div>
-                        <div class="cine-times">
-                            <button type="button" class="btn btn-warning cine-time">05:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">10:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="cine-box">
-                        <div class="cine-header">
-                            <h3 class="cine-name">Pompas</h3>
-                            <span>Rivadavia 20527</span>
-                        </div>
-                        <div class="cine-times">
-                            <button type="button" class="btn btn-warning cine-time">05:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                            <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                        $day->modify("+1 day");
+                    }
+                ?>
             </div>
         </div>
     </div>
