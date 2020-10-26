@@ -66,7 +66,7 @@
                         <th>Capacidad</th>
                     </thead>
                     <tbody>
-                    <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="post" id="from">
+                    <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="GET" id="from">
                         <!-- <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>"> -->
                         <!-- <input type="hidden" name="id2" value="<?php echo $cinema->getName() ?>"> -->
                         
