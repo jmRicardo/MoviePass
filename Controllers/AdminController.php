@@ -102,13 +102,15 @@
 
         // de aca empiezan los metodos que controlan las SALAS
 
-        public function RemoveRoom($id, $idRoom)
+        public function RemoveRoom($idRoom2)
         {   
+            
             Util::loggedInRedirect();
+            $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
-            $this->roomDAO->RemoveRoom($idRoom);
-            
-            $this->ShowAddRoom($id);
+            $this->roomDAO->RemoveRoom($idRoom2);
+           
+            $this->ShowAddRoom($cinemaObject->getId());
             
         }
 
