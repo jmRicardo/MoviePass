@@ -4,15 +4,16 @@
 
     $cinemaDAO = new CinemaDAO();
 
-    $_SESSION['message'] = 'manochon gay';
+    if('' == $cinema->getName() || empty($cinema->getName())) {
 
-
-    if('' == $cinema->getName() || empty($cinema)) {
-        
         $_SESSION['message'] = 'Nombre de cine invalido';
+
+    } elseif(''  == $cinema->getAddress() || empty($cinema->getAddress())) {
+
+        $_SESSION['message'] = 'Direccion invalida';
+
     } else {
        
-
         $error = $this->cinemaDAO->Add($cinema);
 
         if (isset($error)) {
@@ -20,8 +21,6 @@
         }else {
             $_SESSION['message'] = "Cine agregado con exito!";
         }
-
-        
 
     }
 

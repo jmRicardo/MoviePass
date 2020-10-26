@@ -40,7 +40,7 @@
                                 <div class="cine-times">
                                             <input type="hidden" name="idRoom" value="<?php echo $idRoom2; ?>">
                                             
-                                            <select class="form-control category-select" name="nameMovie"  >
+                                            <select class="form-control category-select" name="nameMovie"  required>
                                                 <option disabled selected  ></option>
                                                     <?php foreach($movies as $movie){?>
                                                     <option value="<?php echo $movie->getIdMovie()?>">
@@ -49,9 +49,9 @@
                                                 <?php } ?>
                                             </select><br>
 
-                                            <input type="date" min="2020-10-24" max="2020-11-24" name="date">
+                                            <input type="date" min="2020-10-24" max="2020-11-24" name="date" required>
                                             
-                                            <input type="time" name="time"><br>
+                                            <input type="time" name="time" required><br>
                                         
                                             <button type="submit" class="btn btn-primary" >Agregar Pelicula</button>
                                 </div>

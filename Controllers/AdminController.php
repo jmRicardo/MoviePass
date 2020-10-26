@@ -124,9 +124,10 @@
             $room->setCapacity($capacity);
             $room->setPrice($price);
 
-            $_SESSION['message'] = $this->roomDAO->Add($room);           
+            require_once(PROCESS_PATH."room-process.php");
+            /* $_SESSION['message'] = $this->roomDAO->Add($room);           
 
-            $this->ShowAddRoom($id);
+            $this->ShowAddRoom($id); */
         }
 
 

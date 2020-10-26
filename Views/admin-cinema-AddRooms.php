@@ -1,5 +1,6 @@
 <?php
     require_once('admin-nav.php');
+    require_once(UTILS_PATH . "MessageBox.php");
 ?>
 
 <main class="py-5">
