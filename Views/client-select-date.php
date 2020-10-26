@@ -1,7 +1,9 @@
 <?php
     use DAO\MovieDAO;
+    use DAO\RoomDAO;
 
-use function Controllers\getCinemasByDay;
+    use function Controllers\getCinemasByDay;
+    use function Controllers\getCinemaByRoom;
 
 function listGenres ($idMovie) {
         $movieDao= new MovieDAO();
@@ -51,13 +53,16 @@ function listGenres ($idMovie) {
                 <div class="tab-pane fade <?php if ($i === 0) echo "show active";?>" id="date-<?php echo $currentDay; ?>" role="tab-panel" aria-labelledby="date-<?php echo $currentDay; ?>-tab">
                     <div class="row">
                         <?php
+                             $roomDao= new RoomDAO();
                             foreach ($cinemas as $room=>$currentDates) {
+                               
+                                $cine = $roomDao->getCinemaByRoom($room);
                         ?>
                         <div class="col-lg-6">
                             <div class="cine-box">
                                 <div class="cine-header">
-                                    <h3 class="cine-name">Cines del paseo <?php echo $room; ?></h3>
-                                    <span>Santiago del estero 2020</span>
+                                    <h3 class="cine-name"><?php echo $cine->getName(); ?></h3>
+                                    <span><?php echo $cine->getAddress();?></span>
                                 </div>
                                 <div class="cine-times">
                                     <?php
@@ -69,6 +74,7 @@ function listGenres ($idMovie) {
                                             echo $hour->format("g:i a");
                                         ?>
                                     </button>
+
                                     <?php
                                         }
                                     ?>

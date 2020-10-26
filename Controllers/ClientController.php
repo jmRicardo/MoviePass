@@ -2,18 +2,19 @@
     namespace Controllers;
     use DAO\MovieDAO;
     use DAO\DateDAO;
-use DAO\RoomDAO;
+    use DAO\RoomDAO;
 
 class ClientController 
     {
         private $movieDao;
         private $dateDao;
+        private $roomDao;
 
         function __construct() 
         {
             $this->movieDao = new MovieDAO();
             $this->dateDao = new DateDAO();
-            $this->roomDato = new RoomDAO();
+            $this->roomDao = new RoomDAO();
         }
         
         function Home($message = "") 
