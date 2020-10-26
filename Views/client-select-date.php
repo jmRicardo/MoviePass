@@ -1,7 +1,9 @@
 <?php
     use DAO\MovieDAO;
 
-    function listGenres ($idMovie) {
+use function Controllers\getCinemasByDay;
+
+function listGenres ($idMovie) {
         $movieDao= new MovieDAO();
         $genres= $movieDao->GetGenresMovie($idMovie);
         $stringGenres= "";
@@ -25,44 +27,63 @@
                     setlocale(LC_TIME,"spanish");
                     $day = new DateTime();
                     define("CHARSET", "iso-8859-1");
-                ?>
-                <li class="nav-item day-item" role="presentation">
-                    <a class="nav-link day-link selected-day active" id="date-26-tab" data-toggle="tab" href="#date-26" role="tab" aria-controls="date-26" aria-selected="true"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
-                </li>
-                <?php
-                    for ($i=0; $i < 1; $i++) {
-                        $day->modify("+1 day");
+                    for ($i=0; $i < 7; $i++) {
+                        $currentDay = $day->format("j");
                         ?>
                         <li class="nav-item day-item" role="presentation">
-                            <a class="nav-link day-link" id="date-27-tab" data-toggle="tab" href="#date-27" role="tab" aria-controls="date-27" aria-selected="true"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
+                            <a class="nav-link day-link <?php if ($i === 0) echo "active";?>" id="date-<?php echo $currentDay; ?>-tab" data-toggle="tab" href="#date-<?php echo $currentDay; ?>" role="tab" aria-controls="date-<?php echo $currentDay; ?>" aria-selected="true"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
                         </li>
                         <?php
+                        $day->modify("+1 day");
                     }
                 ?>
                 <li class=" dropdown nav-item day-item">
                     <a class="nav-link day-link" href="#">Ver más</a>
                 </li>
             </ul>
-            <div class="row tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="date-26" role="tab-panel" aria-labelledby="date-26-tab">
-                    <div class="col-lg-6">
-                        <div class="cine-box">
-                            <div class="cine-header">
-                                <h3 class="cine-name">Cines del paseo</h3>
-                                <span>Santiago del estero 2020</span>
-                            </div>
-                            <div class="cine-times">
-                                <button type="button" class="btn btn-warning cine-time">05:30 pm</button>
-                                <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                                <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                                <button type="button" class="btn btn-warning cine-time">10:30 pm</button>
-                                <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                                <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
-                                <button type="button" class="btn btn-warning cine-time">06:30 pm</button>
+            <div class="tab-content" id="myTabContent">
+                <?php
+                    $day = new DateTime();
+                    for ($i=0; $i < 7; $i++) {
+                        $currentDay = $day->format("j");
+                        $cinemas = getCinemasByDay($day, $dates);
+                ?>
+                <div class="tab-pane fade <?php if ($i === 0) echo "show active";?>" id="date-<?php echo $currentDay; ?>" role="tab-panel" aria-labelledby="date-<?php echo $currentDay; ?>-tab">
+                    <div class="row">
+                        <?php
+                            foreach ($cinemas as $room=>$currentDates) {
+                        ?>
+                        <div class="col-lg-6">
+                            <div class="cine-box">
+                                <div class="cine-header">
+                                    <h3 class="cine-name">Cines del paseo <?php echo $room; ?></h3>
+                                    <span>Santiago del estero 2020</span>
+                                </div>
+                                <div class="cine-times">
+                                    <?php
+                                        foreach ($currentDates as $date) {
+                                    ?>
+                                    <button type="button" class="btn btn-warning cine-time">
+                                        <?php
+                                            $hour = new DateTime($date->getDate());
+                                            echo $hour->format("g:i a");
+                                        ?>
+                                    </button>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
                             </div>
                         </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
+                <?php
+                        $day->modify("+1 day");
+                    }
+                ?>
             </div>
         </div>
     </div>
