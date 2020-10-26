@@ -1,5 +1,6 @@
 <?php
     require_once('admin-nav.php');
+    require_once(UTILS_PATH . "MessageBox.php");
 ?>
 
 <main class="py-5">
@@ -65,9 +66,9 @@
                         <th>Capacidad</th>
                     </thead>
                     <tbody>
-                    <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="post" id="from">
+                    <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="GET" id="from">
                         <!-- <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>"> -->
-                        <input type="hidden" name="id2" value="<?php echo $cinema->getName() ?>">
+                        <!-- <input type="hidden" name="id2" value="<?php echo $cinema->getName() ?>"> -->
                         
 
                             <?php foreach($listId as $room) { ?>
@@ -83,7 +84,7 @@
                                                     Eliminar 
                                                 </a> -->
                                             <td>
-                                                <button name="idRoom" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
+                                                <button name="idRoom2" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
                                                     var frm = document.getElementById('from') || null;
                                                     if(frm) {
                                                             frm.action = '<?php echo FRONT_ROOT ?>'.concat('Admin/RemoveRoom');     

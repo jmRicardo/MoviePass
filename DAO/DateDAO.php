@@ -35,14 +35,25 @@
         {
             try
             {
-                $query = "SELECT * FROM ".$this->tableName." WHERE  date_format(`date`,'%Y-%m-%d') = :date and idMovie = :idMovie;";
-
+                $query = "SELECT * FROM ".$this->tableName." WHERE  date_format(`date`,'%Y-%m-%d') = date_format(:date,'%Y-%m-%d') and idMovie = :idMovie;";
+                
                 $parameters["date"] = $date->getDate();
                 $parameters["idMovie"] = $date->getIdMovie();
 
                 $this->connection = Connection::GetInstance();
 
-                return $this->connection->ExecuteNonQuery($query, $parameters);
+                $result = $this->connection->Execute($query, $parameters);
+
+                if(!empty($result)){
+                    $date = new Date(); 
+                    $date->setId($result[0]["id"]);
+                    $date->setDate($result[0]["date"]);
+                    $date->setIdMovie($result[0]["idMovie"]);
+                    $date->setIdRoom($result[0]["idRoom"]);
+                    return $date;
+                }else{
+                    return null;
+                }                
             }
             catch(Exception $ex)
             {
@@ -56,11 +67,12 @@
             {
                 $query = "SELECT * FROM ".$this->tableName." 
                             WHERE `date` BETWEEN ADDTIME(:date,-1500) 
-                            and date_add(:date, interval (select runtime from movies where idMovie = :idMovie)+15 minute);";
+                            and date_add(:date, interval (select runtime from movies where idMovie = :idMovie)+15 minute) and idRoom = :idRoom;";
 
                 $parameters["date"] = $date->getDate();
                 $parameters["idMovie"] = $date->getIdMovie();
-
+                $parameters["idRoom"] = $date->getIdRoom();
+                
                 $this->connection = Connection::GetInstance();
 
                 return $this->connection->ExecuteNonQuery($query, $parameters);

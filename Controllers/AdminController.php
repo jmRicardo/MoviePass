@@ -102,13 +102,15 @@
 
         // de aca empiezan los metodos que controlan las SALAS
 
-        public function RemoveRoom($id, $idRoom)
+        public function RemoveRoom($idRoom2)
         {   
+            
             Util::loggedInRedirect();
+            $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
-            $this->roomDAO->RemoveRoom($idRoom);
+            $this->roomDAO->RemoveRoom($idRoom2);
             
-            $this->ShowAddRoom($id);
+            $this->ShowAddRoom($cinemaObject->getId());
             
         }
 
@@ -122,9 +124,10 @@
             $room->setCapacity($capacity);
             $room->setPrice($price);
 
-            $_SESSION['message'] = $this->roomDAO->Add($room);           
+            require_once(PROCESS_PATH."room-process.php");
+            /* $_SESSION['message'] = $this->roomDAO->Add($room);           
 
-            $this->ShowAddRoom($id);
+            $this->ShowAddRoom($id); */
         }
 
 
@@ -140,36 +143,28 @@
 
         //aca empiezan las funciones de administrar Funciones
 
-        public function ShowDates($id2,$idRoom2)
+        public function ShowDates($idRoom2)
         {
-            // var_dump($id2,$idRoom2);
-            // exit();
+            $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
+            
             Util::loggedInRedirect();
-            $movies=$this->movieDAO->GetAll();
-            $listRooms=$this->roomDAO->GetAll();
-            $listCinema=$this->cinemaDAO->GetAll();
 
+            $movies=$this->movieDAO->GetAll();
+            
             require_once(VIEWS_PATH."admin-cinema-add-dates.php");
             
         }
     
         public function AddDate($idRoom,$idMovie,$date,$time)
-        {
-            
-
-            //require_once(PROCESS_PATH."date-process.php");
-            
+        {            
             $dateTime = $date." ".$time.":00";
-
+            
             $dateObject = new Date();
             $dateObject->setDate($dateTime);
             $dateObject->setIdRoom($idRoom);
             $dateObject->setIdMovie($idMovie);
 
-            
-            $this->dateDAO->AddDate($dateObject);
-
-            header("Location:".FRONT_ROOT."Admin/ShowDates");
+            require_once(PROCESS_PATH."date-process.php");
         }
 
     }
