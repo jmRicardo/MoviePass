@@ -157,18 +157,13 @@
         public function AddDate($idRoom,$idMovie,$date,$time)
         {            
             $dateTime = $date." ".$time.":00";
-
+            
             $dateObject = new Date();
             $dateObject->setDate($dateTime);
             $dateObject->setIdRoom($idRoom);
             $dateObject->setIdMovie($idMovie);
 
-            
             require_once(PROCESS_PATH."date-process.php");
-
-            //$this->dateDAO->AddDate($dateObject);
-
-            //header("Location:".FRONT_ROOT."Admin/ShowDates/". $dateObject->getIdRoom());
         }
 
     }
