@@ -79,3 +79,25 @@ CREATE TABLE IF NOT EXISTS dates
   constraint fk_idRoom foreign key (idRoom) references rooms(idRoom) on delete cascade on update cascade,
 	constraint fk_idMovieDates foreign key (idMovie) references movies(idMovie) on delete cascade on update cascade
 )Engine = InnoDB;
+
+DROP TABLE IF EXISTS `tickets`;
+CREATE TABLE IF NOT EXISTS `tickets` (
+  `id` int not null auto_increment,
+  `idDate` int not null,
+  `idUser` int not null,
+  `idSeat` int not null,
+  constraint pkIdRoom primary key (`id`),
+  constraint unqTicket unique (`seat`,`idDate`),
+  constraint pkIdUser foreign key (`idUser`) references users(`id`),
+  constraint pkTicketDate foreign key (`idDate`) references users(`id`)
+)Engine = InnoDB;
+
+DROP TABLE IF EXISTS `seats`;
+CREATE TABLE IF NOT EXISTS `seats` (
+  `id` int not null auto_increment,
+  `idDate` int not null,
+  `number` int not null,
+  constraint pkSeat primary key (`id`),
+  constraint unqSeat unique (`number`,`idDate`),
+  constraint fkSeatDate foreign key (`idDate`) references dates(`id`)
+)Engine = InnoDB;
