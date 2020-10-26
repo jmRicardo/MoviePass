@@ -42,7 +42,15 @@
 
                 $this->connection = Connection::GetInstance();
 
-                return $this->connection->ExecuteNonQuery($query, $parameters);
+                $result = $this->connection->Execute($query, $parameters);
+
+                $date = new Date(); 
+                $date->setId($result[0]["id"]);
+                $date->setDate($result[0]["date"]);
+                $date->setIdMovie($result[0]["idMovie"]);
+                $date->setIdRoom($result[0]["idRoom"]);
+
+                return $date;
             }
             catch(Exception $ex)
             {
