@@ -50,7 +50,7 @@
             }
             catch(Exception $ex)
             {
-                throw $ex;
+                return $ex->getMessage();
             }
         }
 
