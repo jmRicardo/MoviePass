@@ -6,7 +6,7 @@
 ?>
 <main class="py-5">
 
-<h2 class="mb-4">Este es el Cine -> <?php echo $id2; ?></h2>
+<h2 class="mb-4">Este es el Cine -> <?php echo $cinemaObject->getName(); ?></h2>
 <h2 class="mb-4">Esta es la Sala -> <?php echo $idRoom2; ?></h2>
 
     <!-- <div class="modal fade" id="addDates" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
