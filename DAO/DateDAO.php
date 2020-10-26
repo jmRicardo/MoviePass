@@ -36,21 +36,26 @@
             try
             {
                 $query = "SELECT * FROM ".$this->tableName." WHERE  date_format(`date`,'%Y-%m-%d') = :date and idMovie = :idMovie;";
-
+                
                 $parameters["date"] = $date->getDate();
                 $parameters["idMovie"] = $date->getIdMovie();
 
                 $this->connection = Connection::GetInstance();
 
                 $result = $this->connection->Execute($query, $parameters);
+                
+                if(isset($result)){
+                    $date = new Date(); 
+                    $date->setId($result[0]["id"]);
+                    $date->setDate($result[0]["date"]);
+                    $date->setIdMovie($result[0]["idMovie"]);
+                    $date->setIdRoom($result[0]["idRoom"]);
+                    return $date;
+                }else{
+                    return null;
+                }
 
-                $date = new Date(); 
-                $date->setId($result[0]["id"]);
-                $date->setDate($result[0]["date"]);
-                $date->setIdMovie($result[0]["idMovie"]);
-                $date->setIdRoom($result[0]["idRoom"]);
-
-                return $date;
+                
             }
             catch(Exception $ex)
             {

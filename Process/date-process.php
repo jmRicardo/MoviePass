@@ -7,7 +7,7 @@
     //$dateObject = new Date();
 
     $result = $dateDAO->CheckIfAvailable($dateObject);
-
+    
     if (isset($result))
     {
         if ($result->getIdRoom() == $dateObject->getIdRoom())
@@ -27,17 +27,17 @@
     }
 
 
-    if ($status == "ok")
-    {
-        if ($dateDAO->CheckRuntimeWithDate($dateObject))
-        {
-            $_SESSION['message'] = "El horario asignado no respeta las politicas de la empresa ( no hay 15 minutos entre funciones o su duracion es muy elevada para el espacio asignado";
-        }
-        else
-        {
-            $dateDAO->AddDate($dateObject);
-        }
-    }
+    // if ($status == "ok")
+    // {
+    //     if ($dateDAO->CheckRuntimeWithDate($dateObject))
+    //     {
+    //         $_SESSION['message'] = "El horario asignado no respeta las politicas de la empresa ( no hay 15 minutos entre funciones o su duracion es muy elevada para el espacio asignado";
+    //     }
+    //     else
+    //     {
+    //         $dateDAO->AddDate($dateObject);
+    //     }
+    // }
 
     header("Location:".FRONT_ROOT."Admin/ShowDates/". $dateObject->getIdRoom());
 

@@ -57,8 +57,11 @@
             $cinema->setName($name);
             $cinema->setAddress($address);
 
-            require_once(PROCESS_PATH.'cinema-process.php');
+            $this->cinemaDAO->Add($cinema);
 
+            $_SESSION['message'] = "Cine agregado con exito!";
+
+            $this->ShowCinemaList();
         }
         
         public function Remove($id)
@@ -99,13 +102,15 @@
 
         // de aca empiezan los metodos que controlan las SALAS
 
-        public function RemoveRoom($id, $idRoom)
+        public function RemoveRoom($idRoom2)
         {   
+            
             Util::loggedInRedirect();
+            $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
-            $this->roomDAO->RemoveRoom($idRoom);
+            $this->roomDAO->RemoveRoom($idRoom2);
             
-            $this->ShowAddRoom($id);
+            $this->ShowAddRoom($cinemaObject->getId());
             
         }
 
@@ -137,15 +142,14 @@
 
         //aca empiezan las funciones de administrar Funciones
 
-        public function ShowDates($id2,$idRoom2)
+        public function ShowDates($idRoom2)
         {
-            // var_dump($id2,$idRoom2);
-            // exit();
+            $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
+            
             Util::loggedInRedirect();
-            $movies=$this->movieDAO->GetAll();
-            $listRooms=$this->roomDAO->GetAll();
-            $listCinema=$this->cinemaDAO->GetAll();
 
+            $movies=$this->movieDAO->GetAll();
+            
             require_once(VIEWS_PATH."admin-cinema-add-dates.php");
             
         }
@@ -160,11 +164,11 @@
             $dateObject->setIdMovie($idMovie);
 
             
-            //require_once(PROCESS_PATH."date-process.php");
+            require_once(PROCESS_PATH."date-process.php");
 
-            $this->dateDAO->AddDate($dateObject);
+            //$this->dateDAO->AddDate($dateObject);
 
-            header("Location:".FRONT_ROOT."Admin/ShowDates");
+            //header("Location:".FRONT_ROOT."Admin/ShowDates/". $dateObject->getIdRoom());
         }
 
     }
