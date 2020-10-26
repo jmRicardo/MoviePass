@@ -57,8 +57,11 @@
             $cinema->setName($name);
             $cinema->setAddress($address);
 
-            require_once(PROCESS_PATH.'cinema-process.php');
+            $this->cinemaDAO->Add($cinema);
 
+            $_SESSION['message'] = "Cine agregado con exito!";
+
+            $this->ShowCinemaList();
         }
         
         public function Remove($id)
@@ -106,7 +109,7 @@
             $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
             $this->roomDAO->RemoveRoom($idRoom2);
-           
+            
             $this->ShowAddRoom($cinemaObject->getId());
             
         }

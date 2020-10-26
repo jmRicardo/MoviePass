@@ -6,8 +6,7 @@
 ?>
 <main class="py-5">
 
-<h2 class="mb-4">Este es el Cine -> <?php echo $cinemaObject->getName(); ?></h2>
-<h2 class="mb-4">Esta es la Sala -> <?php echo $idRoom2; ?></h2>
+
 
     <!-- <div class="modal fade" id="addDates" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -29,30 +28,46 @@
                     <h2 class="mb-4"> Agregar Funcion </h2>
 
                     <form action="<?php echo FRONT_ROOT ?>Admin/AddDate" method="GET">
-                    <input type="hidden" name="idRoom" value="<?php echo $idRoom2; ?>">
-                        
-                        <select class="form-control category-select" name="nameMovie"  >
-                            <option disabled selected  ></option>
-                                <?php foreach($movies as $movie){?>
-                                <option value="<?php echo $movie->getIdMovie()?>">
-                                    <?php echo $movie->getTitle();?>
-                                </option>
-                            <?php } ?>
-                        </select>
-
-                        <input type="date" min="2020-10-24" max="2020-11-24" name="date">
-                        
-                        <input type="time" name="time">
-                        
-                        <!-- $date
-                        ,$idRoom,     ya esta
-                        $idMovie -->  
-                        <button type="submit" class="btn btn-primary" >Agregar Pelicula</button>
-                        
-                        
-
-
                     
+                        
+
+                    <div class="col-lg-6">
+                                <div class="cine-box">
+                                <div class="cine-header">
+                                    <h2 class="mb-4">Este es el Cine -> <?php echo $cinemaObject->getName(); ?></h2>
+                                    <h2 class="mb-4">Esta es la Sala -> <?php echo $idRoom2; ?></h2>
+                                </div>
+                                <div class="cine-times">
+                                            <input type="hidden" name="idRoom" value="<?php echo $idRoom2; ?>">
+                                            
+                                            <select class="form-control category-select" name="nameMovie"  >
+                                                <option disabled selected  ></option>
+                                                    <?php foreach($movies as $movie){?>
+                                                    <option value="<?php echo $movie->getIdMovie()?>">
+                                                        <?php echo $movie->getTitle();?>
+                                                    </option>
+                                                <?php } ?>
+                                            </select><br>
+
+                                            <input type="date" min="2020-10-24" max="2020-11-24" name="date">
+                                            
+                                            <input type="time" name="time"><br>
+                                        
+                                            <button type="submit" class="btn btn-primary" >Agregar Pelicula</button>
+                                </div>
+                            </div>
+                    </div>                
+                    
+
+
+
+
+
+
+
+
+
+                        
                     </form>                
                 </div>
             </section>
