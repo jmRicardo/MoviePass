@@ -17,6 +17,7 @@ class ClientController
             $this->roomDao = new RoomDAO();
         }
         
+        /* Home with banner */
         function Home($message = "") 
         {
             $movies = $this->movieDao->GetAll();
@@ -28,6 +29,7 @@ class ClientController
             require_once(VIEWS_PATH."myaccount.php");
         }
 
+        /*Movies with genres*/
         function Select() 
         {
             $idGenre = 0;
@@ -36,6 +38,7 @@ class ClientController
             require_once(VIEWS_PATH."client-select-movie.php");
         }
 
+         /*Movies with genres filter*/
         function Filter($idGenre)
         {
             $genres = $this->movieDao->GetActiveGenres();
@@ -43,15 +46,17 @@ class ClientController
             require_once(VIEWS_PATH."client-select-movie.php");
         }
 
+        /*Movies by date & cinema*/
         function SelectDate($idMovie)
-        {
+        {   
+            $roomDao = $this->roomDao;
             $movie = $this->movieDao->GetMovieByID($idMovie);
             $dates = $this->dateDao->GetDatesFromWeek($idMovie);
             function getDatesByDay($day, $dates) {
                 $datesOfDay = array();
+                $formattedDay = $day->format("Y-m-d");
                 foreach($dates as $date) {
-                    $dateToCompare = new \DateTime($date->getDate());
-                    $formattedDay = $day->format("Y-m-d");
+                    $dateToCompare = new \DateTime($date->getDate());       
                     $formattedCompareDate = $dateToCompare->format("Y-m-d");
                     if ($formattedDay === $formattedCompareDate) {
                         array_push($datesOfDay, $date);
@@ -73,11 +78,13 @@ class ClientController
             require_once(VIEWS_PATH."client-select-date.php");
         }
 
+        /* probando
         function listCarusel()
         {
             $movies = $this->movieDao->GetAll();
             require_once(VIEWS_PATH."client-list-carusel.php");
         }
+        */
 
         function selectSeat()
         {

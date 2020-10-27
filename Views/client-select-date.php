@@ -1,11 +1,9 @@
 <?php
     use DAO\MovieDAO;
-    use DAO\RoomDAO;
-
+    use Models\Date;
     use function Controllers\getCinemasByDay;
-    use function Controllers\getCinemaByRoom;
 
-function listGenres ($idMovie) {
+    function listGenres ($idMovie) {
         $movieDao= new MovieDAO();
         $genres= $movieDao->GetGenresMovie($idMovie);
         $stringGenres= "";
@@ -26,21 +24,30 @@ function listGenres ($idMovie) {
             <p><b>Géneros: </b><span><?php echo listGenres($movie->getIdMovie())?></span></p>
             <ul class="nav nav-tabs day-selector" id="myTab" role="tablist">
                 <?php
+                    date_default_timezone_set("America/Argentina/Buenos_Aires");
                     setlocale(LC_TIME,"spanish");
                     $day = new DateTime();
                     define("CHARSET", "iso-8859-1");
                     for ($i=0; $i < 7; $i++) {
                         $currentDay = $day->format("j");
                         ?>
-                        <li class="nav-item day-item" role="presentation">
-                            <a class="nav-link day-link <?php if ($i === 0) echo "active";?>" id="date-<?php echo $currentDay; ?>-tab" data-toggle="tab" href="#date-<?php echo $currentDay; ?>" role="tab" aria-controls="date-<?php echo $currentDay; ?>" aria-selected="true"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
-                        </li>
+                            <li class="nav-item day-item" role="presentation">
+                                <a class="nav-link day-link <?php if ($i === 0) echo "active";?>" id="date-<?php echo $currentDay; ?>-tab" data-toggle="tab" href="#date-<?php echo $currentDay; ?>" role="tab" aria-controls="date-<?php echo $currentDay; ?>" aria-selected="true"><?php echo utf8_encode(strftime("%A %#d", $day->getTimestamp())); ?></a>
+                            </li>
                         <?php
                         $day->modify("+1 day");
                     }
                 ?>
-                <li class=" dropdown nav-item day-item">
+                <li class="dropdown nav-item day-item calendar-button">
                     <a class="nav-link day-link" href="#">Ver más</a>
+                    <?php 
+                        $day= new DateTime();
+                        $day->setTimezone(new DateTimeZone('-300'));
+                        $cDay= $day->format('Y-m-d');
+                        $day1month= $day->modify('+1 month');
+                        $mDay = $day1month->format('Y-m-d');
+                    ?>
+                    <input class="hidden-calendar" type="date" min="<?php echo $cDay?>" max="<?php echo $mDay?>" name="date">
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -52,11 +59,9 @@ function listGenres ($idMovie) {
                 ?>
                 <div class="tab-pane fade <?php if ($i === 0) echo "show active";?>" id="date-<?php echo $currentDay; ?>" role="tab-panel" aria-labelledby="date-<?php echo $currentDay; ?>-tab">
                     <div class="row">
-                        <?php
-                             $roomDao= new RoomDAO();
-                            foreach ($cinemas as $room=>$currentDates) {
-                               
-                                $cine = $roomDao->getCinemaByRoom($room);
+                        <?php // currentDates son todas las funciones de ese dia 
+                            foreach ($cinemas as $roomId=>$currentDates) {
+                              $cine = $roomDao->getCinemaByRoom($roomId);
                         ?>
                         <div class="col-lg-6">
                             <div class="cine-box">
@@ -74,7 +79,6 @@ function listGenres ($idMovie) {
                                             echo $hour->format("g:i a");
                                         ?>
                                     </button>
-
                                     <?php
                                         }
                                     ?>
@@ -87,7 +91,7 @@ function listGenres ($idMovie) {
                     </div>
                 </div>
                 <?php
-                        $day->modify("+1 day");
+                        $day->modify("+1 day"); /* sumo 1 dia listar el contenido*/ 
                     }
                 ?>
             </div>
