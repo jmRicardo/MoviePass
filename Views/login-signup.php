@@ -30,23 +30,23 @@
 									</div>
 									<div>
 										<div class="section-label">Correo Electronico</div>
-										<div><input class="form-input" type="text" name="email" required/></div>
+										<div><input class="form-input" type="text" name="email" minlength="3" maxlength="25" required/></div>
 									</div>
 									<div class="section-mid-container">
 										<div class="section-label">Nombre</div>
-										<div><input class="form-input" type="text" name="first_name" required/></div>
+										<div><input class="form-input" type="text" name="first_name" minlength="2" maxlength="25" required/></div>
 									</div>
 									<div class="section-mid-container">
 										<div class="section-label">Apellido</div>
-										<div><input class="form-input" type="text" name="last_name" required/></div>
+										<div><input class="form-input" type="text" name="last_name" minlength="2" maxlength="25" required/></div>
 									</div>
 									<div class="section-mid-container">
 										<div class="section-label">Contraseña</div>
-										<div><input class="form-input" type="password" name="password" required/></div>
+										<div><input class="form-input" type="password" name="password" minlength="8" required/></div>
 									</div>
 									<div class="section-mid-container">
 										<div class="section-label">Confirmar contraseña</div>
-										<div><input class="form-input" type="password" name="confirm_password" required/></div>
+										<div><input class="form-input" type="password" name="confirm_password" minlength="8" required/></div>
 									</div>
 									<div class="section-action-container">
 									<!-- <div class="section-button-container" id="signup_button" type="submit">

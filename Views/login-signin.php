@@ -43,12 +43,12 @@
 											<?php else : ?>
 												<?php $inputEmail = ''; ?>
 											<?php endif; ?>
-											<input class="form-input  "  type="text" name="email" value="<?php echo $inputEmail; ?>" />
+											<input class="form-input" type="text" name="email" required minlength="2" maxlength="25" value="<?php echo $inputEmail; ?>" />
 										</div>
 									</div>
 										<div class="section-mid-container">
 											<div class="section-label">Contraseña</div>
-											<div><input class="form-input" type="password" name="password" /></div>
+											<div><input class="form-input" type="password" name="password" required/></div>
 										</div>
 											
 									<div class="section-action-container">
