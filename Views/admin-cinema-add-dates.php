@@ -2,6 +2,10 @@
     require_once('admin-nav.php');
     require_once(UTILS_PATH . "MessageBox.php");   
     
+    $day= new DateTime();
+    $cDayMin= $day->format('Y-m-d');
+    $day3month= $day->modify('+3 month');
+    $mDayMax = $day3month->format('Y-m-d');
 
 ?>
 <main class="py-5">
@@ -49,8 +53,8 @@
                                                 <?php } ?>
                                             </select><br>
 
-                                            <input type="date" min="2020-10-24" max="2020-11-24" name="date" required>
-                                            
+                                            <input type="date" min="<?php echo $cDayMin?>" max="<?php echo $mDayMax?>" name="date" required>
+
                                             <input type="time" name="time" required><br>
                                         
                                             <button type="submit" class="btn btn-primary" >Agregar Pelicula</button>
