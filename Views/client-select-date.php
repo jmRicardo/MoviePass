@@ -1,7 +1,6 @@
 <?php
     use DAO\MovieDAO;
     use Models\Date;
-    use function Controllers\getCinemasByDay;
 
     function listGenres ($idMovie) {
         $movieDao= new MovieDAO();
@@ -11,6 +10,29 @@
             $stringGenres= $stringGenres . $genre->getName(). ", ";
         }
         return substr($stringGenres,0,-2);
+    }
+    function getDatesByDay($day, $dates) {
+        $datesOfDay = array();
+        $formattedDay = $day->format("Y-m-d");
+        foreach($dates as $date) {
+            $dateToCompare = new \DateTime($date->getDate());       
+            $formattedCompareDate = $dateToCompare->format("Y-m-d");
+            if ($formattedDay === $formattedCompareDate) {
+                array_push($datesOfDay, $date);
+            }
+        }
+        return $datesOfDay;
+    }
+    function getCinemasByDay($day, $dates) {
+        $currentDates = getDatesByDay($day, $dates);
+        $cinemas = array();
+        foreach ($currentDates as $date) {
+            if (!isset($cinemas[$date->getIdRoom()])) {
+                $cinemas[$date->getIdRoom()] = array();
+            }
+            array_push($cinemas[$date->getIdRoom()], $date);
+        }
+        return $cinemas;
     }
     require_once(VIEWS_PATH . "client-nav.php");
 ?>
@@ -26,7 +48,11 @@
                 <?php
                     date_default_timezone_set("America/Argentina/Buenos_Aires");
                     setlocale(LC_TIME,"spanish");
-                    $day = new DateTime();
+                    if (isset($startingDay)) {
+                        $day = new DateTime($startingDay);
+                    } else {
+                        $day = new DateTime();
+                    }
                     define("CHARSET", "iso-8859-1");
                     for ($i=0; $i < 7; $i++) {
                         $currentDay = $day->format("j");
@@ -44,30 +70,43 @@
                         $day= new DateTime();
                         $day->setTimezone(new DateTimeZone('-300'));
                         $cDay= $day->format('Y-m-d');
-                        $day1month= $day->modify('+1 month');
+                        $day1month= $day->modify('+2 week');
                         $mDay = $day1month->format('Y-m-d');
                     ?>
-                    <input class="hidden-calendar" type="date" min="<?php echo $cDay?>" max="<?php echo $mDay?>" name="date">
+                
+                    <input id="calendar" class="hidden-calendar" type="date" min="<?php echo $cDay?>" max="<?php echo $mDay?>" name="date">
+                    <script>
+                        $('#calendar').change(function() {
+                        var date = $(this).val();
+                        window.location.href =  "<?php echo FRONT_ROOT."Client/SelectDateCalendar/". $movie->getIdmovie()?>/" + date;});
+                    </script>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <?php
-                    $day = new DateTime();
+                <?php 
+                    if (isset($startingDay)) {
+                        $day = new DateTime($startingDay);
+                    } else {
+                        $day = new DateTime();
+                    }
                     for ($i=0; $i < 7; $i++) {
                         $currentDay = $day->format("j");
                         $cinemas = getCinemasByDay($day, $dates);
                 ?>
                 <div class="tab-pane fade <?php if ($i === 0) echo "show active";?>" id="date-<?php echo $currentDay; ?>" role="tab-panel" aria-labelledby="date-<?php echo $currentDay; ?>-tab">
-                    <div class="row">
+            
+                <div class="row">
                         <?php // currentDates son todas las funciones de ese dia 
-                            foreach ($cinemas as $roomId=>$currentDates) {
+                               
+                             foreach ($cinemas as $roomId=>$currentDates) {
                               $cine = $roomDao->getCinemaByRoom($roomId);
                         ?>
                         <div class="col-lg-6">
                             <div class="cine-box">
                                 <div class="cine-header">
-                                    <h3 class="cine-name"><?php echo $cine->getName(); ?></h3>
+                                    <h3 class="cine-name"><?php echo $cine->getName();?></h3>
                                     <span><?php echo $cine->getAddress();?></span>
+                                    <h6>Sala <?php echo $roomId?></h6>
                                 </div>
                                 <div class="cine-times">
                                     <?php

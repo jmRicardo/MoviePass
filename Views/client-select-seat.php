@@ -2,7 +2,6 @@
     require_once(VIEWS_PATH . "client-nav.php");
     
 ?>
-
 <div class="container">
     <div class="row">
         <div class="col-lg-7">
@@ -20,8 +19,8 @@
                         </div>
                         <div class="price-row">
                             <div>
-                                <div id="CartSummary" class="col-xs-6">3 Tickets</div>
-                                <div id="CartSummaryValue" class="col-xs-6">$30.00</div>
+                                <div id="CartSummary" class="col-lg-6">3 Tickets</div>
+                                <div id="CartSummaryValue" class="col-lg-6">$30.00</div>
                             </div> 
                             <h2 id="CartTotalAmount" class="text-right noline top">
                                 Total &nbsp; <span id="CartTotalAmountValue">$37.71</span>
