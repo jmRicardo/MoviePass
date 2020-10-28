@@ -43,7 +43,7 @@
 											<?php else : ?>
 												<?php $inputEmail = ''; ?>
 											<?php endif; ?>
-											<input class="form-input" type="text" name="email" required minlength="2" maxlength="25" value="<?php echo $inputEmail; ?>" />
+											<input class="form-input" type="text" name="email" required minlength="3" maxlength="25" value="<?php echo $inputEmail; ?>" />
 										</div>
 									</div>
 										<div class="section-mid-container">
