@@ -1,9 +1,6 @@
 <?php 
-    
     use DAO\UserDAO;
     use Utils\Util as Util;
-
-
 ?>
 
 <nav class="navbar navbar-expand-lg  navbar-dark nav-client">
@@ -25,12 +22,11 @@
 
     <ul class="navbar-nav ml-auto">
         <?php if (Util::isAdmin()) : ?>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">MODO ADMIN</a>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">MODO ADMIN</a>
+            </li>
         <?php endif; ?>
 
-        
         <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT?>Client/Select">Peliculas</a>
         </li>
@@ -53,12 +49,10 @@
                 </a>
             </div>
         </li>
-       <img src="<?php
-        echo FRONT_ROOT . VIEWS_PATH ?>img/oveja.png" alt="" width="40" height="40">
+       <img src="<?php echo FRONT_ROOT . VIEWS_PATH ?>img/oveja.png" alt="" width="40" height="40">
         <?php else: ?>
             <li class="nav-item">
-            <a id="algo" class="nav-link"  type="button" data-toggle="modal" data-target="#sectionStart" >Iniciar sesión</a>
-            
+                <a id="algo" class="nav-link"  type="button" data-toggle="modal" data-target="#sectionStart" >Iniciar sesión</a>
             </li>
         <?php endif; ?>
     </ul>

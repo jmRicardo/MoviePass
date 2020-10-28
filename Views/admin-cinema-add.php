@@ -71,7 +71,6 @@
                                                             Administrar Salas
                                                   </button>
                                              </td>
-
                                         </tr>
                                    <?php
                               }

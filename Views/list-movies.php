@@ -1,4 +1,5 @@
-<?php 
+<?php
+ 
 use DAO\MovieDAO;
 
     function listGenres ($idMovie) {
@@ -44,6 +45,7 @@ use DAO\MovieDAO;
     </div>
 </div>
 <script>
+ 
     function expandMovie(title, releaseDate, overview, genres,trailerPath,idMovie) {
         var reservateUrl = "<?php echo FRONT_ROOT. "Client/selectDate/"?>" + idMovie;
         $("#movie-title").html(title);
