@@ -70,7 +70,7 @@
                         $day= new DateTime();
                         $day->setTimezone(new DateTimeZone('-300'));
                         $cDay= $day->format('Y-m-d');
-                        $day1month= $day->modify('+1 month');
+                        $day1month= $day->modify('+2 week');
                         $mDay = $day1month->format('Y-m-d');
                     ?>
                 
@@ -92,8 +92,6 @@
                     for ($i=0; $i < 7; $i++) {
                         $currentDay = $day->format("j");
                         $cinemas = getCinemasByDay($day, $dates);
-                       
-                        
                 ?>
                 <div class="tab-pane fade <?php if ($i === 0) echo "show active";?>" id="date-<?php echo $currentDay; ?>" role="tab-panel" aria-labelledby="date-<?php echo $currentDay; ?>-tab">
             
