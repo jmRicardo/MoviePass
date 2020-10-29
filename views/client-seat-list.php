@@ -82,13 +82,15 @@
                                 onclick="changeSeat(id);" 
                                 <?php if (!empty($seat->getIdDate())) echo "disabled";?>
                         >
-                            <div><?php echo $id;?></div>
-                            <img 
-                                id="<?php echo $id;?>IMG" 
-                                src="<?php echo IMG_PATH. (empty($seat->getIdDate()) ? "asiento.png" : "seat-unavailable.png");?>" 
-                                width="75%" 
-                                alt="false"
-                            >
+                            <div style="position: relative; display: inline-block; text-align: center;" >
+                                <div style="position: absolute; top:65%; left: 50%; transform: translate(-50%, -50%);"  ><?php echo $id;?></div>
+                                <img 
+                                    id="<?php echo $id;?>IMG" 
+                                    src="<?php echo IMG_PATH. (empty($seat->getIdDate()) ? "asiento.png" : "seat-unavailable.png");?>" 
+                                    width="75%" 
+                                    alt="false"
+                                >
+                            </div>
                         </button>
                     </td>
                 <?php }?>
