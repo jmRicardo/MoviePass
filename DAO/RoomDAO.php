@@ -144,6 +144,33 @@
                 return $ex->getMessage();
             }             
         }
+
+        function GetRoom($idRoom)
+        {
+            try
+            {
+                $query = "SELECT * FROM ".$this->tableName." WHERE idRoom = :idRoom;";
+
+                $parameters["idRoom"] =  $idRoom;
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query,$parameters);
+
+                $room = new Room(); 
+                $room->setIdRoom($result[0]["idRoom"]);
+                $room->setIdCinema($result[0]["idCinema"]);
+                $room->setName($result[0]["name"]);
+                $room->setPrice($result[0]["price"]);
+                $room->setCapacity($result[0]["capacity"]);
+
+                return $room;
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            } 
+        }
     }
 
 

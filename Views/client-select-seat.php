@@ -19,11 +19,11 @@
                         </div>
                         <div class="price-row">
                             <div>
-                                <div id="CartSummary" class="col-lg-6">3 Tickets</div>
-                                <div id="CartSummaryValue" class="col-lg-6">$30.00</div>
+                                <div>Tickets &nbsp;<div id="CartSummary" class="col-xs-6">0</div></div>
+                                <div>Valor &nbsp;<div id="CartSummaryValue" class="col-xs-6">0</div></div>
                             </div> 
                             <h2 id="CartTotalAmount" class="text-right noline top">
-                                Total &nbsp; <span id="CartTotalAmountValue">$37.71</span>
+                                Total &nbsp; <span id="CartTotalAmountValue">$0.0</span>
                             </h2>
                         </div>
                         <a id="movie-id">
@@ -34,6 +34,58 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    var totalSeats = 0;
+
+    var tickets = document.getElementById("CartSummary");
+    
+    tickets.innerHTML = totalSeats;
+
+    var value = document.getElementById("CartSummaryValue");
+
+    value.innerHTML = "<?php echo $ticketValue;?>";
+
+    var value = document.getElementById("totalmostrar");
+
+    value.innerHTML = "0";
+
+</script>
+
+<script> 
+
+    function disableBtn(buttonID) {
+
+        if (totalSeats<10)
+        {
+            totalSeats++;
+
+            var button = document.getElementById(buttonID);
+
+            var tickets = document.getElementById("CartSummary");
+
+            var value = document.getElementById("CartSummaryValue");
+
+            var total = document.getElementById("CartTotalAmountValue");
+
+            tickets.innerHTML = totalSeats;        
+
+            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";
+            
+            var disabled = document.getElementById(buttonID).disabled;
+
+            document.getElementById(buttonID).disabled = (disabled ? false : true);
+        }
+        else
+        {
+            alert('No se pueden comprar mas de 10 Tickets!');
+        }
+        
+    
+    }
+</script>
+
 
 
 

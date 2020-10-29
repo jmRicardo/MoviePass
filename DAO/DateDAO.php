@@ -66,9 +66,14 @@ class DateDAO implements IDateDAO{
         {
             try
             {
-                $query = "SELECT * FROM ".$this->tableName." 
-                            WHERE `date` BETWEEN ADDTIME(:date,-1500) 
-                            and date_add(:date, interval (select runtime from movies where idMovie = :idMovie)+15 minute) and idRoom = :idRoom;";
+                $query = 
+                "select * 
+                from dates 
+                where IFNULL(`date` >
+                (select date_add(dato.date, interval (select runtime from movies where idMovie = dato.idMovie)+15 minute)  
+                from ( select * from dates where `date` < :date order by `date` desc limit 1) as dato),'')
+                and  IFNULL(`date` < date_add(:date, interval (select runtime from movies where idMovie = :idMovie)+15 minute),'')
+                and idRoom = :idRoom;";
 
                 $parameters["date"] = $date->getDate();
                 $parameters["idMovie"] = $date->getIdMovie();
