@@ -67,7 +67,9 @@
                 <?php
                 foreach($rows as $seat)
                 {?>                    
-                    <?php if($seat->getColumn() == 5 ){?>
+                    <?php 
+                        $id = $seat->getRowLetter() . $seat->getColumnNumber();
+                        if($seat->getColumn() == 5 ){?>
                         <td>
                             <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
                             <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
@@ -75,13 +77,18 @@
                     <?php } ?>
                     <td>
                         <button class='bg-transparent border-0' 
-                                value="<?php echo $seat->getRowLetter() . $seat->getColumnNumber();?>" 
-                                id="<?php echo $seat->getRowLetter() . $seat->getColumnNumber();?>" 
-                                onclick="disableBtn(id);" 
+                                value="<?php echo $id;?>" 
+                                id="<?php echo $id;?>" 
+                                onclick="changeSeat(id);" 
                                 <?php if (!empty($seat->getIdDate())) echo "disabled";?>
                         >
-                            <div><?php echo $seat->getRowLetter() . $seat->getColumnNumber();?></div>
-                            <img src="<?php echo IMG_PATH."asiento.png"?>" width="75%" alt="chair">
+                            <div><?php echo $id;?></div>
+                            <img 
+                                id="<?php echo $id;?>IMG" 
+                                src="<?php echo IMG_PATH. (empty($seat->getIdDate()) ? "asiento.png" : "seat-unavailable.png");?>" 
+                                width="75%" 
+                                alt="false"
+                            >
                         </button>
                     </td>
                 <?php }?>
