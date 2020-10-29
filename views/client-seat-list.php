@@ -1,8 +1,8 @@
 <?php
 
     use DAO\RoomDAO;
-use DAO\SeatDAO;
-use Models\Seat as Seat;
+    use DAO\SeatDAO;
+    use Models\Seat as Seat;
 
     $roomDAO = new RoomDAO();
     $seatDAO = new SeatDAO();
@@ -16,6 +16,8 @@ use Models\Seat as Seat;
     $capacity = $roomData->getCapacity();
 
     $rowSeats = array();
+
+    // CREA lA GRILLA DE ASIENTOS VACIOS
 
     for($x = 0;$x<($capacity/10);$x++){ 
 
@@ -33,65 +35,62 @@ use Models\Seat as Seat;
         }    
     }
 
+    // CARGA LOS ASIENTOS OCUPADOS PARA ASI PODER USAR ESE DATO Y DESHABILITARLOS
+
     foreach($seatList as $seat)
     {
         $x = $seat->getRow();
         $y = $seat->getColumn();
 
         $rowSeats[$x][$y]->setIdDate($seat->getIdDate());
-    }
-
-    
+    }   
 
 ?>
 
-
-
-
-
 <table class="roomSeats" bgcolor="grey" >
+
     <thead>
         <tr>
-            <td colspan="12" align="center"><img src="<?php echo IMG_PATH."tv.png"?>" alt="Screen" width="25%"></td>
+            <td colspan="14" align="center"><img src="<?php echo IMG_PATH."tv.png"?>" alt="Screen" width="25%"></td>
         </tr>
     </thead>
 
-    <tbody class='bg-transparent border-0'>
-       
+    <tbody class='bg-transparent border-0'>       
         <?php
-
             foreach($rowSeats as $rows)
             {
-                ?><tr><td ><img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair"></td><?php
+                ?><tr>
+                    <td >
+                        <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                        <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                    </td>
+                <?php
                 foreach($rows as $seat)
                 {?>                    
+                    <?php if($seat->getColumn() == 5 ){?>
+                        <td>
+                            <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                            <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                        </td>
+                    <?php } ?>
                     <td>
-                        <button class='bg-transparent border-0' value="<?php echo $seat->getRowLetter() . $seat->getColumnNumber();?>" id="<?php echo $seat->getRowLetter() . $seat->getColumnNumber();?>" onclick="disableBtn(id);" <?php if (!empty($seat->getIdDate())) echo "disabled";?>>
-                        <div><?php echo $seat->getRowLetter() . $seat->getColumnNumber();?></div>
-                        <img src="<?php echo IMG_PATH."asiento.png"?>" width="75%" alt="chair">
+                        <button class='bg-transparent border-0' 
+                                value="<?php echo $seat->getRowLetter() . $seat->getColumnNumber();?>" 
+                                id="<?php echo $seat->getRowLetter() . $seat->getColumnNumber();?>" 
+                                onclick="disableBtn(id);" 
+                                <?php if (!empty($seat->getIdDate())) echo "disabled";?>
+                        >
+                            <div><?php echo $seat->getRowLetter() . $seat->getColumnNumber();?></div>
+                            <img src="<?php echo IMG_PATH."asiento.png"?>" width="75%" alt="chair">
                         </button>
                     </td>
                 <?php }?>
-                <td ><img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair"></td>    
-            </tr>
-            <?php }
-
-
-            /* for($x = 0;$x<($capacity/10);$x++){?>
-                <tr>
-                <td ><img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair"></td><?php
-                for($y = 0;$y<10;$y++)
-                {
-                     echo "<td><button class='bg-transparent border-0' type=\"button\" name=\"selected\" value='". $x.$y ."'> <img src='". FRONT_ROOT . VIEWS_PATH ."img/asientoV2.png'  onclick=\"this.src='".FRONT_ROOT . VIEWS_PATH ."img/asientoV2-click.png'\" </button></td>"; 
-                    ?>
-                    <td><div class="seat"><span aria-hidden="true" class="seatDesignation">A19</span></div></td><?php
-                }?>
-                <td ><img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair"></td><?php
-                echo "</tr>";
-                
-            }    */ 
-
-
+                <td >
+                    <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                    <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                </td>    
+                </tr>
+            <?php } 
         ?>
     </tbody>
 </table>

@@ -73,9 +73,9 @@
 
             total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";
             
-            var disabled = document.getElementById(buttonID).disabled;
+            /* var disabled = document.getElementById(buttonID).disabled;
 
-            document.getElementById(buttonID).disabled = (disabled ? false : true);
+            document.getElementById(buttonID).disabled = (disabled ? false : true); */
         }
         else
         {
