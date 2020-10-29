@@ -14,9 +14,8 @@
 
     } else {
 
-        /* $cineTrimed = trim($cinema->getName());
-        $cinema->setName($cineTrimed);  */
-       
+        $cinema->setName(trim($cinema->getName())); 
+        
         $error = $this->cinemaDAO->Add($cinema);
 
         if (isset($error)) {
