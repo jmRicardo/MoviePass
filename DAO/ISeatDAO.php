@@ -2,10 +2,11 @@
 
     namespace DAO;
     use Models\Seat;
+    
 
     interface ISeatDAO{
 
-        function GetOcuppiedSeats($idDate);
+        function GetSeatsByDate($idDate);
         function SetSeat(Seat $seat);
     }
 

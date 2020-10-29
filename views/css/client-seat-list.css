@@ -14,3 +14,15 @@ button{
     padding-bottom: 1em;
     margin-bottom: 1em;
 }
+
+.roomSeats{
+    
+    background-color: red;
+}
+
+table, th, td {
+    border: 1px solid white;
+    background-color: red;
+  }
+
+
