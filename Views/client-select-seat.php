@@ -55,28 +55,37 @@
 
 <script> 
 
-    function disableBtn(buttonID) {
+    function changeSeat(buttonID) {
 
-        if (totalSeats<10)
+        var img = document.getElementById(buttonID +"IMG");
+
+        var status = ( img.alt == "false" ? false : true );
+
+        if (totalSeats<10 || status )
         {
-            totalSeats++;
+            if (!status)
+            {
+                img.src = "<?php echo IMG_PATH."asiento-click.png"?>";
+                img.alt = "true";
+                totalSeats++;
+            }
+            else
+            {
+                img.src = "<?php echo IMG_PATH."asiento.png"?>";
+                img.alt = "false";
+                totalSeats--;
+            }          
 
             var button = document.getElementById(buttonID);
 
             var tickets = document.getElementById("CartSummary");
 
-            var value = document.getElementById("CartSummaryValue");
-
             var total = document.getElementById("CartTotalAmountValue");
 
             tickets.innerHTML = totalSeats;        
 
-            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";
-            
-            /* var disabled = document.getElementById(buttonID).disabled;
-
-            document.getElementById(buttonID).disabled = (disabled ? false : true); */
-        }
+            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";         
+        }   
         else
         {
             alert('No se pueden comprar mas de 10 Tickets!');
@@ -84,6 +93,7 @@
         
     
     }
+
 </script>
 
 
