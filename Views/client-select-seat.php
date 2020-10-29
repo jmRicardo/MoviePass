@@ -2,7 +2,6 @@
     require_once(VIEWS_PATH . "client-nav.php");
     
 ?>
-
 <div class="container">
     <div class="row">
         <div class="col-lg-7">
