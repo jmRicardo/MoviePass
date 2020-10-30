@@ -26,7 +26,7 @@
                                 Total &nbsp; <span id="CartTotalAmountValue">$0.0</span>
                             </h2>
                         </div>
-                        <a id="movie-id">
+                        <a id="movie-id" href="#" onclick="sendData();">
                             <button type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
                         </a>
                  </div>
@@ -36,6 +36,13 @@
 </div>
 
 <script>
+
+    var array = [];
+
+    function sendData()
+    {
+        window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array ;
+    }
 
     var totalSeats = 0;
 
@@ -51,13 +58,13 @@
 
     value.innerHTML = "0";
 
-</script>
-
-<script> 
-
     function changeSeat(buttonID) {
 
         var img = document.getElementById(buttonID +"IMG");
+        
+        var button = document.getElementById(buttonID);
+
+        array.push(button.value);
 
         var status = ( img.alt == "false" ? false : true );
 
@@ -90,11 +97,10 @@
         {
             alert('No se pueden comprar mas de 10 Tickets!');
         }
-        
-    
     }
 
 </script>
+
 
 
 

@@ -74,7 +74,7 @@ class ClientController
             require_once(VIEWS_PATH."client-list-carusel.php");
         }
         
-        function selectSeat()
+        function selectSeat($id)
         {
             require_once(VIEWS_PATH."client-select-seat.php");
         }
@@ -83,6 +83,13 @@ class ClientController
         {   
             /*query entradas de usuarios*/
             require_once(VIEWS_PATH."client-reservations.php");
+        }
+
+        function Checkout($array)
+        {            
+            var_dump($array);
+            
+            require_once(VIEWS_PATH."client-checkout.php");
         }
 
         function SendMail(){

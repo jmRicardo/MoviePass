@@ -9,6 +9,7 @@
         function CheckIfAvailable(Date $date); /* Devuelve 1 si encuentra coincidencia, compara por fecha y pelicula */
         function CheckRuntimeWithDate(Date $date);
         function GetDatesFromWeek($idMovie);
+        function GetDateByID($id);
 
 
         

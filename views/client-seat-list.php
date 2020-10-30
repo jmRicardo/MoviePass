@@ -1,15 +1,19 @@
 <?php
 
+    use DAO\DateDAO;
     use DAO\RoomDAO;
     use DAO\SeatDAO;
     use Models\Seat as Seat;
 
     $roomDAO = new RoomDAO();
     $seatDAO = new SeatDAO();
+    $dateDAO = new DateDAO();
 
-    $roomData = $roomDAO->GetRoom(102);
+    $date = $dateDAO->GetDateByID($id);
 
-    $seatList = $seatDAO->GetSeatsByDate(6);
+    $roomData = $roomDAO->GetRoom($date->getIdRoom());
+
+    $seatList = $seatDAO->GetSeatsByDate($id);
 
     $ticketValue = $roomData->getPrice();
 
@@ -77,7 +81,7 @@
                     <?php } ?>
                     <td>
                         <button class='bg-transparent border-0' 
-                                value="<?php echo $id;?>" 
+                                value="<?php echo $seat->getRow() . $seat->getColumn();?>" 
                                 id="<?php echo $id;?>" 
                                 onclick="changeSeat(id);" 
                                 <?php if (!empty($seat->getIdDate())) echo "disabled";?>
