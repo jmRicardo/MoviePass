@@ -142,6 +142,8 @@
 
         public function ShowDates($idRoom2)
         {
+            
+            $thisRoom = $this->roomDAO->GetRoom($idRoom2);
             $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
             Util::loggedInRedirect();
