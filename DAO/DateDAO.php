@@ -5,7 +5,7 @@
     use Models\Date as Date;
     use \Exception as Exception;  
     use DAO\Connection as Connection;
-use DateTime;
+    use DateTime;
 
 class DateDAO implements IDateDAO{
 
@@ -164,6 +164,25 @@ class DateDAO implements IDateDAO{
             {
                 return $ex->getMessage();
             }            
+        }
+
+        public function GetDateByID($id)
+        {
+            $query = "SELECT * FROM ".$this->tableName." WHERE (id = :id)";
+
+            $parameters["id"] =  $id;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query,$parameters);
+
+            $date = new Date();
+            $date->setDate($result[0]["date"]);
+            $date->setIdMovie($result[0]["idMovie"]);
+            $date->setIdRoom($result[0]["idRoom"]);
+            $date->setId($result[0]["id"]);
+
+            return $date;
         }
     }
 
