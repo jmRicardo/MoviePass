@@ -59,11 +59,6 @@
 
             require_once(PROCESS_PATH."cinema-process.php");
 
-            /* $this->cinemaDAO->Add($cinema);
-
-            $_SESSION['message'] = "Cine agregado con exito!";
-
-            $this->ShowCinemaList(); */
         }
         
         public function Remove($id)
@@ -168,41 +163,6 @@
 
             require_once(PROCESS_PATH."date-process.php");
         }
-
-        public function ShowCinemaByTicketSold(){
-            
-            Util::loggedInRedirect();
-            
-            $cinemaList = $this->cinemaDAO->GetAll();
-            //$listId = $this->roomDAO->GetAllByCinema($id);
-
-            require_once(VIEWS_PATH."admin-cinema-ticket-sold.php");
-        }
-
-        public function ShowRoomByTicketSold($idCinema){
-            
-            Util::loggedInRedirect();
-            
-            // var_dump($idCinema);
-            // exit();
-
-            $cinemaList = $this->cinemaDAO->GetAll();
-            $listRoom = $this->roomDAO->GetAllByCinema($idCinema);
-
-            require_once(VIEWS_PATH."admin-cinema-ticket-sold.php");
-        }
-
-        public function ShowDateByTicketSold ($idMovie){
-            // var_dump($idMovie);
-            // exit();
-
-            $listDate = $this->DateDAO->GetDatesFromWeek($idMovie);
-
-
-            require_once(VIEWS_PATH."admin-cinema-ticket-sold.php");
-        }
-
-
 
     }
 

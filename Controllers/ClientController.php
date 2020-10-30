@@ -3,18 +3,21 @@
     use DAO\MovieDAO;
     use DAO\DateDAO;
     use DAO\RoomDAO;
+    use DAO\TicketDAO;
 
 class ClientController 
     {
         private $movieDao;
         private $dateDao;
         private $roomDao;
+        private $ticketDao;
 
         function __construct() 
         {
             $this->movieDao = new MovieDAO();
             $this->dateDao = new DateDAO();
             $this->roomDao = new RoomDAO();
+            $this->ticketDao = new TicketDAO();
         }
         
         /* Home with banner */
@@ -81,7 +84,11 @@ class ClientController
         
         function reservations()
         {   
-            /*query entradas de usuarios*/
+            $usuario = $_SESSION['user_info'];
+
+            $ticketList = $this->ticketDao->GetTicketListByUserId($usuario['id']);
+            var_dump($ticketList);
+            exit();
             require_once(VIEWS_PATH."client-reservations.php");
         }
 

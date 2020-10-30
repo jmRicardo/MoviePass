@@ -45,6 +45,39 @@
             }
         }
 
+        public function GetTicketListByUserId($idUser)
+        {
+            try
+            {
+                $ticketList = array();
+
+                $query = "SELECT * FROM ".$this->tableName. " WHERE idUser = :idUser;";
+
+                $parameters["idUser"] =  $idUser;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query, $parameters);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $ticket = new Ticket(); 
+                    $ticket->setId($row["id"]);
+                    $ticket->setIdDate($row["idDate"]);
+                    $ticket->setIdUser($row["idUser"]);
+                    $ticket->setSeat($row["seat"]);
+
+                    array_push($ticketList, $ticket);
+                }
+
+                return $ticketList;
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
+        }
+
         public function AddTicket(Ticket $ticket)
         {
             try
