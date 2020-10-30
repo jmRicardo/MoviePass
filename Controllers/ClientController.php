@@ -74,12 +74,17 @@ class ClientController
             require_once(VIEWS_PATH."client-list-carusel.php");
         }
         
-
         function selectSeat()
         {
             require_once(VIEWS_PATH."client-select-seat.php");
         }
         
+        function reservations()
+        {   
+            /*query entradas de usuarios*/
+            require_once(VIEWS_PATH."client-reservations.php");
+        }
+
         function SendMail(){
 
             require_once(PROCESS_PATH."mail-process.php");             
