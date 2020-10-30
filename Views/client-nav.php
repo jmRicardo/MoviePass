@@ -37,7 +37,7 @@
                 Usuario
             </a>
             <div class="dropdown-menu  dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#"><i class="fa fa-ticket" aria-hidden="true"></i>
+                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>Client/Reservations"><i class="fa fa-ticket" aria-hidden="true"></i>
                     <span class="icon-option">Mis reservas</span>
                 </a>
                 <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>Client/Account"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
