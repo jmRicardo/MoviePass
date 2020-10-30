@@ -112,12 +112,15 @@
                                     <?php
                                         foreach ($currentDates as $date) {
                                     ?>
-                                    <button type="button" class="btn btn-warning cine-time">
-                                        <?php
-                                            $hour = new DateTime($date->getDate());
-                                            echo $hour->format("g:i a");
-                                        ?>
-                                    </button>
+                                     <a href="<?php echo FRONT_ROOT."Client/SelectSeat/". $date->getId()?>">
+                                        <button type="button" class="btn btn-warning cine-time">
+                                            <?php
+                                                $hour = new DateTime($date->getDate());
+                                                echo $hour->format("g:i a");
+                                            ?>
+                                           
+                                        </button>
+                                    </a>
                                     <?php
                                         }
                                     ?>
