@@ -85,10 +85,10 @@ class ClientController
         function reservations()
         {   
             $usuario = $_SESSION['user_info'];
-
+            $movies = $this->movieDao->GetAll();
             $ticketList = $this->ticketDao->GetTicketListByUserId($usuario['id']);
-            var_dump($ticketList);
-            exit();
+            /* var_dump($ticketList);
+            exit(); */
             require_once(VIEWS_PATH."client-reservations.php");
         }
 
