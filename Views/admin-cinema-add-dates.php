@@ -39,7 +39,7 @@
                             <div class="cine-box">
                                 <div class="cine-header">
                                     <h2 class="mb-4">Este es el Cine -> <?php echo $cinemaObject->getName(); ?></h2>
-                                    <h2 class="mb-4">Esta es la Sala -> <?php echo $idRoom2; ?></h2>
+                                    <h2 class="mb-4">Esta es la Sala -> <?php echo $thisRoom->getName(); ?></h2>
                                 </div>
                                 <div class="cine-times">
                                             <input type="hidden" name="idRoom" value="<?php echo $idRoom2; ?>">

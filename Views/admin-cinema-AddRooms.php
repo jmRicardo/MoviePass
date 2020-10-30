@@ -67,8 +67,7 @@
                     </thead>
                     <tbody>
                     <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="GET" id="from">
-                        <!-- <input type="hidden" name="id" value="<?php echo $cinema->getId() ?>"> -->
-                        <!-- <input type="hidden" name="id2" value="<?php echo $cinema->getName() ?>"> -->
+                        
                         
 
                             <?php foreach($listId as $room) { ?>
@@ -79,10 +78,7 @@
                                     <td><?php echo $room->getPrice() ?></td>
                                     <td><?php echo $room->getCapacity() ?></td>
                                         <td>
-                                                <!-- <a type="submit"   name="idRoom" value="<?php echo $room->getIdRoom() ?>" href="<?php echo FRONT_ROOT.'Admin/RemoveRoom' ?>" class="btn btn-danger" >
-                                                <i class="fa fa-trash "></i>
-                                                    Eliminar 
-                                                </a> -->
+                                                
                                             <td>
                                                 <button name="idRoom2" value="<?php echo $room->getIdRoom() ?>" class="btn btn-warning" onclick="
                                                     var frm = document.getElementById('from') || null;
