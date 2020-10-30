@@ -87,7 +87,7 @@
                                 <img 
                                     id="<?php echo $id;?>IMG" 
                                     src="<?php echo IMG_PATH. (empty($seat->getIdDate()) ? "asiento.png" : "seat-unavailable.png");?>" 
-                                    width="75%" 
+                                    width="33" 
                                     alt="false"
                                 >
                             </div>
