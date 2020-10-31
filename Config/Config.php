@@ -31,6 +31,11 @@ define("DB_PASS", "k9Adageba0");
 define('MP_PUBLIC_KEY','XXX');
 define('MP_ACCESS_TOKEN','XXX');
 
+// MAIL DE LA APP
+
+define('CONTACT_MAIL','guimainini@gmail.com');
+
+
 // LLave para la Api de movie data base
 
 define("TMDB_API_KEY","0e38635e1106aa97618b0e7fee7a5b57");

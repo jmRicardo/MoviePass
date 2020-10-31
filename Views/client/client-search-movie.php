@@ -2,16 +2,9 @@
 <?php
 require_once("client-nav.php"); 
 use DAO\MovieDAO;
-function listGenres ($IdMovie) {
-    $movieDao= new MovieDAO();
-    $genres= $movieDao->GetGenresMovie($IdMovie);
-    $stringGenres= "";
-    foreach($genres as $genre){
-        $stringGenres= $stringGenres . $genre->getName(). ", ";
-    }
-    return substr($stringGenres,0,-2);
-}
+
 ?>
+
 <!-- Modal -->
 <!-- <div class="modal fade" id="searchMovie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -19,7 +12,7 @@ function listGenres ($IdMovie) {
             <div class="modal-header"> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>-->
+                </button> -->
                 <div class="container">
                     <div class="row pt-4 pb-4">
                         <div class="col-lg-4">
@@ -40,4 +33,4 @@ function listGenres ($IdMovie) {
             <!-- </div>
         </div>
     </div>
-</div>  -->
+</div> -->
