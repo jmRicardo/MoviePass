@@ -23,8 +23,8 @@
         
             <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" data-toggle="modal" data-target="#searchMovie" method="post" target="_blank">
             <input type="search" name="busquedamodelos" list="listamodelos" required>
-            <!-- <a  type="button" data-toggle="modal" data-target="#searchMovie">Buscar</a>         -->
-            
+            <button  data-toggle="modal" data-target="#searchMovie">Buscar</button>
+
             </form>
                 <datalist id="listamodelos">
 
@@ -73,5 +73,6 @@
         <?php endif; ?>
     </ul>
 </nav>
+
 <div class="content-container"> <!-- abro diV contenedor -->
 
