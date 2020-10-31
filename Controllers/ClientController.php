@@ -91,6 +91,7 @@ class ClientController
         function Checkout($stringSeats, $idDate)
         {
             $date =$this->dateDao->GetDateByID($idDate);
+            $cine =$this->roomDao->getCinemaByRoom($date->getIdRoom());
             $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
             $user = $_SESSION['user_info'];
             $seats = explode(",", $stringSeats);
@@ -101,10 +102,9 @@ class ClientController
                 $ticket->setIdUser($user["id"]);
                 $ticket->setSeat($seat);
                 array_push($tickets,$ticket);
-                $this->ticketDao->AddTicket($ticket);
+               /* $this->ticketDao->AddTicket($ticket);*/
             }
 
-            
             require_once(VIEWS_PATH."client-checkout.php");
         }
 

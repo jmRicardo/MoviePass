@@ -39,6 +39,9 @@
       <!-- Date Selector-->
       <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientSelectDate.css">
 
+       <!-- client ticket-->
+      <link rel="stylesheet" href="<?php echo CSS_PATH ?>client-ticket.css">
+
      <title>MoviePass</title>
 </head>
 <body class="body">
