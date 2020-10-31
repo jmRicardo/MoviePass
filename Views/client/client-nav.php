@@ -18,8 +18,6 @@
     <?php endif; ?>
    </ul> -->
 
-
-
     <ul class="navbar-nav ml-auto">
         <li>
         
@@ -75,5 +73,5 @@
         <?php endif; ?>
     </ul>
 </nav>
-<div class="content-container"> <!-- abro div contenedor -->
+<div class="content-container"> <!-- abro diV contenedor -->
 

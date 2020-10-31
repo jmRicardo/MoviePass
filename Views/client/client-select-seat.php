@@ -1,11 +1,10 @@
 <?php
-    require_once("client-nav.php");
-    
+    require_once("client-nav.php");    
 ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-7">
-            <?php require_once(VIEWS_PATH . "client-seat-list.php"); ?>
+            <?php require_once(CLIENT_PATH . "client-seat-list.php"); ?>
         </div>
         <div class="col-lg-5">
             <div class="cine-box">
@@ -72,13 +71,13 @@
         {
             if (!status)
             {
-                img.src = "<?php echo IMG_PATH."asiento-click.png"?>";
+                img.src = "<?php echo IMG_PATH."seat-clicked.png"?>";
                 img.alt = "true";
                 totalSeats++;
             }
             else
             {
-                img.src = "<?php echo IMG_PATH."asiento.png"?>";
+                img.src = "<?php echo IMG_PATH."seat.png"?>";
                 img.alt = "false";
                 totalSeats--;
             }          
