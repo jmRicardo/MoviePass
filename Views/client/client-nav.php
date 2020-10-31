@@ -21,9 +21,10 @@
     <ul class="navbar-nav ml-auto">
         <li>
         
-            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" method="post" target="_blank">
+            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" data-toggle="modal" data-target="#searchMovie" method="post" target="_blank">
             <input type="search" name="busquedamodelos" list="listamodelos" required>
-            <a type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</a>        
+            <!-- <a  type="button" data-toggle="modal" data-target="#searchMovie">Buscar</a>         -->
+            
             </form>
                 <datalist id="listamodelos">
 
