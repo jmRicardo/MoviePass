@@ -41,6 +41,9 @@
 
        <!-- client ticket-->
       <link rel="stylesheet" href="<?php echo CSS_PATH ?>client-ticket.css">
+      <!-- MERCADOPAGO -->
+      <!-- <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script> -->
+              
 
      <title>MoviePass</title>
 </head>

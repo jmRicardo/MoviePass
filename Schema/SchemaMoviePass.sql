@@ -85,11 +85,12 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `id` int not null auto_increment,
   `idDate` int not null,
   `idUser` int not null,
-  `seat` int not null,
+  `idSeat` int not null,
   constraint pkIdRoom primary key (`id`),
-  constraint unqTicket unique (`seat`,`idDate`),
+  constraint unqTicket unique (`idSeat`,`idDate`),
   constraint pkIdUser foreign key (`idUser`) references users(`id`),
-  constraint pkTicketDate foreign key (`idDate`) references dates(`id`)
+  constraint pkTicketDate foreign key (`idDate`) references dates(`id`),
+  constraint pkTicketSeat foreign key (`idSeat`) references seats(`id`)
 )Engine = InnoDB;
 
 DROP TABLE IF EXISTS `seats`;

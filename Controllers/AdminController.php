@@ -46,7 +46,7 @@
             
             $cinemaList = $this->cinemaDAO->GetAll();
 
-            require_once(VIEWS_PATH."admin-cinema-add.php");
+            require_once(ADMIN_PATH."admin-add.php");
         }
 
         public function Add($name,$address)
@@ -59,11 +59,6 @@
 
             require_once(PROCESS_PATH."cinema-process.php");
 
-            /* $this->cinemaDAO->Add($cinema);
-
-            $_SESSION['message'] = "Cine agregado con exito!";
-
-            $this->ShowCinemaList(); */
         }
         
         public function Remove($id)
@@ -83,7 +78,7 @@
             
             $cinema = $this->cinemaDAO->GetCinema($id);            
 
-            require_once(VIEWS_PATH."admin-cinema-update.php");
+            require_once(ADMIN_PATH."admin-update.php");
         }
 
         public function SaveUpdate($name,$address,$id)
@@ -127,9 +122,6 @@
             $room->setPrice($price);
 
             require_once(PROCESS_PATH."room-process.php");
-            /* $_SESSION['message'] = $this->roomDAO->Add($room);           
-
-            $this->ShowAddRoom($id); */
         }
 
 
@@ -140,20 +132,22 @@
             $cinema = $this->cinemaDAO->GetCinema($id);
             $listId = $this->roomDAO->GetAllByCinema($id);
 
-            require_once(VIEWS_PATH."admin-cinema-addRooms.php");
+            require_once(ADMIN_PATH."admin-addrooms.php");
         }
 
         //aca empiezan las funciones de administrar Funciones
 
         public function ShowDates($idRoom2)
         {
+            
+            $thisRoom = $this->roomDAO->GetRoom($idRoom2);
             $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
             Util::loggedInRedirect();
 
             $movies=$this->movieDAO->GetAll();
             
-            require_once(VIEWS_PATH."admin-cinema-add-dates.php");
+            require_once(ADMIN_PATH."admin-add-dates.php");
             
         }
     
@@ -168,41 +162,6 @@
 
             require_once(PROCESS_PATH."date-process.php");
         }
-
-        public function ShowCinemaByTicketSold(){
-            
-            Util::loggedInRedirect();
-            
-            $cinemaList = $this->cinemaDAO->GetAll();
-            //$listId = $this->roomDAO->GetAllByCinema($id);
-
-            require_once(VIEWS_PATH."admin-cinema-ticket-sold.php");
-        }
-
-        public function ShowRoomByTicketSold($idCinema){
-            
-            Util::loggedInRedirect();
-            
-            // var_dump($idCinema);
-            // exit();
-
-            $cinemaList = $this->cinemaDAO->GetAll();
-            $listRoom = $this->roomDAO->GetAllByCinema($idCinema);
-
-            require_once(VIEWS_PATH."admin-cinema-ticket-sold.php");
-        }
-
-        public function ShowDateByTicketSold ($idMovie){
-            // var_dump($idMovie);
-            // exit();
-
-            $listDate = $this->DateDAO->GetDatesFromWeek($idMovie);
-
-
-            require_once(VIEWS_PATH."admin-cinema-ticket-sold.php");
-        }
-
-
 
     }
 

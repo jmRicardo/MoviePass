@@ -166,6 +166,24 @@
 
             return $movie;
         }
+
+        public function GetMovieByTitle($title)
+        {
+            $query = "SELECT * FROM ".$this->tableName." WHERE (title = :title)";
+
+            $parameters["title"] =  $title;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query,$parameters);
+
+            $movies = $this->ArrayToMovieObjects($result);
+
+            $movie = array_pop($movies);
+
+            return $movie;
+        }
+
       
         public function GetAll()
         {

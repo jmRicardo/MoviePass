@@ -26,7 +26,6 @@
 
     }
 
-
     header("Location:".FRONT_ROOT."Admin/ShowCinemaList");
 
 ?>
