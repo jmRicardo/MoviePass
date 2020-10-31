@@ -40,7 +40,7 @@
 
     function sendData()
     {
-        window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array ;
+        window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array + "/<?php  echo $idDate; ?>" ;
     }
 
     var totalSeats = 0;

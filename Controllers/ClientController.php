@@ -4,6 +4,8 @@
     use DAO\DateDAO;
     use DAO\RoomDAO;
     use DAO\TicketDAO;
+    use Models\Ticket;
+    include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
     {
@@ -77,7 +79,7 @@ class ClientController
             require_once(CLIENT_PATH."client-list-carusel.php");
         }
         
-        function selectSeat($id)
+        function selectSeat($idDate)
         {
             require_once(CLIENT_PATH."client-select-seat.php");
         }
@@ -92,11 +94,30 @@ class ClientController
             require_once(CLIENT_PATH."client-reservations.php");
         }
 
-        function Checkout($array)
-        {            
-            var_dump($array);
-            
-            require_once(CLIENT_PATH."client-checkout.php");
+        function Checkout($stringSeats, $idDate)
+        {
+            $date =$this->dateDao->GetDateByID($idDate);
+            $cine =$this->roomDao->getCinemaByRoom($date->getIdRoom());
+            $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
+            $user = $_SESSION['user_info'];
+            $seats = explode(",", $stringSeats);
+            $tickets= [];
+            foreach ($seats as $seat){
+                $ticket = new ticket();
+                $ticket->setIdDate($idDate);
+                $ticket->setIdUser($user["id"]);
+                $ticket->setSeat($seat);
+                $id = $this->ticketDao->AddTicket($ticket);
+                $ticket->setId($id);
+                array_push($tickets,$ticket);
+
+                $img = VIEWS_PATH."img/qrs/qr-".$id.".png";
+                if (!file_exists($img)) {
+                    \QRcode::png($id, $img);
+                }
+            }
+
+           require_once(CLIENT_PATH."client-checkout.php");
         }
 
         function SendMail(){
