@@ -24,4 +24,5 @@ require_once(VIEWS_PATH . "list-movies.php");
 require_once(VIEWS_PATH . "login-signin.php");
 require_once(VIEWS_PATH . "login-signup.php");
 require_once(VIEWS_PATH . "client-mail.php");
+require_once(VIEWS_PATH . "show-search-movie.php");
 ?>

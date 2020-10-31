@@ -1,6 +1,7 @@
 <?php 
     use DAO\UserDAO;
     use Utils\Util as Util;
+    // var_dump($movies);
 ?>
 
 <nav class="navbar navbar-expand-lg  navbar-dark nav-client">
@@ -21,6 +22,22 @@
 
 
     <ul class="navbar-nav ml-auto">
+        <li>
+        
+            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" method="post" target="_blank">
+            <input type="search" name="busquedamodelos" list="listamodelos" required>
+            <a type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</a>        
+            </form>
+                <datalist id="listamodelos">
+
+                <?php foreach($movies as $movie){?>
+                    <option >
+                        <?php echo $movie->getTitle();?>
+                    </option>
+                <?php } ?>            
+            </datalist>
+            
+        </li>
         <?php if (Util::isAdmin()) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">MODO ADMIN</a>
@@ -49,6 +66,7 @@
                 </a>
             </div>
         </li>
+        
        <img src="<?php echo FRONT_ROOT . VIEWS_PATH ?>img/oveja.png" alt="" width="40" height="40">
         <?php else: ?>
             <li class="nav-item">
