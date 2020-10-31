@@ -106,11 +106,12 @@ class ClientController
                 $ticket->setIdDate($idDate);
                 $ticket->setIdUser($user["id"]);
                 $ticket->setSeat($seat);
+                $id = $this->ticketDao->AddTicket($ticket);
+                $ticket->setId($id);
                 array_push($tickets,$ticket);
-               /* $this->ticketDao->AddTicket($ticket);*/
             }
 
-            require_once(CLIENT_PATH."client-checkout.php");
+           require_once(CLIENT_PATH."client-checkout.php");
         }
 
         function SendMail(){

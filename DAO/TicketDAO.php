@@ -90,10 +90,12 @@
 
                 $this->connection = Connection::GetInstance();
 
-                $this->connection->ExecuteNonQuery($query, $parameters);
+                $insertId = $this->connection->ExecuteNonQueryWithInsertId($query, $parameters);
+                return $insertId;
             }
             catch(Exception $ex)
             {
+                var_dump($ex->getMessage());
                 return $ex->getMessage();
             }
         }

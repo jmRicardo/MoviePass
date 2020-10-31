@@ -70,6 +70,24 @@ class Connection
                 throw $ex;
             }        	    	
         }
+
+        public function ExecuteNonQueryWithInsertId($query, $parameters = array(), $queryType = QueryType::Query)
+	    {            
+            try
+            {
+                $this->Prepare($query);
+                
+                $this->BindParameters($parameters, $queryType);
+
+                $this->pdoStatement->execute();
+
+                return $this->pdo->lastInsertId();
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }        	    	
+        }
         
         private function Prepare($query)
         {
