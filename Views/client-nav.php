@@ -26,7 +26,7 @@
         
             <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" method="post" target="_blank">
             <input type="search" name="busquedamodelos" list="listamodelos" required>
-            <button type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</button>        
+            <a type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</a>        
             </form>
                 <datalist id="listamodelos">
 
