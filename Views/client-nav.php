@@ -23,9 +23,7 @@
 
     <ul class="navbar-nav ml-auto">
         <li>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        
             <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" method="post" target="_blank">
             <input type="search" name="busquedamodelos" list="listamodelos" required>
             <button type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</button>        
