@@ -103,6 +103,13 @@ class ClientController
 
             require_once(PROCESS_PATH."mail-process.php");             
         }
+
+        function SearchMovie ($title){
+            //var_dump($title);
+            $movie = $this->movieDao->GetMovieByTitle($title);
+            //var_dump($movie);
+            //require_once(VIEWS_PATH."show-search-movie.php");
+        }
     }
 
 ?>
