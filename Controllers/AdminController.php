@@ -132,7 +132,7 @@
             $cinema = $this->cinemaDAO->GetCinema($id);
             $listId = $this->roomDAO->GetAllByCinema($id);
 
-            require_once(ADMIN_PATH."admin-addRooms.php");
+            require_once(ADMIN_PATH."admin-addrooms.php");
         }
 
         //aca empiezan las funciones de administrar Funciones

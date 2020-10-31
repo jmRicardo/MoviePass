@@ -4,11 +4,11 @@ define("ROOT", dirname(__DIR__) . "/");
 //Path to your project's root folder
 define("FRONT_ROOT", "/MoviePass/");
 define("VIEWS_PATH", "Views/");
-define("ADMIN_PATH", FRONT_ROOT.VIEWS_PATH . "admin/");
+define("ADMIN_PATH",  FRONT_ROOT.VIEWS_PATH . "admin/");
 define("CLIENT_PATH", FRONT_ROOT.VIEWS_PATH . "client/");
-define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "css/");
-define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
-define("IMG_PATH", FRONT_ROOT.VIEWS_PATH . "img/");
+define("CSS_PATH",    FRONT_ROOT.VIEWS_PATH . "css/");
+define("JS_PATH",     FRONT_ROOT.VIEWS_PATH . "js/");
+define("IMG_PATH",    FRONT_ROOT.VIEWS_PATH . "img/");
 define("PROCESS_PATH", "Process/");
 define("UTILS_PATH", "Utils/");
 
