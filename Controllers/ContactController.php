@@ -10,7 +10,7 @@
         $header = "$email". "\r\n".
         'X-Mailer: PHP/' . phpversion();
 
-        mail("guimainini@gmail.com", $asunto, $msg, $header);
+        mail(CONTACT_MAIL, $asunto, $msg, $header);
 
         
         }       

@@ -2,15 +2,7 @@
 <?php
 require_once("client-nav.php"); 
 use DAO\MovieDAO;
-function listGenres ($IdMovie) {
-    $movieDao= new MovieDAO();
-    $genres= $movieDao->GetGenresMovie($IdMovie);
-    $stringGenres= "";
-    foreach($genres as $genre){
-        $stringGenres= $stringGenres . $genre->getName(). ", ";
-    }
-    return substr($stringGenres,0,-2);
-}
+
 ?>
 
 <!-- Modal -->

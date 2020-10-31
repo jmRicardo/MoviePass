@@ -96,9 +96,10 @@ CREATE TABLE IF NOT EXISTS `tickets` (
 DROP TABLE IF EXISTS `seats`;
 CREATE TABLE IF NOT EXISTS `seats` (
   `id` int not null auto_increment,
-  `idDate` int not null,
-  `number` int not null,
+  `row` int not null,
+  `column` int not null,
+  `idDate` int,
+  constraint unqSeat unique (`row`,`column`,`idDate`),
   constraint pkSeat primary key (`id`),
-  constraint unqSeat unique (`number`,`idDate`),
-  constraint fkSeatDate foreign key (`idDate`) references dates(`id`)
+  constraint fkSeatIdDate foreign key (`idDate`) references dates(`id`)
 )Engine = InnoDB;
