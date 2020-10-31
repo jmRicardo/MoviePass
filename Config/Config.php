@@ -4,9 +4,11 @@ define("ROOT", dirname(__DIR__) . "/");
 //Path to your project's root folder
 define("FRONT_ROOT", "/MoviePass/");
 define("VIEWS_PATH", "Views/");
-define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "css/");
-define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
-define("IMG_PATH", FRONT_ROOT.VIEWS_PATH . "img/");
+define("ADMIN_PATH",  ROOT.VIEWS_PATH . "admin/");
+define("CLIENT_PATH", ROOT.VIEWS_PATH . "client/");
+define("CSS_PATH",    FRONT_ROOT.VIEWS_PATH . "css/");
+define("JS_PATH",     FRONT_ROOT.VIEWS_PATH . "js/");
+define("IMG_PATH",    FRONT_ROOT.VIEWS_PATH . "img/");
 define("PROCESS_PATH", "Process/");
 define("UTILS_PATH", "Utils/");
 
@@ -23,6 +25,10 @@ define("DB_NAME", "ic1fGMePQ6");
 define("DB_USER", "ic1fGMePQ6");
 define("DB_PASS", "k9Adageba0");
 
+// Credenciales para MercadoPAGO
+
+define('MP_PUBLIC_KEY','XXX');
+define('MP_ACCESS_TOKEN','XXX');
 
 // LLave para la Api de movie data base
 
