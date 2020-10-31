@@ -19,7 +19,7 @@
    </ul> -->
 
     <ul class="navbar-nav ml-auto">
-        <li>
+        <!-- <li>
         
             <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" data-toggle="modal" data-target="#searchMovie" method="post" target="_blank">
             <input type="search" name="busquedamodelos" list="listamodelos" required>
@@ -35,7 +35,7 @@
                 <?php } ?>            
             </datalist>
             
-        </li>
+        </li> -->
         <?php if (Util::isAdmin()) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">MODO ADMIN</a>
