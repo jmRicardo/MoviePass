@@ -9,11 +9,11 @@
     $seatDAO = new SeatDAO();
     $dateDAO = new DateDAO();
 
-    $date = $dateDAO->GetDateByID($id);
+    $date = $dateDAO->GetDateByID($idDate);
 
     $roomData = $roomDAO->GetRoom($date->getIdRoom());
 
-    $seatList = $seatDAO->GetSeatsByDate($id);
+    $seatList = $seatDAO->GetSeatsByDate($idDate);
 
     $ticketValue = $roomData->getPrice();
 

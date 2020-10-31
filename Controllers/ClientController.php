@@ -3,18 +3,22 @@
     use DAO\MovieDAO;
     use DAO\DateDAO;
     use DAO\RoomDAO;
+    use DAO\TicketDAO;
+    use Models\Ticket;
 
 class ClientController 
     {
         private $movieDao;
         private $dateDao;
         private $roomDao;
+        private $ticketDao;
 
         function __construct() 
         {
             $this->movieDao = new MovieDAO();
             $this->dateDao = new DateDAO();
             $this->roomDao = new RoomDAO();
+            $this->ticketDao = new TicketDAO();
         }
         
         /* Home with banner */
@@ -74,20 +78,32 @@ class ClientController
             require_once(VIEWS_PATH."client-list-carusel.php");
         }
         
-        function selectSeat($id)
+        function selectSeat($idDate)
         {
             require_once(VIEWS_PATH."client-select-seat.php");
         }
         
         function reservations()
         {   
-            /*query entradas de usuarios*/
             require_once(VIEWS_PATH."client-reservations.php");
         }
 
-        function Checkout($array)
-        {            
-            var_dump($array);
+        function Checkout($stringSeats, $idDate)
+        {
+            $date =$this->dateDao->GetDateByID($idDate);
+            $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
+            $user = $_SESSION['user_info'];
+            $seats = explode(",", $stringSeats);
+            $tickets= [];
+            foreach ($seats as $seat){
+                $ticket = new ticket();
+                $ticket->setIdDate($idDate);
+                $ticket->setIdUser($user["id"]);
+                $ticket->setSeat($seat);
+                array_push($tickets,$ticket);
+                $this->ticketDao->AddTicket($ticket);
+            }
+
             
             require_once(VIEWS_PATH."client-checkout.php");
         }
