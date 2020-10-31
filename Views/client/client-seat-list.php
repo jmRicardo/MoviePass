@@ -80,17 +80,19 @@
                         </td>
                     <?php } ?>
                     <td>
+                        <!-- MAGIA NEGRA -->
                         <button class='bg-transparent border-0' 
                                 value="<?php echo $seat->getRow() . $seat->getColumn();?>" 
                                 id="<?php echo $id;?>" 
                                 onclick="changeSeat(id);" 
                                 <?php if (!empty($seat->getIdDate())) echo "disabled";?>
                         >
+                        <!-- FIN DE LA MAGIA NEGRA -->
                             <div style="position: relative; display: inline-block; text-align: center;" >
                                 <div style="position: absolute; top:65%; left: 50%; transform: translate(-50%, -50%);"  ><?php echo $id;?></div>
                                 <img 
                                     id="<?php echo $id;?>IMG" 
-                                    src="<?php echo IMG_PATH. (empty($seat->getIdDate()) ? "asiento.png" : "seat-unavailable.png");?>" 
+                                    src="<?php echo IMG_PATH. (empty($seat->getIdDate()) ? "seat.png" : "seat-unavailable.png");?>" 
                                     width="33" 
                                     alt="false"
                                 >
