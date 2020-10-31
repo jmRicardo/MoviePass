@@ -46,7 +46,7 @@
             
             $cinemaList = $this->cinemaDAO->GetAll();
 
-            require_once(VIEWS_PATH."admin-cinema-add.php");
+            require_once(ADMIN_PATH."admin-add.php");
         }
 
         public function Add($name,$address)
@@ -78,7 +78,7 @@
             
             $cinema = $this->cinemaDAO->GetCinema($id);            
 
-            require_once(VIEWS_PATH."admin-cinema-update.php");
+            require_once(ADMIN_PATH."admin-update.php");
         }
 
         public function SaveUpdate($name,$address,$id)
@@ -122,9 +122,6 @@
             $room->setPrice($price);
 
             require_once(PROCESS_PATH."room-process.php");
-            /* $_SESSION['message'] = $this->roomDAO->Add($room);           
-
-            $this->ShowAddRoom($id); */
         }
 
 
@@ -135,7 +132,7 @@
             $cinema = $this->cinemaDAO->GetCinema($id);
             $listId = $this->roomDAO->GetAllByCinema($id);
 
-            require_once(VIEWS_PATH."admin-cinema-addRooms.php");
+            require_once(ADMIN_PATH."admin-addRooms.php");
         }
 
         //aca empiezan las funciones de administrar Funciones
@@ -150,7 +147,7 @@
 
             $movies=$this->movieDAO->GetAll();
             
-            require_once(VIEWS_PATH."admin-cinema-add-dates.php");
+            require_once(ADMIN_PATH."admin-add-dates.php");
             
         }
     
