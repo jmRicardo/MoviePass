@@ -26,3 +26,9 @@
 
 <!-- Bootstrap js -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ntegrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- <script>
+
+  window.Mercadopago.setPublishableKey("YOUR_PUBLIC_KEY");
+              
+</script> -->

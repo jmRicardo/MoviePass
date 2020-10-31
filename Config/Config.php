@@ -23,6 +23,12 @@ define("DB_NAME", "ic1fGMePQ6");
 define("DB_USER", "ic1fGMePQ6");
 define("DB_PASS", "k9Adageba0");
 
+// Credenciales para MercadoPAGO
+
+define('MP_PUBLIC_KEY','XXX');
+define('MP_ACCESS_TOKEN','XXX');
+
+
 
 // LLave para la Api de movie data base
 
