@@ -27,7 +27,7 @@ require_once("client-nav.php");
                         <span class="ticket-items">Nro Ticket: <?php echo $ticket->getId();?></span>
                     </div>
                     <div class="col-lg-4">
-                    
+                        <img src="<?php echo FRONT_ROOT . VIEWS_PATH."img/qrs/qr-".$ticket->getId().".png"; ?>" />
                     </div>
                 </div>              
             </div>

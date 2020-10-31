@@ -5,6 +5,7 @@
     use DAO\RoomDAO;
     use DAO\TicketDAO;
     use Models\Ticket;
+    include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
     {
@@ -109,6 +110,11 @@ class ClientController
                 $id = $this->ticketDao->AddTicket($ticket);
                 $ticket->setId($id);
                 array_push($tickets,$ticket);
+
+                $img = VIEWS_PATH."img/qrs/qr-".$id.".png";
+                if (!file_exists($img)) {
+                    \QRcode::png($id, $img);
+                }
             }
 
            require_once(CLIENT_PATH."client-checkout.php");
