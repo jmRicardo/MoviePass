@@ -6,6 +6,7 @@ define("FRONT_ROOT", "/MoviePass/");
 define("VIEWS_PATH", "Views/");
 define("ADMIN_PATH",  ROOT.VIEWS_PATH . "admin/");
 define("CLIENT_PATH", ROOT.VIEWS_PATH . "client/");
+define("LOGIN_PATH",  ROOT.VIEWS_PATH . "login/");
 define("CSS_PATH",    FRONT_ROOT.VIEWS_PATH . "css/");
 define("JS_PATH",     FRONT_ROOT.VIEWS_PATH . "js/");
 define("IMG_PATH",    FRONT_ROOT.VIEWS_PATH . "img/");

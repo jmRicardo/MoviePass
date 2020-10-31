@@ -1,5 +1,5 @@
 <?php
-     require_once(VIEWS_PATH . "client-nav.php");
+     require_once("client-nav.php");
 ?>
 
 <div class="container"> 

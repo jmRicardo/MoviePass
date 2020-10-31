@@ -1,7 +1,5 @@
 <?php
-	/* if ( !isLoggedIn() ) { // if user is not logged in they cannot see this page
-		header( 'location: index.php' );
-	} */ 
+
 	use DAO\FacebookDAO as FacebookDAO;
 
 	$facebookDAO = new FacebookDAO();
@@ -10,7 +8,7 @@
 		$fbUserInfo = $facebookDAO->getFacebookUserInfo( $_SESSION['user_info']['fb_access_token'] );
 		$fbDebugTokenInfo = $facebookDAO->getDebugAccessTokenInfo( $_SESSION['user_info']['fb_access_token'] );
 	}
-	require_once(VIEWS_PATH . "client-nav.php");
+	require_once("client-nav.php");
 ?>
 		<div class="site-content-container">
 			<div class="site-content-centered">

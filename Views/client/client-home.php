@@ -1,5 +1,5 @@
 <?php
-require_once(CLIENT_PATH."client-nav.php");
+require_once("client-nav.php");
 require_once(UTILS_PATH . "MessageBox.php");
 
 ?>
@@ -18,8 +18,8 @@ require_once(UTILS_PATH . "MessageBox.php");
 
 <?php
 //ventana emergentes de logeo
-require_once(VIEWS_PATH . "login-signin.php");
-require_once(VIEWS_PATH . "login-signup.php");
+require_once(LOGIN_PATH . "login-signin.php");
+require_once(LOGIN_PATH . "login-signup.php");
 require_once(CLIENT_PATH . "client-list-movies.php");
 require_once(CLIENT_PATH . "client-mail.php");
 require_once(CLIENT_PATH . "client-search-movie.php");

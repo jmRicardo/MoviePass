@@ -1,6 +1,6 @@
 
 <?php
-    require_once(VIEWS_PATH . "client-nav.php");
+    require_once("client-nav.php");
 ?>
 <div class="bg-black pt-4">
     <div class="row pb-4">
@@ -30,8 +30,8 @@
         <div class="col-md"></div>
     </div>
 <?php
-    require_once(VIEWS_PATH . "list-movies.php");
+    require_once(CLIENT_PATH . "client-list-movies.php");
     //ventana emergentes de logeo
-    require_once(VIEWS_PATH . "login-signin.php");
-    require_once(VIEWS_PATH . "login-signup.php");
+    require_once(LOGIN_PATH . "login-signin.php");
+    require_once(LOGIN_PATH . "login-signup.php");
 ?>

@@ -1,7 +1,6 @@
 <?php 
     use DAO\UserDAO;
     use Utils\Util as Util;
-    // var_dump($movies);
 ?>
 
 <nav class="navbar navbar-expand-lg  navbar-dark nav-client">

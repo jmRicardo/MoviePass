@@ -1,8 +1,6 @@
 <?php
-    require_once(VIEWS_PATH . "client-nav.php");
+    require_once("client-nav.php");
 ?>
-
-
 
 <div class="modal fade" id="sendMail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -29,4 +27,4 @@
   </div>
 </div>
 
-<?php require_once(VIEWS_PATH . "client-home.php"); ?>
+<?php require_once(CLIENT_PATH . "client-home.php"); ?>
