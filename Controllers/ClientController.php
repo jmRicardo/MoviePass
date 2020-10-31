@@ -105,10 +105,11 @@ class ClientController
         }
 
         function SearchMovie ($title){
-            //var_dump($title);
-            $movie = $this->movieDao->GetMovieByTitle($title);
-            //var_dump($movie);
-            //require_once(VIEWS_PATH."show-search-movie.php");
+            $movieSearch = $this->movieDao->GetMovieByTitle($title);
+            $genres = $this->movieDao->GetActiveGenres();
+            $IdMovie = $movieSearch->getIdMovie();
+            
+            require_once(CLIENT_PATH."client-search-movie.php");
         }
     }
 
