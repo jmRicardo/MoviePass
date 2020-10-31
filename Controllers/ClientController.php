@@ -24,12 +24,12 @@ class ClientController
         function Home($message = "") 
         {
             $movies = $this->movieDao->GetAll();
-            require_once(VIEWS_PATH."client-home.php");
+            require_once(CLIENT_PATH."client-home.php");
         }
 
         function Account()
         {
-            require_once(VIEWS_PATH."myaccount.php");
+            require_once(CLIENT_PATH."client-account.php");
         }
 
         /*Movies with genres*/
@@ -38,7 +38,7 @@ class ClientController
             $idGenre = 0;
             $genres = $this->movieDao->GetActiveGenres();
             $movies = $this->movieDao->GetAll();
-            require_once(VIEWS_PATH."client-select-movie.php");
+            require_once(CLIENT_PATH."client-select-movie.php");
         }
 
          /*Movies with genres filter*/
@@ -46,7 +46,7 @@ class ClientController
         {
             $genres = $this->movieDao->GetActiveGenres();
             $movies = $this->movieDao->GetMoviesByGenre($idGenre);
-            require_once(VIEWS_PATH."client-select-movie.php");
+            require_once(CLIENT_PATH."client-select-movie.php");
         }
 
         /*Movies by date & cinema*/
@@ -56,7 +56,7 @@ class ClientController
             $movie = $this->movieDao->GetMovieByID($idMovie);
             $dates = $this->dateDao->GetDatesFromWeek($idMovie);
             
-            require_once(VIEWS_PATH."client-select-date.php");
+            require_once(CLIENT_PATH."client-select-date.php");
         }
 
         function SelectDateCalendar($idMovie,$day)
@@ -67,19 +67,19 @@ class ClientController
             $dates  = $this->dateDao->GetDatesFromWeekFromDate($idMovie,$day);
             $startingDay = $day;
            
-            require_once(VIEWS_PATH."client-select-date.php");
+            require_once(CLIENT_PATH."client-select-date.php");
             
         }
 
         function listCarusel()
         {
             $movies = $this->movieDao->GetAll();
-            require_once(VIEWS_PATH."client-list-carusel.php");
+            require_once(CLIENT_PATH."client-list-carusel.php");
         }
         
         function selectSeat($id)
         {
-            require_once(VIEWS_PATH."client-select-seat.php");
+            require_once(CLIENT_PATH."client-select-seat.php");
         }
         
         function reservations()
@@ -89,14 +89,14 @@ class ClientController
             $ticketList = $this->ticketDao->GetTicketListByUserId($usuario['id']);
             /* var_dump($ticketList);
             exit(); */
-            require_once(VIEWS_PATH."client-reservations.php");
+            require_once(CLIENT_PATH."client-reservations.php");
         }
 
         function Checkout($array)
         {            
             var_dump($array);
             
-            require_once(VIEWS_PATH."client-checkout.php");
+            require_once(CLIENT_PATH."client-checkout.php");
         }
 
         function SendMail(){
