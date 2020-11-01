@@ -1,20 +1,21 @@
 <?php 
-    use DAO\UserDAO;
     use Utils\Util as Util;
+
+    require_once(LOGIN_PATH . "login-signin.php");
+    require_once(LOGIN_PATH . "login-signup.php");
 ?>
 
 <nav class="navbar navbar-expand-lg  navbar-dark nav-client">
    <a  href="<?php echo FRONT_ROOT ?>client/home"><img src="<?php
         echo FRONT_ROOT . VIEWS_PATH ?>img/logo.png" alt="" width="170" height="60">
    </a>
-
+   
     <ul class="navbar-nav ml-auto">
         <li>
         
-            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" data-toggle="modal" data-target="#searchMovie" method="post" target="_blank">
+            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie"  method="post" target="_blank">
             <input type="search" name="busquedamodelos" list="listamodelos" required>
-            <button  data-toggle="modal" data-target="#searchMovie">Buscar</button>
-
+            <button type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</button>        
             </form>
                 <datalist id="listamodelos">
 
@@ -63,6 +64,9 @@
         <?php endif; ?>
     </ul>
 </nav>
+<div class="content-container"> <!-- abro div contenedor -->
 
-<div class="content-container"> <!-- abro diV contenedor -->
+<?php
+    require_once(UTILS_PATH . "MessageBox.php");
+?>
 
