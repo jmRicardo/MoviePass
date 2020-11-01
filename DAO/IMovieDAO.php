@@ -10,6 +10,7 @@
         function GetMoviesByGenre($id);
         function GetMovieByID($id);
         function GetAll();
+        //function GetAllActives();
         function NowPlayingToDataBase();
         function AddMovie(Movie $movie);
         function AddGenreByMovie(GenreByMovie $genreByMovie);
@@ -18,6 +19,6 @@
         function GetActiveGenres();
         function GetBillboardByDate(bool $comingUpNext);
         function UpdateMoviesRunTime();
-        function UpdateRuntime($runtime,$idMovie);
+        function UpdateRuntime($runtime,$idMovie);        
     }
 ?>  

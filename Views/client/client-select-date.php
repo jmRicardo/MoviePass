@@ -1,7 +1,6 @@
 <?php
     use DAO\MovieDAO;
-    use Models\Date;
-
+    
     function listGenres ($idMovie) {
         $movieDao= new MovieDAO();
         $genres= $movieDao->GetGenresMovie($idMovie);
@@ -35,8 +34,8 @@
         return $cinemas;
     }
     require_once("client-nav.php");
-    require_once(UTILS_PATH . "MessageBox.php");
 ?>
+
 <div class="container"> 
     <div class="row pt-4 pb-4">
         <div class="col-lg-4">
@@ -141,9 +140,3 @@
         </div>
     </div>
 </div>
-
-<?php
-    //ventana emergentes de logeo
-    require_once(LOGIN_PATH . "login-signin.php");
-    require_once(LOGIN_PATH . "login-signup.php");
-?>

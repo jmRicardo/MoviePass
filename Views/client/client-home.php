@@ -1,6 +1,5 @@
 <?php
 require_once("client-nav.php");
-
 ?>
 
 <div class="container-fluid no-padding">
@@ -14,10 +13,6 @@ require_once("client-nav.php");
     </div>
 </div>
 
-
 <?php
 require_once(CLIENT_PATH . "client-list-movies.php");
-//ventana emergentes de logeo
-
-//require_once(CLIENT_PATH . "client-search-movie.php");
 ?>

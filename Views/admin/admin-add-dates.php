@@ -1,6 +1,5 @@
 <?php
 require_once('admin-nav.php');
-require_once(UTILS_PATH . "MessageBox.php");
 
 $day = new DateTime();
 $cDayMin = $day->format('Y-m-d');

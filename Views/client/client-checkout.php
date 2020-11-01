@@ -1,9 +1,7 @@
 <?php
-
-use Models\Ticket;
-
-require_once("client-nav.php");
+    require_once("client-nav.php");
 ?>
+
 <div class="container"> 
     <div class="row pt-4 pb-4">
         <div class="col-lg-4">
