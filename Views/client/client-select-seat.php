@@ -8,16 +8,19 @@
         </div>
         <div class="col-lg-5">
             <div class="cine-box">
-                    <div class="box-price">   
-                        <h3 class="movie-name">Pinocho</h3>
+                    <div class="box-price">  
+                        <?php 
+                         $day= new DateTime($date->getdate());
+                         $cDay= $day->format("\n l, jS F Y g:i A");           
+                        ?> 
+                        <h3 class="movie-name"><?php echo $movie->getTitle(); ?></h3>
                         <hr class="divider">
-                        <span class="dateTime">Sunday, October 25 at 4:30 pm</span>
+                        <span><?php echo $cDay; ?></span>
                         <hr class="divider">
                         <div>
-                            
-                            <span>Cinema Center</span> <br>
-                            <span>Santiago del estero 3047</span> <br>
-                            <span>Sala 2</span> <br>
+                            <span><?php echo $cine->getName(); ?></span> <br>
+                            <span><?php echo $cine->getAddress(); ?></span> <br>
+                            <span>Sala <?php echo $idDate ?></span> <br>
                             
                         </div> 
                         <hr class="divider">

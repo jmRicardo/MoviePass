@@ -84,6 +84,9 @@ class ClientController
         
         function selectSeat($idDate)
         {
+            $date =$this->dateDao->GetDateByID($idDate);
+            $cine =$this->roomDao->getCinemaByRoom($date->getIdRoom());
+            $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
             require_once(CLIENT_PATH."client-select-seat.php");
         }
         
