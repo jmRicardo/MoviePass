@@ -1,8 +1,6 @@
 
 <?php
 require_once("client-nav.php"); 
-use DAO\MovieDAO;
-
 ?>
 
 <!-- Modal -->

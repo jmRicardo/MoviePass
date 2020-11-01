@@ -1,6 +1,6 @@
 <?php
  
-use DAO\MovieDAO;
+    use DAO\MovieDAO;
 
     function listGenres ($idMovie) {
         $movieDao= new MovieDAO();
