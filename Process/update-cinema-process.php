@@ -17,12 +17,12 @@
         $cinema->setName(trim($cinema->getName()));
         $cinema->setAddress(trim($cinema->getAddress()));
         
-        $error = $this->cinemaDAO->Add($cinema);
+        $error = $this->cinemaDAO->UpdateCinema($cinema);
 
         if (isset($error)) {
             $_SESSION['message'] = $error;
         }else {
-            $_SESSION['message'] = "Cine agregado con exito!";
+            $_SESSION['message'] = "Cine actualizado con exito!";
         }
 
     }
