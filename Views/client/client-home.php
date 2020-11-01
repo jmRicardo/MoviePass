@@ -21,6 +21,5 @@ require_once(CLIENT_PATH . "client-list-movies.php");
 //ventana emergentes de logeo
 require_once(LOGIN_PATH . "login-signin.php");
 require_once(LOGIN_PATH . "login-signup.php");
-require_once(CLIENT_PATH . "client-mail.php");
 //require_once(CLIENT_PATH . "client-search-movie.php");
 ?>
