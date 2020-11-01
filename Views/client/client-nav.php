@@ -2,7 +2,8 @@
     use DAO\UserDAO;
     use Utils\Util as Util;
 
-    require_once(CLIENT_PATH . "client-mail.php");
+    require_once(LOGIN_PATH . "login-signin.php");
+    require_once(LOGIN_PATH . "login-signup.php");
 ?>
 
 <nav class="navbar navbar-expand-lg  navbar-dark nav-client">
@@ -77,4 +78,11 @@
     </ul>
 </nav>
 <div class="content-container"> <!-- abro div contenedor -->
+
+<?php
+
+
+    require_once(UTILS_PATH . "MessageBox.php");
+
+?>
 

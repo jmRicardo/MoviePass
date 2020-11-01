@@ -1,5 +1,7 @@
 <?php
     require_once("client-nav.php");    
+    require_once(UTILS_PATH . "MessageBox.php");
+    use Utils\Util;
 ?>
 <div class="container">
     <div class="row">
@@ -59,7 +61,7 @@
 
     function sendData()
     {
-        window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array + "/<?php  echo $idDate; ?>" ;
+        window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + (array.length == 0 ? "algo" : array) + "/<?php  echo $idDate; ?>" ;
     }
 
     var totalSeats = 0;
