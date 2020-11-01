@@ -8,26 +8,42 @@
         </div>
         <div class="col-lg-5">
             <div class="cine-box">
-                    <div class="cine-header">   
+                    <div class="box-price">   
                         <h3 class="movie-name">Pinocho</h3>
+                        <hr class="divider">
                         <span class="dateTime">Sunday, October 25 at 4:30 pm</span>
+                        <hr class="divider">
                         <div>
-                            <span>Cinema Center</span>
-                            <span>Santiago del estero 3047</span>
-                            <span>Sala 2</span>
-                        </div>
+                            
+                            <span>Cinema Center</span> <br>
+                            <span>Santiago del estero 3047</span> <br>
+                            <span>Sala 2</span> <br>
+                            
+                        </div> 
+                        <hr class="divider">
                         <div class="price-row">
-                            <div>
-                                <div>Tickets<div id="CartSummary" class="col-xs-6">0</div></div>
-                                <div>Valor<div id="CartSummaryValue" class="col-xs-6">0</div></div>
-                            </div> 
-                            <h2 id="CartTotalAmount" class="text-right noline top">
-                                Total<span id="CartTotalAmountValue">$0.0</span>
-                            </h2>
+                            <div class="row">
+                                <div class="col-lg-6">Tickets</div>
+                                <div id="CartSummary" class="col-lg-6 cart-summary">0</div>
+                            </div>
+                            <hr class="divider">
+                            <div class="row">
+                                <div class="col-lg-6">Valor</div>
+                                <div id="CartSummaryValue" class="col-lg-6 cart-summary">0</div>
+                            </div>
+                            <hr class="divider"> 
+                            <div class="cart-amount">
+                                <h2 id="CartTotalAmount">Total $<span id="CartTotalAmountValue">0.0</span></h2> 
+                               
+                            </div>
+                        <hr class="divider">
                         </div>
-                        <a id="movie-id" href="#" onclick="sendData();">
-                            <button type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
-                        </a>
+                        <div class="confirmed-reservation">
+                            <a id="movie-id" href="#" onclick="sendData();">
+                                <button type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
+                            </a>
+                        </div>
+                       
                  </div>
             </div>
         </div>

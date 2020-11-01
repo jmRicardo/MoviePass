@@ -1,0 +1,40 @@
+
+.container-seats {
+    padding: 20px;
+}
+
+.room-seats {
+    background-color: grey; 
+    
+}
+.pa {
+    padding: 20px;
+}
+
+.cart-summary {
+    text-align: right;
+}
+
+.cart-total {
+    text-align: right;
+}
+
+.box-price{
+    width: 100%;
+    padding: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    color: #dedede;
+    font-size: 15px;
+}
+
+.divider{
+    background-color:grey ;
+}
+.cart-amount {
+    text-align: right;
+}
+
+.confirmed-reservation {
+    text-align: right;
+    padding: 10px;
+}

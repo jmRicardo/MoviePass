@@ -51,7 +51,7 @@
 
 ?>
 
-<table class="roomSeats" bgcolor="grey" >
+<table class="room-seats">
 
     <thead>
         <tr>
