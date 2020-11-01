@@ -95,7 +95,6 @@
             }
             catch(Exception $ex)
             {
-                var_dump($ex->getMessage());
                 return $ex->getMessage();
             }
         }
