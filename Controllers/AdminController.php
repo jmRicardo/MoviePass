@@ -49,7 +49,7 @@
             require_once(ADMIN_PATH."admin-add.php");
         }
 
-        public function Add($name,$address)
+        public function Add($name, $address)
         {
             Util::loggedInRedirect();
             
@@ -81,7 +81,7 @@
             require_once(ADMIN_PATH."admin-update.php");
         }
 
-        public function SaveUpdate($name,$address,$id)
+        public function SaveUpdate($name, $address, $id)
         {
             Util::loggedInRedirect();
 
@@ -90,11 +90,7 @@
             $cinema->setName($name);
             $cinema->setAddress($address);
 
-            $error =  $this->cinemaDAO->UpdateCinema($cinema); 
-
-            $_SESSION['message'] = isset($error) ? $error : "Cine actualizado con exito!";
-            
-            $this->ShowCinemaList();
+            require_once(PROCESS_PATH."update-cinema-process.php");
         }
 
         // de aca empiezan los metodos que controlan las SALAS
