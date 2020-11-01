@@ -18,11 +18,11 @@
                         </div>
                         <div class="price-row">
                             <div>
-                                <div>Tickets &nbsp;<div id="CartSummary" class="col-xs-6">0</div></div>
-                                <div>Valor &nbsp;<div id="CartSummaryValue" class="col-xs-6">0</div></div>
+                                <div>Tickets<div id="CartSummary" class="col-xs-6">0</div></div>
+                                <div>Valor<div id="CartSummaryValue" class="col-xs-6">0</div></div>
                             </div> 
                             <h2 id="CartTotalAmount" class="text-right noline top">
-                                Total &nbsp; <span id="CartTotalAmountValue">$0.0</span>
+                                Total<span id="CartTotalAmountValue">$0.0</span>
                             </h2>
                         </div>
                         <a id="movie-id" href="#" onclick="sendData();">

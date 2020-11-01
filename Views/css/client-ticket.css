@@ -1,4 +1,24 @@
 
 .ticket-items {
     display: block; 
+    text-align: left;
+    padding: 1px;
+    text-indent: 1em;
+    color: rgba(255,255,255,.5);
+}
+
+
+.image-qr {
+    width: 150px;
+    height: 150px;
+    margin: 30px;
+}
+
+.ticket-title {
+    color: #FA7A10;
+    opacity: 0.9;
+}
+
+.box {
+    padding: 10px;
 }

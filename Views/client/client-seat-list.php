@@ -82,7 +82,7 @@
                     <td>
                         <!-- MAGIA NEGRA -->
                         <button class='bg-transparent border-0' 
-                                value="<?php echo $seat->getRow() . $seat->getColumn();?>" 
+                                value="<?php echo $seat->getRow() ."-". $seat->getColumn();?>" 
                                 id="<?php echo $id;?>" 
                                 onclick="changeSeat(id);" 
                                 <?php if (!empty($seat->getIdDate())) echo "disabled";?>

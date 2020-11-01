@@ -12,7 +12,22 @@ class SeatDAO implements ISeatDAO{
 
         public function SetSeat(Seat $seat)
         {
-            
+            try
+            {
+                $query = "INSERT INTO ".$this->tableName." (`row`, `column`, idDate) VALUES (:row, :column, :idDate);";
+                $parameters["row"] = $seat->getRow();
+                $parameters["column"] = $seat->getColumn();
+                $parameters["idDate"] = $seat->getIdDate();
+
+                $this->connection = Connection::GetInstance();
+
+                $insertId = $this->connection->ExecuteNonQueryWithInsertId($query, $parameters);
+                return $insertId;
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
         }
 
         public function GetSeatsByDate($idDate)
@@ -35,10 +50,10 @@ class SeatDAO implements ISeatDAO{
                     $seat->setId($row["id"]);
                     $seat->setRow($row["row"]);
                     $seat->setColumn($row["column"]);
-                    $seat->setRowLetter($row["rowLetter"]);
-                    $seat->setColumnNumber($row["columnNumber"]);
+                    //$seat->setRowLetter($row["rowLetter"]);
+                    //$seat->setColumnNumber($row["columnNumber"]);
                     $seat->setIdDate($row["idDate"]);
-                    $seat->setIdUser($row["idUser"]);
+                    //$seat->setIdUser($row["idUser"]);
 
                     array_push($seatList,$seat);
                 }

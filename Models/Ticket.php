@@ -7,7 +7,7 @@
         private $id;
         private $idDate;
         private $idUser;
-        private $seat;
+        private $idSeat;
 
         public function __construct()
         {
@@ -77,9 +77,9 @@
         /**
          * Get the value of seat
          */ 
-        public function getSeat()
+        public function getIdSeat()
         {
-                return $this->seat;
+                return $this->idSeat;
         }
 
         /**
@@ -87,9 +87,9 @@
          *
          * @return  self
          */ 
-        public function setSeat($seat)
+        public function setIdSeat($idSeat)
         {
-                $this->seat = $seat;
+                $this->idSeat = $idSeat;
 
                 return $this;
         }
