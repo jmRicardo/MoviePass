@@ -8,13 +8,24 @@
         echo FRONT_ROOT . VIEWS_PATH ?>img/logo.png" alt="" width="170" height="60">
    </a>
 
+
+   <!-- <ul class="navbar-nav mr-auto">
+    <?php if (!Util::isAdmin()) : ?>
+            <li class="nav-item">
+            
+                <a type="button" class="nav-link" data-toggle="modal" data-target="#sendMail" data-whatever="@fat">@Contactenos</a>    
+            </li>
+    <?php endif; ?>
+   </ul> -->
+
+
+
     <ul class="navbar-nav ml-auto">
         <li>
         
-            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie" data-toggle="modal" data-target="#searchMovie" method="post" target="_blank">
+            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie"  method="post" target="_blank">
             <input type="search" name="busquedamodelos" list="listamodelos" required>
-            <button  data-toggle="modal" data-target="#searchMovie">Buscar</button>
-
+            <button type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</button>        
             </form>
                 <datalist id="listamodelos">
 
@@ -63,6 +74,5 @@
         <?php endif; ?>
     </ul>
 </nav>
-
-<div class="content-container"> <!-- abro diV contenedor -->
+<div class="content-container"> <!-- abro div contenedor -->
 
