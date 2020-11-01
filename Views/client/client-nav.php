@@ -1,5 +1,4 @@
 <?php 
-    use DAO\UserDAO;
     use Utils\Util as Util;
 
     require_once(LOGIN_PATH . "login-signin.php");
@@ -10,19 +9,7 @@
    <a  href="<?php echo FRONT_ROOT ?>client/home"><img src="<?php
         echo FRONT_ROOT . VIEWS_PATH ?>img/logo.png" alt="" width="170" height="60">
    </a>
-
-
-   <!-- <ul class="navbar-nav mr-auto">
-    <?php if (!Util::isAdmin()) : ?>
-            <li class="nav-item">
-            
-                <a type="button" class="nav-link" data-toggle="modal" data-target="#sendMail" data-whatever="@fat">@Contactenos</a>    
-            </li>
-    <?php endif; ?>
-   </ul> -->
-
-
-
+   
     <ul class="navbar-nav ml-auto">
         <li>
         
@@ -80,9 +67,6 @@
 <div class="content-container"> <!-- abro div contenedor -->
 
 <?php
-
-
     require_once(UTILS_PATH . "MessageBox.php");
-
 ?>
 
