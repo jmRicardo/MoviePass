@@ -1,7 +1,3 @@
-<?php
-    require_once("client-nav.php");
-?>
-
 <div class="modal fade" id="sendMail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -26,5 +22,3 @@
     </div>
   </div>
 </div>
-
-<?php require_once(CLIENT_PATH . "client-home.php"); ?>

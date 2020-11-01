@@ -1,4 +1,6 @@
-
+<?php
+    require_once(CLIENT_PATH . "client-mail.php");
+?>
   </div> <!-- cierra div contenedor -->
   <div class="wrapper row4">
     <footer id="footer" class="clear"></footer>
@@ -18,9 +20,6 @@
 
 
 
-<!-- Bootstrap js -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-     
 <!-- Bootstrap js -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/eFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
