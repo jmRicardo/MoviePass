@@ -8,26 +8,45 @@
         </div>
         <div class="col-lg-5">
             <div class="cine-box">
-                    <div class="cine-header">   
-                        <h3 class="movie-name">Pinocho</h3>
-                        <span class="dateTime">Sunday, October 25 at 4:30 pm</span>
+                    <div class="box-price">  
+                        <?php 
+                         $day= new DateTime($date->getdate());
+                         $cDay= $day->format("\n l, jS F Y g:i A");           
+                        ?> 
+                        <h3 class="movie-name"><?php echo $movie->getTitle(); ?></h3>
+                        <hr class="divider">
+                        <span><?php echo $cDay; ?></span>
+                        <hr class="divider">
                         <div>
-                            <span>Cinema Center</span>
-                            <span>Santiago del estero 3047</span>
-                            <span>Sala 2</span>
-                        </div>
+                            <span><?php echo $cine->getName(); ?></span> <br>
+                            <span><?php echo $cine->getAddress(); ?></span> <br>
+                            <span>Sala <?php echo $idDate ?></span> <br>
+                            
+                        </div> 
+                        <hr class="divider">
                         <div class="price-row">
-                            <div>
-                                <div>Tickets<div id="CartSummary" class="col-xs-6">0</div></div>
-                                <div>Valor<div id="CartSummaryValue" class="col-xs-6">0</div></div>
-                            </div> 
-                            <h2 id="CartTotalAmount" class="text-right noline top">
-                                Total<span id="CartTotalAmountValue">$0.0</span>
-                            </h2>
+                            <div class="row">
+                                <div class="col-lg-6">Tickets</div>
+                                <div id="CartSummary" class="col-lg-6 cart-summary">0</div>
+                            </div>
+                            <hr class="divider">
+                            <div class="row">
+                                <div class="col-lg-6">Valor</div>
+                                <div id="CartSummaryValue" class="col-lg-6 cart-summary">0</div>
+                            </div>
+                            <hr class="divider"> 
+                            <div class="cart-amount">
+                                <h2 id="CartTotalAmount">Total $<span id="CartTotalAmountValue">0.0</span></h2> 
+                               
+                            </div>
+                        <hr class="divider">
                         </div>
-                        <a id="movie-id" href="#" onclick="sendData();">
-                            <button type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
-                        </a>
+                        <div class="confirmed-reservation">
+                            <a id="movie-id" href="#" onclick="sendData();">
+                                <button type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
+                            </a>
+                        </div>
+                       
                  </div>
             </div>
         </div>
@@ -62,8 +81,13 @@
         var img = document.getElementById(buttonID +"IMG");
         
         var button = document.getElementById(buttonID);
-
-        array.push(button.value);
+        
+        if (array.indexOf(button.value) === -1)
+            array.push(button.value);
+        else
+            array = array.filter(function(value) {
+                return value !== button.value;
+            });
 
         var status = ( img.alt == "false" ? false : true );
 
@@ -90,7 +114,8 @@
 
             tickets.innerHTML = totalSeats;        
 
-            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";         
+            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";  
+            console.log(array);       
         }   
         else
         {
