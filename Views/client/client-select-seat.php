@@ -81,8 +81,13 @@
         var img = document.getElementById(buttonID +"IMG");
         
         var button = document.getElementById(buttonID);
-
-        array.push(button.value);
+        
+        if (array.indexOf(button.value) === -1)
+            array.push(button.value);
+        else
+            array = array.filter(function(value) {
+                return value !== button.value;
+            });
 
         var status = ( img.alt == "false" ? false : true );
 
@@ -109,7 +114,8 @@
 
             tickets.innerHTML = totalSeats;        
 
-            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";         
+            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";  
+            console.log(array);       
         }   
         else
         {
