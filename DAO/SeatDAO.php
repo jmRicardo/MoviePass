@@ -14,8 +14,7 @@ class SeatDAO implements ISeatDAO{
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (row, column, idDate) VALUES (:row, :column, :idDate);";
-                
+                $query = "INSERT INTO ".$this->tableName." (`row`, `column`, idDate) VALUES (:row, :column, :idDate);";
                 $parameters["row"] = $seat->getRow();
                 $parameters["column"] = $seat->getColumn();
                 $parameters["idDate"] = $seat->getIdDate();
@@ -27,7 +26,6 @@ class SeatDAO implements ISeatDAO{
             }
             catch(Exception $ex)
             {
-                var_dump($ex->getMessage());
                 return $ex->getMessage();
             }
         }
@@ -52,10 +50,10 @@ class SeatDAO implements ISeatDAO{
                     $seat->setId($row["id"]);
                     $seat->setRow($row["row"]);
                     $seat->setColumn($row["column"]);
-                    $seat->setRowLetter($row["rowLetter"]);
-                    $seat->setColumnNumber($row["columnNumber"]);
+                    //$seat->setRowLetter($row["rowLetter"]);
+                    //$seat->setColumnNumber($row["columnNumber"]);
                     $seat->setIdDate($row["idDate"]);
-                    $seat->setIdUser($row["idUser"]);
+                    //$seat->setIdUser($row["idUser"]);
 
                     array_push($seatList,$seat);
                 }

@@ -32,7 +32,7 @@
                     $seat->setId($row["id"]);
                     $seat->setIdDate($row["idDate"]);
                     $seat->setIdUser($row["idUser"]);
-                    $seat->setSeat($row["seat"]);
+                    $seat->setIdSeat($row["idSeat"]);
 
                     array_push($seatList, $seat);
                 }
@@ -65,7 +65,7 @@
                     $ticket->setId($row["id"]);
                     $ticket->setIdDate($row["idDate"]);
                     $ticket->setIdUser($row["idUser"]);
-                    $ticket->setSeat($row["seat"]);
+                    $ticket->setIdSeat($row["idSeat"]);
 
                     array_push($ticketList, $ticket);
                 }
@@ -82,11 +82,11 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (idDate, idUser, seat) VALUES (:idDate, :idUser, :seat);";
+                $query = "INSERT INTO ".$this->tableName." (idDate, idUser, idSeat) VALUES (:idDate, :idUser, :idSeat);";
                 
                 $parameters["idDate"] = $ticket->getIdDate();
                 $parameters["idUser"] = $ticket->getIdUser();
-                $parameters["seat"] = $ticket->getSeat();
+                $parameters["idSeat"] = $ticket->getIdSeat();
 
                 $this->connection = Connection::GetInstance();
 
