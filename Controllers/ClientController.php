@@ -117,19 +117,27 @@ class ClientController
                 $seatObj->setColumn($column);
                 $seatObj->setIdDate($idDate);
                 $idSeat = $this->seatDao->SetSeat($seatObj);
-                
-                $ticket = new ticket();
-                $ticket->setIdDate($idDate);
-                $ticket->setIdUser($user["id"]);
-                $ticket->setIdSeat($idSeat);
-                $id = $this->ticketDao->AddTicket($ticket);
-                $ticket->setId($id);
-                array_push($tickets,$ticket);
+                if (strrpos($idSeat, "SQLSTATE") === FALSE) {
+                    $ticket = new ticket();
+                    $ticket->setIdDate($idDate);
+                    $ticket->setIdUser($user["id"]);
+                    $ticket->setIdSeat($idSeat);
+                    $id = $this->ticketDao->AddTicket($ticket);
+                    $ticket->setId($id);
+                    array_push($tickets,$ticket);
 
-                $img = VIEWS_PATH."img/qrs/qr-".$id.".png";
-                if (!file_exists($img)) {
-                    \QRcode::png($id, $img);
+                    $img = VIEWS_PATH."img/qrs/qr-".$id.".png";
+                    if (!file_exists($img)) {
+                        \QRcode::png($id, $img);
+                    }
+                } else {
+                    echo "
+                        <script>
+                            alert('No puede repetir la misma compra');
+                            window.location = '".FRONT_ROOT."Client/Home';
+                        </script>";
                 }
+                
             }
 
            require_once(CLIENT_PATH."client-checkout.php");
