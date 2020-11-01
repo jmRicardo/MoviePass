@@ -42,9 +42,7 @@
                         <hr class="divider">
                         </div>
                         <div class="confirmed-reservation">
-                            <a id="movie-id" href="#" onclick="sendData();">
-                                <button type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
-                            </a>
+                            <button id="movie-id" onclick="sendData();" type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
                         </div>
                        
                  </div>
@@ -59,7 +57,10 @@
 
     function sendData()
     {
-        window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array + "/<?php  echo $idDate; ?>" ;
+        if (array.length) {
+            $("#movie-id").attr("disabled", "true");
+            window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array + "/<?php  echo $idDate; ?>" ;
+        }
     }
 
     var totalSeats = 0;
