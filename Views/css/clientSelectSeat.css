@@ -4,8 +4,8 @@
 }
 
 .room-seats {
-    background-color: grey; 
-    
+    background-color: grey;
+    padding: 15px;
 }
 .pa {
     padding: 20px;
@@ -37,4 +37,8 @@
 .confirmed-reservation {
     text-align: right;
     padding: 10px;
+}
+
+.seat-cell {
+    padding: 0;
 }

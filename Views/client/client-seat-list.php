@@ -64,9 +64,9 @@
             foreach($rowSeats as $rows)
             {
                 ?><tr>
-                    <td >
+                    <td class="seat-cell">
                         <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
-                        <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                        
                     </td>
                 <?php
                 foreach($rows as $seat)
@@ -76,10 +76,10 @@
                         if($seat->getColumn() == 5 ){?>
                         <td>
                             <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
-                            <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                            
                         </td>
                     <?php } ?>
-                    <td>
+                    <td class="seat-cell">
                         <!-- MAGIA NEGRA -->
                         <button class='bg-transparent border-0' 
                                 value="<?php echo $seat->getRow() ."-". $seat->getColumn();?>" 
@@ -102,7 +102,7 @@
                 <?php }?>
                 <td >
                     <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
-                    <img src="<?php echo IMG_PATH."chairsV2.png"?>" alt="chair">
+                   
                 </td>    
                 </tr>
             <?php } 

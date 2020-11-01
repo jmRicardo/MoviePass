@@ -3,7 +3,7 @@
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-7 pa">
             <?php require_once(CLIENT_PATH . "client-seat-list.php"); ?>
         </div>
         <div class="col-lg-5">
