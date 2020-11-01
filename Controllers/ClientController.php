@@ -5,8 +5,9 @@
     use DAO\RoomDAO;
     use DAO\TicketDAO;
     use DAO\SeatDAO;
-use Models\Seat;
-use Models\Ticket;
+    use Models\Seat;
+    use Models\Ticket;
+    use Utils\Util;
     include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
@@ -76,11 +77,6 @@ class ClientController
             
         }
 
-        function listCarusel()
-        {
-            $movies = $this->movieDao->GetAll();
-            require_once(CLIENT_PATH."client-list-carusel.php");
-        }
         
         function selectSeat($idDate)
         {
@@ -92,6 +88,7 @@ class ClientController
         
         function reservations()
         {   
+            Util::loggedInRedirect();
             $usuario = $_SESSION['user_info'];
             $movies = $this->movieDao->GetAll();
             $ticketList = $this->ticketDao->GetTicketListByUserId($usuario['id']);
@@ -102,6 +99,7 @@ class ClientController
 
         function Checkout($stringSeats, $idDate)
         {
+            Util::loggedInRedirect();
             $date =$this->dateDao->GetDateByID($idDate);
             $cine =$this->roomDao->getCinemaByRoom($date->getIdRoom());
             $movie = $this->movieDao->GetMovieByID($date->getIdMovie());

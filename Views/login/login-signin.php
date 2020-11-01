@@ -35,6 +35,7 @@
 									</div>
 								<?php endif; ?>
 						</div>
+								<input id="url-input" name="current-url" type="hidden" />
 								<div>
 									<div class="section-label">Correo electronico</div>
 										<div>
@@ -91,6 +92,8 @@ $(document).ready(function(){
   $("#checkIn").on('show.bs.modal', function(){
     $("#sectionStart").modal("hide");
   });
+
+  $("#url-input").val(window.location.href);
 });
 </script>
 
