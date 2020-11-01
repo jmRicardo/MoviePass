@@ -1,6 +1,7 @@
 
 <?php
     require_once("client-nav.php");
+    require_once(UTILS_PATH . "MessageBox.php");
 ?>
 <div class="bg-black pt-4">
     <div class="row pb-4">

@@ -32,6 +32,9 @@
         $_SESSION['is_logged_in'] = true;
         $_SESSION['user_info'] = $userInfo;
     }
-
-    header("Location:".FRONT_ROOT."Client/Home");   
+    if (isset($_POST["current-url"])) {
+        header("Location:".$_POST["current-url"]);
+    } else {
+        header("Location:".FRONT_ROOT."Client/Home");
+    }   
 ?>

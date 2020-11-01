@@ -1,7 +1,6 @@
 <?php
-    require_once("client-nav.php");    
-    require_once(UTILS_PATH . "MessageBox.php");
-    use Utils\Util;
+    require_once("client-nav.php");  
+    require_once(UTILS_PATH . "MessageBox.php");  
 ?>
 <div class="container">
     <div class="row">
@@ -44,9 +43,7 @@
                         <hr class="divider">
                         </div>
                         <div class="confirmed-reservation">
-                            <a id="movie-id" href="#" onclick="sendData();">
-                                <button type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
-                            </a>
+                            <button id="movie-id" onclick="sendData();" type="submit" class="btn btn-success" id="movie-reservation">Confirmar Reserva</button>
                         </div>
                        
                  </div>
@@ -55,13 +52,28 @@
     </div>
 </div>
 
+<?php
+//ventana emergentes de logeo
+require_once(LOGIN_PATH . "login-signin.php");
+require_once(LOGIN_PATH . "login-signup.php");
+?>
+
 <script>
 
     var array = [];
+    var loggedIn = <?php if (isset($_SESSION['is_logged_in'])) echo "true"; else echo "false"; ?>;
 
     function sendData()
     {
-        window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + (array.length == 0 ? "algo" : array) + "/<?php  echo $idDate; ?>" ;
+        if (loggedIn) {
+            if (array.length) {
+                $("#movie-id").attr("disabled", "true");
+                window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array + "/<?php  echo $idDate; ?>" ;
+            }
+        } else {
+            $("#sectionStart").modal("show");
+        }
+        
     }
 
     var totalSeats = 0;
