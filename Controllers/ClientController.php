@@ -7,7 +7,9 @@
     use DAO\SeatDAO;
     use Models\Seat;
     use Models\Ticket;
-    include(UTILS_PATH.'phpqrcode/qrlib.php');
+use Utils\Util;
+
+include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
     {
@@ -34,6 +36,8 @@ class ClientController
 
         function Account()
         {
+            Util::loggedInRedirect();
+           
             require_once(CLIENT_PATH."client-account.php");
         }
 
@@ -92,6 +96,8 @@ class ClientController
         
         function reservations()
         {   
+            Util::loggedInRedirect();
+            
             $usuario = $_SESSION['user_info'];
             $movies = $this->movieDao->GetAll();
             $ticketList = $this->ticketDao->GetTicketListByUserId($usuario['id']);
@@ -103,6 +109,7 @@ class ClientController
 
         function Checkout($stringSeats, $idDate)
         {
+            Util::loggedInRedirect();
             require_once(PROCESS_PATH."seat-process.php");
         }
 

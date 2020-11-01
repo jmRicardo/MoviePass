@@ -69,6 +69,8 @@ require_once(LOGIN_PATH . "login-signup.php");
             if (array.length) {
                 $("#movie-id").attr("disabled", "true");
                 window.location.href = "<?php echo FRONT_ROOT ?>Client/Checkout/" + array + "/<?php  echo $idDate; ?>" ;
+            }else{
+                alert('Debes seleccionar un asiento');
             }
         } else {
             $("#sectionStart").modal("show");
