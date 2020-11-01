@@ -4,7 +4,8 @@
     use DAO\DateDAO;
     use DAO\RoomDAO;
     use DAO\TicketDAO;
-    use Models\Ticket;
+use Models\Seat;
+use Models\Ticket;
     include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
@@ -103,11 +104,19 @@ class ClientController
             $seats = explode(",", $stringSeats);
             $tickets= [];
             foreach ($seats as $seat){
+                $rowColumn = explode("-", $seat);
+                $row = $rowColumn[0];
+                $column = $rowColumn[1];
+                $seatObj = new Seat();
+                $seatObj->setRow($row);
+                $seatObj->setColumn($column);
+                
                 $ticket = new ticket();
                 $ticket->setIdDate($idDate);
                 $ticket->setIdUser($user["id"]);
                 $ticket->setSeat($seat);
-                $id = $this->ticketDao->AddTicket($ticket);
+                //$id = $this->ticketDao->AddTicket($ticket);
+                $id = 20;
                 $ticket->setId($id);
                 array_push($tickets,$ticket);
 
