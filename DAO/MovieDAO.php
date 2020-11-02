@@ -162,7 +162,8 @@
                     $movie->setOverview($row["overview"]);
                     $movie->setReleaseDate($row["releaseDate"]);
                     $movie->setTrailerPath($row["trailerPath"]);
-
+                    $movie->setRuntime($row["runtime"]);
+                    
                     array_push($movieList, $movie);
                 }
 

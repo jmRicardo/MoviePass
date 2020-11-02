@@ -4,6 +4,8 @@
     use Models\Ticket;
 
     $date =$this->dateDao->GetDateByID($idDate);
+    // var_dump($date);
+    // exit();
     $cine =$this->roomDao->getCinemaByRoom($date->getIdRoom());
     $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
     $user = $_SESSION['user_info'];
