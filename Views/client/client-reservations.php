@@ -36,31 +36,27 @@
 
           <h3>Fechas</h3>
           <?php
-          var_dump($dateList);
-          exit();
+          
                ?>
           <?php foreach($dateList as $date) { ?>    
 
-               <div class="cine-box">
-                           
+               <div class="cine-box">    
                     <div class="cine-header">
 
-          <?php echo "Fecha: ".$date->getDate(); ?></br> 
-          <?php $cine = $this->roomDao->getCinemaByRoom($date->getIdRoom()); ?>
-          <?php echo "Nombre Cine: ".$cine->getName(); ?> </br>                     
+                         <?php echo "Fecha de la función: ".$date->getDate(); ?></br> 
+                         <?php $cine = $this->roomDao->getCinemaByRoom($date->getIdRoom()); ?>
+                         <?php echo "Nombre Cine: ".$cine->getName(); ?> </br>   
           
-          <?php $movie =  $this->movieDao->GetMovieByID($date->getIdMovie()); ?>
-          <?php echo "Pelicula: ".$movie->getTitle(); ?>
+                         <?php $room = $this->roomDao->GetRoom($date->getIdRoom()); ?>
+                         <?php echo "Nombre Sala: ".$room->getName(); ?> </br>
+                         <?php echo "Valor de la entrada: ".$room->getPrice(); ?> </br>
 
-
-
-               </div>
+                         <?php $movie =  $this->movieDao->GetMovieByID($date->getIdMovie()); ?>
+                         <?php echo "Pelicula: ".$movie->getTitle(); ?>
 
                     </div>
-
+               </div>
           <?php } ?> 
-     
      </div>
-
 </div>
 </div>
