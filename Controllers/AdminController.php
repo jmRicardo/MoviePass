@@ -145,6 +145,10 @@
 
             $movies=$this->movieDAO->GetAll();
             
+            $listDate = $this->DateDAO->GetDateByIRoom($idRoom2);
+            var_dump($listDate);
+            exit();
+
             require_once(ADMIN_PATH."admin-add-dates.php");
             
         }
