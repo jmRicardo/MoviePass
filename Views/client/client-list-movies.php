@@ -36,7 +36,10 @@
                         <img class="movie-image" src="<?php echo MOVIE_API_IMAGE_URL . $movie->getPosterPath();?>"/>
                         <div class="movie-overlay"> 
                             <span class="movie-name"><?php  echo $movie->getTitle();?></span>
-                            <button type="button" onclick="expandMovie('<?php echo $movie->getTitle(); ?>', '<?php echo $movie->getReleaseDate(); ?>', '<?php echo $movie->getOverview(); ?>','<?php echo listGenres($movie->getIdMovie());?>','<?php echo $movie->getTrailerPath(); ?>','<?php echo $movie->getIdMovie(); ?>')" class="btn btn-primary ver-mas">Ver más</button>
+                            <button 
+                            type="button" 
+                            onclick="expandMovie('<?php echo $movie->getTitle(); ?>', '<?php echo $movie->getReleaseDate(); ?>', '<?php echo $movie->getOverview(); ?>','<?php echo listGenres($movie->getIdMovie());?>','<?php echo $movie->getTrailerPath(); ?>','<?php echo $movie->getIdMovie(); ?>')" 
+                            class="btn btn-primary ver-mas">Ver más</button>
                         </div>
                     </div>
                 </div>
@@ -44,8 +47,8 @@
         </div>
     </div>
 </div>
-<script>
- 
+
+<script> 
     function expandMovie(title, releaseDate, overview, genres,trailerPath,idMovie) {
         var reservateUrl = "<?php echo FRONT_ROOT. "Client/selectDate/"?>" + idMovie;
         $("#movie-title").html(title);

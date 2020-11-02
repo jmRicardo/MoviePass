@@ -3,17 +3,9 @@
 	use DAO\UserDAO as UserDAO;
 
 	$facebookDAO = new FacebookDAO();
-
-	//require_once(VIEWS_PATH . "login-nav.php");
-
-	// only if you are logged out can you view the login page
 	$userDAO = new UserDAO();	
-	//$userDAO->loggedInRedirect();
+
 ?>
-
-
-
-
 
 <!-- Modal -->
 <div class="modal fade " id="checkIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,9 +41,6 @@
 										<div><input class="form-input" type="password" name="confirm_password" minlength="8" required/></div>
 									</div>
 									<div class="section-action-container">
-									<!-- <div class="section-button-container" id="signup_button" type="submit">
-										<div>Registrarse</div>
-									</div> -->
 										<button type="submit" class="btn btn-outline-info btn-lg">Registrarse!</button>
 									</div>
 								</form>
@@ -82,24 +71,3 @@ $(document).ready(function(){
   });
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<body class="bg-dark" >
-		
-	</body>
