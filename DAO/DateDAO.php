@@ -18,7 +18,7 @@ class DateDAO implements IDateDAO{
             {
                 $dateList = array();
 
-                $query = "SELECT * FROM ".$this->tableName . " WHERE idRoom = :idRoom;";
+                $query = "SELECT * FROM ".$this->tableName . " WHERE idRoom = :idRoom and date >= now();";
 
                 $parameters["idRoom"] = $idRoom;
 
