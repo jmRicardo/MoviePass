@@ -116,9 +116,21 @@
 
         public function GetMoviesByGenre($id)
         {
-            //$query = "SELECT idMovie FROM ".$this->tableName." WHERE (idGenre = :idGenre)";
-
-            $query = "select * from ". $this->genreByMovieTableName ." gbm left join genres g on gbm.idGenre = g.idGenre left join ". $this->tableName . " m on gbm.idMovie = m.idMovie  where gbm.idGenre = :idGenre";
+            $query = "
+            
+            SELECT DISTINCT m.`id`,m.`idMovie`,m.`adult`,m.`posterPath`,m.`originalTitle`,m.`originalLanguage`,m.`title`,m.`overview`,m.
+            
+            `releaseDate`,m.`trailerPath`,m.`runtime` 
+            
+            FROM genresByMovie gbm 
+            
+            INNER JOIN genres g on gbm.idGenre = g.idGenre 
+            
+            INNER JOIN movies m on gbm.idMovie = m.idMovie 
+            
+            INNER JOIN dates d on d.idMovie = gbm.idMovie 
+            
+            WHERE gbm.idGenre = :idGenre;";
 
             $parameters["idGenre"] =  $id;
 
