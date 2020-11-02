@@ -45,23 +45,20 @@ $mDayMax = $day3month->format('Y-m-d');
     <section id="listado" class="mb-5">
         <div class="container">
             <h2 class="mb-4"> Lista de Funciones </h2>
-            
-                <?php foreach ($cinemaList as $cinema) { ?>
-                    <tr>
-                        <td><?php echo $cinema->getName() ?></td>
-                        <td><?php echo $cinema->getAddress() ?></td>
-                        <td><?php echo $cinema->getAddress() ?></td>
-                        <td>
-                            <button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId() ?>">
-                                <i class="fa fa-trash "></i>
-                                Eliminar
-                            </button>
-                        </td>
-                                        
-                                        
-                    </tr>
-                <?php } ?>
+                                
 
+            
+                <table class="table bg-light-alpha">                                
+
+
+                    <?php foreach ($listDate as $date) { ?>
+                        <tr>
+                            <td><?php echo "Fecha: ".$date->getDate() ?></td>                        
+                            <?php $movieOnly = $this->movieDAO->GetMovieByID($date->getIdMovie()); ?>
+                            <td><?php echo "Pelicula: ".$movieOnly->getTitle(); ?></td>                    
+                        </tr>
+                    <?php } ?>
+                </table>
 
 
 
