@@ -10,7 +10,7 @@
         function GetMoviesByGenre($id);
         function GetMovieByID($id);
         function GetAll();
-        //function GetAllActives();
+        function GetAllActives();
         function NowPlayingToDataBase();
         function AddMovie(Movie $movie);
         function AddGenreByMovie(GenreByMovie $genreByMovie);

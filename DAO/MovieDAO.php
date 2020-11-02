@@ -52,7 +52,15 @@
             {
                 $genreList = array();
 
-                $query = "select distinct(g.idGenre),g.name from ". $this->genreTableName ." g inner join ". $this->genreByMovieTableName ." gbm on g.idGenre = gbm.idGenre order by g.name;";
+                $query = "
+                
+                SELECT distinct(g.idGenre),g.name 
+                
+                FROM ". $this->genreTableName ." g 
+                
+                INNER JOIN ". $this->genreByMovieTableName ." gbm on g.idGenre = gbm.idGenre 
+                
+                INNER JOIN ". $this->dateTableName ." d on gbm.idMovie = d.idMovie order by g.name;";
 
                 $this->connection = Connection::GetInstance();
 
@@ -197,6 +205,34 @@
 
                 $resultSet = $this->connection->Execute($query);
 
+                
+                $movieList = $this->ArrayToMovieObjects($resultSet);
+
+                return $movieList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function GetAllActives()
+        {
+            try
+            {
+                $movieList = array();
+
+                $query = "
+
+                SELECT m.`id`,m.`idMovie`,m.`adult`,m.`posterPath`,m.`originalTitle`,m.`originalLanguage`,m.`title`,m.`overview`,m.`releaseDate`,m.`trailerPath`,m.`runtime` 
+                
+                FROM ". $this->tableName ." m inner join ". $this->dateTableName ." d 
+                
+                ON m.idMovie = d.idMovie group by idMovie;";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
                 
                 $movieList = $this->ArrayToMovieObjects($resultSet);
 
