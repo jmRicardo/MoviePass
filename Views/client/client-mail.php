@@ -16,7 +16,7 @@
               </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <input type="submit" class="btn btn-primary" name="enviar">
+              <input type="submit" class="btn btn-primary" name="enviar" value="Enviar">
             </div>
       </form>  
     </div>
