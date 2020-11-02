@@ -137,13 +137,13 @@ class ClientController
             require_once(PROCESS_PATH."mail-process.php");             
         }
 
-        function SearchMovie ($title){
+        /* function SearchMovie ($title){
             $movieSearch = $this->movieDao->GetMovieByTitle($title);
             $genres = $this->movieDao->GetActiveGenres();
             $IdMovie = $movieSearch->getIdMovie();
             
             require_once(CLIENT_PATH."client-search-movie.php");
-        }
+        } */
     }
 
 ?>

@@ -11,22 +11,6 @@
    </a>
    
     <ul class="navbar-nav ml-auto">
-     <!--    <li>
-        
-            <form action="<?php echo FRONT_ROOT ?>Client/SearchMovie"  method="post" target="_blank">
-            <input type="search" name="busquedamodelos" list="listamodelos" required>
-            <button type="submit" data-toggle="modal" data-target="#searchMovie">Buscar</button>        
-            </form>
-                <datalist id="listamodelos">
-
-                <?php foreach($movies as $movie){?>
-                    <option >
-                        <?php echo $movie->getTitle();?>
-                    </option>
-                <?php } ?>            
-            </datalist>
-            
-        </li> -->
         <?php if (Util::isAdmin()) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">MODO ADMIN</a>
@@ -68,7 +52,8 @@
 <?php
     require_once(UTILS_PATH . "MessageBox.php");
 ?>
-<div class="content-container"> <!-- abro div contenedor -->
+<!-- abro div contenedor -->
+<div class="content-container"> 
 
 
 
