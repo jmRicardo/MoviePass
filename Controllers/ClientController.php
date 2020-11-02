@@ -99,10 +99,8 @@ class ClientController
             Util::loggedInRedirect();
             
             $usuario = $_SESSION['user_info'];
-            //$movies = $this->movieDao->GetAll();
             $ticketList = $this->ticketDao->GetTicketListByUserId($usuario['id']);
             
-
 
             $dateList = array();
             foreach($ticketList as $onlyDate){
@@ -113,8 +111,6 @@ class ClientController
             }
 
 
-            // var_dump($dateList);
-            // exit();
             foreach($dateList as $aux){
                 $cineList[] = $this->roomDao->getCinemaByRoom($aux->getIdRoom());
             }
