@@ -110,13 +110,21 @@
 
         public function RemoveRoom($idRoom)
         {            
-            $query = "DELETE FROM ".$this->tableName." WHERE (idRoom = :idRoom)";
+            try
+            {
+                $query = "DELETE FROM ".$this->tableName." WHERE (idRoom = :idRoom)";
 
-            $parameters["idRoom"] =  $idRoom;
+                $parameters["idRoom"] =  $idRoom;
 
-            $this->connection = Connection::GetInstance();
+                $this->connection = Connection::GetInstance();
 
-            $this->connection->ExecuteNonQuery($query, $parameters);
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
+
         }
 
         public function GetCinemaByRoom($idRoom)
