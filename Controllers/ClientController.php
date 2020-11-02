@@ -99,11 +99,34 @@ class ClientController
             Util::loggedInRedirect();
             
             $usuario = $_SESSION['user_info'];
-            $movies = $this->movieDao->GetAll();
+            //$movies = $this->movieDao->GetAll();
             $ticketList = $this->ticketDao->GetTicketListByUserId($usuario['id']);
-            var_dump($usuario);
-            var_dump($ticketList);
-            exit();
+            
+
+
+            $dateList = array();
+            foreach($ticketList as $onlyDate){
+                $date  = $this->dateDao->GetDateByID($onlyDate->getIdDate());
+                if( !(in_array($date, $dateList)) ){
+                    $dateList[] = $date;
+                }    
+            }
+
+
+            // var_dump($dateList);
+            // exit();
+            foreach($dateList as $aux){
+                $cineList[] = $this->roomDao->getCinemaByRoom($aux->getIdRoom());
+            }
+            
+            $movieList = array();
+            foreach($dateList as $aux2){
+                $movie =  $this->movieDao->GetMovieByID($aux2->getIdMovie());
+                if( !(in_array($movie, $movieList)) ){
+                    $movieList[] = $movie;
+                }    
+            }
+            
             require_once(CLIENT_PATH."client-reservations.php");
         }
 
