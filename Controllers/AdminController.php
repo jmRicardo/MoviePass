@@ -101,7 +101,9 @@
             Util::loggedInRedirect();
             $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
-            $this->roomDAO->RemoveRoom($idRoom2);
+            $error = $this->roomDAO->RemoveRoom($idRoom2);
+
+            $_SESSION['message'] = isset($error) ? "No se puede eliminar una Sala con funcione cargadas!" : "Sala eliminada!";
             
             $this->ShowAddRoom($cinemaObject->getId());
             
