@@ -30,7 +30,7 @@ class ClientController
         /* Home with banner */
         function Home($message = "") 
         {
-            $movies = $this->movieDao->GetAll();
+            $movies = $this->movieDao->GetAllActives();
             require_once(CLIENT_PATH."client-home.php");
         }
 
@@ -46,7 +46,7 @@ class ClientController
         {
             $idGenre = 0;
             $genres = $this->movieDao->GetActiveGenres();
-            $movies = $this->movieDao->GetAll();
+            $movies = $this->movieDao->GetAllActives();
             require_once(CLIENT_PATH."client-select-movie.php");
         }
 
