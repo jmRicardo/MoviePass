@@ -10,6 +10,7 @@
         function CheckRuntimeWithDate(Date $date);
         function GetDatesFromWeek($idMovie);
         function GetDateByID($id);
+        function GetDatesByRoom($idRoom);
 
 
         
