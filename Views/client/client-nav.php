@@ -64,9 +64,11 @@
         <?php endif; ?>
     </ul>
 </nav>
-<div class="content-container"> <!-- abro div contenedor -->
 
 <?php
     require_once(UTILS_PATH . "MessageBox.php");
 ?>
+<div class="content-container"> <!-- abro div contenedor -->
+
+
 

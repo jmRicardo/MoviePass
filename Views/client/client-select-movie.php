@@ -29,6 +29,7 @@
         </div>  
         <div class="col-md"></div>
     </div>
+</div>
 <?php
     require_once(CLIENT_PATH . "client-list-movies.php");
 ?>
