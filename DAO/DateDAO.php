@@ -12,6 +12,39 @@ class DateDAO implements IDateDAO{
         private $connection;
         private $tableName = "dates";
 
+        function GetDatesByRoom($idRoom)
+        {            
+            try
+            {
+                $dateList = array();
+
+                $query = "SELECT * FROM ".$this->tableName . " WHERE idRoom = :idRoom and date >= now();";
+
+                $parameters["idRoom"] = $idRoom;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query, $parameters);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $date = new Date();
+                    $date->setDate($row["date"]);
+                    $date->setIdMovie($row["idMovie"]);
+                    $date->setIdRoom($row["idRoom"]);
+                    $date->setId($row["id"]);
+
+                    array_push($dateList, $date);
+                }
+
+                return $dateList;
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }    
+        }
+
         function AddDate(Date $date){
 
             try
