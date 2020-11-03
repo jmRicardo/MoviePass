@@ -41,4 +41,37 @@ $mDayMax = $day3month->format('Y-m-d');
             </form>
         </div>
     </section>
+
+    <section id="listado" class="mb-5">
+        <div class="container">
+            <h2 class="mb-4"> Lista de Funciones </h2>
+                                
+
+            
+                <table class="table bg-light-alpha">                                
+
+
+                    <?php foreach ($listDate as $date) { ?>
+                        <tr>
+                            <td><?php echo "Fecha: ".$date->getDate() ?></td>                        
+                            <?php $movieOnly = $this->movieDAO->GetMovieByID($date->getIdMovie()); ?>
+                            <td><?php echo "Pelicula: ".$movieOnly->getTitle(); ?></td>                    
+                        </tr>
+                    <?php } ?>
+                </table>
+
+
+
+
+
+
+
+
+
+        </div>
+    </section>                    
+
+
+
+    
 </main>
