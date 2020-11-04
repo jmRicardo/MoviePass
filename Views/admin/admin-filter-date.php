@@ -15,7 +15,7 @@
 
     <p>Pelicula</p>
     <select class="form-control category-select" name="idMovie" required>
-        <option value="todas" selected>TODES</option>
+        <option value="TODES" selected>TODES</option>
         <?php foreach ($movies as $movie) { ?>
             <option value="<?php echo $movie->getIdMovie() ?>">
                 <?php echo $movie->getTitle(); ?>
@@ -25,7 +25,7 @@
 
     <p>Cine</p>
     <select class="form-control category-select" name="cinemas" required>
-        <option value="todos" selected>TODES</option>
+        <option value="TODOS" selected>TODES</option>
         <?php foreach ($cinemas as $cinema) { ?>
             <option value="<?php echo $cinema->getId() ?>">
                 <?php echo $cinema->getName(); ?>
