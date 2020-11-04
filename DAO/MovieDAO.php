@@ -23,25 +23,45 @@
            
         }
 
-        public function GetTotalByDate($idMovie, $start, $end)
+        public function GetTotalByDate($idMovie,$cinema,$start,$end)
         {            
             try
             {
-                $query = 
+
+                /* $query = "                 
+                select PELICULA,CINE,SALA,TOTAL from (                
+                select 
+                m.originalTitle as PELICULA,
+                (select c.name from cinemas c where id = (select idCinema from rooms where idRoom = d.idRoom)) as CINE,
+                r.name as SALA, 
+                (select price from rooms where idRoom = d.idRoom) * (select count(*) from seats where idDate = d.id) as TOTAL,                
+                from movies m                
+                inner join dates d on m.idMovie = d.idMovie                
+                inner join rooms r on r.idRoom = d.idRoom                
+                WHERE " . ($idMovie == "TODES" ? "" : " d.idMovie = :idMovie and ") . 
+                " date_format(d.`date`,'%Y-%m-%d') > :start and date_format(d.`date`,'%Y-%m-%d') < :end                 
+                having TOTAL > 0                 
+                order by d.idRoom) as MAGIC;            
+                "; */
+
+                $query = "
                 
-                "SELECT 
-                m.originalTitle,
-                d.idRoom,
-                (select price from rooms where idRoom = d.idRoom) * (select count(*) from seats where idDate = d.id) as cantidad,
-                d.id
+                select PELICULA,CINE,SALA,TOTAL from (
+                    select 
+                    m.originalTitle as PELICULA,
+                    (select c.name from cinemas c where id = (select idCinema from rooms where idRoom = d.idRoom)) as CINE,
+                    r.name as SALA,
+                    (select price from rooms where idRoom = d.idRoom) * (select count(*) from seats where idDate = d.id) as TOTAL,
+                    d.date
+                    from movies m
+                    inner join dates d on m.idMovie = d.idMovie
+                    inner join rooms r on r.idRoom = d.idRoom
+                    WHERE " . ($idMovie == "TODES" ? "" : " d.idMovie = :idMovie and ") . 
+                    " date_format(d.`date`,'%Y-%m-%d') > :start and date_format(d.`date`,'%Y-%m-%d') < :end  
+                    having TOTAL > 0
+                    order by d.idRoom) as MAGIC where CINE like '%". ($cinema == "TODES" ? "" : $cinema ) ."';               
                 
-                FROM " . $this->tableName . " m
-                
-                INNER JOIN " . $this->dateTableName. " d on m.idMovie = d.idMovie WHERE " . ($idMovie == "TODES" ? "" : " 
-                
-                 d.idMovie = :idMovie and ") . " date_format(d.`date`,'%Y-%m-%d') > :start and date_format(d.`date`,'%Y-%m-%d') < :end
-                
-                HAVING cantidad > 0;";
+                ";
 
                 if ($idMovie != "TODES")                
                     $parameters["idMovie"] = $idMovie;

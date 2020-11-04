@@ -37,9 +37,9 @@
             require_once(ADMIN_PATH."admin-filter-date.php");
         }
 
-        public function ResultFilterByDate($idMovie,$idCinema,$start,$end)
-        {
-            $result = $this->movieDAO->GetTotalByDate($idMovie,$start,$end);
+        public function ResultFilterByDate($idMovie,$cinema,$start,$end)
+        {            
+            $result = $this->movieDAO->GetTotalByDate($idMovie,$cinema,$start,$end);
             
             var_dump($result);
         }
