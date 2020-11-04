@@ -16,10 +16,47 @@
         private $genreByMovieTableName = "genresByMovie";
         private $genreTableName = "genres";
         private $dateTableName = "dates";
+        private $seatTableName = "seats";
 
         public function __construct()
         {
            
+        }
+
+        public function GetTotalByDate($idMovie, $start, $end)
+        {
+            try
+            {
+                $query = 
+                
+                "SELECT 
+                m.originalTitle,
+                d.idRoom,
+                (select price from rooms where idRoom = d.idRoom) * (select count(*) from seats where idDate = d.id) as cantidad,
+                d.id
+                
+                FROM " . $this->tableName . " m
+                
+                INNER JOIN " . $this->dateTableName. " d on m.idMovie = d.idMovie " . ($idMovie == "TODES" ? "" : " 
+                
+                WHERE d.idMovie = :idMovie ") . " and date_format(d.`date`,'%Y-%m-%d') > :start and date_format(d.`date`,'%Y-%m-%d') < :end
+                
+                HAVING cantidad > 0;";
+
+                $parameters["idMovie"] = $idMovie;
+                $parameters["start"] = $start;
+                $parameters["end"] = $end;                
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query,$parameters);
+
+                return $result;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         public function GetBillboardByDate(bool $comingUpNext)
