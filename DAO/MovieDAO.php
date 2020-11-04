@@ -24,7 +24,7 @@
         }
 
         public function GetTotalByDate($idMovie, $start, $end)
-        {
+        {            
             try
             {
                 $query = 
@@ -37,14 +37,17 @@
                 
                 FROM " . $this->tableName . " m
                 
-                INNER JOIN " . $this->dateTableName. " d on m.idMovie = d.idMovie " . ($idMovie == "TODES" ? "" : " 
+                INNER JOIN " . $this->dateTableName. " d on m.idMovie = d.idMovie WHERE " . ($idMovie == "TODES" ? "" : " 
                 
-                WHERE d.idMovie = :idMovie ") . " and date_format(d.`date`,'%Y-%m-%d') > :start and date_format(d.`date`,'%Y-%m-%d') < :end
+                 d.idMovie = :idMovie and ") . " date_format(d.`date`,'%Y-%m-%d') > :start and date_format(d.`date`,'%Y-%m-%d') < :end
                 
                 HAVING cantidad > 0;";
 
-                $parameters["idMovie"] = $idMovie;
+                if ($idMovie != "TODES")                
+                    $parameters["idMovie"] = $idMovie;
+
                 $parameters["start"] = $start;
+
                 $parameters["end"] = $end;                
 
                 $this->connection = Connection::GetInstance();
