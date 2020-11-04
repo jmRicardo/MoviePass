@@ -27,6 +27,23 @@
             $this->dateDAO = new DateDAO();
         }
 
+        public function FilterByDate()
+        {
+            Util::loggedInRedirect();
+
+            $movies=$this->movieDAO->GetAll();
+            $cinemas=$this->cinemaDAO->GetAll();
+            
+            require_once(ADMIN_PATH."admin-filter-date.php");
+        }
+
+        public function ResultFilterByDate($idMovie,$idCinema,$start,$end)
+        {
+            $result = $this->movieDAO->GetTotalByDate($idMovie,$start,$end);
+            
+            var_dump($result);
+        }
+
         public function NowPlaying()
         {
             Util::loggedInRedirect();

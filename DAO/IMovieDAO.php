@@ -19,6 +19,7 @@
         function GetActiveGenres();
         function GetBillboardByDate(bool $comingUpNext);
         function UpdateMoviesRunTime();
-        function UpdateRuntime($runtime,$idMovie);        
+        function UpdateRuntime($runtime,$idMovie);    
+        function GetTotalByDate($idMovie,$start,$end);
     }
 ?>  
