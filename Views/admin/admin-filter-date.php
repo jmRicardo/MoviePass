@@ -27,7 +27,7 @@
     <select class="form-control category-select" name="cinemas" required>
         <option value="TODOS" selected>TODES</option>
         <?php foreach ($cinemas as $cinema) { ?>
-            <option value="<?php echo $cinema->getId() ?>">
+            <option value="<?php echo $cinema->getName() ?>">
                 <?php echo $cinema->getName(); ?>
             </option>
         <?php } ?>

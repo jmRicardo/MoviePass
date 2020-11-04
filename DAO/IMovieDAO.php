@@ -20,6 +20,6 @@
         function GetBillboardByDate(bool $comingUpNext);
         function UpdateMoviesRunTime();
         function UpdateRuntime($runtime,$idMovie);    
-        function GetTotalByDate($idMovie,$start,$end);
+        function GetTotalByDate($idMovie,$cinema,$start,$end);
     }
 ?>  
