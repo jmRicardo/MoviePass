@@ -20,7 +20,7 @@
         $error = $this->cinemaDAO->UpdateCinema($cinema);
 
         if (isset($error)) {
-            $_SESSION['message'] = $error;
+            $_SESSION['message'] = "Dos cines no pueden llamarse iguales!";
         }else {
             $_SESSION['message'] = "Cine actualizado con exito!";
         }

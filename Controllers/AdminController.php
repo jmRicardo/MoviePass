@@ -84,7 +84,7 @@
             
             $error = $this->cinemaDAO->Remove($id);
 
-            $_SESSION['message'] = isset($error) ? $error : "Cine eliminado con exito!";
+            $_SESSION['message'] = isset($error) ? "No se puede eliminar un Cine con salas y funciones activas!" : "Cine eliminado con exito!";
 
             $this->ShowCinemaList();
         }

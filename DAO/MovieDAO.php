@@ -301,7 +301,11 @@
                 
                 FROM ". $this->tableName ." m inner join ". $this->dateTableName ." d 
                 
-                ON m.idMovie = d.idMovie group by idMovie;";
+                ON m.idMovie = d.idMovie
+                
+                WHERE d.`date` > now()
+                
+                group by idMovie;";
 
                 $this->connection = Connection::GetInstance();
 
