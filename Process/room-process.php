@@ -19,7 +19,7 @@
         $error = $this->roomDAO->Add($room);
         
         if (isset($error)) {
-            $_SESSION['message'] = $error;
+            $_SESSION['message'] = "No pueden existir dos salas con el mismo nombre en el mismo CINE";
         }else {
             
             $_SESSION['message'] = "Sala agregada con exito!";
