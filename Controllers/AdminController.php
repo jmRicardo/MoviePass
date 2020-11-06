@@ -41,7 +41,7 @@
         {            
             $result = $this->movieDAO->GetTotalByDate($idMovie,$cinema,$start,$end);
             
-            require_once(ADMIN_PATH."admin-statistics-results.php");
+            require_once(ADMIN_PATH."admin-filter-date.php");
             
         }
 
