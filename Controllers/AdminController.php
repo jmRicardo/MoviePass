@@ -41,7 +41,8 @@
         {            
             $result = $this->movieDAO->GetTotalByDate($idMovie,$cinema,$start,$end);
             
-            var_dump($result);
+            require_once(ADMIN_PATH."admin-statistics-results.php");
+            
         }
 
         public function NowPlaying()
