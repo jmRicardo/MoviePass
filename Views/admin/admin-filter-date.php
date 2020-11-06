@@ -24,8 +24,8 @@
     </select><br>
 
     <p>Cine</p>
-    <select class="form-control category-select" name="cinemas" required>
-        <option value="TODOS" selected>TODES</option>
+    <select class="form-control category-select" name="cinema" required>
+        <option value="TODES" selected>TODES</option>
         <?php foreach ($cinemas as $cinema) { ?>
             <option value="<?php echo $cinema->getName() ?>">
                 <?php echo $cinema->getName(); ?>
