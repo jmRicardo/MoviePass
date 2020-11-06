@@ -44,6 +44,8 @@ class ClientController
         function UpdateProcess()
         {
             var_dump($_POST);
+
+            require_once(PROCESS_PATH."update-client-process.php");
         }
 
         /*Movies with genres*/
