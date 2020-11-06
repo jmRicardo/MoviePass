@@ -14,7 +14,7 @@
 			<div class="site-content-centered">
 				<div class="site-content-section">
 					<div class="section-action-container ">
-						<form id="myaccount_form" name="myaccount_form">
+						<form method="POST" action="<?php echo FRONT_ROOT ?>Client/UpdateProcess">
 
 							<!-- <div class="row site-content-centered "> -->
 								<div class=" text-primary display-4">Mi Perfil</div>
@@ -27,7 +27,7 @@
 							</div>
 							<div>
 								<div class="section-label">Email</div>
-								<div><input class="form-input" type="text" name="email" value="<?php echo $_SESSION['user_info']['email']; ?>" /></div>
+								<div><input class="form-input" type="text" name="email" value="<?php echo $_SESSION['user_info']['email']; ?>" disabled /></div>
 							</div>
 							<div class="section-mid-container">
 								<div class="section-label">Nombre</div>
@@ -36,9 +36,7 @@
 							<div class="section-mid-container">
 								<div class="section-label">Apellido</div>
 								<div><input class="form-input" type="text" name="last_name" value="<?php echo $_SESSION['user_info']['last_name']; ?>"/></div>
-							</div>
-
-							
+							</div>						
 
 
 
@@ -53,12 +51,12 @@
 							<div section-mid-container >
 							<div class="section-label">Cargar avatar</div>
 								<div class="input-group mb-3">
-									<div class="input-group-prepend">
+									<!-- <div class="input-group-prepend">
 										<span class="input-group-text">Cargar</span>
-									</div>
+									</div> -->
 									<div class="custom-file">
-										<input type="file" class="custom-file-input" id="inputGroupFile01" name="fotoAvatar">
-										<label class="custom-file-label" for="inputGroupFile01"></label>
+										<label class="custom-file-label" for="avatar"></label>
+										<input type="file" class="file" id="avatar" name="avatar" >					
 									</div>
 								</div>
 							</div>
@@ -72,129 +70,45 @@
 							</div>
 							<div id="change_password_section" style="display:none">
 								<div class="section-mid-container">
-									<div class="section-label">Password</div>
+									<div class="section-label">Contraseña</div>
 									<div><input class="form-input" type="password" name="password" /></div>
 								</div>
 								<div class="section-mid-container">
-									<div class="section-label">Confirm Password</div>
+									<div class="section-label">Confirmar Contraseña</div>
 									<div><input class="form-input" type="password" name="confirm_password" /></div>
 								</div>
 							</div>
+							<div class="section-action-container">
+								<div id="login_button">
+								<div>
+									<button class="btn btn-outline-info btn-md" type="submit">Actualizar</button>
+								</div>
+							</div>
+						</div>
 						</form>
 						<div class="section-action-container">
 							<div class="section-button-container" id="update_button">
-								<div>Update</div>
+								<div>Actualizar</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="site-content-container">
-			<div class="site-content-centered">
-				<div class="site-content-section">
-					<div class="site-content-section-inner">
-						<div class="section-heading">Cuenta de Facebook conectada</div>
-						<?php if ( empty( $fbUserInfo ) || $fbUserInfo['has_errors'] ) : // could not get facebook user info ?>
-							<div class="a-fb">
-								<div class="fb-button-container">
-									<div>Login With Facebook to Connect Facebook Account</div>
-								</div>
-							</div>
-						<?php else : // display facebook user info ?> 
-							<div>
-								<div class="pro-img-cont">
-									<img class="pro-img" src="<?php echo $fbUserInfo['fb_response']['picture']['data']['url']; ?>" />
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									Email
-								</div>
-								<div>
-									<?php echo $fbUserInfo['fb_response']['email']; ?>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									First Name
-								</div>
-								<div>
-									<?php echo $fbUserInfo['fb_response']['first_name']; ?>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									Last Name
-								</div>
-								<div>
-									<?php echo $fbUserInfo['fb_response']['last_name']; ?>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									User Access Token Facebook Application
-								</div>
-								<div>
-									<?php echo $fbDebugTokenInfo['fb_response']['data']['application']; ?>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									User Access Token Issued
-								</div>
-								<div>
-									<?php echo date( 'm-d-Y h:i:s', $fbDebugTokenInfo['fb_response']['data']['issued_at'] ); ?>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									User Access Token Expires
-								</div>
-								<div>
-									<?php echo date( 'm-d-Y h:i:s', $fbDebugTokenInfo['fb_response']['data']['expires_at'] ); ?>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									User Access Token Scope
-								</div>
-								<div>
-									<?php echo implode( ',', $fbDebugTokenInfo['fb_response']['data']['scopes'] ); ?>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									User Info Raw FB Response
-								</div>
-								<div>
-									<div class="a-default show-hide" data-section="fb_user_info">
-										show
-									</div>
-									<div id="fb_user_info" class="show-hide-section">
-										<textarea class="show-hide-textarea"><?php print_r( $fbUserInfo['fb_response'] ); ?></textarea>
-									</div>
-								</div>
-							</div>
-							<div class="section-mid-container">
-								<div class="section-label">
-									User Access Token Debug Info Raw FB Response
-								</div>
-								<div>
-									<div class="a-default show-hide" data-section="fb_user_access_token_debug">
-										show
-									</div>
-									<div id="fb_user_access_token_debug" class="show-hide-section">
-										<textarea class="show-hide-textarea"><?php print_r( $fbDebugTokenInfo['fb_response'] ); ?></textarea>
-									</div>
-								</div>
-							</div>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
-		</div>
+		</div>			
 		<br />
 		<br />
 		<br />
+
+<script>
+
+	$( '#change_password' ).on( 'click', function() 
+	{ // onclick for our change password check box
+		if ( $( '#change_password_section' ).is( ':visible' ) ) { // if visible, hide it
+			$( '#change_password_section' ).hide();
+		} else { // if hidden, show it
+			$( '#change_password_section' ).show();
+		}
+	} );
+
+</script>
 		

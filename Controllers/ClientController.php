@@ -41,6 +41,11 @@ class ClientController
             require_once(CLIENT_PATH."client-account.php");
         }
 
+        function UpdateProcess()
+        {
+            var_dump($_POST);
+        }
+
         /*Movies with genres*/
         function Select() 
         {
