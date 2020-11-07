@@ -11,7 +11,7 @@
         function GetDatesFromWeek($idMovie);
         function GetDateByID($id);
         function GetDatesByRoom($idRoom);
-
+        function GetDatesForSeats($idMovie,$idCinema,$time);
 
         
     }
