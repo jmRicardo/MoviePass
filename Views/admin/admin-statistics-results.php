@@ -17,14 +17,6 @@
                         $total += $resu['TOTAL'];
                     }
 
-                   /*  if ($cinema == 'TODES'){
-                        echo "De " . $start . " hasta " . $end . "<br>";
-                        echo "La pelicula " .$result[0]['PELICULA']. " recaudo un total de: $" . $total;
-                    }else {
-                        echo "De " . $start . " hasta " . $end . "<br>";
-                        echo "La pelicula " .$result[0]['PELICULA']. " recaudo un total de: $" . $total . " en el cine ". $result[0]['CINE'];
-                    } */
-
                     var_dump($cinema);
 
                     if ($result){

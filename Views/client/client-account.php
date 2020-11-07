@@ -31,11 +31,11 @@
 							</div>
 							<div class="section-mid-container">
 								<div class="section-label">Nombre</div>
-								<div><input class="form-input" type="text" name="first_name" value="<?php echo $_SESSION['user_info']['first_name']; ?>" /></div>
+								<div><input class="form-input" type="text" name="first_name" value="<?php echo $_SESSION['user_info']['first_name']; ?>" minlength="3" maxlength="25" required/></div>
 							</div>
 							<div class="section-mid-container">
 								<div class="section-label">Apellido</div>
-								<div><input class="form-input" type="text" name="last_name" value="<?php echo $_SESSION['user_info']['last_name']; ?>"/></div>
+								<div><input class="form-input" type="text" name="last_name" value="<?php echo $_SESSION['user_info']['last_name']; ?>" minlength="3" maxlength="25" required/></div>
 							</div>						
 
 
@@ -71,11 +71,11 @@
 							<div id="change_password_section" style="display:none">
 								<div class="section-mid-container">
 									<div class="section-label">Contraseña</div>
-									<div><input class="form-input" type="password" name="password" /></div>
+									<div><input class="form-input" type="password" name="password" minlength="8"/></div>
 								</div>
 								<div class="section-mid-container">
 									<div class="section-label">Confirmar Contraseña</div>
-									<div><input class="form-input" type="password" name="confirm_password" /></div>
+									<div><input class="form-input" type="password" name="confirm_password" minlength="8"/></div>
 								</div>
 							</div>
 							<div class="section-action-container">
