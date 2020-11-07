@@ -10,7 +10,10 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/NowPlaying">Actualizar BD</a>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/FilterByDate">Un nombre copado</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/FilterSeats">Asientos Disponibles</a>
+          </li> 
+          <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/FilterByDate">Estadistica</a>
           </li> 
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaByTicketSold">Administrar Ticket x Cines</a>

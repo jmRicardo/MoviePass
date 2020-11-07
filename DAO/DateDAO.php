@@ -12,6 +12,54 @@ class DateDAO implements IDateDAO{
         private $connection;
         private $tableName = "dates";
 
+        function GetDatesForSeats($idMovie, $idCinema, $time)
+        {
+            try
+            {
+                $dateList = array();
+
+                $query = "
+
+                SELECT * 
+                
+                FROM ".$this->tableName . " d " .
+
+                " WHERE " . ( $time ? " date_format(`date`,'%H:%i:%s') = :time AND ": "") .                  
+                
+                ( $idMovie != "TODES" ? " idMovie = :idMovie " : "" ) .
+
+                ( $idCinema != "TODES" ? " AND (select idCinema from rooms where idRoom = d.idRoom) = :idCinema " : ""). " ;";
+
+                if ($idMovie)
+                    $parameters["idMovie"] = $idMovie;
+                if ($idCinema)
+                    $parameters["idCinema"] = $idCinema;
+                if ($time)
+                    $parameters["time"] = $time;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query, $parameters);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $date = new Date();
+                    $date->setDate($row["date"]);
+                    $date->setIdMovie($row["idMovie"]);
+                    $date->setIdRoom($row["idRoom"]);
+                    $date->setId($row["id"]);
+
+                    array_push($dateList, $date);
+                }
+
+                return $dateList;
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            } 
+        }
+
         function GetDatesByRoom($idRoom)
         {            
             try

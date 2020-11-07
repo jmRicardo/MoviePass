@@ -9,7 +9,7 @@
     use DAO\DateDAO as DateDAO;
     use DAO\MovieDAO as MovieDAO;
     use DAO\RoomDAO as RoomDAO;
-
+    use DAO\SeatDAO;
     use Utils\Util;
 
     class AdminController
@@ -18,6 +18,7 @@
         private $movieDAO;
         private $roomDAO;
         private $dateDAO;
+        private $seatDAO;
 
         public function __construct()
         {
@@ -25,6 +26,38 @@
             $this->movieDAO = new MovieDAO();
             $this->roomDAO = new RoomDAO();
             $this->dateDAO = new DateDAO();
+            $this->seatDAO = new SeatDAO();
+        }
+
+        public function FilterSeats()
+        {
+            $movies=$this->movieDAO->GetAll();
+
+            $cinemas=$this->cinemaDAO->GetAll();
+            
+            require_once(ADMIN_PATH."admin-filter-seat.php");
+        }
+
+        public function FilterSeatsProcess($idMovie,$idCinema,$time)
+        {
+            
+            $dates=$this->dateDAO->GetDatesForSeats($idMovie,$idCinema,$time);
+
+            $seatsByDate= array();
+
+            /* var_dump($dates);
+            
+            foreach ($dates as $date)
+            {
+                $seat = $this->seatDAO->GetSeatsByDate($date->GetId());
+                
+                array_push($seatsByDate,$seat);
+            }          
+            
+            var_dump($seatsByDate); */
+            
+            //require_once(PROCESS_PATH."filter-seat-process.php");
+
         }
 
         public function FilterByDate($final = null)
@@ -34,8 +67,6 @@
             $movies=$this->movieDAO->GetAll();
 
             $cinemas=$this->cinemaDAO->GetAll();
-
-            var_dump($final);
             
             require_once(ADMIN_PATH."admin-filter-date.php");
         }
@@ -159,6 +190,7 @@
         {
             
             $thisRoom = $this->roomDAO->GetRoom($idRoom2);
+
             $cinemaObject = $this->roomDAO->GetCinemaByRoom($idRoom2);
             
             Util::loggedInRedirect();

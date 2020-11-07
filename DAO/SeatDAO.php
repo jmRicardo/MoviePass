@@ -50,11 +50,8 @@ class SeatDAO implements ISeatDAO{
                     $seat->setId($row["id"]);
                     $seat->setRow($row["row"]);
                     $seat->setColumn($row["column"]);
-                    //$seat->setRowLetter($row["rowLetter"]);
-                    //$seat->setColumnNumber($row["columnNumber"]);
                     $seat->setIdDate($row["idDate"]);
-                    //$seat->setIdUser($row["idUser"]);
-
+                    
                     array_push($seatList,$seat);
                 }
 

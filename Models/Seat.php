@@ -7,112 +7,29 @@
         private $id;
         private $row;
         private $column;
-        private $rowLetter;
-        private $columnNumber;
         private $idDate;
-        private $idUser;
 
         public function __construct()
         {
             
-        }
+        }        
 
         /**
-         * Get the value of idUser
+         * Get the value of id
          */ 
-        public function getIdUser()
+        public function getId()
         {
-                return $this->idUser;
+                return $this->id;
         }
 
         /**
-         * Set the value of idUser
+         * Set the value of id
          *
          * @return  self
          */ 
-        public function setIdUser($idUser)
+        public function setId($id)
         {
-                $this->idUser = $idUser;
-
-                return $this;
-        }
-
-        /**
-         * Get the value of idDate
-         */ 
-        public function getIdDate()
-        {
-                return $this->idDate;
-        }
-
-        /**
-         * Set the value of idDate
-         *
-         * @return  self
-         */ 
-        public function setIdDate($idDate)
-        {
-                $this->idDate = $idDate;
-
-                return $this;
-        }
-
-        /**
-         * Get the value of columnNumber
-         */ 
-        public function getColumnNumber()
-        {
-                return $this->columnNumber;
-        }
-
-        /**
-         * Set the value of columnNumber
-         *
-         * @return  self
-         */ 
-        public function setColumnNumber($columnNumber)
-        {
-                $this->columnNumber = $columnNumber;
-
-                return $this;
-        }
-
-        /**
-         * Get the value of rowLetter
-         */ 
-        public function getRowLetter()
-        {
-                return $this->rowLetter;
-        }
-
-        /**
-         * Set the value of rowLetter
-         *
-         * @return  self
-         */ 
-        public function setRowLetter($rowLetter)
-        {
-                $this->rowLetter = $rowLetter;
-
-                return $this;
-        }
-
-        /**
-         * Get the value of column
-         */ 
-        public function getColumn()
-        {
-                return $this->column;
-        }
-
-        /**
-         * Set the value of column
-         *
-         * @return  self
-         */ 
-        public function setColumn($column)
-        {
-                $this->column = $column;
+                $this->id = $id;
 
                 return $this;
         }
@@ -138,21 +55,41 @@
         }
 
         /**
-         * Get the value of id
+         * Get the value of column
          */ 
-        public function getId()
+        public function getColumn()
         {
-                return $this->id;
+                return $this->column;
         }
 
         /**
-         * Set the value of id
+         * Set the value of column
          *
          * @return  self
          */ 
-        public function setId($id)
+        public function setColumn($column)
         {
-                $this->id = $id;
+                $this->column = $column;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of idDate
+         */ 
+        public function getIdDate()
+        {
+                return $this->idDate;
+        }
+
+        /**
+         * Set the value of idDate
+         *
+         * @return  self
+         */ 
+        public function setIdDate($idDate)
+        {
+                $this->idDate = $idDate;
 
                 return $this;
         }
