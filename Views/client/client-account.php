@@ -38,8 +38,6 @@
 								<div><input class="form-input" type="text" name="last_name" value="<?php echo $_SESSION['user_info']['last_name']; ?>" minlength="3" maxlength="25" required/></div>
 							</div>						
 
-
-
 							<!-- <div class="section-mid-container">	
 								<div class="section-label">Mi avatar</div>
 								<img class="rounded-circle" alt="" style="width:50px; height:50px " src="" data-holder-rendered="true">
@@ -49,19 +47,11 @@
 								<input type="file" class="section-button-container" name="avatar">
 							</div> -->	
 							<div section-mid-container >
-							<div class="section-label">Cargar avatar</div>
-								<div class="input-group mb-3">
-									<!-- <div class="input-group-prepend">
-										<span class="input-group-text">Cargar</span>
-									</div> -->
-									<div class="custom-file">
-										<label class="custom-file-label" for="avatar"></label>
-										<input type="file" class="file" id="avatar" name="avatar" >					
-									</div>
+								<div class="section-label">Cargar avatar</div>
+									<input type="file" style="border: none" id="avatar" name="avatar">
+								
 								</div>
-							</div>
-
-
+								
 							<div>
 								<div class="section-label">
 									<input type="checkbox" name="change_password" id="change_password" style="width:10px"/>
