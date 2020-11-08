@@ -14,6 +14,7 @@
         private $user_level;
         private $fb_user_id;
         private $fb_access_token;
+        private $avatar;
 
         public function __construct()
         {
@@ -218,6 +219,26 @@
         public function setFb_user_id($fb_user_id)
         {
                 $this->fb_user_id = $fb_user_id;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of avatar
+         */ 
+        public function getAvatar()
+        {
+                return $this->avatar;
+        }
+
+        /**
+         * Set the value of avatar
+         *
+         * @return  self
+         */ 
+        public function setAvatar($avatar)
+        {
+                $this->avatar = $avatar;
 
                 return $this;
         }

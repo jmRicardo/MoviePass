@@ -29,6 +29,43 @@
                 return $e->getMessage();
             }
         }
+
+        public function Update($user)
+        {
+            try
+            {
+                $confirm_password = $user->getConfirm_password();
+                $avatar = $user->getAvatar();
+                
+                $query = "
+
+                UPDATE " 
+                    .$this->tableName. 
+                ' SET
+                    email = :email,
+                    first_name = :first_name,
+                    last_name = :last_name
+                    ' . ( isset( $confirm_password ) ? ', password = :password ' : '' ) . 
+                     ( isset( $avatar ) ? ', avatar = :avatar ' : '' ) . '
+                WHERE
+                    key_value = :key_value
+                
+                    ';
+            
+                $parameters["email"] = $user->getEmail();
+                $parameters["first_name"] = $user->getName();
+                $parameters["last_name"] = $user->getAddress();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
+        }
+
         /**
          * Update user
          *
