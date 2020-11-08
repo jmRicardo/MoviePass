@@ -44,26 +44,27 @@ class ClientController
 
         public function UpdateProcess($key_value,$email,$first_name,$last_name,$password,$confirm_password)
         {
-            $fileName = basename($_FILES["avatar"]["name"]); 
-            $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-
-            $allowTypes = array('jpg','png','jpeg','gif'); 
-
-            echo in_array($fileType, $allowTypes) ? "PERMITIDO" : "NO";
-
-            $image = $_FILES['avatar']['tmp_name']; 
-            
-            $imgContent = addslashes(file_get_contents($image)); 
-            
             $user = new User();
             $user->setKey_value($key_value);
             $user->setEmail($email);
             $user->setFirst_name($first_name);
             $user->setLast_name($last_name);
-            $user->setPassword($password);
-            $user->setAvatar($imgContent);
+            $user->setPassword($password);            
 
-            require_once(PROCESS_PATH."update-client-process.php");        
+            $fileName = basename($_FILES["avatar"]["name"]); 
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+
+            $allowTypes = array('jpg','png','jpeg','gif'); 
+
+            if (in_array($fileType, $allowTypes))
+            {
+                $image = $_FILES['avatar']['tmp_name'];             
+                $imgContent = addslashes(file_get_contents($image));      
+                
+                $user->setAvatar($imgContent);
+            }
+
+            //require_once(PROCESS_PATH."update-client-process.php");        
         }
 
         /*Movies with genres*/
