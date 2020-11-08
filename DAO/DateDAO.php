@@ -12,47 +12,49 @@ class DateDAO implements IDateDAO{
         private $connection;
         private $tableName = "dates";
 
-        function GetDatesForSeats($idMovie, $idCinema, $time)
+        function GetDatesStatus($idMovie, $idCinema, $time)
         {
             try
             {
-                $dateList = array();
-
-                $query = "
-
-                SELECT * 
+                var_dump($time);
                 
-                FROM ".$this->tableName . " d " .
 
-                " WHERE " . ( $time ? " date_format(`date`,'%H:%i:%s') = :time AND ": "") .                  
+                $timeQuery = ( $time ? " date_format(d.`date`,'%H:%i') = :time ": "");
                 
-                ( $idMovie != "TODES" ? " idMovie = :idMovie " : "" ) .
+                $idMovieQuery = ( $idMovie == "TODES" ? "" : " d.idMovie = :idMovie " );
+                
+                $idCinemaQuery = ( $idCinema == "TODES" ? "" : " r.idCinema = :idCinema " );
+                
+                $query = " 
+                
+                select m.title as 'pelicula',c.name as 'cine',r.name as 'sala',d.date as 'funcion',count(s.idDate) as 'asientos vendidos', (r.capacity - count(s.idDate)) as 'asientos disponibles'
+                
+                from seats s
+                
+                inner join dates d on s.idDate = d.id
+                
+                inner join rooms r on r.idRoom = d.idRoom
+                
+                inner join cinemas c on c.id = r.idCinema 
+                
+                inner join movies m on d.idMovie = m.idMovie "
+                
+                . (empty($idCinemaQuery) && empty($idMovieQuery) && empty($timeQuery) ? "" : " WHERE " ) 
+                
+                . $timeQuery . (!empty($idMovieQuery) && $timeQuery ? " AND " : "") . $idMovieQuery . (!empty($idCinemaQuery) && $idMovieQuery ? " AND " : "") . $idCinemaQuery . " group by idDate ;";
 
-                ( $idCinema != "TODES" ? " AND (select idCinema from rooms where idRoom = d.idRoom) = :idCinema " : ""). " ;";
-
-                if ($idMovie)
+                if ($idMovieQuery)
                     $parameters["idMovie"] = $idMovie;
-                if ($idCinema)
+                if ($idCinemaQuery)
                     $parameters["idCinema"] = $idCinema;
-                if ($time)
+                if ($timeQuery)
                     $parameters["time"] = $time;
 
                 $this->connection = Connection::GetInstance();
-
-                $resultSet = $this->connection->Execute($query, $parameters);
                 
-                foreach ($resultSet as $row)
-                {                
-                    $date = new Date();
-                    $date->setDate($row["date"]);
-                    $date->setIdMovie($row["idMovie"]);
-                    $date->setIdRoom($row["idRoom"]);
-                    $date->setId($row["id"]);
+                $resultSet = ( isset($parameters) ? $this->connection->Execute( $query, $parameters) : $this->connection->Execute( $query ) );       
 
-                    array_push($dateList, $date);
-                }
-
-                return $dateList;
+                return $resultSet;
             }
             catch(Exception $ex)
             {
