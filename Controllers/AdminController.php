@@ -111,7 +111,7 @@
             $this->ShowCinemaList();
         }
 
-        public function Update($id)
+        public function Update($id) 
         {
             Util::loggedInRedirect();
             

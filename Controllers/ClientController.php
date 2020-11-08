@@ -7,6 +7,7 @@
     use DAO\SeatDAO;
     use Models\Seat;
     use Models\Ticket;
+use Models\User;
 use Utils\Util;
 
 include(UTILS_PATH.'phpqrcode/qrlib.php');
@@ -41,11 +42,28 @@ class ClientController
             require_once(CLIENT_PATH."client-account.php");
         }
 
-        function UpdateProcess()
+        public function UpdateProcess($key_value,$email,$first_name,$last_name,$password,$confirm_password)
         {
-            var_dump($_POST);
+            $fileName = basename($_FILES["avatar"]["name"]); 
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
 
-            require_once(PROCESS_PATH."update-client-process.php");
+            $allowTypes = array('jpg','png','jpeg','gif'); 
+
+            echo in_array($fileType, $allowTypes) ? "PERMITIDO" : "NO";
+
+            $image = $_FILES['avatar']['tmp_name']; 
+            
+            $imgContent = addslashes(file_get_contents($image)); 
+            
+            $user = new User();
+            $user->setKey_value($key_value);
+            $user->setEmail($email);
+            $user->setFirst_name($first_name);
+            $user->setLast_name($last_name);
+            $user->setPassword($password);
+            $user->setAvatar($imgContent);
+
+            require_once(PROCESS_PATH."update-client-process.php");        
         }
 
         /*Movies with genres*/

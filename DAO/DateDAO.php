@@ -15,9 +15,7 @@ class DateDAO implements IDateDAO{
         function GetDatesStatus($idMovie, $idCinema, $time)
         {
             try
-            {
-                var_dump($time);
-                
+            {               
 
                 $timeQuery = ( $time ? " date_format(d.`date`,'%H:%i') = :time ": "");
                 
