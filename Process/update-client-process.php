@@ -4,7 +4,7 @@
 
     $userDAO = new UserDAO();
 
-    if('' == $user->getName() || empty($user->getFirst_name()) || strlen($user->getFirst_name()) <= 3 || strlen($user->getFirst_name()) >= 25) {
+    if('' == $user->getFirst_name() || empty($user->getFirst_name()) || strlen($user->getFirst_name()) <= 3 || strlen($user->getFirst_name()) >= 25) {
 
         $_SESSION['message'] = 'Nombre invalido';
 
@@ -22,13 +22,13 @@
         $user->setLast_name(trim($user->getLast_name()));
         $user->setPassword(trim($user->getPassword()));
         
-        $error = $this->userDAO->updateUserInfo($user);
+        /* $error = $this->userDAO->updateUserInfo($user);
 
         if (isset($error)) {
             $_SESSION['message'] = $error;
         }else {
             $_SESSION['message'] = "User actualizado con exito!";
-        }
+        } */
 
     }
 
