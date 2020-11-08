@@ -40,21 +40,9 @@
 
         public function FilterSeatsProcess($idMovie,$idCinema,$time)
         {
-            
-            $dates=$this->dateDAO->GetDatesForSeats($idMovie,$idCinema,$time);
+            $dates=$this->dateDAO->GetDatesStatus($idMovie,$idCinema,$time);
 
-            $seatsByDate= array();
-
-            /* var_dump($dates);
-            
-            foreach ($dates as $date)
-            {
-                $seat = $this->seatDAO->GetSeatsByDate($date->GetId());
-                
-                array_push($seatsByDate,$seat);
-            }          
-            
-            var_dump($seatsByDate); */
+            var_dump($dates);
             
             //require_once(PROCESS_PATH."filter-seat-process.php");
 
