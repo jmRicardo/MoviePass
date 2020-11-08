@@ -32,9 +32,11 @@
 
         public function Update($user)
         {
+            var_dump($user);
+            
             try
             {
-                $confirm_password = $user->getConfirm_password();
+                $password = $user->getPassword();
                 $avatar = $user->getAvatar();
                 
                 $query = "
@@ -42,23 +44,30 @@
                 UPDATE " 
                     .$this->tableName. 
                 ' SET
-                    email = :email,
                     first_name = :first_name,
                     last_name = :last_name
-                    ' . ( isset( $confirm_password ) ? ', password = :password ' : '' ) . 
+                    ' . ( isset( $password ) ? ', password = :password ' : '' ) . 
                      ( isset( $avatar ) ? ', avatar = :avatar ' : '' ) . '
                 WHERE
                     key_value = :key_value
                 
                     ';
             
-                $parameters["email"] = $user->getEmail();
-                $parameters["first_name"] = $user->getName();
-                $parameters["last_name"] = $user->getAddress();
+                $parameters["first_name"] = $user->getFirst_name();
+                $parameters["last_name"] = $user->getLast_name();
+                $parameters['key_value'] = $user->getKey_value();
+
+                if ( isset( $password ) ) { // add password and key value if password checkbox is checked
+                    $parameters['password'] = $this->hashedPassword( $password );
+                }
+
+                if ( isset( $avatar ) ) {
+                    $parameters['avatar'] = $user->getAvatar();
+                }
 
                 $this->connection = Connection::GetInstance();
 
-                $this->connection->ExecuteNonQuery($query, $parameters);
+                return $this->connection->ExecuteNonQuery($query, $parameters);
             }
             catch(Exception $ex)
             {
