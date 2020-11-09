@@ -31,9 +31,7 @@
         }
 
         public function Update($user)
-        {
-            var_dump($user);
-            
+        {           
             try
             {
                 $password = $user->getPassword();
@@ -67,7 +65,13 @@
 
                 $this->connection = Connection::GetInstance();
 
-                return $this->connection->ExecuteNonQuery($query, $parameters);
+                $this->connection->ExecuteNonQuery($query, $parameters);
+
+                // get the user info so we have most recent info
+                $userInfo = $this->getRowWithValue( 'users', 'key_value', $_SESSION['user_info']['key_value'] );
+
+                // update session with most recently updated user info
+                $_SESSION['user_info'] = $userInfo;
             }
             catch(Exception $ex)
             {
