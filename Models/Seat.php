@@ -8,6 +8,8 @@
         private $row;
         private $column;
         private $idDate;
+        private $rowLetter;
+        private $columnNumber;
 
         public function __construct()
         {
@@ -90,6 +92,46 @@
         public function setIdDate($idDate)
         {
                 $this->idDate = $idDate;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of columnNumber
+         */ 
+        public function getColumnNumber()
+        {
+                return $this->columnNumber;
+        }
+
+        /**
+         * Set the value of columnNumber
+         *
+         * @return  self
+         */ 
+        public function setColumnNumber($columnNumber)
+        {
+                $this->columnNumber = $columnNumber;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of rowLetter
+         */ 
+        public function getRowLetter()
+        {
+                return $this->rowLetter;
+        }
+
+        /**
+         * Set the value of rowLetter
+         *
+         * @return  self
+         */ 
+        public function setRowLetter($rowLetter)
+        {
+                $this->rowLetter = $rowLetter;
 
                 return $this;
         }

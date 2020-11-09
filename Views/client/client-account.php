@@ -16,8 +16,9 @@
 					<div class="section-action-container ">
 						<form method="POST" action="<?php echo FRONT_ROOT ?>Client/UpdateProcess" enctype="multipart/form-data">
 							<input type="hidden" name="key_value" value="<?php echo $_SESSION['user_info']['key_value']?>">
+							<br><br>
 							<!-- <div class="row site-content-centered "> -->
-								<div class=" text-primary display-4">Mi Perfil</div><br>
+								<!-- <div class=" text-primary display-4">Mi Perfil</div> -->
 								<div>
 									<img 
 									class="rounded-circle" 
@@ -48,22 +49,14 @@
 							<div class="section-mid-container">
 								<div class="section-label">Apellido</div>
 								<div><input class="form-input" type="text" name="last_name" value="<?php echo $_SESSION['user_info']['last_name']; ?>" minlength="3" maxlength="25" required/></div>
-							</div>						
-
-							<!-- <div class="section-mid-container">	
-								<div class="section-label">Mi avatar</div>
-								<img class="rounded-circle" alt="" style="width:50px; height:50px " src="" data-holder-rendered="true">
-							</div> -->
-							<!-- <div section-mid-container >
-								<div class="section-label">Cambiar Avatar</div>
-								<input type="file" class="section-button-container" name="avatar">
-							</div> -->	
-							<div section-mid-container >
+							</div>											
+							<div class="section-mid-container">
 								<div class="section-label">Cargar avatar</div>
-									<input type="file" style="border: none" id="avatar" name="avatar">
-								
-								</div>
-								
+									<div class="custom-file">										
+										<input type="file" class="custom-file-input" id="avatar" name="avatar">
+										<label class="custom-file-label" for="avatar"></label>
+									</div>
+							</div>		<br>															
 							<div>
 								<div class="section-label">
 									<input type="checkbox" id="change_password" style="width:10px"/>
@@ -88,11 +81,6 @@
 							</div>
 						</div><br>
 						</form>
-					<!-- 	<div class="section-action-container">
-							<div class="section-button-container" id="update_button">
-								<div>Actualizar</div>
-							</div>
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -112,5 +100,13 @@
 		}
 	} );
 
+</script>
+
+<script>
+
+	$(".custom-file-input").on("change", function() {
+	var fileName = $(this).val().split("\\").pop();
+	$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+	});
 </script>
 		

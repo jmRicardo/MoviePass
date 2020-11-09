@@ -10,12 +10,15 @@
             <div class="cine-box">
                     <div class="box-price">  
                         <?php 
-                         $day= new DateTime($date->getdate());
+                        date_default_timezone_set("America/Argentina/Buenos_Aires");
+                        setlocale(LC_TIME,"spanish");
+                        $day= new DateTime($date->getdate());
+                         
                          $cDay= $day->format("\n l, jS F Y g:i A");           
                         ?> 
                         <h3 class="movie-name"><?php echo $movie->getTitle(); ?></h3>
                         <hr class="divider">
-                        <span><?php echo $cDay; ?></span>
+                        <span><?php echo strftime("%A, %d de %B del %Y a las %H:%M ", $day->getTimestamp()); ?></span>
                         <hr class="divider">
                         <div>
                             <span><?php echo $cine->getName(); ?></span> <br>
