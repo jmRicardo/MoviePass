@@ -55,8 +55,6 @@
 
     $error = $userDAO->Update($user);
 
-    echo $error;
-
     header("Location:".FRONT_ROOT."Client/Account");
 
 

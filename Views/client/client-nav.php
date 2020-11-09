@@ -40,7 +40,15 @@
             </div>
         </li>
         
-       <img src="<?php echo FRONT_ROOT . VIEWS_PATH ?>img/oveja.png" alt="" width="40" height="40">
+       <img class="rounded-circle" 
+            src="<?php 
+                if (isset($_SESSION['user_info']['avatar'])) 
+                {
+                    echo "data:image/png;charset=utf8;base64," . base64_encode(stripslashes($_SESSION['user_info']['avatar'])) ;
+                }
+                else 
+                { echo IMG_PATH . "oveja.png";}
+                ; ?>" alt="" width="64" height="64">
         <?php else: ?>
             <li class="nav-item">
                 <a id="algo" class="nav-link"  type="button" data-toggle="modal" data-target="#sectionStart" >Iniciar sesión</a>
