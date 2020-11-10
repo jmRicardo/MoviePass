@@ -42,10 +42,21 @@
         {
             $dates=$this->dateDAO->GetDatesStatus($idMovie,$idCinema,$time);
 
-            var_dump($dates);
+            //var_dump($dates);
             
-            //require_once(PROCESS_PATH."filter-seat-process.php");
+            require_once(PROCESS_PATH."filter-seat-process.php");
 
+        }
+
+        public function FilterBySeat($final = null)
+        {
+            Util::loggedInRedirect();
+
+            $movies=$this->movieDAO->GetAll();
+
+            $cinemas=$this->cinemaDAO->GetAll();
+            
+            require_once(ADMIN_PATH."admin-filter-seat.php");
         }
 
         public function FilterByDate($final = null)

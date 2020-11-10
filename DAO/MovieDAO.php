@@ -56,14 +56,14 @@
                     from movies m
                     inner join dates d on m.idMovie = d.idMovie
                     inner join rooms r on r.idRoom = d.idRoom
-                    WHERE " . ($idMovie == "TODES" ? "" : " d.idMovie = :idMovie and ") . 
+                    WHERE " . ($idMovie == "Todas las películas" ? "" : " d.idMovie = :idMovie and ") . 
                     " date_format(d.`date`,'%Y-%m-%d') > :start and date_format(d.`date`,'%Y-%m-%d') < :end  
                     having TOTAL > 0
-                    order by d.idRoom) as MAGIC where CINE like '%". ($cinema == "TODES" ? "" : $cinema ) ."';               
+                    order by d.idRoom) as MAGIC where CINE like '%". ($cinema == "Todos los cines" ? "" : $cinema ) ."';               
                 
                 ";
 
-                if ($idMovie != "TODES")                
+                if ($idMovie != "Todas las películas")                
                     $parameters["idMovie"] = $idMovie;
 
                 $parameters["start"] = $start;

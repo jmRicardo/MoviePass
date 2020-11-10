@@ -12,18 +12,18 @@
         if ($result->getIdRoom() == $dateObject->getIdRoom())
         {
             $status = "ok";
-            $_SESSION['message'] = "Nueva funcion agregada en la sala ". $dateObject->getIdRoom();
+            $_SESSION['message'] = "Nueva función agregada en la sala ". $dateObject->getIdRoom();
         }
         else
         {
             $status = "fail";
-            $_SESSION['message'] = "La sala " . $result->getIdRoom() . " ya pasa esa pelicula ese dia.";
+            $_SESSION['message'] = "La sala " . $result->getIdRoom() . " ya pasa esa película ese día.";
         }
     }
     else
     {
         $status = "ok";
-        $_SESSION['message'] = "Se creo una funcion para la pelicula " . $dateObject->getIdMovie();
+        $_SESSION['message'] = "Se creó una función para la película " . $dateObject->getIdMovie();
     }
 
 
@@ -33,7 +33,7 @@
         
         if (!empty($result))
          {
-             $_SESSION['message'] = "El horario asignado no respeta las politicas de la empresa ( no hay 15 minutos entre funciones o su duracion es muy elevada para el espacio asignado";
+             $_SESSION['message'] = "El horario asignado no respeta las políticas de la empresa ( no hay 15 minutos entre funciones o su duración es muy elevada para el espacio asignado";
          }
          else
         {
