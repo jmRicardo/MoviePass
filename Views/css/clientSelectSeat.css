@@ -42,3 +42,11 @@
 .seat-cell {
     padding: 0;
 }
+
+.discount {
+    text-align: right;
+}
+
+.hide {
+    display: none;
+}
