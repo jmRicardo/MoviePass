@@ -39,8 +39,8 @@ class DateDAO implements IDateDAO{
                 
                 . (empty($idCinemaQuery) && empty($idMovieQuery) && empty($timeQuery) ? "" : " WHERE " ) 
                 
-                . $timeQuery . (!empty($idMovieQuery) && $timeQuery ? " AND " : "") . $idMovieQuery . (!empty($idCinemaQuery) && $idMovieQuery ? " AND " : "") . $idCinemaQuery . " group by idDate ;";
-
+                . $timeQuery . (!empty($idMovieQuery) && $timeQuery ? " AND " : "") . (!empty($idCinemaQuery) && !empty($timeQuery && empty($idMovieQuery)) ? " AND " : "") . $idMovieQuery . (!empty($idCinemaQuery) && $idMovieQuery ? " AND " : "") . $idCinemaQuery . " group by idDate ;";
+                
                 if ($idMovieQuery)
                     $parameters["idMovie"] = $idMovie;
                 if ($idCinemaQuery)
