@@ -50,7 +50,7 @@
                 { echo IMG_PATH . "oveja.png";}
                 ; ?>" alt="" width="64" height="64">
         <?php else: ?>
-            <li class="nav-item">
+            <li class="nav-item nav-selector">
                 <a id="algo" class="nav-link"  type="button" data-toggle="modal" data-target="#sectionStart" >Iniciar sesión</a>
             </li>
         <?php endif; ?>
