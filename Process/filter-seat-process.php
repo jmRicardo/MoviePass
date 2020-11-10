@@ -1,20 +1,11 @@
 <?php
 
-/* if($start > $end) {
-        
-    $_SESSION['message'] = "Fecha inválida";
-    // require_once(ADMIN_PATH."admin-filter-date.php");
-    $final = "0";
-    header("Location:".FRONT_ROOT."admin-filter-date.php");
-    $result = null;
-}
- */
 
 if(isset($dates)){
                                 
     $soldSeats = 0;
     $emptySeats = 0;
-
+    
     foreach($dates as $date){
         $soldSeats += $date['asientos vendidos'];
         $emptySeats += $date['asientos disponibles'];
@@ -58,7 +49,7 @@ if(isset($dates)){
        
     }else {
 
-        $final = "Ingreso de datos invalidos";
+        $final = "No hay ventas con esos datos";
 
     }
     }        

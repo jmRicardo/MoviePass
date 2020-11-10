@@ -36,7 +36,7 @@
     } elseif(!empty($user->getPassword())){
         
         if(strlen($user->getPassword()) < 8 || $user->getPassword() != $confirm_password){
-
+            
             $_SESSION['message'] = 'Contraseña invalida, no son iguales o no tiene 8 caracteres como minimo';
 
         }else {
@@ -46,6 +46,8 @@
             $user->setPassword(trim($user->getPassword()));
 
             $error = $userDAO->Update($user);
+
+            $_SESSION['message'] = "User actualizado con exito!";
         }
 
     }else {
@@ -55,13 +57,12 @@
 
         $error = $userDAO->Update($user);
 
+        $_SESSION['message'] = "User actualizado con exito!";
     }
 
     if (isset($error)) {
         $_SESSION['message'] = $error;
-    }else {
-        $_SESSION['message'] = "User actualizado con exito!";
-    } 
+    }
 
 
     header("Location:".FRONT_ROOT."Client/Account");
