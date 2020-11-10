@@ -6,6 +6,15 @@
 	
 	require "Config/Autoload.php";
 	require "Config/Config.php";
+
+	/* // SDK de Mercado Pago
+	require __DIR__ .  '/vendor/autoload.php';
+
+	// Agrega credenciales
+	MercadoPago\SDK::setAccessToken('TEST-1781045786318548-111001-4e62d9a38ab8b741821c89e4299c41e1-117229908');
+
+	// Crea un objeto de preferencia
+	$preference = new MercadoPago\Preference(); */
 	
 	use Config\Autoload as Autoload;
 	use Config\Router 	as Router;
