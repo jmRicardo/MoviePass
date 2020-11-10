@@ -265,6 +265,67 @@ class DateDAO implements IDateDAO{
 
             return $date;
         }
+
+        public function CheckPreviousDate($date)
+        {
+            $query = "
+            
+            select date_add(dato.date, interval (select runtime from movies where idMovie = dato.idMovie)+15 minute)  
+            
+            from ( select * from dates where `date` < :date and date_format(`date`,'%Y-%m-%d') = date_format(:date,'%Y-%m-%d') order by `date` desc limit 1) 
+            
+            as dato";
+
+            $parameters["date"] =  $date;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query,$parameters);
+
+            if ($result)
+            {
+                $date = new Date();
+                $date->setDate($result[0]["date"]);
+                $date->setIdMovie($result[0]["idMovie"]);
+                $date->setIdRoom($result[0]["idRoom"]);
+                $date->setId($result[0]["id"]);
+                return $date;
+            }       
+                            
+            return false;                  
+        }
+
+        public function CheckNextDate($date,$idMovie,$idRoom)
+        {
+            $query = "
+            
+            select *             
+            from dates d
+            inner join rooms r on d.idRoom = r.idRoom
+            inner join cinemas c on c.id = r.idCinema
+            where `date` > :date and `date` < date_add(:date, interval (select runtime from movies where idMovie = 531876)+15 minute) and r.idCinema = (select idCinema from rooms where idRoom = :idRoom)
+            order by `date`;";
+
+            $parameters["date"] =  $date;
+            $parameters["idMovie"] =  $idMovie;
+            $parameters["idRoom"] =  $idRoom;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query,$parameters);
+
+            if ($result)
+            {
+                $date = new Date();
+                $date->setDate($result[0]["date"]);
+                $date->setIdMovie($result[0]["idMovie"]);
+                $date->setIdRoom($result[0]["idRoom"]);
+                $date->setId($result[0]["id"]);
+                return $date;
+            }       
+                            
+            return false;                  
+        }
     }
 
 

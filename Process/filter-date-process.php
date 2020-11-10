@@ -49,6 +49,6 @@ if(isset($result)){
     }
     }        
 
-    header("Location:".FRONT_ROOT."Admin/FilterByDate/".$final);
+    header("Location:".FRONT_ROOT."Admin/FilterByDate?final=".urlencode($final));
 
 ?>
