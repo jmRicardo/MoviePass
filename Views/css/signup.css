@@ -122,3 +122,8 @@ input {
 	cursor: no-drop;
 	background-color: #aeaeae;
 }
+
+.my-account {
+	color: #D8DCDC;
+    padding-bottom: 20px;
+}

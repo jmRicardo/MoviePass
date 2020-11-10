@@ -18,7 +18,7 @@
 							<input type="hidden" name="key_value" value="<?php echo $_SESSION['user_info']['key_value']?>">
 							<br><br>
 							<!-- <div class="row site-content-centered "> -->
-								<!-- <div class=" text-primary display-4">Mi Perfil</div> -->
+								<h2 class="my-account">Mi Perfil</h2>
 								<div>
 									<img 
 									class="rounded-circle" 

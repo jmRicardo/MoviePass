@@ -161,7 +161,7 @@ body {
 }
 
 .content-container {
-	min-height: calc(100vh - 120px);
+	min-height: calc(100vh - 140px);
 }
 
 .admin-nav {
