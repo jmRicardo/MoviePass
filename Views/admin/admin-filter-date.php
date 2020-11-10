@@ -14,11 +14,11 @@ $today = $day->format('Y-m-d');
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h2 class="mb-4"> Estadisticas </h2>
+                <h2 class="mb-4"> Estadísticas </h2>
                 <form action="<?php echo FRONT_ROOT ?>Admin/FilterByDateProcess" method="GET">
                     <p>Pelicula</p>
                     <select class="form-control category-select" name="idMovie" required>
-                        <option value="TODES">TODES</option>
+                        <option value="Todas las películas">Todas las películas</option>
                         <?php foreach ($movies as $movie) { ?>
                             <option value="<?php echo $movie->getIdMovie() ?>">
                                 <?php echo $movie->getTitle(); ?>
@@ -28,7 +28,7 @@ $today = $day->format('Y-m-d');
 
                     <p>Cine</p>
                     <select class="form-control category-select" name="cinema" required>
-                        <option value="TODES">TODES</option>
+                        <option value="Todos los cines">Todos los cines</option>
                         <?php foreach ($cinemas as $cinema) { ?>
                             <option value="<?php echo $cinema->getName() ?>">
                                 <?php echo $cinema->getName(); ?>

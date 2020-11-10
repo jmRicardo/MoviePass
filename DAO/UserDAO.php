@@ -44,7 +44,7 @@
                 ' SET
                     first_name = :first_name,
                     last_name = :last_name
-                    ' . ( isset( $password ) ? ', password = :password ' : '' ) . 
+                    ' . ( !empty( $password ) ? ', password = :password ' : '' ) . 
                      ( isset( $avatar ) ? ', avatar = :avatar ' : '' ) . '
                 WHERE
                     key_value = :key_value
@@ -55,7 +55,7 @@
                 $parameters["last_name"] = $user->getLast_name();
                 $parameters['key_value'] = $user->getKey_value();
 
-                if ( isset( $password ) ) { // add password and key value if password checkbox is checked
+                if ( !empty( $password ) ) { // add password and key value if password checkbox is checked
                     $parameters['password'] = $this->hashedPassword( $password );
                 }
 

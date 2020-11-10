@@ -19,9 +19,9 @@ class DateDAO implements IDateDAO{
 
                 $timeQuery = ( $time ? " date_format(d.`date`,'%H:%i') = :time ": "");
                 
-                $idMovieQuery = ( $idMovie == "TODES" ? "" : " d.idMovie = :idMovie " );
+                $idMovieQuery = ( $idMovie == "Todas las películas" ? "" : " d.idMovie = :idMovie " );
                 
-                $idCinemaQuery = ( $idCinema == "TODES" ? "" : " r.idCinema = :idCinema " );
+                $idCinemaQuery = ( $idCinema == "Todos los cines" ? "" : " r.idCinema = :idCinema " );
                 
                 $query = " 
                 

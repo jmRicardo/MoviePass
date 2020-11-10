@@ -14,7 +14,7 @@ $mDayMax = $day3month->format('Y-m-d');
                 
             
             <div class="col-lg-6" >
-                <h2 class="mb-4"> Agregar Funcion </h2>
+                <h2 class="mb-4"> Agregar Función </h2>
                     <form action="<?php echo FRONT_ROOT ?>Admin/AddDate" method="GET">
                         
                             <div class="cine-box">
@@ -37,7 +37,7 @@ $mDayMax = $day3month->format('Y-m-d');
 
                                         <input type="time" name="time" required><br>
 
-                                        <button type="submit" class="btn btn-primary">Agregar Pelicula</button>
+                                        <button type="submit" class="btn btn-primary">Agregar Película</button>
                                     </div>
                                 </div>
                             
@@ -46,7 +46,7 @@ $mDayMax = $day3month->format('Y-m-d');
             </div>
                 
             <div class="col-lg-6" >
-                <h2 class="mb-4"> Agregar Funcion </h2>
+                <h2 class="mb-4"> Agregar Función </h2>
                         
                     
                         <div class="cine-box">

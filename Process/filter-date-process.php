@@ -10,7 +10,7 @@
 
 if($start > $end) {
         
-    $_SESSION['message'] = "No te hagas el vivo cara de pija y pone bien la fecha";
+    $_SESSION['message'] = "Fecha inválida";
     // require_once(ADMIN_PATH."admin-filter-date.php");
     $final = "0";
     header("Location:".FRONT_ROOT."admin-filter-date.php");
@@ -28,24 +28,24 @@ if(isset($result)){
 
     if ($result)
     {
-        if ($idMovie == 'TODES' && $cinema == 'TODES')
+        if ($idMovie == 'Todas las películas' && $cinema == 'Todos los cines')
         {
             $final = "De " . $start . " hasta " . $end . "<br>". "El total recaudado en ese período de tiempo es: $" .$total;       
         }
-        elseif ($cinema == 'TODES')
+        elseif ($cinema == 'Todos los cines')
         {
-            $final = "De " . $start . " hasta " . $end . "<br>" . "La pelicula " .$result[0]['PELICULA']. " recaudo un total de: $" . $total;                   
+            $final = "De " . $start . " hasta " . $end . "<br>" . "La película " .$result[0]['PELICULA']. " recaudó un total de: $" . $total;                   
         }
-        elseif ($idMovie == 'TODES')
+        elseif ($idMovie == 'Todas las películas')
         {
-            $final = "De " . $start . " hasta " . $end . "<br>" . "El cine " .$result[0]['CINE'] . " recaudo un total de $". $total;
+            $final = "De " . $start . " hasta " . $end . "<br>" . "El cine " .$result[0]['CINE'] . " recaudó un total de $". $total;
         }
         else
         {
-        $final = "De " . $start . " hasta " . $end . "<br>" . "La pelicula " .$result[0]['PELICULA']. " recaudo un total de: $" . $total . " en el cine ". $result[0]['CINE'];                    
+        $final = "De " . $start . " hasta " . $end . "<br>" . "La película " .$result[0]['PELICULA']. " recaudó un total de: $" . $total . " en el cine ". $result[0]['CINE'];                    
         }
     }else {
-        $final = "Pelicula sin ser vista";
+        $final = "Película sin ser vista";
     }
     }        
 
