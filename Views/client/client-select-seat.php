@@ -134,7 +134,7 @@
             
                 $day= new DateTime($date->getdate());
                $dayOfTheWeek = $day->format("N");
-                if($dayOfTheWeek === "1" || $dayOfTheWeek === "3"){
+                if($dayOfTheWeek === "2" || $dayOfTheWeek === "3"){
                     echo "true";
                 }else {
                     echo "false"; 

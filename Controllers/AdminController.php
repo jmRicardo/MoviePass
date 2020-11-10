@@ -215,13 +215,6 @@
             require_once(PROCESS_PATH."date-process.php");
         }
 
-        public function ShowCinemaByTicketSold(){
-
-            $cinemaList = $this->cinemaDAO->GetAll();
-
-            require_once(ADMIN_PATH."admin-ticket-sold.php");
-        }
-
         public function ShowRoomByTicketSold($idRoom){
             
             $thisRoom = $this->roomDAO->GetAllByCinema($idRoom);;

@@ -13,11 +13,8 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/FilterSeats">Asientos Disponibles</a>
           </li> 
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/FilterByDate">Estadísticas</a>
-          </li> 
-          <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaByTicketSold">Administrar Ticket x Cines</a>
-          </li>     
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/FilterByDate">Estadistica</a>
+          </li>      
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">Administrar Cines</a>
           </li>

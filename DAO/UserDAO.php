@@ -36,7 +36,7 @@
             {
                 $password = $user->getPassword();
                 $avatar = $user->getAvatar();
-                
+
                 $query = "
 
                 UPDATE " 
