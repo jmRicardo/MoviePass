@@ -38,6 +38,9 @@ $movieDAO = new MovieDAO;
                     <thead>
                          <th>Nombre</th>
                          <th>Direccion</th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
                     </thead>
                     <tbody>
                          <form action="<?php echo FRONT_ROOT ?>Admin/Remove " method="GET" id="from">

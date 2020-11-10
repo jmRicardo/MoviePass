@@ -12,16 +12,16 @@
    
     <ul class="navbar-nav ml-auto">
         <?php if (Util::isAdmin()) : ?>
-            <li class="nav-item">
+            <li class="nav-item nav-selector">
                 <a class="nav-link" href="<?php echo FRONT_ROOT ?>Admin/ShowCinemaList">MODO ADMIN</a>
             </li>
         <?php endif; ?>
 
-        <li class="nav-item">
+        <li class="nav-item nav-selector">
             <a class="nav-link" href="<?php echo FRONT_ROOT?>Client/Select">Peliculas</a>
         </li>
         <?php if (isset($_SESSION['is_logged_in'])) : ?>
-        <li class="nav-item dropdown">
+        <li class="nav-item nav-selector dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Usuario

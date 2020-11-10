@@ -18,7 +18,7 @@
 							<input type="hidden" name="key_value" value="<?php echo $_SESSION['user_info']['key_value']?>">
 							<br><br>
 							<!-- <div class="row site-content-centered "> -->
-								<!-- <div class=" text-primary display-4">Mi Perfil</div> -->
+								<h2 class="my-account">Mi Perfil</h2>
 								<div>
 									<img 
 									class="rounded-circle" 
@@ -40,7 +40,7 @@
 							<div>
 								<input type="hidden" name="email" value="<?php echo $_SESSION['user_info']['email']; ?>">
 								<div class="section-label">Email</div>
-								<div><input class="form-input" type="text" name="email" value="<?php echo $_SESSION['user_info']['email']; ?>" disabled /></div>
+								<div><input class="form-input cursor" type="text" name="email" value="<?php echo $_SESSION['user_info']['email']; ?>" disabled /></div>
 							</div>
 							<div class="section-mid-container">
 								<div class="section-label">Nombre</div>
@@ -52,7 +52,7 @@
 							</div>											
 							<div class="section-mid-container">
 								<div class="section-label">Cargar avatar</div>
-									<div class="custom-file">										
+									<div class="custom-file small-input">										
 										<input type="file" class="custom-file-input" id="avatar" name="avatar">
 										<label class="custom-file-label" for="avatar"></label>
 									</div>

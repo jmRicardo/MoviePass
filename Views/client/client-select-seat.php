@@ -38,9 +38,13 @@
                                 <div id="CartSummaryValue" class="col-lg-6 cart-summary">0</div>
                             </div>
                             <hr class="divider"> 
+                            <div class="row hide" id="discount25">
+                                <div class="col-lg-6">Descuento 25%</div>
+                                <div class="col-lg-6 cart-summary">-<span id="totalDiscount">0.0</span></div>
+                                <hr class="divider"> 
+                            </div>
                             <div class="cart-amount">
                                 <h2 id="CartTotalAmount">Total $<span id="CartTotalAmountValue">0.0</span></h2> 
-                               
                             </div>
                         <hr class="divider">
                         </div>
@@ -124,9 +128,30 @@
 
             var total = document.getElementById("CartTotalAmountValue");
 
-            tickets.innerHTML = totalSeats;        
-
-            total.innerHTML = totalSeats * "<?php echo $ticketValue;?>";  
+            tickets.innerHTML = totalSeats;    
+            
+            var discountDay = <?php 
+            
+                $day= new DateTime($date->getdate());
+               $dayOfTheWeek = $day->format("N");
+                if($dayOfTheWeek === "1" || $dayOfTheWeek === "3"){
+                    echo "true";
+                }else {
+                    echo "false"; 
+                }
+             ?>;
+            var discount= 1; 
+            var amountDiscount=0;
+           if(discountDay && totalSeats >= 2){
+                $("#discount25").css('display', 'flex');
+               discount = 0.75;
+               amountDiscount = 0.25; 
+           }else {
+                $("#discount25").css('display', 'none');
+           }
+            total.innerHTML = discount * totalSeats * "<?php echo $ticketValue;?>";
+            totalDiscount = amountDiscount * totalSeats * "<?php echo $ticketValue;?>";  
+            $("#totalDiscount").html(totalDiscount);
             console.log(array);       
         }   
         else

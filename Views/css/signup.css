@@ -4,14 +4,10 @@ input {
 	border: 1px solid #dedede;
 	border-radius: 5px;
 	padding: 8px;
-	width: 50%;
+	width: 70%;
 	box-sizing: border-box;
 	margin-bottom: 20px;
 }
-
-
-
-
 
 .site-header {
 	background: #333;
@@ -46,8 +42,8 @@ input {
 }
 
 .section-label {
-	font-size: 12px;
-	color: #777;
+	font-size: 14px;
+    color: #D8DCDC;
 }
 
 .section-mid-container {
@@ -113,5 +109,21 @@ input {
 	.site-content-section {
 		background: #fff;
 		border-radius: 5px;
+
 	}
+	
+}
+
+.small-input {
+	width: 70%;
+}
+
+.cursor {
+	cursor: no-drop;
+	background-color: #aeaeae;
+}
+
+.my-account {
+	color: #D8DCDC;
+    padding-bottom: 20px;
 }
