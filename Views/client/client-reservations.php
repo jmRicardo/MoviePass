@@ -7,7 +7,7 @@
 
      <div class="col-lg-6">  
 
-          <h3>Peliculas</h3>
+          <h3 class="title-reservation">Peliculas</h3>
           
           <?php foreach($movieList as $movie) { ?>               
 
@@ -34,7 +34,7 @@
 
      <div class="col-lg-6">
 
-          <h3>Fechas</h3>
+          <h3 class="title-reservation">Fechas</h3>
           <?php
           
                ?>
