@@ -1,4 +1,52 @@
-<?php 						
+<?php 		
+
+$to = "manochon@gmail.com";
+$subject = "test image";
+$message = "UN MENSAJE DE PRUEBA";
+
+$data = getimagesize(VIEWS_PATH."img/qrs/qr-552.png");
+
+var_dump($data);
+
+//get file info
+$file_name = "qr-552.png";
+$file_size = $data[2];
+$file_type = $data['mime'];
+
+
+//header
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Reply-To: ".$replytoFull . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+$headers .= "X-Priority: 1" . "\r\n";	
+$headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
+//message text
+$body = "--$boundary\r\n";
+$body .= "Content-Type: text/plain; charset=ISO-8859-1\r\n";
+$body .= "Content-Transfer-Encoding: base64\r\n\r\n"; 
+$body .= chunk_split(base64_encode($message_body)); 
+
+
+//read file 
+$handle = fopen(VIEWS_PATH."img/qrs/qr-552.png", "r");
+$content = fread($handle, $file_size);
+
+fclose($handle);
+$encoded_content = chunk_split(base64_encode($content)); //split into smaller chunks (RFC 2045)
+
+$body .= "--$boundary\r\n";
+$body .="Content-Type: $file_type; name=".$file_name."\r\n";
+$body .="Content-Disposition: attachment; filename=".$file_name."\r\n";
+$body .="Content-Transfer-Encoding: base64\r\n";
+$body .="X-Attachment-Id: ".rand(1000,99999)."\r\n\r\n"; 
+$body .= $encoded_content; 
+
+mail($to, $subject, $body, $headers);
+
+exit();
+
+
+
 if(isset($_POST["submitnow"])){
    						$fromname = "fromname";
                         $fromemail = "fromemail";
@@ -40,9 +88,9 @@ if(isset($_POST["submitnow"])){
 		// $headers .= "X-Sender: testsite < mail@testsite.com >" . "\r\n";
 		// $headers .= "Return-Path: " . $fromFull . "\r\n";
 		// $headers .= "Content-Type: text/html; charset=ISO-8859-1" . "\r\n";
-	$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-	$headers .= "X-Priority: 1" . "\r\n";
-	
+        $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+        $headers .= "X-Priority: 1" . "\r\n";
+        
         $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
         
         //message text
@@ -66,6 +114,8 @@ if(isset($_POST["submitnow"])){
                     print  $mymsg[$attachments['error'][$x]]; 
                     exit;
                 }
+
+ 
                 
 
                 //get file info
@@ -75,6 +125,7 @@ if(isset($_POST["submitnow"])){
                 
                 //read file 
                 $handle = fopen($attachments['tmp_name'][$x], "r");
+
                 $content = fread($handle, $file_size);
                 fclose($handle);
                 $encoded_content = chunk_split(base64_encode($content)); //split into smaller chunks (RFC 2045)
@@ -101,7 +152,7 @@ if(isset($_POST["submitnow"])){
 	$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 	$headers .= "X-Priority: 1" . "\r\n";
 	$headers .= "MIME-Version: 1.0" . "\r\n";
-        $body = $message_body;
+    $body = $message_body;
     }
 
     $sentMail = mail($to, $subject, $body, $headers);
@@ -113,7 +164,5 @@ if(isset($_POST["submitnow"])){
     }
 }
 ?>
-
-
 
 <script> location.replace("<?php echo FRONT_ROOT.'Client/Home';?>"); </script>

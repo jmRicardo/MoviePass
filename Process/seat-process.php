@@ -2,10 +2,11 @@
 
     use Models\Seat;
     use Models\Ticket;
+    use Utils\Util;
 
     $date =$this->dateDao->GetDateByID($idDate);
-    // var_dump($date);
-    // exit();
+    $dateTickets = new DateTime($date->getDate());
+    
     $cine =$this->roomDao->getCinemaByRoom($date->getIdRoom());
     $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
     $user = $_SESSION['user_info'];
@@ -29,10 +30,20 @@
             $ticket->setId($id);
             array_push($tickets,$ticket);
 
+            $info = "Cine: " . $cine->getName() ."\r\n" .
+                    "Dirección: " . $cine->getAddress() ."\r\n" .
+                    "Sala: " . $date->getIdRoom() ."\r\n" .
+                    "Pelicula: " . $movie->getTitle() ."\r\n" .
+                    "Fecha: " . $dateTickets->format("d M y") ."\r\n" .
+                    "Horario: " . $dateTickets->format("g:i a") ."\r\n" .
+                    "Nro Ticket: " . $ticket->getId() ."\r\n" ;
+                    
+
             $img = VIEWS_PATH."img/qrs/qr-".$id.".png";
             if (!file_exists($img)) {
                 \QRcode::png($id, $img);
             }
+            Util::sendTicket($info,$ticket->getId());
         } else {
             echo "
                 <script>

@@ -27,17 +27,14 @@ define("DB_USER", "ic1fGMePQ6");
 define("DB_PASS", "k9Adageba0");
 
 // Credenciales para MercadoPAGO
-
 define('MP_PUBLIC_KEY','XXX');
 define('MP_ACCESS_TOKEN','XXX');
 
 // MAIL DE LA APP
-
-define('CONTACT_MAIL','guimainini@gmail.com');
+define('CONTACT_MAIL','manochon@gmail.com');
 
 
 // LLave para la Api de movie data base
-
 define("TMDB_API_KEY","0e38635e1106aa97618b0e7fee7a5b57");
 
 // Credenciales para facebook
