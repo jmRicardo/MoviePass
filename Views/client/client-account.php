@@ -53,7 +53,7 @@
 							<div class="section-mid-container">
 								<div class="section-label">Cargar avatar</div>
 									<div class="custom-file small-input">										
-										<input type="file" class="custom-file-input" id="avatar" name="avatar">
+										<input type="file" class="custom-file-input" id="avatar" name="avatar" accept=".jpg, .jpeg, .png, .gif">
 										<label class="custom-file-label" for="avatar"></label>
 									</div>
 							</div>		<br>															
