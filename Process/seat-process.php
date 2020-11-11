@@ -9,6 +9,7 @@
     
     $cine =$this->roomDao->getCinemaByRoom($date->getIdRoom());
     $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
+    $sala = $this->roomDao->getRoom($date->getIdRoom());
     $user = $_SESSION['user_info'];
     $seats = explode(",", $stringSeats);
     $tickets= [];
@@ -40,8 +41,11 @@
                     
 
             $img = VIEWS_PATH."img/qrs/qr-".$id.".png";
+
+            $qrText = "https://unchecked-gages.000webhostapp.com/MoviePass/Client/ShowTicket?idTicket=".$ticket->getId()."/";
+
             if (!file_exists($img)) {
-                \QRcode::png($id, $img);
+                \QRcode::png($qrText, $img);
             }
             Util::sendTicket($info,$ticket->getId());
         } else {

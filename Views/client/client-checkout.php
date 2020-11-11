@@ -18,7 +18,7 @@
                     <div class="col-lg-8 box">
                         <span class="ticket-items"><b class="ticket-title">Cine:</b> <?php echo $cine->getName();?></span>
                         <span class="ticket-items"><b class="ticket-title">Dirección: </b><?php echo $cine->getAddress();?></span>
-                        <span class="ticket-items"><b class="ticket-title">Sala: </b><?php echo $date->getIdRoom();?></span>
+                        <span class="ticket-items"><b class="ticket-title">Sala: </b><?php echo $sala->getName();?></span>
                         <span class="ticket-items"><b class="ticket-title">Pelicula: </b><?php echo $movie->getTitle();?></span>
                         <span class="ticket-items"><b class="ticket-title">Fecha: </b><?php echo $dateTickets->format("d M y");?></span>
                         <span class="ticket-items"><b class="ticket-title">Horario: </b><?php echo $dateTickets->format("g:i a");?></span>
