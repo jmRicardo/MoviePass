@@ -7,9 +7,9 @@
     {
         
         public function Index($message = "")
-        {
-            header("Location:".FRONT_ROOT."Client/Home");     
-        }
+        {?>
+            <script> location.replace("<?php echo FRONT_ROOT.'Client/Home';?>"); </script> 
+        <?php }
 
         public function Facebook()
         {

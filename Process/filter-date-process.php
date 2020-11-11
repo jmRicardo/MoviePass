@@ -11,10 +11,9 @@
 if($start > $end) {
         
     $_SESSION['message'] = "Fecha inválida";
-    // require_once(ADMIN_PATH."admin-filter-date.php");
-    $final = "0";
-    header("Location:".FRONT_ROOT."admin-filter-date.php");
-    $result = null;
+    $final = "0";?>
+    <script> location.replace("<?php echo FRONT_ROOT.'Admin/FilterByDate';?>"); </script>
+    <?php $result = null;
 }
 
     
@@ -47,8 +46,8 @@ if(isset($result)){
     }else {
         $final = "Película sin ser vista";
     }
-    }        
-
-    header("Location:".FRONT_ROOT."Admin/FilterByDate?final=".urlencode($final));
+    }
 
 ?>
+
+<script> location.replace("<?php echo FRONT_ROOT.'Admin/FilterByDate?final='.urlencode($final);?>"); </script>

@@ -24,14 +24,7 @@
             
             $_SESSION['message'] = "Sala agregada con exito!";
         }
-   
-
     }
-
-    
-
-    header("Location:".FRONT_ROOT."Admin/ShowAddRoom/".$room->getIdCinema());
-
-
-
 ?>
+
+<script> location.replace("<?php echo FRONT_ROOT.'Admin/ShowAddRoom/'.$room->getIdCinema();?>"); </script>

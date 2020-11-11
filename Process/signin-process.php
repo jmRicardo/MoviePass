@@ -32,9 +32,12 @@
         $_SESSION['is_logged_in'] = true;
         $_SESSION['user_info'] = $userInfo;
     }
-    if (isset($_POST["current-url"])) {
-        header("Location:".$_POST["current-url"]);
-    } else {
-        header("Location:".FRONT_ROOT."Client/Home");
-    }   
+    if (isset($_POST["current-url"])) { ?>
+
+        <script> location.replace("<?php echo $_POST["current-url"];?>"); </script>
+
+    <?php } else { ?>
+        
+        <script> location.replace("<?php echo FRONT_ROOT.'Client/Home';?>"); </script>
+    <?php }   
 ?>

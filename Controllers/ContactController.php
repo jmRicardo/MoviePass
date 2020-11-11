@@ -7,17 +7,8 @@
 
         public function SendMail($name,$asunto,$msg,$email){
 
-        $header = "$email". "\r\n".
-        'X-Mailer: PHP/' . phpversion();
-
-        mail(CONTACT_MAIL, $asunto, $msg, $header);
-
-        
+            require_once(PROCESS_PATH."mail-process.php");        
         }       
-
-
-
-        
     }    
 
 ?>

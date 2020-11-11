@@ -26,7 +26,6 @@
         }
 
     }
-
-    header("Location:".FRONT_ROOT."Admin/ShowCinemaList");
-
 ?>
+
+<script> location.replace("<?php echo FRONT_ROOT.'Admin/ShowCinemaList';?>"); </script>

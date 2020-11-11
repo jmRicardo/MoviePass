@@ -7,10 +7,10 @@
     use DAO\SeatDAO;
     use Models\Seat;
     use Models\Ticket;
-use Models\User;
-use Utils\Util;
+    use Models\User;
+    use Utils\Util;
 
-include(UTILS_PATH.'phpqrcode/qrlib.php');
+    include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
     {
@@ -57,7 +57,7 @@ class ClientController
         }
 
          /*Movies with genres filter*/
-        function Filter($idGenre)
+        function Filter($idGenre = 0)
         {
             $genres = $this->movieDao->GetActiveGenres();
             $movies = $this->movieDao->GetMoviesByGenre($idGenre);
@@ -142,14 +142,5 @@ class ClientController
 
             require_once(PROCESS_PATH."mail-process.php");             
         }
-
-        /* function SearchMovie ($title){
-            $movieSearch = $this->movieDao->GetMovieByTitle($title);
-            $genres = $this->movieDao->GetActiveGenres();
-            $IdMovie = $movieSearch->getIdMovie();
-            
-            require_once(CLIENT_PATH."client-search-movie.php");
-        } */
     }
-
 ?>
