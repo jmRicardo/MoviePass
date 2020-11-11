@@ -1,12 +1,12 @@
 <?php 						
 if(isset($_POST["submitnow"])){
-   						$fromname = $_POST["fromname"];
-                        $fromemail = $_POST["fromemail"];
-                        $replytoname = $_POST["replytoname"];
-                        $replytoemail = $_POST["replytoemail"];
-                        $to = $_POST["to"];
-                        $subject = $_POST["subject"];
-                        $message = $_POST["message"];
+   						$fromname = "fromname";
+                        $fromemail = "fromemail";
+                        $replytoname = "replytoname";
+                        $replytoemail = "replytoemail";
+                        $to = "manochon@gmail.com";
+                        $subject = "TEST MAIL";
+                        $message = "UN MENSAJE DE PRUEBA";
 
     //php validation, exit outputting json string
 	// CREATE FULL FIELDS (NAME + EMAIL)
@@ -107,11 +107,9 @@ if(isset($_POST["submitnow"])){
     $sentMail = mail($to, $subject, $body, $headers);
     if($sentMail) //output success or failure messages
     {       
-        print 'Thank you for your email';
-        exit;
+        $_SESSION['message'] = 'Thank you for your email';
     }else{
-        print 'Could not send mail! Please check your PHP mail configuration.';  
-        exit;
+        $_SESSION['message'] = 'Could not send mail! Please check your PHP mail configuration.';  
     }
 }
 ?>
