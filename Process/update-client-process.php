@@ -63,9 +63,6 @@
     if (isset($error)) {
         $_SESSION['message'] = $error;
     }
-
-
-    header("Location:".FRONT_ROOT."Client/Account");
-
-
 ?>
+
+<script> location.replace("<?php echo FRONT_ROOT.'Client/Account';?>"); </script>

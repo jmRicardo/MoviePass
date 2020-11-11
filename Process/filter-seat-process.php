@@ -48,12 +48,9 @@ if(isset($dates)){
         }
        
     }else {
-
         $final = "No hay ventas con esos datos";
-
     }
-    }        
-
-    header("Location:".FRONT_ROOT."Admin/FilterBySeat?final=".urlencode($final));
-
+    }     
 ?>
+
+<script> location.replace("<?php echo FRONT_ROOT.'Admin/FilterBySeat?final='.urlencode($final);?>"); </script>

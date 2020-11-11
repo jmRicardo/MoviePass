@@ -7,10 +7,10 @@
     use DAO\SeatDAO;
     use Models\Seat;
     use Models\Ticket;
-use Models\User;
-use Utils\Util;
+    use Models\User;
+    use Utils\Util;
 
-include(UTILS_PATH.'phpqrcode/qrlib.php');
+    include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
     {

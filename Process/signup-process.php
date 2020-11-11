@@ -24,7 +24,6 @@
 		// sign the user up to our site!
 		$userId =  $userDAO->signUserUp( $_POST );
 	}
-
-	header("Location:".FRONT_ROOT ."Client/Home");
-
 ?>
+
+<script> location.replace("<?php echo FRONT_ROOT.'Client/Home';?>"); </script>

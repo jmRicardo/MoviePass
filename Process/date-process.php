@@ -40,7 +40,8 @@
              $dateDAO->AddDate($dateObject);
         } 
     }
+?>
 
-    header("Location:".FRONT_ROOT."Admin/ShowDates/". $dateObject->getIdRoom());
+<script> location.replace("<?php echo FRONT_ROOT.'Admin/ShowDates/'. $dateObject->getIdRoom();?>"); </script>
 
     
