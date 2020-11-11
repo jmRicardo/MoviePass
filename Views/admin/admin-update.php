@@ -16,7 +16,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Direccion</label>
+                                   <label for="">Dirección</label>
                                    <input type="text" name="address" value="<?php echo $cinema->getAddress() ?>" class="form-control" minlength="3" maxlength="25" required>
                               </div>
                          </div>

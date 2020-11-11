@@ -19,8 +19,8 @@ $mDayMax = $day3month->format('Y-m-d');
                         
                             <div class="cine-box">
                                 <div class="cine-header">
-                                    <h2 class="mb-4">Este es el Cine -> <?php echo $cinemaObject->getName(); ?></h2>
-                                    <h2 class="mb-4">Esta es la Sala -> <?php echo $thisRoom->getName(); ?></h2>
+                                    <h2 class="mb-4">Cine <?php echo $cinemaObject->getName(); ?></h2>
+                                    <h2 class="mb-4">Sala <?php echo $thisRoom->getName(); ?></h2>
                                 </div>
                                 <div class="cine-times">
                                     <input type="hidden" name="idRoom" value="<?php echo $idRoom2; ?>">
@@ -46,7 +46,7 @@ $mDayMax = $day3month->format('Y-m-d');
             </div>
                 
             <div class="col-lg-6" >
-                <h2 class="mb-4"> Agregar Función </h2>
+                <h2 class="mb-4">Listado de funciones </h2>
                         
                     
                         <div class="cine-box">
