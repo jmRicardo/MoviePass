@@ -20,7 +20,7 @@ $movieDAO = new MovieDAO;
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Direccion</label>
+                                   <label for="">Dirección</label>
                                    <input type="text" name="address" value="" class="form-control" minlength="3" maxlength="25" required>
                               </div>
                          </div>
@@ -37,10 +37,7 @@ $movieDAO = new MovieDAO;
                <table class="table bg-light-alpha">
                     <thead>
                          <th>Nombre</th>
-                         <th>Direccion</th>
-                         <th></th>
-                         <th></th>
-                         <th></th>
+                         <th>Dirección</th>
                     </thead>
                     <tbody>
                          <form action="<?php echo FRONT_ROOT ?>Admin/Remove " method="GET" id="from">

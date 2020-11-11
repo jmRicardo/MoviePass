@@ -16,7 +16,7 @@ $today = $day->format('Y-m-d');
             <div class="col-lg-6">
                 <h2 class="mb-4"> Estadísticas </h2>
                 <form action="<?php echo FRONT_ROOT ?>Admin/FilterByDateProcess" method="GET">
-                    <p>Pelicula</p>
+                    <p>Película</p>
                     <select class="form-control category-select" name="idMovie" required>
                         <option value="Todas las películas">Todas las películas</option>
                         <?php foreach ($movies as $movie) { ?>

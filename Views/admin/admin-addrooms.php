@@ -5,7 +5,7 @@ require_once('admin-nav.php');
 <main class="py-5">
     <section id="listado" class="mb-5">
         <div class="container">
-            <h2 class="mb-4">Agregar Sala en -> <?php echo $cinema->getName(); ?></h2>
+            <h2 class="mb-4">Agregar sala en cine <?php echo $cinema->getName(); ?></h2>
             <form action="<?php echo FRONT_ROOT ?>Admin/AddRoom" method="post" class="bg-light-alpha p-5">
                 <div class="row">
                     <div class="col-lg-4">
@@ -48,8 +48,6 @@ require_once('admin-nav.php');
             <h2 class="mb-4">Listado de las Salas</h2>
             <table class="table bg-light-alpha">
                 <thead>
-                    <th>Id Sala</th>
-                    <th>Id Cine</th>
                     <th>Nombre de la Sala</th>
                     <th>Precio</th>
                     <th>Capacidad</th>
@@ -58,8 +56,6 @@ require_once('admin-nav.php');
                     <form action="<?php echo FRONT_ROOT ?>Admin/Remove" method="GET" id="from">
                         <?php foreach ($listId as $room) { ?>
                             <tr>
-                                <td><?php echo $room->getIdRoom() ?></td>
-                                <td><?php echo $room->getIdCinema() ?></td>
                                 <td><?php echo $room->getName() ?></td>
                                 <td><?php echo $room->getPrice() ?></td>
                                 <td><?php echo $room->getCapacity() ?></td>
