@@ -15,13 +15,24 @@
 
     $allowTypes = array('jpg','png','jpeg','gif'); 
 
-    if (in_array($fileType, $allowTypes))
+    if(empty($_FILES["avatar"]["error"]))
     {
-        $image = $_FILES['avatar']['tmp_name'];             
-        $imgContent = addslashes(file_get_contents($image));      
-        
-        $user->setAvatar($imgContent);
-    }    
+        if (in_array($fileType, $allowTypes))
+        {
+            $image = $_FILES['avatar']['tmp_name'];             
+            $imgContent = addslashes(file_get_contents($image));      
+            
+            $user->setAvatar($imgContent);
+        }else
+        {
+            $_SESSION['message'] = "Tipo de archivo invalido. Formatos permitidos: (JPG,GIF,PNG,JPEG)"; 
+        ?>
+
+            <script> location.replace("<?php echo FRONT_ROOT.'Client/Account';?>"); </script>
+        <?php 
+        exit();
+        }
+    }
 
     $userDAO = new UserDAO();
 
