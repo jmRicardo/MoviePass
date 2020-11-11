@@ -142,5 +142,24 @@ class ClientController
 
             require_once(PROCESS_PATH."mail-process.php");             
         }
+        
+        public function ShowTicket($idTicket)
+        {
+            $tickets = array();
+                        
+            $ticket = $this->ticketDao->GetTicket($idTicket);
+
+            array_push($tickets,$ticket);
+            
+            $date = $this->dateDao->GetDateByID($ticket->getIdDate());
+
+            $cine = $this->roomDao->getCinemaByRoom($date->getIdRoom());
+
+            $sala = $this->roomDao->getRoom($date->getIdRoom());
+
+            $movie = $this->movieDao->GetMovieByID($date->getIdMovie());
+
+            require_once(CLIENT_PATH."client-checkout.php");
+        }
     }
 ?>

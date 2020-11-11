@@ -12,6 +12,32 @@
         private $connection;
         private $tableName = "tickets";
 
+        public function GetTicket($id)
+        {
+            try
+            {
+                $query = "SELECT * FROM ".$this->tableName. " WHERE id = :id;";
+
+                $parameters["id"] =  $id;
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query, $parameters);
+                
+                $ticket = new Ticket(); 
+                $ticket->setId($result[0]["id"]);
+                $ticket->setIdDate($result[0]["idDate"]);
+                $ticket->setIdUser($result[0]["idUser"]);
+                $ticket->setIdSeat($result[0]["idSeat"]);
+
+                return $ticket;
+            }
+            catch(Exception $ex)
+            {
+                return $ex->getMessage();
+            }
+        }
+
         public function GetOccupiedSeatByDate($idDate)
         {
             try
