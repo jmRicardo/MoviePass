@@ -9,7 +9,8 @@
         </div>
         <div class="col-lg-8">
             <h4>Confirmación de compra</h4>
-            <span>¡Ya tenés tus entradas! ¡Que disfrutes de la función!</span>
+            <h5>¡Ya tenés tus entradas! ¡Que disfrutes de la función!</h5>
+            <span>¡Estas se enviaron con éxito a su correo electrónico!</span>
             <?php 
                 $dateTickets = new DateTime($date->getDate());
             foreach($tickets as $ticket) {?>
