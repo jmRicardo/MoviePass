@@ -26,8 +26,8 @@
 <!-- Bootstrap js -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ntegrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<script>
+<!-- <script>
 
   window.Mercadopago.setPublishableKey("TEST-9ab81c91-b4e8-41b7-9a8b-f2ab9299c524");
             
-</script>
+</script> -->

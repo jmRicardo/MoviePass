@@ -38,9 +38,12 @@
          */
         static function loggedInRedirect() {
             if ( !Util::isLoggedIn() ) { // user is not logged in
-                // send them to the home page
-                header( 'location:'.FRONT_ROOT."Client/Home" );
-            }
+                // send them to the home page 
+            ?>
+                <script> location.replace("<?php echo FRONT_ROOT.'Client/Home';?>"); </script> 
+            <?php 
+            exit();    
+        }          
         }
 
         static function isAdmin() {

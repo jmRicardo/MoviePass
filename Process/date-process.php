@@ -11,8 +11,16 @@
     {
         if ($result->getIdRoom() == $dateObject->getIdRoom())
         {
-            $status = "ok";
-            $_SESSION['message'] = "Nueva función agregada en la sala ". $dateObject->getIdRoom();
+            if($result->getDate() == $dateObject->getDate())
+            {
+                $status = "fail";
+                $_SESSION['message'] = "La pelicula ya esta cargada en esa sala a ese horario.";
+            }
+            else
+            {
+                $status = "ok";
+                $_SESSION['message'] = "Nueva función agregada en la sala ". $dateObject->getIdRoom();
+            }               
         }
         else
         {
@@ -29,9 +37,9 @@
 
     if ($status == "ok")
     {
-        $result = $dateDAO->CheckRuntimeWithDate($dateObject);
-        
-        if (!empty($result))
+        $result = $dateDAO->CheckCoincidence($dateObject);
+
+        if (isset($result["coincidence"]))
          {
              $_SESSION['message'] = "El horario asignado no respeta las políticas de la empresa ( no hay 15 minutos entre funciones o su duración es muy elevada para el espacio asignado";
          }

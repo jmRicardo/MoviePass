@@ -12,6 +12,7 @@
         function GetDateByID($id);
         function GetDatesByRoom($idRoom);
         function GetDatesStatus($idMovie,$idCinema,$time);
+        function CheckCoincidence(Date $date);
 
         
     }
