@@ -15,17 +15,25 @@ define("UTILS_PATH", "Utils/");
 
 /* // Datos para el acceso a la base de datos
 define("DB_HOST", "localhost");
-define("DB_NAME", "MoviePass");
+define("DB_NAME", "id15096559_moviepass");
+define("DB_USER", "id15096559_admin");
+define("DB_PASS", "J_VORIt^ay]0}nMX");
+  */
+
+// Datos para el acceso a la base de datos
+define("DB_HOST", "localhost");
+define("DB_NAME", "moviepass");
 define("DB_USER", "root");
 define("DB_PASS", "");
- */
+  
 
-// Datos para el acceso a la base de datos REMOTA
+
+/*  // Datos para el acceso a la base de datos REMOTA
 define("DB_HOST", "remotemysql.com");
 define("DB_NAME", "ic1fGMePQ6");
 define("DB_USER", "ic1fGMePQ6");
-define("DB_PASS", "k9Adageba0");
-
+define("DB_PASS", "k9Adageba0"); */
+ 
 // Credenciales para MercadoPAGO
 define('MP_PUBLIC_KEY','XXX');
 define('MP_ACCESS_TOKEN','XXX');

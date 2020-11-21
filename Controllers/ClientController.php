@@ -9,7 +9,7 @@
     use Models\Ticket;
     use Models\User;
     use Utils\Util;
-
+    use Models\Date;
     include(UTILS_PATH.'phpqrcode/qrlib.php');
 
 class ClientController 
@@ -31,6 +31,12 @@ class ClientController
         /* Home with banner */
         function Home($message = "") 
         {
+            $date = new Date();
+            $date->setIdMovie(667141);
+            $date->setDate("2020-12-12 22:59:00");
+
+            $coincidence = $this->dateDao->CheckCoincidence($date); 
+            
             $movies = $this->movieDao->GetAllActives();
             require_once(CLIENT_PATH."client-home.php");
         }

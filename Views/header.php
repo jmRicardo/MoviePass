@@ -34,7 +34,7 @@
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientHome.css">  
 
      <!--font roboto -->
-     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>     
+<!--      <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>  -->    
      
      <!-- select Movies -->
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>selectMovies.css">  
@@ -49,7 +49,7 @@
      <link rel="stylesheet" href="<?php echo CSS_PATH ?>clientSelectSeat.css">
      
      <!-- MERCADOPAGO -->
-     <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+<!--      <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script> -->
               
 
      <title>MoviePass</title>

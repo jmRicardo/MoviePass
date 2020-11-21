@@ -12,6 +12,31 @@ class DateDAO implements IDateDAO{
         private $connection;
         private $tableName = "dates";
 
+        function CheckCoincidence(Date $date)
+        {
+            try
+            { 
+                $query = "call moviepass.checkAvaliableDate(?,?,@coincidence);";
+
+                $parameters["idMovie"] = $date->getIdMovie();
+                $parameters["date"] = $date->getDate();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query,$parameters,QueryType::StoredProcedure);
+
+                $query = "Select @coincidence as coincidence";
+
+                $resultCoincidence = $this->connection->Execute($query);                
+
+                return empty($resultCoincidence[0]['coincidence']) ? null : $resultCoincidence[0];
+            }
+            catch(Exception $ex)
+            {
+                echo $ex->getMessage();
+            }
+        }
+
         function GetDatesStatus($idMovie, $idCinema, $time)
         {
             try
